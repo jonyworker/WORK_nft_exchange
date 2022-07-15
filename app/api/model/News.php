@@ -16,11 +16,7 @@ class News extends Model
             ['ind','=',$data['ind']]
         ];
 
-        $search = [
-            ['title', 'like', '%'.$keyword.'%'],
-            ['sub_title', 'like', '%'.$keyword.'%'],
-            ['content', 'like', '%'.$keyword.'%'],
-        ];
+
         $list = $this->where([$where])
             ->where('title|sub_title|content','like','%'.$keyword.'%')
             ->page($data['page'])

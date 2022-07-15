@@ -1,0 +1,1849 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFTotal</title>
+
+
+    <link rel="stylesheet" href="__NFT__/css/all.min.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+</head>
+<body>
+
+<header class="top-bar-section">
+    <div class="container">
+        <div class="top-bar-content">
+
+            <input type="checkbox" id="theme-toggle">
+
+            <input type="checkbox" id="language-toggle">
+
+            <input type="checkbox" id="burger-toggle">
+
+            <a href="#" class="header-logo">
+                <svg width="113" height="19" viewBox="0 0 113 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.856 1.2V11.208L6.224 1.2H0.2V18H5.888V8.016L13.52 18H19.544V1.2H13.856ZM39.014 5.088V1.2H22.43V18H28.142V11.784H38.342V7.896H28.142V5.088H39.014ZM59.3536 1.2H40.9456V5.088H47.3056V18H52.9936V5.088H59.3536V1.2ZM67.4913 4.872C63.5313 4.872 59.1153 6.672 59.1153 11.616C59.1153 16.56 63.5313 18.36 67.4913 18.36C71.4273 18.36 75.8433 16.56 75.8433 11.616C75.8433 6.672 71.4273 4.872 67.4913 4.872ZM67.4913 14.952C65.0433 14.952 64.1313 13.344 64.1313 11.616C64.1313 9.888 65.0433 8.28 67.4913 8.28C69.9153 8.28 70.8273 9.888 70.8273 11.616C70.8273 13.344 69.9153 14.952 67.4913 14.952ZM88.1739 8.16V5.208H84.4299V1.896H79.1979V5.208H76.8219V8.16H79.1979V12.888C79.1979 16.704 80.3499 18.216 85.1739 18.216C86.1579 18.216 87.2859 18.144 88.1739 18.024V14.472C85.6059 14.688 84.4299 14.688 84.4299 12.888V8.16H88.1739ZM97.43 4.872C93.278 4.872 90.71 5.976 90.254 9.096H95.03C95.198 8.304 95.582 7.824 97.43 7.824C99.662 7.824 99.878 8.592 99.878 9.816V9.984C91.166 9.504 89.63 11.664 89.63 14.544C89.63 17.064 91.67 18.36 95.294 18.36C97.478 18.36 99.11 17.472 99.878 16.632V18H105.11V9.816C105.11 5.52 101.558 4.872 97.43 4.872ZM99.878 14.352C99.182 15.168 97.958 15.72 96.614 15.72C95.438 15.72 94.718 15.384 94.718 14.424C94.718 12.888 96.686 12.744 99.878 12.888V14.352ZM107.512 0.287999V18H112.744V0.287999H107.512Z" fill="white" />
+                </svg>
+            </a>
+
+            <form class="header-search main" action="#">
+                <div class="header-search-wrap">
+
+                    <div class="icon icon-search">
+                        <svg id="zoom-in-alt" data-name="Line color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon line-color" width="48" height="48"><path id="primary" d="M19,11a8,8,0,1,1-8-8A8,8,0,0,1,19,11Zm2,10-4.34-4.34" style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path><path id="secondary" d="M11,14V8M8,11h6" style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path></svg>
+                    </div>
+
+                    <input type="search" placeholder="搜索NFT和錢包">
+                </div>
+            </form>
+
+            <nav class="header-nav">
+                <ul class="header-nav-list">
+
+                    <li class="header-nav-item">
+                        <a href="#">探索NFT</a>
+
+
+                    </li>
+
+                    <li class="header-nav-item">
+                        <a href="#">Mint觀測站</a>
+                    </li>
+
+                    <li class="header-nav-item">
+                        <a href="#">統計</a>
+                    </li>
+
+                    <li class="header-nav-item">
+                        <a href="#">工具</a>
+                    </li>
+
+                    <li class="header-nav-item">
+                        <a href="#">新聞</a>
+                    </li>
+
+                    <li class="header-nav-item">
+                        <a href="#">專欄</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <ul class="functional-list">
+
+                <li class="functional-item">
+                    <div class="theme-toggle">
+                        <label class="label theme-toggle-label" for="theme-toggle"></label>
+                    </div>
+                </li>
+
+                <li>
+                    <a class="link connectWallet" href="#">
+                        Connect Wallet
+                    </a>
+                </li>
+
+                <li class="language-select">
+                    <label class="label language-label" for="language-toggle">
+                        <p>語言</p>
+                        <div class="icon expand-icon">
+                            <img src="__NFT__/image/icon/icon_dropdown.svg" alt="">
+                        </div>
+                    </label>
+                    <ul class="language-list">
+                        <li class="language-item">
+                            <span>繁體中文</span>
+                            <span>TC</span>
+                        </li>
+                        <li class="language-item">
+                            <span>简体中文</span>
+                            <span>CN</span>
+                        </li>
+                        <li class="language-item">
+                            <span>English</span>
+                            <span>EN</span>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <label class="burger-toggle" for="burger-toggle">
+                <div class="icon icon-burger">
+<span class="material-symbols-rounded">
+menu
+</span>
+                </div>
+            </label>
+
+            <nav class="berger-nav">
+                <div class="container">
+                    <ul class="berger-nav-list">
+
+                        <li class="berger-nav-item search-bar">
+                            <form class="header-search" action="#">
+                                <div class="header-search-wrap">
+
+                                    <div class="icon icon-search">
+                                        <svg id="zoom-in-alt" data-name="Line color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon line-color" width="48" height="48"><path id="primary" d="M19,11a8,8,0,1,1-8-8A8,8,0,0,1,19,11Zm2,10-4.34-4.34" style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path><path id="secondary" d="M11,14V8M8,11h6" style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path></svg>
+                                    </div>
+
+                                    <input type="search" placeholder="搜索NFT和錢包">
+                                </div>
+                            </form>
+                        </li>
+
+                        <li class="berger-nav-item">
+                            <a href="#">探索NFT</a>
+                        </li>
+
+                        <li class="berger-nav-item">
+                            <a href="#">Mint觀測站</a>
+                        </li>
+
+                        <li class="berger-nav-item">
+                            <a href="#">統計</a>
+                        </li>
+
+                        <li class="berger-nav-item">
+                            <a href="#">工具</a>
+                        </li>
+
+                        <li class="berger-nav-item">
+                            <a href="#">新聞</a>
+                        </li>
+
+                        <li class="berger-nav-item">
+                            <a href="#">專欄</a>
+                        </li>
+
+                        <li class="berger-nav-item">
+                            <div class="theme-toggle">
+                                <label class="label theme-toggle-label" for="theme-toggle"></label>
+                            </div>
+                        </li>
+
+                        <li class="berger-nav-item">
+                            <a class="link connectWallet" href="#">
+                                Connect Wallet
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+<main>
+
+    <section class="banner-section pb-80">
+        <div class="container">
+            <div class="banner-content">
+                <div class="row flex-lg-row-reverse">
+
+                    <div class="col-12 mb-24 col-lg-6 mb-lg-0">
+                        <a href="#" style="
+              height: 100%;">
+                            <div class="pic banner-5">
+                                <img src="__NFT__/image/pic_banner-5.png" alt="">
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-12 col-lg-6">
+                        <div class="row">
+                            <div class="col-12 mb-16">
+
+                                <a href="#">
+                                    <div class="banner-1">
+                                        <div class="pic">
+                                            <img src="__NFT__/image/pic_banner-1.png" alt="">
+                                        </div>
+                                        <div class="text-area">
+                                            <div class="title-group mb-16 mb-sm-24">
+                                                <h2>Machina マキナ</h2>
+                                                <p>@Machina_NFT</p>
+                                            </div>
+                                            <p class="mb-4">「趣步」的核心模式是拉人頭分紅的老鼠會，並且代幣不斷增發、沒有消耗場景，最終價格崩盤，項目跑路。</p>
+                                            <small>Mar 30, 2022</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="col-6 col-sm-4">
+                                <a href="#">
+                                    <div class="banner-2">
+                                        <img src="__NFT__/image/pic_banner-2.png" alt="">
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="d-none d-sm-block col-sm-4">
+                                <a href="#">
+                                    <div class="banner-3">
+                                        <img src="__NFT__/image/pic_banner-3.png" alt="">
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="col-6 col-sm-4">
+                                <a href="#">
+                                    <div class="banner-4">
+                                        <div class="banner-4-pic">
+                                            <img src="__NFT__/image/pic_banner-4.png" alt="">
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="monthly-section pb-80">
+        <div class="container">
+            <div class="monthly-content">
+
+                <div class="row mb-40">
+                    <div class="col-12 d-flex justify-content-between align-items-center">
+                        <h2 class="title-set">
+<span class="title-icon">
+<img src="__NFT__/image/title_icon/icon_title_monthly.png" alt="">
+</span>
+                            每月專欄特輯
+                        </h2>
+                        <div class="d-none d-sm-block">
+                            <a class="btn btn-bold btn-outline" href="#">前往查看</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row monthly-main-pics d-none d-sm-block">
+                    <div class="col-12">
+                        <a href="#">
+                            <div class="monthly-pic">
+                                <img src="__NFT__/image/bannerLarge.png" alt="">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row monthly-sub-pics">
+
+                    <div class="col-12 col-sm-4 col-lg-3">
+                        <a href="#">
+                            <div class="monthly-pic-wrap">
+                                <div class="monthly-pic">
+                                    <img src="__NFT__/image/bannerSmall.png" alt="">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="d-none col-sm-4 d-sm-block col-lg-3">
+                        <a href="#">
+                            <div class="monthly-pic-wrap">
+                                <div class="monthly-pic">
+                                    <img src="__NFT__/image/bannerSmall-1.png" alt="">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="d-none col-sm-4 d-sm-block col-lg-3">
+                        <a href="#">
+                            <div class="monthly-pic-wrap">
+                                <div class="monthly-pic">
+                                    <img src="__NFT__/image/bannerSmall.png" alt="">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="d-none col-lg-3 d-lg-block">
+                        <a href="#">
+                            <div class="monthly-pic-wrap">
+                                <div class="monthly-pic">
+                                    <img src="__NFT__/image/bannerSmall-1.png" alt="">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="mt-40">
+                    <a class="btn btn-read-more btn-mobile btn-outline d-block d-sm-none" href="#">前往查看</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hot-item-section pb-80">
+        <div class="container">
+            <div class="hot-item-content">
+
+                <div class="row mb-40">
+                    <div class="col-12 d-flex justify-content-between align-items-center">
+                        <div class="title-wrap d-flex flex-column flex-md-row align-items-md-center ">
+                            <h2 class="title-set">
+                                <div class="title-icon">
+                                    <img src="__NFT__/image/title_icon/icon_title_hotitem.png" alt="">
+                                </div>
+                                熱門項目
+                            </h2>
+                            <div class="btn-wrap">
+
+                                <div class="">
+                                    <button class="btn btn-light">24小時</button>
+                                </div>
+
+                                <div class="">
+                                    <button class="btn btn-light">7天</button>
+                                </div>
+
+                                <div class="">
+                                    <button class="btn btn-light">30天</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-none d-sm-block">
+                            <a class="btn btn-bold btn-outline" href="#">前往查看</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-xl-4 mb-24 mb-xl-0">
+                        <div class="hot-item-card">
+                            <ul class="ranking-list">
+
+                                <li class="ranking-item">
+                                    <small class="ranking-sort">01</small>
+                                    <div class="ranking-picture">
+                                        <img src="__NFT__/image/nft_profile_1.png" alt="">
+                                    </div>
+                                    <div class="ranking-text">
+                                        <div class="ranking-top">
+<span class="title-wrap">
+<span class="ranking-title">Mutant a a a a more more more</span>
+</span>
+                                            <span class="ranking-value go-up">
+<span>+</span>
+<span>122.1%</span>
+</span>
+                                        </div>
+                                        <div class="ranking-bottom">
+<span class="floor-price">
+<span>Floor:
+<span>
+<span>4.45</span>
+<span>ETH</span>
+</span>
+</span>
+</span>
+                                            <span class="now-price">
+<span>
+<span>6,999.22</span>
+<span>ETH</span>
+</span>
+</span>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="ranking-item">
+                                    <small class="ranking-sort">02</small>
+                                    <div class="ranking-picture">
+                                        <img src="__NFT__/image/nft_profile_1.png" alt="">
+                                    </div>
+                                    <div class="ranking-text">
+                                        <div class="ranking-top">
+<span class="title-wrap">
+<span class="ranking-title">Mutant a a a a more more more</span>
+</span>
+                                            <span class="ranking-value go-up">
+<span>+</span>
+<span>122.1%</span>
+</span>
+                                        </div>
+                                        <div class="ranking-bottom">
+<span class="floor-price">
+<span>Floor:
+<span>
+<span>4.45</span>
+<span>ETH</span>
+</span>
+</span>
+</span>
+                                            <span class="now-price">
+<span>
+<span>6,999.22</span>
+<span>ETH</span>
+</span>
+</span>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="ranking-item">
+                                    <small class="ranking-sort">03</small>
+                                    <div class="ranking-picture">
+                                        <img src="__NFT__/image/nft_profile_1.png" alt="">
+                                    </div>
+                                    <div class="ranking-text">
+                                        <div class="ranking-top">
+<span class="title-wrap">
+<span class="ranking-title">Mutant a a a a more more more</span>
+</span>
+                                            <span class="ranking-value go-up">
+<span>+</span>
+<span>122.1%</span>
+</span>
+                                        </div>
+                                        <div class="ranking-bottom">
+<span class="floor-price">
+<span>Floor:
+<span>
+<span>4.45</span>
+<span>ETH</span>
+</span>
+</span>
+</span>
+                                            <span class="now-price">
+<span>
+<span>6,999.22</span>
+<span>ETH</span>
+</span>
+</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-xl-8">
+                        <div class="hot-item-card">
+                            <div class="row">
+                                <div class="col-12 col-xl-6">
+                                    <ul class="ranking-list">
+
+                                        <li class="ranking-item">
+                                            <small class="ranking-sort">04</small>
+                                            <div class="ranking-picture">
+                                                <img src="__NFT__/image/nft_profile_1.png" alt="">
+                                            </div>
+                                            <div class="ranking-text">
+                                                <div class="ranking-top">
+<span class="title-wrap">
+<span class="ranking-title">Mutant a a a a more more more more more more</span>
+</span>
+                                                    <span class="ranking-value go-down">
+<span>-</span>
+<span>122.1%</span>
+</span>
+                                                </div>
+                                                <div class="ranking-bottom">
+<span class="floor-price">
+<span>Floor:
+<span>
+<span>4.45</span>
+<span>ETH</span>
+</span>
+</span>
+</span>
+                                                    <span class="now-price">
+<span>
+<span>6,999.22</span>
+<span>ETH</span>
+</span>
+</span>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li class="ranking-item">
+                                            <small class="ranking-sort">05</small>
+                                            <div class="ranking-picture">
+                                                <img src="__NFT__/image/nft_profile_1.png" alt="">
+                                            </div>
+                                            <div class="ranking-text">
+                                                <div class="ranking-top">
+<span class="title-wrap">
+<span class="ranking-title">Mutant a a a a more more more</span>
+</span>
+                                                    <span class="ranking-value go-down">
+<span>-</span>
+<span>122.1%</span>
+</span>
+                                                </div>
+                                                <div class="ranking-bottom">
+<span class="floor-price">
+<span>Floor:
+<span>
+<span>4.45</span>
+<span>ETH</span>
+</span>
+ </span>
+</span>
+                                                    <span class="now-price">
+<span>
+<span>6,999.22</span>
+<span>ETH</span>
+</span>
+</span>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li class="ranking-item">
+                                            <small class="ranking-sort">06</small>
+                                            <div class="ranking-picture">
+                                                <img src="__NFT__/image/nft_profile_1.png" alt="">
+                                            </div>
+                                            <div class="ranking-text">
+                                                <div class="ranking-top">
+<span class="title-wrap">
+<span class="ranking-title">Mutant a a a a more more more</span>
+</span>
+                                                    <span class="ranking-value go-up">
+<span>+</span>
+<span>122.1%</span>
+</span>
+                                                </div>
+                                                <div class="ranking-bottom">
+<span class="floor-price">
+<span>Floor:
+<span>
+<span>4.45</span>
+<span>ETH</span>
+</span>
+</span>
+</span>
+                                                    <span class="now-price">
+<span>
+<span>6,999.22</span>
+<span>ETH</span>
+</span>
+</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-12 col-xl-6">
+                                    <ul class="ranking-list">
+
+                                        <li class="ranking-item">
+                                            <small class="ranking-sort">07</small>
+                                            <div class="ranking-picture">
+                                                <img src="__NFT__/image/nft_profile_1.png" alt="">
+                                            </div>
+                                            <div class="ranking-text">
+                                                <div class="ranking-top">
+<span class="title-wrap">
+<span class="ranking-title">Mutant a a a a more more more more more more</span>
+</span>
+                                                    <span class="ranking-value go-up">
+<span>+</span>
+<span>122.1%</span>
+</span>
+                                                </div>
+                                                <div class="ranking-bottom">
+<span class="floor-price">
+<span>Floor:
+<span>
+<span>4.45</span>
+<span>ETH</span>
+</span>
+</span>
+</span>
+                                                    <span class="now-price">
+<span>
+<span>6,999.22</span>
+<span>ETH</span>
+</span>
+</span>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li class="ranking-item">
+                                            <small class="ranking-sort">08</small>
+                                            <div class="ranking-picture">
+                                                <img src="__NFT__/image/nft_profile_1.png" alt="">
+                                            </div>
+                                            <div class="ranking-text">
+                                                <div class="ranking-top">
+<span class="title-wrap">
+<span class="ranking-title">Mutant a a a a more more more</span>
+</span>
+                                                    <span class="ranking-value go-up">
+<span>+</span>
+<span>122.1%</span>
+</span>
+                                                </div>
+                                                <div class="ranking-bottom">
+<span class="floor-price">
+<span>Floor:
+<span>
+<span>4.45</span>
+<span>ETH</span>
+</span>
+</span>
+</span>
+                                                    <span class="now-price">
+<span>
+<span>6,999.22</span>
+<span>ETH</span>
+</span>
+</span>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li class="ranking-item">
+                                            <small class="ranking-sort">09</small>
+                                            <div class="ranking-picture">
+                                                <img src="__NFT__/image/nft_profile_1.png" alt="">
+                                            </div>
+                                            <div class="ranking-text">
+                                                <div class="ranking-top">
+<span class="title-wrap">
+<span class="ranking-title">Mutant a a a a more more more</span>
+</span>
+                                                    <span class="ranking-value go-up">
+<span>+</span>
+<span>122.1%</span>
+</span>
+                                                </div>
+                                                <div class="ranking-bottom">
+<span class="floor-price">
+<span>Floor:
+<span>
+<span>4.45</span>
+<span>ETH</span>
+</span>
+</span>
+</span>
+                                                    <span class="now-price">
+<span>
+<span>6,999.22</span>
+<span>ETH</span>
+</span>
+</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-40">
+                    <a class="btn btn-read-more btn-mobile btn-outline d-block d-sm-none" href="#">前往查看</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="wallet-section">
+        <div class="container">
+            <div class="wallet-content">
+
+                <div class="row mb-40">
+                    <div class="col-12 d-flex justify-content-between align-items-center">
+                        <div class="title-wrap d-flex flex-column flex-md-row align-items-md-center ">
+                            <h2 class="title-set">
+                                <div class="title-icon">
+                                    <img src="__NFT__/image/title_icon/icon_title_wallet.png" alt="">
+                                </div>
+                                高勝率錢包
+                            </h2>
+                            <div class="btn-wrap">
+
+                                <div class="d-none d-sm-block">
+                                    <button class="btn btn-light">24小時</button>
+                                </div>
+
+                                <div class="d-none d-sm-block">
+                                    <button class="btn btn-light">7天</button>
+                                </div>
+
+                                <div class="d-none d-sm-block">
+                                    <button class="btn btn-light">30天</button>
+                                </div>
+
+                                <div class="d-none d-sm-block">
+                                    <button class="btn btn-light">60天</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-none d-sm-block">
+                            <a class="btn btn-bold btn-outline" href="#">前往查看</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="table-responsive">
+                            <div class="table-wrap">
+                                <table>
+                                    <thead class="mb-40">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>錢包</th>
+                                        <th>勝率</th>
+                                        <th>不敗率</th>
+                                        <th>交易數</th>
+                                        <th>勝次數</th>
+                                        <th>敗次數</th>
+                                        <th>損平數</th>
+                                        <th>交易動態</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <tr>
+                                        <th scope="row">01</th>
+                                        <td>100.00%</td>
+                                        <td>0x3darb5</td>
+                                        <td>100.00%</td>
+                                        <td>56</td>
+                                        <td>56</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>
+<span class="material-symbols-outlined">
+outbound
+</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row">02</th>
+                                        <td>100.00%</td>
+                                        <td>0x3darb5</td>
+                                        <td>100.00%</td>
+                                        <td>56</td>
+                                        <td>56</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>
+<span class="material-symbols-outlined">
+outbound
+</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row">03</th>
+                                        <td>100.00%</td>
+                                        <td>0x3darb5</td>
+                                        <td>100.00%</td>
+                                        <td>56</td>
+                                        <td>56</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>
+<span class="material-symbols-outlined">
+outbound
+</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row">04</th>
+                                        <td>100.00%</td>
+                                        <td>0x3darb5</td>
+                                        <td>100.00%</td>
+                                        <td>56</td>
+                                        <td>56</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>
+<span class="material-symbols-outlined">
+outbound
+</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row">05</th>
+                                        <td>100.00%</td>
+                                        <td>0x3darb5</td>
+                                        <td>100.00%</td>
+                                        <td>56</td>
+                                        <td>56</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>
+<span class="material-symbols-outlined">
+outbound
+</span>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-40">
+                    <a class="btn btn-read-more btn-mobile btn-outline d-block d-sm-none" href="#">前往查看</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="minting-section pb-80">
+        <div class="container">
+            <div class="minting-content">
+
+                <div class="row mb-40">
+                    <div class="col-12 d-flex justify-content-between align-items-center">
+                        <div class="title-wrap">
+                            <h2 class="title-set">
+                                <div class="title-icon">
+                                    <img src="__NFT__/image/title_icon/icon_title_minting.png" alt="">
+                                </div>
+                                Minting 觀測站
+                            </h2>
+                        </div>
+
+                        <div class="d-none d-sm-block">
+                            <a class="btn btn-bold btn-outline" href="#">前往查看</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card-item card-1">
+
+                            <div class="card-image">
+                                <img src="__NFT__/image/minting_1.png" alt="">
+                                <div class="card-time-wrap">
+                                    <p class="count-down-day">7</p>
+                                    <p class="count-down-hour">13</p>
+                                    <p class="count-down-min">30</p>
+                                    <p class="count-down-sec">21</p>
+                                </div>
+                            </div>
+
+                            <div class="card-text">
+                                <div class="card-title">
+                                    <h3 class="multiline-ellipsis mb-8">Phantom and the Network and more more more more more</h3>
+                                </div>
+                                <p class="card-time mb-16">
+                                    MINT 時間:
+                                    <time datetime="2022-04-14T20:00">2022.4.14, 8:00 PM</time>
+                                </p>
+                                <ul class="info-list">
+
+                                    <li class="info-item">
+                                        <div class="community-icon mr-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M14.82 4.26a10.14 10.14 0 0 0-.53 1.1 14.66 14.66 0 0 0-4.58 0 10.14 10.14 0 0 0-.53-1.1 16 16 0 0 0-4.13 1.3 17.33 17.33 0 0 0-3 11.59 16.6 16.6 0 0 0 5.07 2.59A12.89 12.89 0 0 0 8.23 18a9.65 9.65 0 0 1-1.71-.83 3.39 3.39 0 0 0 .42-.33 11.66 11.66 0 0 0 10.12 0q.21.18.42.33a10.84 10.84 0 0 1-1.71.84 12.41 12.41 0 0 0 1.08 1.78 16.44 16.44 0 0 0 5.06-2.59 17.22 17.22 0 0 0-3-11.59 16.09 16.09 0 0 0-4.09-1.35zM8.68 14.81a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.93 1.93 0 0 1 1.8 2 1.93 1.93 0 0 1-1.8 2zm6.64 0a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.92 1.92 0 0 1 1.8 2 1.92 1.92 0 0 1-1.8 2z"></path></svg>
+                                        </div>
+                                        <div class="info-item-text">
+                                            <h4>7.8K</h4>
+                                            <small>DISCORD</small>
+                                        </div>
+                                    </li>
+
+                                    <li class="info-item">
+                                        <div class="community-icon mr-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M14.82 4.26a10.14 10.14 0 0 0-.53 1.1 14.66 14.66 0 0 0-4.58 0 10.14 10.14 0 0 0-.53-1.1 16 16 0 0 0-4.13 1.3 17.33 17.33 0 0 0-3 11.59 16.6 16.6 0 0 0 5.07 2.59A12.89 12.89 0 0 0 8.23 18a9.65 9.65 0 0 1-1.71-.83 3.39 3.39 0 0 0 .42-.33 11.66 11.66 0 0 0 10.12 0q.21.18.42.33a10.84 10.84 0 0 1-1.71.84 12.41 12.41 0 0 0 1.08 1.78 16.44 16.44 0 0 0 5.06-2.59 17.22 17.22 0 0 0-3-11.59 16.09 16.09 0 0 0-4.09-1.35zM8.68 14.81a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.93 1.93 0 0 1 1.8 2 1.93 1.93 0 0 1-1.8 2zm6.64 0a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.92 1.92 0 0 1 1.8 2 1.92 1.92 0 0 1-1.8 2z"></path></svg>
+                                        </div>
+                                        <div class="info-item-text">
+                                            <h4>11.5K</h4>
+                                            <small>DISCORD</small>
+                                        </div>
+                                    </li>
+
+                                    <li class="info-item">
+                                        <div class="community-icon mr-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M14.82 4.26a10.14 10.14 0 0 0-.53 1.1 14.66 14.66 0 0 0-4.58 0 10.14 10.14 0 0 0-.53-1.1 16 16 0 0 0-4.13 1.3 17.33 17.33 0 0 0-3 11.59 16.6 16.6 0 0 0 5.07 2.59A12.89 12.89 0 0 0 8.23 18a9.65 9.65 0 0 1-1.71-.83 3.39 3.39 0 0 0 .42-.33 11.66 11.66 0 0 0 10.12 0q.21.18.42.33a10.84 10.84 0 0 1-1.71.84 12.41 12.41 0 0 0 1.08 1.78 16.44 16.44 0 0 0 5.06-2.59 17.22 17.22 0 0 0-3-11.59 16.09 16.09 0 0 0-4.09-1.35zM8.68 14.81a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.93 1.93 0 0 1 1.8 2 1.93 1.93 0 0 1-1.8 2zm6.64 0a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.92 1.92 0 0 1 1.8 2 1.92 1.92 0 0 1-1.8 2z"></path></svg>
+                                        </div>
+                                        <div class="info-item-text">
+                                            <h4>0.08E</h4>
+                                            <small>DISCORD</small>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-none d-sm-block col-sm-6 col-lg-3">
+                        <div class="card-item card-1">
+
+                            <div class="card-image">
+                                <img src="__NFT__/image/minting_1.png" alt="">
+                                <div class="card-time-wrap">
+                                    <p class="count-down-day">11</p>
+                                    <p class="count-down-hour">9</p>
+                                    <p class="count-down-min">58</p>
+                                    <p class="count-down-sec">45</p>
+                                </div>
+                            </div>
+
+                            <div class="card-text">
+                                <div class="card-title">
+                                    <h3 class="multiline-ellipsis mb-8">Famous Fox and Federation more more more more more</h3>
+                                </div>
+                                <p class="card-time mb-16">
+                                    MINT 時間:
+                                    <time datetime="2022-04-14T20:00">2022.4.14, 8:00 PM</time>
+                                </p>
+                                <ul class="info-list">
+
+                                    <li class="info-item">
+                                        <div class="community-icon mr-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M14.82 4.26a10.14 10.14 0 0 0-.53 1.1 14.66 14.66 0 0 0-4.58 0 10.14 10.14 0 0 0-.53-1.1 16 16 0 0 0-4.13 1.3 17.33 17.33 0 0 0-3 11.59 16.6 16.6 0 0 0 5.07 2.59A12.89 12.89 0 0 0 8.23 18a9.65 9.65 0 0 1-1.71-.83 3.39 3.39 0 0 0 .42-.33 11.66 11.66 0 0 0 10.12 0q.21.18.42.33a10.84 10.84 0 0 1-1.71.84 12.41 12.41 0 0 0 1.08 1.78 16.44 16.44 0 0 0 5.06-2.59 17.22 17.22 0 0 0-3-11.59 16.09 16.09 0 0 0-4.09-1.35zM8.68 14.81a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.93 1.93 0 0 1 1.8 2 1.93 1.93 0 0 1-1.8 2zm6.64 0a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.92 1.92 0 0 1 1.8 2 1.92 1.92 0 0 1-1.8 2z"></path></svg>
+                                        </div>
+                                        <div class="info-item-text">
+                                            <h4>7.8K</h4>
+                                            <small>DISCORD</small>
+                                        </div>
+                                    </li>
+
+                                    <li class="info-item">
+                                        <div class="community-icon mr-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M14.82 4.26a10.14 10.14 0 0 0-.53 1.1 14.66 14.66 0 0 0-4.58 0 10.14 10.14 0 0 0-.53-1.1 16 16 0 0 0-4.13 1.3 17.33 17.33 0 0 0-3 11.59 16.6 16.6 0 0 0 5.07 2.59A12.89 12.89 0 0 0 8.23 18a9.65 9.65 0 0 1-1.71-.83 3.39 3.39 0 0 0 .42-.33 11.66 11.66 0 0 0 10.12 0q.21.18.42.33a10.84 10.84 0 0 1-1.71.84 12.41 12.41 0 0 0 1.08 1.78 16.44 16.44 0 0 0 5.06-2.59 17.22 17.22 0 0 0-3-11.59 16.09 16.09 0 0 0-4.09-1.35zM8.68 14.81a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.93 1.93 0 0 1 1.8 2 1.93 1.93 0 0 1-1.8 2zm6.64 0a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.92 1.92 0 0 1 1.8 2 1.92 1.92 0 0 1-1.8 2z"></path></svg>
+                                        </div>
+                                        <div class="info-item-text">
+                                            <h4>11.5K</h4>
+                                            <small>DISCORD</small>
+                                        </div>
+                                    </li>
+
+                                    <li class="info-item">
+                                        <div class="community-icon mr-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M14.82 4.26a10.14 10.14 0 0 0-.53 1.1 14.66 14.66 0 0 0-4.58 0 10.14 10.14 0 0 0-.53-1.1 16 16 0 0 0-4.13 1.3 17.33 17.33 0 0 0-3 11.59 16.6 16.6 0 0 0 5.07 2.59A12.89 12.89 0 0 0 8.23 18a9.65 9.65 0 0 1-1.71-.83 3.39 3.39 0 0 0 .42-.33 11.66 11.66 0 0 0 10.12 0q.21.18.42.33a10.84 10.84 0 0 1-1.71.84 12.41 12.41 0 0 0 1.08 1.78 16.44 16.44 0 0 0 5.06-2.59 17.22 17.22 0 0 0-3-11.59 16.09 16.09 0 0 0-4.09-1.35zM8.68 14.81a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.93 1.93 0 0 1 1.8 2 1.93 1.93 0 0 1-1.8 2zm6.64 0a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.92 1.92 0 0 1 1.8 2 1.92 1.92 0 0 1-1.8 2z"></path></svg>
+                                        </div>
+                                        <div class="info-item-text">
+                                            <h4>0.08E</h4>
+                                            <small>DISCORD</small>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-none d-lg-block col-lg-3">
+                        <div class="card-item card-1">
+
+                            <div class="card-image">
+                                <img src="__NFT__/image/minting_1.png" alt="">
+                                <div class="card-time-wrap">
+                                    <p class="count-down-day">3</p>
+                                    <p class="count-down-hour">23</p>
+                                    <p class="count-down-min">1</p>
+                                    <p class="count-down-sec">32</p>
+                                </div>
+                            </div>
+
+                            <div class="card-text">
+                                <div class="card-title">
+                                    <h3 class="multiline-ellipsis mb-8">Lotus Gang NFT</h3>
+                                </div>
+                                <p class="card-time mb-16">
+                                    MINT 時間:
+                                    <time datetime="2022-04-14T20:00">2022.4.14, 8:00 PM</time>
+                                </p>
+                                <ul class="info-list">
+
+                                    <li class="info-item">
+                                        <div class="community-icon mr-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M14.82 4.26a10.14 10.14 0 0 0-.53 1.1 14.66 14.66 0 0 0-4.58 0 10.14 10.14 0 0 0-.53-1.1 16 16 0 0 0-4.13 1.3 17.33 17.33 0 0 0-3 11.59 16.6 16.6 0 0 0 5.07 2.59A12.89 12.89 0 0 0 8.23 18a9.65 9.65 0 0 1-1.71-.83 3.39 3.39 0 0 0 .42-.33 11.66 11.66 0 0 0 10.12 0q.21.18.42.33a10.84 10.84 0 0 1-1.71.84 12.41 12.41 0 0 0 1.08 1.78 16.44 16.44 0 0 0 5.06-2.59 17.22 17.22 0 0 0-3-11.59 16.09 16.09 0 0 0-4.09-1.35zM8.68 14.81a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.93 1.93 0 0 1 1.8 2 1.93 1.93 0 0 1-1.8 2zm6.64 0a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.92 1.92 0 0 1 1.8 2 1.92 1.92 0 0 1-1.8 2z"></path></svg>
+                                        </div>
+                                        <div class="info-item-text">
+                                            <h4>7.8K</h4>
+                                            <small>DISCORD</small>
+                                        </div>
+                                    </li>
+
+                                    <li class="info-item">
+                                        <div class="community-icon mr-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M14.82 4.26a10.14 10.14 0 0 0-.53 1.1 14.66 14.66 0 0 0-4.58 0 10.14 10.14 0 0 0-.53-1.1 16 16 0 0 0-4.13 1.3 17.33 17.33 0 0 0-3 11.59 16.6 16.6 0 0 0 5.07 2.59A12.89 12.89 0 0 0 8.23 18a9.65 9.65 0 0 1-1.71-.83 3.39 3.39 0 0 0 .42-.33 11.66 11.66 0 0 0 10.12 0q.21.18.42.33a10.84 10.84 0 0 1-1.71.84 12.41 12.41 0 0 0 1.08 1.78 16.44 16.44 0 0 0 5.06-2.59 17.22 17.22 0 0 0-3-11.59 16.09 16.09 0 0 0-4.09-1.35zM8.68 14.81a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.93 1.93 0 0 1 1.8 2 1.93 1.93 0 0 1-1.8 2zm6.64 0a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.92 1.92 0 0 1 1.8 2 1.92 1.92 0 0 1-1.8 2z"></path></svg>
+                                        </div>
+                                        <div class="info-item-text">
+                                            <h4>11.5K</h4>
+                                            <small>DISCORD</small>
+                                        </div>
+                                    </li>
+
+                                    <li class="info-item">
+                                        <div class="community-icon mr-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M14.82 4.26a10.14 10.14 0 0 0-.53 1.1 14.66 14.66 0 0 0-4.58 0 10.14 10.14 0 0 0-.53-1.1 16 16 0 0 0-4.13 1.3 17.33 17.33 0 0 0-3 11.59 16.6 16.6 0 0 0 5.07 2.59A12.89 12.89 0 0 0 8.23 18a9.65 9.65 0 0 1-1.71-.83 3.39 3.39 0 0 0 .42-.33 11.66 11.66 0 0 0 10.12 0q.21.18.42.33a10.84 10.84 0 0 1-1.71.84 12.41 12.41 0 0 0 1.08 1.78 16.44 16.44 0 0 0 5.06-2.59 17.22 17.22 0 0 0-3-11.59 16.09 16.09 0 0 0-4.09-1.35zM8.68 14.81a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.93 1.93 0 0 1 1.8 2 1.93 1.93 0 0 1-1.8 2zm6.64 0a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.92 1.92 0 0 1 1.8 2 1.92 1.92 0 0 1-1.8 2z"></path></svg>
+                                        </div>
+                                        <div class="info-item-text">
+                                            <h4>0.08E</h4>
+                                            <small>DISCORD</small>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-none d-lg-block col-lg-3">
+                        <div class="card-item card-1">
+
+                            <div class="card-image">
+                                <img src="__NFT__/image/minting_1.png" alt="">
+                                <div class="card-time-wrap">
+                                    <p class="count-down-day">0</p>
+                                    <p class="count-down-hour">4</p>
+                                    <p class="count-down-min">51</p>
+                                    <p class="count-down-sec">20</p>
+                                </div>
+                            </div>
+
+                            <div class="card-text">
+                                <div class="card-title">
+                                    <h3 class="multiline-ellipsis mb-8">Kosekai always & Collective</h3>
+                                </div>
+                                <p class="card-time mb-16">
+                                    MINT 時間:
+                                    <time datetime="2022-04-14T20:00">2022.4.14, 8:00 PM</time>
+                                </p>
+                                <ul class="info-list">
+
+                                    <li class="info-item">
+                                        <div class="community-icon mr-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M14.82 4.26a10.14 10.14 0 0 0-.53 1.1 14.66 14.66 0 0 0-4.58 0 10.14 10.14 0 0 0-.53-1.1 16 16 0 0 0-4.13 1.3 17.33 17.33 0 0 0-3 11.59 16.6 16.6 0 0 0 5.07 2.59A12.89 12.89 0 0 0 8.23 18a9.65 9.65 0 0 1-1.71-.83 3.39 3.39 0 0 0 .42-.33 11.66 11.66 0 0 0 10.12 0q.21.18.42.33a10.84 10.84 0 0 1-1.71.84 12.41 12.41 0 0 0 1.08 1.78 16.44 16.44 0 0 0 5.06-2.59 17.22 17.22 0 0 0-3-11.59 16.09 16.09 0 0 0-4.09-1.35zM8.68 14.81a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.93 1.93 0 0 1 1.8 2 1.93 1.93 0 0 1-1.8 2zm6.64 0a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.92 1.92 0 0 1 1.8 2 1.92 1.92 0 0 1-1.8 2z"></path></svg>
+                                        </div>
+                                        <div class="info-item-text">
+                                            <h4>7.8K</h4>
+                                            <small>DISCORD</small>
+                                        </div>
+                                    </li>
+
+                                    <li class="info-item">
+                                        <div class="community-icon mr-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M14.82 4.26a10.14 10.14 0 0 0-.53 1.1 14.66 14.66 0 0 0-4.58 0 10.14 10.14 0 0 0-.53-1.1 16 16 0 0 0-4.13 1.3 17.33 17.33 0 0 0-3 11.59 16.6 16.6 0 0 0 5.07 2.59A12.89 12.89 0 0 0 8.23 18a9.65 9.65 0 0 1-1.71-.83 3.39 3.39 0 0 0 .42-.33 11.66 11.66 0 0 0 10.12 0q.21.18.42.33a10.84 10.84 0 0 1-1.71.84 12.41 12.41 0 0 0 1.08 1.78 16.44 16.44 0 0 0 5.06-2.59 17.22 17.22 0 0 0-3-11.59 16.09 16.09 0 0 0-4.09-1.35zM8.68 14.81a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.93 1.93 0 0 1 1.8 2 1.93 1.93 0 0 1-1.8 2zm6.64 0a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.92 1.92 0 0 1 1.8 2 1.92 1.92 0 0 1-1.8 2z"></path></svg>
+                                        </div>
+                                        <div class="info-item-text">
+                                            <h4>11.5K</h4>
+                                            <small>DISCORD</small>
+                                        </div>
+                                    </li>
+
+                                    <li class="info-item">
+                                        <div class="community-icon mr-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M14.82 4.26a10.14 10.14 0 0 0-.53 1.1 14.66 14.66 0 0 0-4.58 0 10.14 10.14 0 0 0-.53-1.1 16 16 0 0 0-4.13 1.3 17.33 17.33 0 0 0-3 11.59 16.6 16.6 0 0 0 5.07 2.59A12.89 12.89 0 0 0 8.23 18a9.65 9.65 0 0 1-1.71-.83 3.39 3.39 0 0 0 .42-.33 11.66 11.66 0 0 0 10.12 0q.21.18.42.33a10.84 10.84 0 0 1-1.71.84 12.41 12.41 0 0 0 1.08 1.78 16.44 16.44 0 0 0 5.06-2.59 17.22 17.22 0 0 0-3-11.59 16.09 16.09 0 0 0-4.09-1.35zM8.68 14.81a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.93 1.93 0 0 1 1.8 2 1.93 1.93 0 0 1-1.8 2zm6.64 0a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.92 1.92 0 0 1 1.8 2 1.92 1.92 0 0 1-1.8 2z"></path></svg>
+                                        </div>
+                                        <div class="info-item-text">
+                                            <h4>0.08E</h4>
+                                            <small>DISCORD</small>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-40">
+                    <a class="btn btn-read-more btn-mobile btn-outline d-block d-sm-none" href="#">前往查看</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="news-section pb-80">
+        <div class="container">
+            <div class="news-content">
+
+                <div class="row mb-40">
+                    <div class="col-12 d-flex justify-content-between align-items-center">
+                        <div class="title-wrap">
+                            <h2 class="title-set">
+                                <div class="title-icon">
+                                    <img src="__NFT__/image/title_icon/icon_title_news.png" alt="">
+                                </div>
+                                新聞&專欄
+                            </h2>
+                        </div>
+
+                        <div class="d-none d-sm-block">
+                            <a class="btn btn-bold btn-outline" href="#">前往查看</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card-item card-2">
+
+                            <div class="card-image mb-24">
+                                <img src="__NFT__/image/news.png" alt="">
+                            </div>
+
+                            <div class="card-text">
+                                <div class="card-tag mb-8">
+                                    <p>編輯精選</p>
+                                </div>
+                                <div class="card-title">
+                                    <h3 class="multiline-ellipsis mb-8">代幣經濟學 II：深掘代幣供應量層面，為何說說說說說說</h3>
+                                </div>
+                                <div class="card-paragraph">
+                                    <p class="multiline-ellipsis mb-12">
+                                        比特幣很單純，沒有任何私募解鎖、團隊財庫、歸屬期，僅需查看供應圖表就能知道當前流通位置，沒有其他可能搞砸的因素，然而其它專案代幣讓評估過程變得更加困難繁瑣。沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私
+                                    </p>
+                                </div>
+                                <small class="">
+                                    <time datetime="">2022-03-30</time>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-none d-sm-block col-sm-6 col-lg-3">
+                        <div class="card-item card-2">
+
+                            <div class="card-image mb-24">
+                                <img src="__NFT__/image/news.png" alt="">
+                            </div>
+
+                            <div class="card-text">
+                                <div class="card-tag mb-8">
+                                    <p>編輯精選</p>
+                                </div>
+                                <div class="card-title">
+                                    <h3 class="multiline-ellipsis mb-8">代幣經濟學 II：深掘代幣供應量層面，為何說說說說說說</h3>
+                                </div>
+                                <div class="card-paragraph">
+                                    <p class="multiline-ellipsis mb-12">
+                                        比特幣很單純，沒有任何私募解鎖、團隊財庫、歸屬期，僅需查看供應圖表就能知道當前流通位置，沒有其他可能搞砸的因素，然而其它專案代幣讓評估過程變得更加困難繁瑣。沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私
+                                    </p>
+                                </div>
+                                <small class="">
+                                    <time datetime="">2022-03-30</time>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-none d-lg-block col-lg-3">
+                        <div class="card-item card-2">
+
+                            <div class="card-image mb-24">
+                                <img src="__NFT__/image/news.png" alt="">
+                            </div>
+
+                            <div class="card-text">
+                                <div class="card-tag mb-8">
+                                    <p>編輯精選</p>
+                                </div>
+                                <div class="card-title">
+                                    <h3 class="multiline-ellipsis mb-8">基礎知識｜了解NFT的不同類型與挑戰，運為何說說說說說說</h3>
+                                </div>
+                                <div class="card-paragraph">
+                                    <p class="multiline-ellipsis mb-12">
+                                        NFT 今年擁有極高熱度，但其實不同類型的 NFT 皆有不同的發展脈絡與用途，一文看懂各種 NFT 類型的差別與所面對的挑戰。
+                                    </p>
+                                </div>
+                                <small class="">
+                                    <time datetime="">2022-03-30</time>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-none d-lg-block col-lg-3">
+                        <div class="card-item card-2">
+
+                            <div class="card-image mb-24">
+                                <img src="__NFT__/image/news.png" alt="">
+                            </div>
+
+                            <div class="card-text">
+                                <div class="card-tag mb-8">
+                                    <p>編輯精選</p>
+                                </div>
+                                <div class="card-title">
+                                    <h3 class="multiline-ellipsis mb-8">代幣經濟學 II：深掘代幣供應量層面，為何說說說說說說</h3>
+                                </div>
+                                <div class="card-paragraph">
+                                    <p class="multiline-ellipsis mb-12">
+                                        比特幣很單純，沒有任何私募解鎖、團隊財庫、歸屬期，僅需查看供應圖表就能知道當前流通位置，沒有其他可能搞砸的因素，然而其它專案代幣讓評估過程變得更加困難繁瑣。沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私沒有任何私
+                                    </p>
+                                </div>
+                                <small class="">
+                                    <time datetime="">2022-03-30</time>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-40">
+                    <a class="btn btn-read-more btn-mobile btn-outline d-block d-sm-none" href="#">前往查看</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="nft-section">
+        <div class="container">
+            <div class="nft-content">
+                <div class="row">
+
+                    <div class="row mb-40">
+                        <div class="col-12 d-flex justify-content-between align-items-center">
+                            <div class="title-wrap d-flex flex-column flex-md-row align-items-md-center ">
+                                <h2 class="title-set">
+                                    熱門 NFTs
+                                </h2>
+                                <div class="btn-wrap">
+
+                                    <div class="">
+                                        <button class="btn btn-light">24小時</button>
+                                    </div>
+
+                                    <div class="">
+                                        <button class="btn btn-light">7天</button>
+                                    </div>
+
+                                    <div class="">
+                                        <button class="btn btn-light">30天</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-none d-sm-block">
+                                <a class="btn btn-bold btn-outline" href="#">前往查看</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row nft-card-list">
+
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <div class="card-item card-1">
+
+                                <div class="card-image">
+                                    <img src="__NFT__/image/nft_1.png" alt="">
+                                </div>
+
+                                <div class="card-text">
+                                    <div class="icon-ok-wrap">
+                                        <div class="icon icon-ok">
+                                            <img src="__NFT__/image/icon/icon_ok.png" alt="">
+                                        </div>
+                                        <p class="single-ellipsis">Bored Ape Yacht ClubBored more more more more more</p>
+                                    </div>
+                                    <div class="card-title">
+                                        <h3 class="multiline-ellipsis mb-8">Bored Ape Yacht Club Ape more more more more more</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>Prime</p>
+                                        <h4 class="">
+                                            99999.9999
+                                            <span> ETH</span>
+                                        </h4>
+
+                                        <div class="sub-info-wrap">
+                                            <ul class="profile-list">
+                                                <li class="profile-item">
+                                                    <img src="__NFT__/image/nft_profile_1.png" alt="">
+                                                </li>
+                                            </ul>
+                                            <div class="sub-info">
+                                                <p class="">3 Days left</p>
+                                                <div class="text-likes">
+                                                    <div class="icon-likes">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="heart"><rect width="24" height="24" opacity="0" /><path d="M12 21a1 1 0 0 1-.71-.29l-7.77-7.78a5.26 5.26 0 0 1 0-7.4 5.24 5.24 0 0 1 7.4 0L12 6.61l1.08-1.08a5.24 5.24 0 0 1 7.4 0 5.26 5.26 0 0 1 0 7.4l-7.77 7.78A1 1 0 0 1 12 21z" /></g></g></svg>
+                                                    </div>
+                                                    <p class="">
+                                                        9,999
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <div class="card-item card-1">
+
+                                <div class="card-image">
+                                    <img src="__NFT__/image/nft_2.png" alt="">
+                                </div>
+
+                                <div class="card-text">
+                                    <div class="icon-ok-wrap">
+                                        <div class="icon icon-ok">
+                                            <img src="__NFT__/image/icon/icon_ok.png" alt="">
+                                        </div>
+                                        <p class="single-ellipsis">Bored Ape Yacht ClubBored more more more more more</p>
+                                    </div>
+                                    <div class="card-title">
+                                        <h3 class="multiline-ellipsis mb-8">Bored Ape Yacht Club Ape more more more more more</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>Prime</p>
+                                        <h4 class="">
+                                            99999.9999
+                                            <span> ETH</span>
+                                        </h4>
+
+                                        <div class="sub-info-wrap">
+                                            <ul class="profile-list">
+                                                <li class="profile-item">
+                                                    <img src="__NFT__/image/nft_profile_1.png" alt="">
+                                                </li>
+                                            </ul>
+                                            <div class="sub-info">
+                                                <p class="">3 Days left</p>
+                                                <div class="text-likes">
+                                                    <div class="icon-likes">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="heart"><rect width="24" height="24" opacity="0" /><path d="M12 21a1 1 0 0 1-.71-.29l-7.77-7.78a5.26 5.26 0 0 1 0-7.4 5.24 5.24 0 0 1 7.4 0L12 6.61l1.08-1.08a5.24 5.24 0 0 1 7.4 0 5.26 5.26 0 0 1 0 7.4l-7.77 7.78A1 1 0 0 1 12 21z" /></g></g></svg>
+                                                    </div>
+                                                    <p class="">
+                                                        9,999
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <div class="card-item card-1">
+
+                                <div class="card-image">
+                                    <img src="__NFT__/image/nft_3.png" alt="">
+                                </div>
+
+                                <div class="card-text">
+                                    <div class="icon-ok-wrap">
+                                        <div class="icon icon-ok">
+                                            <img src="__NFT__/image/icon/icon_ok.png" alt="">
+                                        </div>
+                                        <p class="single-ellipsis">Bored Ape Yacht ClubBored more more more more more</p>
+                                    </div>
+                                    <div class="card-title">
+                                        <h3 class="multiline-ellipsis mb-8">Bored Ape Yacht Club Ape more more more more more</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>Prime</p>
+                                        <h4 class="">
+                                            99999.9999
+                                            <span> ETH</span>
+                                        </h4>
+
+                                        <div class="sub-info-wrap">
+                                            <ul class="profile-list">
+                                                <li class="profile-item">
+                                                    <img src="__NFT__/image/nft_profile_1.png" alt="">
+                                                </li>
+                                            </ul>
+                                            <div class="sub-info">
+                                                <p class="">3 Days left</p>
+                                                <div class="text-likes">
+                                                    <div class="icon-likes">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="heart"><rect width="24" height="24" opacity="0" /><path d="M12 21a1 1 0 0 1-.71-.29l-7.77-7.78a5.26 5.26 0 0 1 0-7.4 5.24 5.24 0 0 1 7.4 0L12 6.61l1.08-1.08a5.24 5.24 0 0 1 7.4 0 5.26 5.26 0 0 1 0 7.4l-7.77 7.78A1 1 0 0 1 12 21z" /></g></g></svg>
+                                                    </div>
+                                                    <p class="">
+                                                        9,999
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <div class="card-item card-1">
+
+                                <div class="card-image">
+                                    <img src="__NFT__/image/nft_4.png" alt="">
+                                </div>
+
+                                <div class="card-text">
+                                    <div class="icon-ok-wrap">
+                                        <div class="icon icon-ok">
+                                            <img src="__NFT__/image/icon/icon_ok.png" alt="">
+                                        </div>
+                                        <p class="single-ellipsis">Bored Ape Yacht ClubBored more more more more more</p>
+                                    </div>
+                                    <div class="card-title">
+                                        <h3 class="multiline-ellipsis mb-8">Bored Ape Yacht Club Ape more more more more more</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>Prime</p>
+                                        <h4 class="">
+                                            99999.9999
+                                            <span> ETH</span>
+                                        </h4>
+
+                                        <div class="sub-info-wrap">
+                                            <ul class="profile-list">
+                                                <li class="profile-item">
+                                                    <img src="__NFT__/image/nft_profile_1.png" alt="">
+                                                </li>
+                                            </ul>
+                                            <div class="sub-info">
+                                                <p class="">3 Days left</p>
+                                                <div class="text-likes">
+                                                    <div class="icon-likes">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="heart"><rect width="24" height="24" opacity="0" /><path d="M12 21a1 1 0 0 1-.71-.29l-7.77-7.78a5.26 5.26 0 0 1 0-7.4 5.24 5.24 0 0 1 7.4 0L12 6.61l1.08-1.08a5.24 5.24 0 0 1 7.4 0 5.26 5.26 0 0 1 0 7.4l-7.77 7.78A1 1 0 0 1 12 21z" /></g></g></svg>
+                                                    </div>
+                                                    <p class="">
+                                                        9,999
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <div class="card-item card-1">
+
+                                <div class="card-image">
+                                    <img src="__NFT__/image/nft_1.png" alt="">
+                                </div>
+
+                                <div class="card-text">
+                                    <div class="icon-ok-wrap">
+                                        <div class="icon icon-ok">
+                                            <img src="__NFT__/image/icon/icon_ok.png" alt="">
+                                        </div>
+                                        <p class="single-ellipsis">Bored Ape Yacht ClubBored more more more more more</p>
+                                    </div>
+                                    <div class="card-title">
+                                        <h3 class="multiline-ellipsis mb-8">Bored Ape Yacht Club Ape more more more more more</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>Prime</p>
+                                        <h4 class="">
+                                            99999.9999
+                                            <span> ETH</span>
+                                        </h4>
+
+                                        <div class="sub-info-wrap">
+                                            <ul class="profile-list">
+                                                <li class="profile-item">
+                                                    <img src="__NFT__/image/nft_profile_1.png" alt="">
+                                                </li>
+                                            </ul>
+                                            <div class="sub-info">
+                                                <p class="">3 Days left</p>
+                                                <div class="text-likes">
+                                                    <div class="icon-likes">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="heart"><rect width="24" height="24" opacity="0" /><path d="M12 21a1 1 0 0 1-.71-.29l-7.77-7.78a5.26 5.26 0 0 1 0-7.4 5.24 5.24 0 0 1 7.4 0L12 6.61l1.08-1.08a5.24 5.24 0 0 1 7.4 0 5.26 5.26 0 0 1 0 7.4l-7.77 7.78A1 1 0 0 1 12 21z" /></g></g></svg>
+                                                    </div>
+                                                    <p class="">
+                                                        9,999
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <div class="card-item card-1">
+
+                                <div class="card-image">
+                                    <img src="__NFT__/image/nft_1.png" alt="">
+                                </div>
+
+                                <div class="card-text">
+                                    <div class="icon-ok-wrap">
+                                        <div class="icon icon-ok">
+                                            <img src="__NFT__/image/icon/icon_ok.png" alt="">
+                                        </div>
+                                        <p class="single-ellipsis">Bored Ape Yacht ClubBored more more more more more</p>
+                                    </div>
+                                    <div class="card-title">
+                                        <h3 class="multiline-ellipsis mb-8">Bored Ape Yacht Club Ape more more more more more</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>Prime</p>
+                                        <h4 class="">
+                                            99999.9999
+                                            <span> ETH</span>
+                                        </h4>
+
+                                        <div class="sub-info-wrap">
+                                            <ul class="profile-list">
+                                                <li class="profile-item">
+                                                    <img src="__NFT__/image/nft_profile_1.png" alt="">
+                                                </li>
+                                            </ul>
+                                            <div class="sub-info">
+                                                <p class="">3 Days left</p>
+                                                <div class="text-likes">
+                                                    <div class="icon-likes">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="heart"><rect width="24" height="24" opacity="0" /><path d="M12 21a1 1 0 0 1-.71-.29l-7.77-7.78a5.26 5.26 0 0 1 0-7.4 5.24 5.24 0 0 1 7.4 0L12 6.61l1.08-1.08a5.24 5.24 0 0 1 7.4 0 5.26 5.26 0 0 1 0 7.4l-7.77 7.78A1 1 0 0 1 12 21z" /></g></g></svg>
+                                                    </div>
+                                                    <p class="">
+                                                        9,999
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <div class="card-item card-1">
+
+                                <div class="card-image">
+                                    <img src="__NFT__/image/nft_1.png" alt="">
+                                </div>
+
+                                <div class="card-text">
+                                    <div class="icon-ok-wrap">
+                                        <div class="icon icon-ok">
+                                            <img src="__NFT__/image/icon/icon_ok.png" alt="">
+                                        </div>
+                                        <p class="single-ellipsis">Bored Ape Yacht ClubBored more more more more more</p>
+                                    </div>
+                                    <div class="card-title">
+                                        <h3 class="multiline-ellipsis mb-8">Bored Ape Yacht Club Ape more more more more more</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>Prime</p>
+                                        <h4 class="">
+                                            99999.9999
+                                            <span> ETH</span>
+                                        </h4>
+
+                                        <div class="sub-info-wrap">
+                                            <ul class="profile-list">
+                                                <li class="profile-item">
+                                                    <img src="__NFT__/image/nft_profile_1.png" alt="">
+                                                </li>
+                                            </ul>
+                                            <div class="sub-info">
+                                                <p class="">3 Days left</p>
+                                                <div class="text-likes">
+                                                    <div class="icon-likes">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="heart"><rect width="24" height="24" opacity="0" /><path d="M12 21a1 1 0 0 1-.71-.29l-7.77-7.78a5.26 5.26 0 0 1 0-7.4 5.24 5.24 0 0 1 7.4 0L12 6.61l1.08-1.08a5.24 5.24 0 0 1 7.4 0 5.26 5.26 0 0 1 0 7.4l-7.77 7.78A1 1 0 0 1 12 21z" /></g></g></svg>
+                                                    </div>
+                                                    <p class="">
+                                                        9,999
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <div class="card-item card-1">
+
+                                <div class="card-image">
+                                    <img src="__NFT__/image/nft_1.png" alt="">
+                                </div>
+
+                                <div class="card-text">
+                                    <div class="icon-ok-wrap">
+                                        <div class="icon icon-ok">
+                                            <img src="__NFT__/image/icon/icon_ok.png" alt="">
+                                        </div>
+                                        <p class="single-ellipsis">Bored Ape Yacht ClubBored more more more more more</p>
+                                    </div>
+                                    <div class="card-title">
+                                        <h3 class="multiline-ellipsis mb-8">Bored Ape Yacht Club Ape more more more more more</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>Prime</p>
+                                        <h4 class="">
+                                            99999.9999
+                                            <span> ETH</span>
+                                        </h4>
+
+                                        <div class="sub-info-wrap">
+                                            <ul class="profile-list">
+                                                <li class="profile-item">
+                                                    <img src="__NFT__/image/nft_profile_1.png" alt="">
+                                                </li>
+                                            </ul>
+                                            <div class="sub-info">
+                                                <p class="">3 Days left</p>
+                                                <div class="text-likes">
+                                                    <div class="icon-likes">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="heart"><rect width="24" height="24" opacity="0" /><path d="M12 21a1 1 0 0 1-.71-.29l-7.77-7.78a5.26 5.26 0 0 1 0-7.4 5.24 5.24 0 0 1 7.4 0L12 6.61l1.08-1.08a5.24 5.24 0 0 1 7.4 0 5.26 5.26 0 0 1 0 7.4l-7.77 7.78A1 1 0 0 1 12 21z" /></g></g></svg>
+                                                    </div>
+                                                    <p class="">
+                                                        9,999
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer-section">
+    <div class="container">
+        <div class="footer-content">
+            <div class="row">
+
+                <div class="cta-section col-12 col-md-8">
+                    <h4 class="mb-16">獲取最新的 NFTotal 更新</h4>
+                    <div class="cta-email-subscribe">
+                        <div class="cta-email-submit-content">
+                            <input type="email" placeholder="請輸入您的 Email">
+                            <button>申請</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="community-link-section col-12 col-md-4">
+                    <h4>加入社區</h4>
+                    <nav>
+                        <ul class="community-link-wrap">
+
+                            <li class="community-link">
+                                <a href="#">
+                                    <div class="community-link-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 0 0 5.001-1.721 4.036 4.036 0 0 1-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 0 1-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 0 1-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 0 0 8.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 0 1 4.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 0 0 2.556-.973 4.02 4.02 0 0 1-1.771 2.22 8.073 8.073 0 0 0 2.319-.624 8.645 8.645 0 0 1-2.019 2.083z" /></svg>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="community-link">
+                                <a href="#">
+                                    <div class="community-link-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M14.82 4.26a10.14 10.14 0 0 0-.53 1.1 14.66 14.66 0 0 0-4.58 0 10.14 10.14 0 0 0-.53-1.1 16 16 0 0 0-4.13 1.3 17.33 17.33 0 0 0-3 11.59 16.6 16.6 0 0 0 5.07 2.59A12.89 12.89 0 0 0 8.23 18a9.65 9.65 0 0 1-1.71-.83 3.39 3.39 0 0 0 .42-.33 11.66 11.66 0 0 0 10.12 0q.21.18.42.33a10.84 10.84 0 0 1-1.71.84 12.41 12.41 0 0 0 1.08 1.78 16.44 16.44 0 0 0 5.06-2.59 17.22 17.22 0 0 0-3-11.59 16.09 16.09 0 0 0-4.09-1.35zM8.68 14.81a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.93 1.93 0 0 1 1.8 2 1.93 1.93 0 0 1-1.8 2zm6.64 0a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.92 1.92 0 0 1 1.8 2 1.92 1.92 0 0 1-1.8 2z" /></svg>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="community-link">
+                                <a href="#">
+                                    <div class="community-link-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M20.947 8.305a6.53 6.53 0 0 0-.419-2.216 4.61 4.61 0 0 0-2.633-2.633 6.606 6.606 0 0 0-2.186-.42c-.962-.043-1.267-.055-3.709-.055s-2.755 0-3.71.055a6.606 6.606 0 0 0-2.185.42 4.607 4.607 0 0 0-2.633 2.633 6.554 6.554 0 0 0-.419 2.185c-.043.963-.056 1.268-.056 3.71s0 2.754.056 3.71c.015.748.156 1.486.419 2.187a4.61 4.61 0 0 0 2.634 2.632 6.584 6.584 0 0 0 2.185.45c.963.043 1.268.056 3.71.056s2.755 0 3.71-.056a6.59 6.59 0 0 0 2.186-.419 4.615 4.615 0 0 0 2.633-2.633c.263-.7.404-1.438.419-2.187.043-.962.056-1.267.056-3.71-.002-2.442-.002-2.752-.058-3.709zm-8.953 8.297c-2.554 0-4.623-2.069-4.623-4.623s2.069-4.623 4.623-4.623a4.623 4.623 0 0 1 0 9.246zm4.807-8.339a1.077 1.077 0 0 1-1.078-1.078 1.077 1.077 0 1 1 2.155 0c0 .596-.482 1.078-1.077 1.078z" /><circle cx="11.994" cy="11.979" r="3.003" /></svg>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="community-link">
+                                <a href="#">
+                                    <div class="community-link-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M21.593 7.203a2.506 2.506 0 0 0-1.762-1.766C18.265 5.007 12 5 12 5s-6.264-.007-7.831.404a2.56 2.56 0 0 0-1.766 1.778c-.413 1.566-.417 4.814-.417 4.814s-.004 3.264.406 4.814c.23.857.905 1.534 1.763 1.765 1.582.43 7.83.437 7.83.437s6.265.007 7.831-.403a2.515 2.515 0 0 0 1.767-1.763c.414-1.565.417-4.812.417-4.812s.02-3.265-.407-4.831zM9.996 15.005l.005-6 5.207 3.005-5.212 2.995z" /></svg>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="col-12 col-xl-5">
+                    <div class="row">
+                        <div class="col-12 col-xl-10">
+                            <h2 class="mb-12">
+                                <a href="#" class="footer-logo">
+                                    <svg width="113" height="19" viewBox="0 0 113 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M13.856 1.2V11.208L6.224 1.2H0.2V18H5.888V8.016L13.52 18H19.544V1.2H13.856ZM39.014 5.088V1.2H22.43V18H28.142V11.784H38.342V7.896H28.142V5.088H39.014ZM59.3536 1.2H40.9456V5.088H47.3056V18H52.9936V5.088H59.3536V1.2ZM67.4913 4.872C63.5313 4.872 59.1153 6.672 59.1153 11.616C59.1153 16.56 63.5313 18.36 67.4913 18.36C71.4273 18.36 75.8433 16.56 75.8433 11.616C75.8433 6.672 71.4273 4.872 67.4913 4.872ZM67.4913 14.952C65.0433 14.952 64.1313 13.344 64.1313 11.616C64.1313 9.888 65.0433 8.28 67.4913 8.28C69.9153 8.28 70.8273 9.888 70.8273 11.616C70.8273 13.344 69.9153 14.952 67.4913 14.952ZM88.1739 8.16V5.208H84.4299V1.896H79.1979V5.208H76.8219V8.16H79.1979V12.888C79.1979 16.704 80.3499 18.216 85.1739 18.216C86.1579 18.216 87.2859 18.144 88.1739 18.024V14.472C85.6059 14.688 84.4299 14.688 84.4299 12.888V8.16H88.1739ZM97.43 4.872C93.278 4.872 90.71 5.976 90.254 9.096H95.03C95.198 8.304 95.582 7.824 97.43 7.824C99.662 7.824 99.878 8.592 99.878 9.816V9.984C91.166 9.504 89.63 11.664 89.63 14.544C89.63 17.064 91.67 18.36 95.294 18.36C97.478 18.36 99.11 17.472 99.878 16.632V18H105.11V9.816C105.11 5.52 101.558 4.872 97.43 4.872ZM99.878 14.352C99.182 15.168 97.958 15.72 96.614 15.72C95.438 15.72 94.718 15.384 94.718 14.424C94.718 12.888 96.686 12.744 99.878 12.888V14.352ZM107.512 0.287999V18H112.744V0.287999H107.512Z" fill="white" />
+                                    </svg>
+                                </a>
+                            </h2>
+                            <p>
+                                NFTotal創造初宗在於服務所有正在NFT的華語使用者，我們也將陸續推出更多的應用工具來幫助你們更好的觀測所有NFT項目。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-xl-7">
+                    <div class="footer-nav-list">
+
+                        <div class="footer-nav-item">
+                            <h4>Sitemap</h4>
+                            <nav>
+                                <a href="#">探索NFT</a>
+                                <a href="#">Mint觀測站</a>
+                                <a href="#">統計</a>
+                                <a href="#">工具</a>
+                                <a href="#">新聞</a>
+                                <a href="#">專欄</a>
+                            </nav>
+                        </div>
+
+                        <div class="footer-nav-item">
+                            <h4>Links</h4>
+                            <nav>
+                                <a href="#">Opensea</a>
+                                <a href="#">Rarible</a>
+                                <a href="#">Super Rare</a>
+                                <a href="#">icy.tools</a>
+                                <a href="#">NFTGO</a>
+                                <a href="#">Etherscan</a>
+                            </nav>
+                        </div>
+
+                        <div class="footer-nav-item">
+                            <h4>Support</h4>
+                            <nav>
+                                <a href="#">Company</a>
+                                <a href="#">語系切換</a>
+                            </nav>
+                        </div>
+
+                        <div class="footer-nav-item community-link">
+                            <h4>加入社區</h4>
+                            <nav>
+                                <ul class="community-link-wrap">
+
+                                    <li class="community-link">
+                                        <a href="#">
+                                            <div class="community-link-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 0 0 5.001-1.721 4.036 4.036 0 0 1-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 0 1-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 0 1-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 0 0 8.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 0 1 4.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 0 0 2.556-.973 4.02 4.02 0 0 1-1.771 2.22 8.073 8.073 0 0 0 2.319-.624 8.645 8.645 0 0 1-2.019 2.083z" /></svg>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="community-link">
+                                        <a href="#">
+                                            <div class="community-link-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M14.82 4.26a10.14 10.14 0 0 0-.53 1.1 14.66 14.66 0 0 0-4.58 0 10.14 10.14 0 0 0-.53-1.1 16 16 0 0 0-4.13 1.3 17.33 17.33 0 0 0-3 11.59 16.6 16.6 0 0 0 5.07 2.59A12.89 12.89 0 0 0 8.23 18a9.65 9.65 0 0 1-1.71-.83 3.39 3.39 0 0 0 .42-.33 11.66 11.66 0 0 0 10.12 0q.21.18.42.33a10.84 10.84 0 0 1-1.71.84 12.41 12.41 0 0 0 1.08 1.78 16.44 16.44 0 0 0 5.06-2.59 17.22 17.22 0 0 0-3-11.59 16.09 16.09 0 0 0-4.09-1.35zM8.68 14.81a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.93 1.93 0 0 1 1.8 2 1.93 1.93 0 0 1-1.8 2zm6.64 0a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.92 1.92 0 0 1 1.8 2 1.92 1.92 0 0 1-1.8 2z" /></svg>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="community-link">
+                                        <a href="#">
+                                            <div class="community-link-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M20.947 8.305a6.53 6.53 0 0 0-.419-2.216 4.61 4.61 0 0 0-2.633-2.633 6.606 6.606 0 0 0-2.186-.42c-.962-.043-1.267-.055-3.709-.055s-2.755 0-3.71.055a6.606 6.606 0 0 0-2.185.42 4.607 4.607 0 0 0-2.633 2.633 6.554 6.554 0 0 0-.419 2.185c-.043.963-.056 1.268-.056 3.71s0 2.754.056 3.71c.015.748.156 1.486.419 2.187a4.61 4.61 0 0 0 2.634 2.632 6.584 6.584 0 0 0 2.185.45c.963.043 1.268.056 3.71.056s2.755 0 3.71-.056a6.59 6.59 0 0 0 2.186-.419 4.615 4.615 0 0 0 2.633-2.633c.263-.7.404-1.438.419-2.187.043-.962.056-1.267.056-3.71-.002-2.442-.002-2.752-.058-3.709zm-8.953 8.297c-2.554 0-4.623-2.069-4.623-4.623s2.069-4.623 4.623-4.623a4.623 4.623 0 0 1 0 9.246zm4.807-8.339a1.077 1.077 0 0 1-1.078-1.078 1.077 1.077 0 1 1 2.155 0c0 .596-.482 1.078-1.077 1.078z" /><circle cx="11.994" cy="11.979" r="3.003" /></svg>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="community-link">
+                                        <a href="#">
+                                            <div class="community-link-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M21.593 7.203a2.506 2.506 0 0 0-1.762-1.766C18.265 5.007 12 5 12 5s-6.264-.007-7.831.404a2.56 2.56 0 0 0-1.766 1.778c-.413 1.566-.417 4.814-.417 4.814s-.004 3.264.406 4.814c.23.857.905 1.534 1.763 1.765 1.582.43 7.83.437 7.83.437s6.265.007 7.831-.403a2.515 2.515 0 0 0 1.767-1.763c.414-1.565.417-4.812.417-4.812s.02-3.265-.407-4.831zM9.996 15.005l.005-6 5.207 3.005-5.212 2.995z" /></svg>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <h4 class="mb-16">獲取最新的 NFTotal 更新</h4>
+                            <div class="cta-email-subscribe">
+                                <div class="cta-email-submit-content">
+                                    <input type="email" placeholder="請輸入您的 Email">
+                                    <button>申請</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-copyright-section">
+        <div class="container">
+            <div class="footer-copyright-content">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+
+                        <p class="footer-copyright">&copy; NFTotal, Inc. All rights reserved.</p>
+                    </div>
+                    <div class="col-12 col-md-6">
+
+                        <div class="privacy-link-wrap">
+                            <a href="#">Terms</a>
+                            <a href="#">Privacy Policy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
