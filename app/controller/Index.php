@@ -10,9 +10,7 @@ class Index extends BaseController
 {
     public function index()
     {
-        echo 123;
-        exit();
-        return View::fetch();
+        return View::fetch('index');
     }
 
 
