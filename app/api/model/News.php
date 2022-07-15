@@ -17,7 +17,7 @@ class News extends Model
         ];
 
         $list = $this->where([$where])
-            ->where('title|sub_title|content','like','%'.$keyword.'%')
+            ->whereOr('title|sub_title|content','like','%'.$keyword.'%')
             ->page($data['page'])
             ->order('start_date DESC')
             ->paginate($data['count']);
