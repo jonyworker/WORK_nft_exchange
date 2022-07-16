@@ -9,14 +9,21 @@ use think\facade\Db;
 
 class Excel
 {
-    public function export(array $data = [])
+
+    public function export(array $data = [],array $fields = [])
     {
         if (!is_array($data)){
             return false;
         }
 
+        //获取要传参的字段
+        $i = 0;
+        foreach ($data[0] as $key => $val){
+            $fields[$i] = $key;
+            $i++;
+        }
 
-        //先定义每个字段的含义(顺序要与data传值字段相同)
+        //定义字段的含义(顺序要与data传值字段相同)
         $field_title = [
             'id' => 'ID',
             'title' => '主標',
@@ -32,16 +39,15 @@ class Excel
             'create_time' => '新增時間',
             'editTime' => '修改時間',
         ];
+
         $field_res = [];
         //然后根据所需导出的字段组成相应的结果集
-        foreach ($data as $key => $value){
-            foreach ($value as $k => $item){
-                $field_res[$k]['title'] = $field_title[$k];
-                $field_res[$k]['field'] = $k;
-            }
+        foreach ($fields as $k => $v) {
+            $field_res[$k]['title'] = $field_title[$v];
+            $field_res[$k]['field'] = $v;
         }
 
-        
+
         $spreadsheet = new Spreadsheet();
         //获取活动工作簿
         $sheet = $spreadsheet->getActiveSheet();
@@ -67,6 +73,7 @@ class Excel
         header("Content-Disposition: attachment;filename=$filename");
         header('Cache-Control: max-age=0');
         header('Pragma: public');
+        //生成xlsx文件
         $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
         $writer->save('php://output');
         exit;

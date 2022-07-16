@@ -68,7 +68,7 @@ class Plan extends BaseController
     public function export()
     {
         $field = 'id,title,sub_title,content,start_date,large_photo_url,middle_photo_url,smal_photo_url,source,valid,createName,create_time,editTime';
-        $data = Db::name('news')->field($field)->where('ind',3)->select()->toArray();
+        $data = Db::name('news')->field($field)->where('ind',1)->select()->toArray();
         $excel = new Excel();
         return $excel->export($data);
     }
