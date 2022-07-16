@@ -7,6 +7,7 @@ namespace app\api\controller;
 use app\BaseController;
 use app\api\model\News as NewModel;
 use think\App;
+use think\facade\Db;
 
 class News extends BaseController
 {
@@ -24,6 +25,7 @@ class News extends BaseController
         ];
 
         $keyword = $this->request->param('keyword','');
+
         $model = new NewModel();
         $result = $model->getNews($data,$keyword);
         if (!$result){

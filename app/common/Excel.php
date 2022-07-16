@@ -9,36 +9,20 @@ use think\facade\Db;
 
 class Excel
 {
-
-    public function export(array $data = [],array $fields = [])
+    /** 导出表格
+     * @param array $data   導出數據
+     * @param array $field_title  字段含義
+     * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
+     */
+    public function export(array $data = [],array $field_title = [])
     {
-        if (!is_array($data)){
-            return false;
-        }
-
         //获取要传参的字段
         $i = 0;
+        $fields = [];
         foreach ($data[0] as $key => $val){
             $fields[$i] = $key;
             $i++;
         }
-
-        //定义字段的含义(顺序要与data传值字段相同)
-        $field_title = [
-            'id' => 'ID',
-            'title' => '主標',
-            'sub_title' => '副標',
-            'content' => '內文',
-            'start_date' => '上架日',
-            'large_photo_url' => '專欄大圖',
-            'middle_photo_url' => '專欄中圖',
-            'smal_photo_url' => '專欄小圖',
-            'source' => '來源',
-            'valid' => '狀態',
-            'createName' => '建單人員',
-            'create_time' => '新增時間',
-            'editTime' => '修改時間',
-        ];
 
         $field_res = [];
         //然后根据所需导出的字段组成相应的结果集
@@ -76,6 +60,7 @@ class Excel
         //生成xlsx文件
         $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
         $writer->save('php://output');
+        //终止进程
         exit;
     }
 }

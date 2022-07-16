@@ -1,18 +1,17 @@
 <?php
 
-//企劃管理
+//專欄管理
 namespace app\news\controller;
 
 
 use app\BaseController;
 use app\news\model\News as NewsModel;
 use think\App;
-use app\news\validate\PlanValidate;
+use app\news\validate\ColumnValidate;
 use think\Exception;
 use app\common\Excel;
-use think\facade\Db;
 
-class Plan extends BaseController
+class Column extends BaseController
 {
     //首頁
     public function index()
@@ -25,7 +24,7 @@ class Plan extends BaseController
             'valid' => $this->request->param('valid')
         ];
         $model = new NewsModel();
-        $list = $model->getNewsPlan($search);
+        $list = $model->getColumn($search);
         return success($list);
     }
 
@@ -47,14 +46,14 @@ class Plan extends BaseController
             'valid' => $this->request->param('valid',1),
         ];
 
-        $validate = new PlanValidate();
+        $validate = new ColumnValidate();
         if (!$validate->check($data)){
             return error($validate->getError());
         }
 
         try {
             $model = new NewsModel();
-            $result = $model->savePlanData($data,$id,$username);
+            $result = $model->saveColumnData($data,$id,$username);
         }catch (Exception $e){
             return error($e->getMessage());
         }
@@ -67,12 +66,11 @@ class Plan extends BaseController
     //导出excel表格
     public function export()
     {
-        //获取需要导出的数据
+        //获取需要导出的数据,必须是数组格式
         $data = $this->request->param('data');
         if (!is_array($data)){
             return false;
         }
-
         //定义字段的含义(顺序要与data传值字段相同)
         $field_title = [
             'id' => 'ID',
@@ -81,7 +79,6 @@ class Plan extends BaseController
             'content' => '內文',
             'start_date' => '上架日',
             'large_photo_url' => '專欄大圖',
-            'middle_photo_url' => '專欄中圖',
             'smal_photo_url' => '專欄小圖',
             'source' => '來源',
             'valid' => '狀態',
@@ -90,7 +87,7 @@ class Plan extends BaseController
             'editTime' => '修改時間',
         ];
 
-        //测试数据
+        //测试导出
 //        $field = 'id,title,sub_title,content,start_date,large_photo_url,middle_photo_url,smal_photo_url,source,valid,createName,create_time,editTime';
 //        $data = Db::name('news')->field($field)->where('ind',1)->select()->toArray();
         $excel = new Excel();
