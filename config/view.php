@@ -25,5 +25,7 @@ return [
     //模板替换
     'tpl_replace_string'  =>  [
         '__NFT__'=>'/nftotal',
+        '__ADMIN__'=>'/static/layuiadmin',//layui库
+        '__UPLOAD__'=>'/storage',
     ]
 ];
