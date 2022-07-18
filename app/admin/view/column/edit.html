@@ -14,17 +14,18 @@
 <div class="layui-form" lay-filter="layuiadmin-app-form-list" id="layuiadmin-app-form-list"
      style="padding: 20px 30px 0 0;">
     <form class="layui-form" method="post" id="form" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="{:input('id')}">
         <div class="layui-form-item">
             <label class="layui-form-label">主標</label>
             <div class="layui-input-inline">
-                <input type="text" name="title" lay-verify="required" placeholder="请输入主標" autocomplete="off"
+                <input type="text" value="{$column.title}" name="title" lay-verify="required" placeholder="请输入主標" autocomplete="off"
                        class="layui-input" style="width: 500px">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">副標</label>
             <div class="layui-input-inline">
-                <input type="text" name="sub_title" lay-verify="required" placeholder="请输入副標" autocomplete="off"
+                <input type="text" value="{$column.sub_title}" name="sub_title" lay-verify="required" placeholder="请输入副標" autocomplete="off"
                        class="layui-input">
             </div>
         </div>
@@ -32,7 +33,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">内文</label>
             <div class="layui-input-block">
-                <textarea name="content" lay-verify="required" placeholder="请输入" class="layui-textarea"></textarea>
+                <textarea name="content" lay-verify="required" placeholder="请输入" class="layui-textarea">{$column.content}</textarea>
             </div>
         </div>
 
@@ -40,7 +41,7 @@
             <div class="layui-inline">
                 <label class="layui-form-label">上架日</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="start_date" class="layui-input" id="test5"
+                    <input type="text" name="start_date" value="{$column.start_date}" class="layui-input" id="test5"
                            placeholder="yyyy-MM-dd HH:mm:ss">
                 </div>
             </div>
@@ -53,17 +54,17 @@
                 尺寸 (306*306)
             </div>
             <div class="layui-upload-list">
-                <img style="margin-left: 110px;width: 90px;height: 90px" class="layui-upload-img" id="demo1">
+                <img src="__UPLOAD__/{$column.smal_photo_url}" style="margin-left: 110px;width: 90px;height: 90px" class="layui-upload-img" id="demo1">
             </div>
         </div>
 
         <!--获取上传图片，放入表单传给后台-->
-        <input type="hidden" name="smal_photo_url" id="thumb" value="">
+        <input type="hidden" name="smal_photo_url" id="thumb" value="__UPLOAD__/{$column.smal_photo_url}">
 
         <div class="layui-form-item">
             <label class="layui-form-label">來源</label>
             <div class="layui-input-inline">
-                <input type="text" name="source" autocomplete="off"
+                <input type="text" value="{$column.source}" name="source" autocomplete="off"
                        class="layui-input">
             </div>
         </div>
@@ -72,7 +73,8 @@
         <div class="layui-form-item">
             <label class="layui-form-label">狀態</label>
             <div class="layui-input-inline">
-                <input type="checkbox" name="valid" lay-skin="switch" lay-text="啓用|作廢" lay-filter="kg1" checked>
+                <input type="checkbox" name="valid" value="{$column.valid}" lay-skin="switch" lay-text="啓用|作廢"
+                       lay-filter="valid" {if $column.valid == 1} checked {else /} {/if}>
             </div>
         </div>
 
@@ -106,7 +108,7 @@
         //普通图片上传
         var uploadInst = upload.render({
             elem: '#test1'
-            , url: '{:url("admin/plan/getImage")}' //改成您自己的上传接口
+            , url: '{:url("admin/column/getImage")}' //改成您自己的上传接口
             , size: 1024 //限制文件大小，单位KB
             , before: function (obj) {
                 //预读本地文件示例，不支持ie8
@@ -127,23 +129,11 @@
             }
         });
 
-        //监听指定开关
-        // form.on('switch(kg1)', function(data){
-        //     this.checked?data.value=1:data.value=0; //更改选中和未选中时，传动后台的值，此时选中传1，未选中传0。
-        //     var kg=data.value; //将该值传到后端即可使用。（如，直接在ajax中传值）
-        //     $('input[type="checkbox"]').attr('value',kg)
-        //
-        //     // console.log(kg);
-        //     // console.log(data.elem.checked); //开关是否开启，true或者false
-        //     // console.log(data.value); //开关value值，也可以通过data.elem.value得到
-        //     // console.log(data.othis); //得到美化后的DOM对象
-        // });
-
         //监听提交
         form.on('submit(layuiadmin-app-form-submit)', function(){
             $.ajax({
                 type:"POST",
-                url:"{:url('admin/plan/add')}",
+                url:"{:url('admin/column/edit')}",
                 data:$('#form').serialize(),
                 dataType:"json",
                 success:function (data) {

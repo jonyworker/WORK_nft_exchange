@@ -12,6 +12,5 @@ class PlanValidate extends Validate
         'title|主標' => 'require',
         'content|内文' => 'require',
         'start_date|上架日' => 'require',
-        'valid|狀態' => 'require'
     ];
 }

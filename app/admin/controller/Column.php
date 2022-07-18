@@ -8,9 +8,9 @@ use app\BaseController;
 use think\Exception;
 use think\facade\View;
 use app\admin\model\News as NewsModel;
-use app\admin\validate\PlanValidate;
+use app\admin\validate\ColumnValidate;
 use think\facade\Filesystem;
-class Plan extends BaseController
+class Column extends BaseController
 {
     //首頁
     public function index()
@@ -19,7 +19,7 @@ class Plan extends BaseController
     }
 
 
-    public function planlst()
+    public function columnlst()
     {
         //分页条件
         $data = [
@@ -31,9 +31,10 @@ class Plan extends BaseController
         if (!isset($searchParams['valid'])){
             $searchParams['valid'] = 1;
         }
-        $model = new NewsModel();
 
-        $result = $model->getNewsPlan($searchParams,$data);
+        $model = new NewsModel();
+//        $result = $model->where('ind',2)->select();
+        $result = $model->getColumn($searchParams,$data);
         return success($result);
     }
 
@@ -43,13 +44,13 @@ class Plan extends BaseController
             $data = input('post.');
             $data['valid'] = input('post.valid/s');
             $username = $this->request->session('username');
-            $validate = new PlanValidate();
+            $validate = new ColumnValidate();
             if (!$validate->check($data)){
                 return error($validate->getError());
             }
             try {
                 $model = new NewsModel();
-                $result = $model->savePlanData($data,$username);
+                $result = $model->saveColumnData($data,$username);
             }catch (Exception $e){
                 return error($e->getMessage());
             }
@@ -65,19 +66,19 @@ class Plan extends BaseController
     {
         $field = 'id,title,sub_title,content,start_date,large_photo_url,middle_photo_url,smal_photo_url,source,valid,createName,create_time,editTime';
         $model = new NewsModel();
-        $plans = $model->field($field)->find($id);
+        $column = $model->field($field)->find($id);
 
         if ($this->request->isPost()){
             $data = input('post.');
             $data['valid'] = input('post.valid/s');
             $username = $this->request->session('username');
-            $validate = new PlanValidate();
+            $validate = new ColumnValidate();
             if (!$validate->check($data)){
                 return error($validate->getError());
             }
             try {
                 $model = new NewsModel();
-                $result = $model->savePlanData($data,$username);
+                $result = $model->saveColumnData($data,$username);
             }catch (Exception $e){
                 return error($e->getMessage());
             }
@@ -87,7 +88,7 @@ class Plan extends BaseController
             return success($data,'操作成功');
         }
 
-        View::assign('plan',$plans);
+        View::assign('column',$column);
         return View::fetch();
     }
 

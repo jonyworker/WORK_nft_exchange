@@ -8,55 +8,84 @@ use think\Model;
 class News extends Model
 {
     //查找企劃
-    public function getNewsPlan($search,$data)
+    public function getNewsPlan($searchParams,$data)
     {
         $field = 'id,title,sub_title,content,start_date,large_photo_url,middle_photo_url,smal_photo_url,source,valid,createName,create_time,editTime';
+
+        $where = [];
+        $where[] = array('ind','=',3);
+        if (!empty($searchParams['title'])){
+            $where[] = array('title','like',$searchParams['title'] . '%%');
+        }
+        if (!empty($searchParams['sub_title'])){
+            $where[] = array('sub_title','like',$searchParams['sub_title'] . '%%');
+        }
+        if (!empty($searchParams['content'])){
+            $where[] = array('sub_title','like',$searchParams['sub_title'] . '%%');
+        }
+        if (!empty($searchParams['valid'])){
+            $where[] = array('valid','=',$searchParams['valid']);
+        }
+
         $list = $this->field($field)
-            ->where([
-                ['ind', '=', 3],
-                ['title', 'like', $search['title'] . '%%'],
-                ['sub_title', 'like', $search['sub_title'] . '%%'],
-                ['content', 'like', $search['content'] . '%%'],
-            ])
-            ->whereOr('valid',$search['valid'])
+            ->where($where)
             ->page($data['page'])
             ->order('id desc')
             ->paginate($data['count']);
-
         return $list;
     }
 
     //查找新聞
-    public function getNews($search)
+    public function getNews($searchParams,$data)
     {
         $field = 'id,title,sub_title,content,start_date,smal_photo_url,source,valid,createName,create_time,editTime';
+        $where = [];
+        $where[] = array('ind','=',1);
+        if (!empty($searchParams['title'])){
+            $where[] = array('title','like',$searchParams['title'] . '%%');
+        }
+        if (!empty($searchParams['sub_title'])){
+            $where[] = array('sub_title','like',$searchParams['sub_title'] . '%%');
+        }
+        if (!empty($searchParams['content'])){
+            $where[] = array('sub_title','like',$searchParams['sub_title'] . '%%');
+        }
+        if (!empty($searchParams['valid'])){
+            $where[] = array('valid','=',$searchParams['valid']);
+        }
+
         $list = $this->field($field)
-            ->where([
-                ['ind', '=', 1],
-                ['title', 'like', $search['title'] . '%%'],
-                ['sub_title', 'like', $search['sub_title'] . '%%'],
-                ['content', 'like', $search['content'] . '%%'],
-            ])
-            ->whereOr('valid',$search['valid'])
+            ->where($where)
+            ->page($data['page'])
             ->order('id desc')
-            ->select();
+            ->paginate($data['count']);
         return $list;
     }
 
     //查找專欄
-    public function getColumn($search)
+    public function getColumn($search,$data)
     {
-        $field = 'id,title,sub_title,content,start_date,large_photo_url,middle_photo_url,smal_photo_url,source,valid,createName,create_time,editTime';
+        $field = 'id,title,sub_title,content,start_date,large_photo_url,smal_photo_url,source,valid,createName,create_time,editTime';
+        $where = [];
+        $where[] = array('ind','=',2);
+        if (!empty($searchParams['title'])){
+            $where[] = array('title','like',$searchParams['title'] . '%%');
+        }
+        if (!empty($searchParams['sub_title'])){
+            $where[] = array('sub_title','like',$searchParams['sub_title'] . '%%');
+        }
+        if (!empty($searchParams['content'])){
+            $where[] = array('sub_title','like',$searchParams['sub_title'] . '%%');
+        }
+        if (!empty($searchParams['valid'])){
+            $where[] = array('valid','=',$searchParams['valid']);
+        }
+
         $list = $this->field($field)
-            ->where([
-                ['ind', '=', 2],
-                ['title', 'like', $search['title'] . '%%'],
-                ['sub_title', 'like', $search['sub_title'] . '%%'],
-                ['content', 'like', $search['content'] . '%%'],
-            ])
-            ->whereOr('valid',$search['valid'])
+            ->where($where)
+            ->page($data['page'])
             ->order('id desc')
-            ->select();
+            ->paginate($data['count']);
         return $list;
     }
 
@@ -64,16 +93,15 @@ class News extends Model
     public function savePlanData($data, $username)
     {
         $data['ind'] = 3;
-        if ($data['valid'] == 'on'){
-            $data['valid'] =1;
+        if (!empty($data['valid'])){
+            $data['valid'] = 1;
         }else{
-            $data['valid'] =2;
+            $data['valid'] = 2;
         }
         if (!empty($data['id'])) {
             $data['editTime'] = date('Y-m-d H:i:s', time());
             $data['editName'] = $username;
             $res = $this->update($data);
-
             return $res;
         } else {
             $data['createName'] = $username;
@@ -83,14 +111,18 @@ class News extends Model
     }
 
     //添加更新新聞數據
-    public function saveNewsData($data, $id, $username = '')
+    public function saveNewsData($data, $username)
     {
         $data['ind'] = 1;
-        if (!empty($id)) {
+        if (!empty($data['valid'])){
+            $data['valid'] = 1;
+        }else{
+            $data['valid'] = 2;
+        }
+        if (!empty($data['id'])) {
             $data['editTime'] = date('Y-m-d H:i:s', time());
             $data['editName'] = $username;
-            $res = $this->update($data, ['id' => $id]);
-
+            $res = $this->update($data);
             return $res;
         } else {
             $data['createName'] = $username;
@@ -99,15 +131,20 @@ class News extends Model
         }
     }
 
-    //添加更新新聞數據
-    public function saveColumnData($data, $id, $username = '')
+    //添加更新專欄數據
+    public function saveColumnData($data, $username)
     {
-        $data['ind'] = 1;
-        if (!empty($id)) {
+        $data['ind'] = 2;
+        dump($data);die();
+        if (!empty($data['valid'])){
+            $data['valid'] = 1;
+        }else{
+            $data['valid'] = 2;
+        }
+        if (!empty($data['id'])) {
             $data['editTime'] = date('Y-m-d H:i:s', time());
             $data['editName'] = $username;
-            $res = $this->update($data, ['id' => $id]);
-
+            $res = $this->update($data);
             return $res;
         } else {
             $data['createName'] = $username;

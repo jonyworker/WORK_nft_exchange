@@ -59,7 +59,7 @@
         </div>
 
         <!--获取上传图片，放入表单传给后台-->
-        <input type="hidden" name="smal_photo_url" id="thumb" value="">
+        <input type="hidden" name="smal_photo_url" id="thumb" value="__UPLOAD__/{$plan.smal_photo_url}">
 
         <div class="layui-form-item">
             <label class="layui-form-label">來源</label>
@@ -73,7 +73,8 @@
         <div class="layui-form-item">
             <label class="layui-form-label">狀態</label>
             <div class="layui-input-inline">
-                <input type="checkbox" name="valid" lay-skin="switch" lay-text="啓用|作廢" checked>
+                <input type="checkbox" name="valid" value="{$plan.valid}" lay-skin="switch" lay-text="啓用|作廢"
+                       lay-filter="valid" {if $plan.valid == 1} checked {else /} {/if}>
             </div>
         </div>
 
@@ -132,7 +133,7 @@
         form.on('submit(layuiadmin-app-form-submit)', function(){
             $.ajax({
                 type:"POST",
-                url:"{:url('admin/plan/add')}",
+                url:"{:url('admin/plan/edit')}",
                 data:$('#form').serialize(),
                 dataType:"json",
                 success:function (data) {
