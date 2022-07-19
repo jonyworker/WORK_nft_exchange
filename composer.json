@@ -42,7 +42,6 @@
     },
     "config": {
         "preferred-install": "dist",
-        "platform-check": false
     },
     "scripts": {
         "post-autoload-dump": [
