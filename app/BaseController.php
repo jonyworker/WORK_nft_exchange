@@ -113,7 +113,7 @@ abstract class BaseController
         $response = curl_exec($handle);
         $responseDecoded = json_decode($response, true);
         curl_close($handle);
-print_r($responseDecoded);exit;
+
         $data = array();
         foreach ($responseDecoded['data']['translations'] as $k => $v) {
             $data[$key[$k]] = $v;
