@@ -21,3 +21,22 @@ function error($status = "" , $errorCode = 1)
     ];
     return json($result);
 }
+
+//成功返回(自定义返回键值)
+function success2($key = 'data',$data = [] , $status = "ok")
+{
+    $result = [
+        'status' => $status,
+        $key => $data
+    ];
+    return json($result);
+}
+
+//失败返回(自定义返回)
+function error2($status = "error")
+{
+    $result = [
+        'status' => $status
+    ];
+    return json($result);
+}
