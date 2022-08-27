@@ -116,7 +116,11 @@ abstract class BaseController
 
         $data = array();
         foreach ($responseDecoded['data']['translations'] as $k => $v) {
-            $data[$key[$k]] = $v;
+            foreach ($v as $k_t => $v_t) {
+                if ($k_t == 'translatedText') {
+                    $data[$key[$k]] = $v_t;
+                }
+            }
         }
 
         return $data;
