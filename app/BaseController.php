@@ -107,15 +107,13 @@ abstract class BaseController
             $url .= '&q=' . rawurlencode($v);
             $key[] = $k;
         }
-        print_r($url);
-        print_r($key);
-        exit;
+
         $handle = curl_init($url);
         curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
         $response = curl_exec($handle);
         $responseDecoded = json_decode($response, true);
         curl_close($handle);
-
+print_r($responseDecoded);exit;
         $data = array();
         foreach ($responseDecoded['data']['translations'] as $k => $v) {
             $data[$key[$k]] = $v;
