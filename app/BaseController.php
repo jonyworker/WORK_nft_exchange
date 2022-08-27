@@ -98,6 +98,7 @@ abstract class BaseController
      */
     // 谷歌翻译
     protected function google($text=array(),$lan=1) {
+        print_r($text);exit;
         // 1:繁體中文 2:簡體中文 3:英文   4:日   5:韓
         $target = ['zh-TW','zh-CN','en','ja','ko'];
         $apiKey = config('google.apiKey');
