@@ -55,7 +55,9 @@ class Drops extends BaseController
                 ];
                 foreach ($data as $k => $v) {
                     foreach ($translate as $k_t => $v_t) {
-                        $translate[$k_t][$k] = $v[$k_t];
+                        if ($v[$k_t]) {
+                            $translate[$k_t][$k] = $v[$k_t];
+                        }
                     }
                 }
 
@@ -63,7 +65,7 @@ class Drops extends BaseController
                     $google = $this->google($v,$request['lan']);
 
                     foreach ($google as $k_g => $v_g) {
-                        $data[$k_g][$v] = $v_g['translatedText'];
+                        $data[$v_g['key']][$k] = $v_g['translations'];
                     }
                 }
             }
