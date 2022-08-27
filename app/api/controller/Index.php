@@ -51,10 +51,9 @@ class Index extends BaseController
 
                 foreach ($translate as $k => $v) {
                     $google = $this->google($v,$request['lan']);
-                    print_r($google);exit;
 
                     foreach ($google as $k_g => $v_g) {
-                        $data[$k_g][$v] = $v_g['translatedText'];
+                        $data[$v_g['key']][$k] = $v_g;
                     }
                 }
             }

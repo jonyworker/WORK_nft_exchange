@@ -101,7 +101,7 @@ abstract class BaseController
         // 1:繁體中文 2:簡體中文 3:英文   4:日   5:韓
         $target = ['zh-TW','zh-CN','en','ja','ko'];
         $apiKey = config('google.apiKey');
-        $url = 'https://www.googleapis.com/language/translate/v2?key=' . $apiKey . '&source=&target='.$target[$lan];
+        $url = 'https://www.googleapis.com/language/translate/v2?key=' . $apiKey . '&source=&target='.$target[$lan-1];
         $key = array();
         foreach ($text as $k => $v) {
             $url .= '&q=' . rawurlencode($v);
@@ -118,7 +118,10 @@ abstract class BaseController
         foreach ($responseDecoded['data']['translations'] as $k => $v) {
             foreach ($v as $k_t => $v_t) {
                 if ($k_t == 'translatedText') {
-                    $data[$key[$k]] = $v_t;
+                    $data[] = [
+                        'key' => $key[$k],
+                        'translations' => $v_t
+                    ];
                 }
             }
         }
