@@ -90,4 +90,35 @@ abstract class BaseController
 
         return $v->failException(true)->check($data);
     }
+
+    /** * Desc: * Created by Joker * Date: 2019/7/3 * Time: 10:36
+     * @param $text 翻译为中文
+     * @param string $to zh-CN:翻译为中文 en:翻译为英文
+     * @return string
+     */
+    // 谷歌翻译
+    protected function google($text=array(),$lan=1) {
+        // 1:繁體中文 2:簡體中文 3:英文   4:日   5:韓
+        $target = ['zh-TW','zh-CN','en','ja','ko'];
+        $apiKey = config('google.apiKey');
+        $url = 'https://www.googleapis.com/language/translate/v2?key=' . $apiKey . '&source=&target='.$target[$lan];
+        $key = array();
+        foreach ($text as $k => $v) {
+            $url .= '&q=' . rawurlencode($v);
+            $key[] = $k;
+        }
+
+        $handle = curl_init($url);
+        curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($handle);
+        $responseDecoded = json_decode($response, true);
+        curl_close($handle);
+
+        $data = array();
+        foreach ($responseDecoded['data']['translations'] as $k => $v) {
+            $data[$key[$k]] = $v;
+        }
+
+        return $data;
+    }
 }

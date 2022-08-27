@@ -33,9 +33,30 @@ class Index extends BaseController
                 ->where('start_date','<=',date('Y-m-d'))
                 ->where('end_date','>=',date('Y-m-d'))
                 ->field($field)
-                ->order('date asc')
+                ->order('id asc')
                 ->select()
                 ->toArray();
+
+            if ($data) {
+                $translate = [
+                    'description' => array()
+                ];
+                foreach ($data as $k => $v) {
+                    foreach ($translate as $k_t => $v_t) {
+                        if ($v[$k_t]) {
+                            $translate[$k_t][$k] = $v[$k_t];
+                        }
+                    }
+                }
+
+                foreach ($translate as $k => $v) {
+                    $google = $this->google($v,$request['lan']);
+
+                    foreach ($google as $k_g => $v_g) {
+                        $data[$k_g][$v] = $v_g['translatedText'];
+                    }
+                }
+            }
 
             return success2('banners',$data);
         } catch (\Exception $e) {

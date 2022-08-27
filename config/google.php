@@ -1,6 +1,7 @@
 <?php
 // 中间件配置
 return [
+    "apiKey" => "AIzaSyAePKBipOZOH0u3giUg04mo1Pr5VoBUqh8",
     "type" => "service_account",
     "project_id" => "karwee-api",
     "private_key_id" => "390dfd60ccc74638b083d1ee20ebbdf430e657b6",
