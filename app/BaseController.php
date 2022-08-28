@@ -119,7 +119,7 @@ abstract class BaseController
         return $data;
     }
 
-    /** * Desc: * Created by Joker * Date: 2019/7/3 * Time: 10:36
+    /** * Desc: * Created by Joker * Date: 2022/08/27 * Time: 10:36
      * @param $text 翻译为中文
      * @param string $to zh-CN:翻译为中文 en:翻译为英文
      * @return string
@@ -151,6 +151,35 @@ abstract class BaseController
                     ];
                 }
             }
+        }
+
+        return $data;
+    }
+
+    /** * Desc: * Created by Joker * Date: 2022/08/28 * Time: 14:10
+     * @param $text 翻译为中文
+     * @param string $to zh-CN:翻译为中文 en:翻译为英文
+     * @return string
+     */
+    protected function google2($text=array(),$lan=1) {
+        // 1:繁體中文 2:簡體中文 3:英文   4:日   5:韓
+        $target = ['zh-TW','zh-CN','en','ja','ko'];
+        $apiKey = config('google.apiKey');
+        $url = 'https://www.googleapis.com/language/translate/v2?key=' . $apiKey . '&source=&target='.$target[$lan-1];
+        $data = array();
+        foreach ($text as $k => $v) {
+            $tempurl = $url . '&q=' . rawurlencode($v);
+
+            $handle = curl_init($tempurl);
+            curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
+            $response = curl_exec($handle);
+            $responseDecoded = json_decode($response, true);
+            curl_close($handle);
+
+            $data[] = [
+                'key' => $k,
+                'translations' => $responseDecoded['data']['translations'][0]['translatedText']
+            ];
         }
 
         return $data;

@@ -63,7 +63,7 @@ class Drops extends BaseController
 
                 foreach ($translate as $k => $v) {
                     if ($v) {
-                        $google = $this->google($v,$request['lan']);
+                        $google = $this->google2($v,$request['lan']);
 
                         foreach ($google as $k_g => $v_g) {
                             $data[$v_g['key']][$k] = $v_g['translations'];

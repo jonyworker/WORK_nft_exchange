@@ -46,6 +46,8 @@ class News extends BaseController
             'id' => $this->request->param('id',1)
         ];
 
+        $ind = ['新聞','專欄'];
+
         $field = 'id,ind,title,content,author,start_date,photo_url,source,title_en,content_en';
 
         try {
@@ -62,7 +64,7 @@ class News extends BaseController
                 //      content 取news.content_en    不需調用google api
                 // ind>=4,  title 取news.title_en   需調用google api
                 //      content 取news.content_en    需調用google api
-                if ($data['ind'] == 2) {
+                if ($request['lan'] == 2) {
                     $translate = [
                         'title' => array(),
                         'content' => array()
@@ -81,10 +83,10 @@ class News extends BaseController
                             }
                         }
                     }
-                } elseif ($data['ind'] == 3) {
+                } elseif ($request['lan'] == 3) {
                     $data['title'] = $data['title_en'];
                     $data['content'] = $data['content_en'];
-                } elseif ($data['ind'] >= 4) {
+                } elseif ($request['lan'] >= 4) {
                     $data['title'] = $data['title_en'];
                     $data['content'] = $data['content_en'];
 
@@ -107,6 +109,8 @@ class News extends BaseController
                         }
                     }
                 }
+
+                $data['ind'] = $ind[$data['ind'] - 1];
 
                 unset($data['title_en']);
                 unset($data['content_en']);
@@ -140,6 +144,8 @@ class News extends BaseController
             $where = 'ind = ' . $request['ind'];
         }
 
+        $ind = ['新聞','專欄'];
+
         $field = 'id,ind,title,content,author,start_date,photo_url,source,title_en,content_en';
         $offset = ($request['page'] - 1) * $request['count'];
         $length = $request['count'];
@@ -168,16 +174,16 @@ class News extends BaseController
                     'content' => array()
                 ];
                 foreach ($data as $k => $v) {
-                    if ($v['ind'] == 2) {
+                    if ($request['lan'] == 2) {
                         foreach ($translate as $k_t => $v_t) {
                             if ($v[$k_t]) {
                                 $translate[$k_t][$k] = $v[$k_t];
                             }
                         }
-                    } elseif ($v['ind'] == 3) {
+                    } elseif ($request['lan'] == 3) {
                         $data[$k]['title'] = $v['title_en'];
                         $data[$k]['content'] = $v['content_en'];
-                    } elseif ($v['ind'] >= 4) {
+                    } elseif ($request['lan'] >= 4) {
                         $data[$k]['title'] = $v['title_en'];
                         $data[$k]['content'] = $v['content_en'];
                         foreach ($translate as $k_t => $v_t) {
@@ -186,6 +192,8 @@ class News extends BaseController
                             }
                         }
                     }
+
+                    $data[$k]['ind'] = $ind[$v['ind'] - 1];
 
 //                    unset($data[$k]['title_en']);
 //                    unset($data[$k]['content_en']);
