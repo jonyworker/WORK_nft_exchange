@@ -153,6 +153,7 @@ class News extends BaseController
                 ->order('start_date desc')
                 ->select()
                 ->toArray();
+            print_r($data);exit;
 
             if ($data) {
                 // ind=1, title 取news.title   不需調用google api
