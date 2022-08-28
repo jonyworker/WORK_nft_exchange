@@ -153,7 +153,6 @@ class News extends BaseController
                 ->order('start_date desc')
                 ->select()
                 ->toArray();
-            print_r($data);exit;
 
             if ($data) {
                 // ind=1, title 取news.title   不需調用google api
@@ -191,6 +190,7 @@ class News extends BaseController
 //                    unset($data[$k]['title_en']);
 //                    unset($data[$k]['content_en']);
                 }
+                print_r($translate);exit;
 
                 foreach ($translate as $k => $v) {
                     $google = $this->google($v,$request['lan']);
