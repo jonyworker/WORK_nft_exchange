@@ -92,11 +92,36 @@ abstract class BaseController
     }
 
     /** * Desc: * Created by Joker * Date: 2019/7/3 * Time: 10:36
+     * @param array $translate 所需翻译的字段
+     * @param array $data 所需翻译的数据数组
+     * @param number $lan 所需翻译语言
+     * @return array $array
+     */
+    protected function toGoogle($translate,$data,$lan) {
+        foreach ($data as $k => $v) {
+            foreach ($translate as $k_t => $v_t) {
+                if ($v[$k_t]) {
+                    $translate[$k_t][$k] = $v[$k_t];
+                }
+            }
+        }
+
+        foreach ($translate as $k => $v) {
+            $google = $this->google($v,$lan);
+
+            foreach ($google as $k_g => $v_g) {
+                $data[$v_g['key']][$k] = $v_g['translations'];
+            }
+        }
+
+        return $data;
+    }
+
+    /** * Desc: * Created by Joker * Date: 2019/7/3 * Time: 10:36
      * @param $text 翻译为中文
      * @param string $to zh-CN:翻译为中文 en:翻译为英文
      * @return string
      */
-    // 谷歌翻译
     protected function google($text=array(),$lan=1) {
         // 1:繁體中文 2:簡體中文 3:英文   4:日   5:韓
         $target = ['zh-TW','zh-CN','en','ja','ko'];

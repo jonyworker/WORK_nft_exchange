@@ -70,7 +70,7 @@ class Drops extends BaseController
                 }
             }
 
-            return success2('banners',$data);
+            return success2('data',$data);
         } catch (\Exception $e) {
             // 这是进行异常捕获
             return error2($e->getMessage());
