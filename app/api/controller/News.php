@@ -187,8 +187,8 @@ class News extends BaseController
                         }
                     }
 
-                    unset($data[$k]['title_en']);
-                    unset($data[$k]['content_en']);
+//                    unset($data[$k]['title_en']);
+//                    unset($data[$k]['content_en']);
                 }
 
                 foreach ($translate as $k => $v) {
