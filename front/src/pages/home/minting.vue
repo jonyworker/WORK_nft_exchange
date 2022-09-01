@@ -54,19 +54,19 @@
                     <ul class="social-link-wrap">
                       <!-- icon-group -->
                       <li class="social-link-item">
-                        <div class="social-link-icon" @click="toWebsite(dropsOne?.website)">
+                        <div class="social-link-icon" @click="toWebsite(dropsOne?.website || '')">
                           <img src="@/assets/images/icon_world.png" alt="">
                         </div>
                       </li>
                       <!-- icon-map -->
                       <li class="social-link-item">
-                        <div class="social-link-icon" @click="toDiscord(dropsOne?.discord)">
+                        <div class="social-link-icon" @click="toDiscord(dropsOne?.discord || '')">
                           <img src="@/assets/images/icon_discord.png" alt="">
                         </div>
                       </li>
                       <!-- icon-homepage -->
                       <li class="social-link-item">
-                        <div class="social-link-icon" @click="toTwitter(dropsOne?.twitter)">
+                        <div class="social-link-icon" @click="toTwitter(dropsOne?.twitter || '')">
                           <img src="@/assets/images/icon_twitter.png" alt="">
                         </div>
                       </li>
@@ -122,19 +122,19 @@
                     <ul class="social-link-wrap">
                       <!-- icon-group -->
                       <li class="social-link-item">
-                        <div class="social-link-icon" @click="toWebsite(dropsTwo?.website)">
+                        <div class="social-link-icon" @click="toWebsite(dropsTwo?.website || '')">
                           <img src="@/assets/images/icon_world.png" alt="">
                         </div>
                       </li>
                       <!-- icon-map -->
                       <li class="social-link-item">
-                        <div class="social-link-icon" @click="toDiscord(dropsTwo?.discord)">
+                        <div class="social-link-icon" @click="toDiscord(dropsTwo?.discord ||'')">
                           <img src="@/assets/images/icon_discord.png" alt="">
                         </div>
                       </li>
                       <!-- icon-homepage -->
                       <li class="social-link-item">
-                        <div class="social-link-icon" @click="toTwitter(dropsTwo?.twitter)">
+                        <div class="social-link-icon" @click="toTwitter(dropsTwo?.twitter || '')">
                           <img src="@/assets/images/icon_twitter.png" alt="">
                         </div>
                       </li>
@@ -190,19 +190,19 @@
                     <ul class="social-link-wrap">
                       <!-- icon-group -->
                       <li class="social-link-item">
-                        <div class="social-link-icon" @click="toWebsite(dropsFree?.website)">
+                        <div class="social-link-icon" @click="toWebsite(dropsFree?.website|| '')">
                           <img src="@/assets/images/icon_world.png" alt="">
                         </div>
                       </li>
                       <!-- icon-map -->
                       <li class="social-link-item">
-                        <div class="social-link-icon" @click="toDiscord(dropsFree?.discord)">
+                        <div class="social-link-icon" @click="toDiscord(dropsFree?.discord ||'')">
                           <img src="@/assets/images/icon_discord.png" alt="">
                         </div>
                       </li>
                       <!-- icon-homepage -->
                       <li class="social-link-item">
-                        <div class="social-link-icon" @click="toTwitter(dropsFree?.twitter)">
+                        <div class="social-link-icon" @click="toTwitter(dropsFree?.twitter || '')">
                           <img src="@/assets/images/icon_twitter.png" alt="">
                         </div>
                       </li>
@@ -258,19 +258,19 @@
                     <ul class="social-link-wrap">
                       <!-- icon-group -->
                       <li class="social-link-item">
-                        <div class="social-link-icon" @click="toWebsite(dropsForce?.website)">
+                        <div class="social-link-icon" @click="toWebsite(dropsForce?.website || '')">
                           <img src="@/assets/images/icon_world.png" alt="">
                         </div>
                       </li>
                       <!-- icon-map -->
                       <li class="social-link-item">
-                        <div class="social-link-icon" @click="toDiscord(dropsForce?.discord)">
+                        <div class="social-link-icon" @click="toDiscord(dropsForce?.discord || '')">
                           <img src="@/assets/images/icon_discord.png" alt="">
                         </div>
                       </li>
                       <!-- icon-homepage -->
                       <li class="social-link-item">
-                        <div class="social-link-icon" @click="toTwitter(dropsForce?.twitter)">
+                        <div class="social-link-icon" @click="toTwitter(dropsForce?.twitter || '')">
                           <img src="@/assets/images/icon_twitter.png" alt="">
                         </div>
                       </li>
@@ -301,12 +301,21 @@ import {onMounted } from 'vue'
 import {homeApi} from '../../api';
 const router = useRouter();
 const toWebsite = (url:string) =>{
+  if(url === ''){
+    return
+  }
   window.open(url)
 }
 const toDiscord = (url:string) =>{
+  if(url === ''){
+    return
+  }
   window.open(url)
 }
 const toTwitter = (url:string) =>{
+  if(url === ''){
+    return
+  }
   window.open(url)
 }
 type IInfo ={
@@ -316,9 +325,9 @@ type IInfo ={
   price:string;
   ori_date:string;
   total:string;
-  website:string;
-  discord:string;
-  twitter:string;
+  website?:string ;
+  discord?:string;
+  twitter?:string;
 }
 const dropsOne = ref<IInfo|null>(null);
 const dropsTwo = ref<IInfo|null> (null);

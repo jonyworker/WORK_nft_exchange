@@ -127,7 +127,7 @@ const list = ref([{name:'總覽', value:1,}, {name:'熱門排行 ', value:2,}, {
 const chageTag = (value:number) =>{
   type.value = value
 }
-const hotList = ref<IHotListFree[]>([]);
+const hotList = ref<IHotListFree[]>();
 
 const getHomeHot = async () => {
   const params ={

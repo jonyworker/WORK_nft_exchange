@@ -27,7 +27,7 @@ const homeApi = {
     async getNewsDetail (id: number){
         return await request.get(`api/news/detail?id=${id}`,)
     },
-    async getHotLists (params: any){
+    async getHotLists (params: any):Promise<{hot_collections:any}>{
         return await request.get(`api/nft/hotcollections`,{params})
     },
 }
