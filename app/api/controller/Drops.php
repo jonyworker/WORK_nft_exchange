@@ -36,6 +36,12 @@ class Drops extends BaseController
         $offset = ($request['page'] - 1) * $request['count'];
         $length = $request['count'];
 
+        $background = [
+            '/nftotal/image/random_1.png',
+            '/nftotal/image/random_2.png',
+            '/nftotal/image/random_3.png'
+        ];
+
         try {
             // 这里是主体代码
             $data = DropsModel::where('valid',1)
@@ -54,6 +60,7 @@ class Drops extends BaseController
                     'roadmap' => array()
                 ];
                 foreach ($data as $k => $v) {
+                    $data[$k]['background'] = $background[shuffle($background)];
                     foreach ($translate as $k_t => $v_t) {
                         if ($v[$k_t]) {
                             $translate[$k_t][$k] = $v[$k_t];
