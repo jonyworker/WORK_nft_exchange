@@ -10,14 +10,14 @@ export default defineConfig(() => {
         base: '../public', // index.html文件所在位置
         root: './', // js导入的资源路径，src
         build: {
-            outDir: '../public',
+            outDir: '../public/dist',
             assetsDir: 'dist',
             manifest: false,
             rollupOptions: {
                 output: {
-                    entryFileNames: `dist/[name].js`,
-                    chunkFileNames: `dist/js/[name].js`,
-                    assetFileNames: `dist/[name].[ext]`,
+                    entryFileNames: `assets/[name].js`,
+                    chunkFileNames: `assets/js/[name].js`,
+                    assetFileNames: `assets/[name].[ext]`,
                 }
             }
         },
