@@ -7,7 +7,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx';  // JSX语法编写组件
 export default defineConfig(()=>{
     return {
    // base: './dist/', //打包路径
-        base: './', // index.html文件所在位置
+        base: '../public', // index.html文件所在位置
         root: './', // js导入的资源路径，src
     plugins: [
         vue({
