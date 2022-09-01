@@ -2,28 +2,40 @@ import {defineConfig} from 'vite';
 import vue from '@vitejs/plugin-vue';
 import * as path from 'path';
 import AutoImport from 'unplugin-auto-import/vite';
-import WindiCSS from 'vite-plugin-windicss';    // windi css 样式框架
-import vueJsx from '@vitejs/plugin-vue-jsx';  // JSX语法编写组件
-export default defineConfig(()=>{
+import WindiCSS from 'vite-plugin-windicss'; // windi css 样式框架
+import vueJsx from '@vitejs/plugin-vue-jsx'; // JSX语法编写组件
+export default defineConfig(() => {
     return {
-   // base: './dist/', //打包路径
+        // base: './dist/', //打包路径
         base: '../public', // index.html文件所在位置
         root: './', // js导入的资源路径，src
-    plugins: [
-        vue({
-            // refTransform: true //开启ref转换 使用$ref
-        }),
-        // ElementPlus({
-        //   useSource: true,
-        // }),
-        // gzip压缩 生产环境生成 .gz 文件
-        vueJsx({}),
-        WindiCSS(),
-        AutoImport({
-            imports: ['vue', 'vue-router'],
-        }),
-    ],
-    // 配置别名
+        build: {
+            outDir: '../public',
+            assetsDir: 'dist',
+            manifest: false,
+            rollupOptions: {
+                output: {
+                    entryFileNames: `dist/[name].js`,
+                    chunkFileNames: `dist/js/[name].js`,
+                    assetFileNames: `dist/[name].[ext]`,
+                }
+            }
+        },
+        plugins: [
+            vue({
+                // refTransform: true //开启ref转换 使用$ref
+            }),
+            // ElementPlus({
+            //   useSource: true,
+            // }),
+            // gzip压缩 生产环境生成 .gz 文件
+            vueJsx({}),
+            WindiCSS(),
+            AutoImport({
+                imports: ['vue', 'vue-router'],
+            }),
+        ],
+        // 配置别名
     resolve: {
         alias: {
             '@': path.resolve(__dirname, 'src'),
