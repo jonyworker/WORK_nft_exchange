@@ -1,7 +1,7 @@
 /.idea
 /.vscode
 /vendor
-/front
+/front/dist
 /public/dist
 *.log
 .env
