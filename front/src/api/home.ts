@@ -30,5 +30,10 @@ const homeApi = {
     async getHotLists (params: any):Promise<{hot_collections:any}>{
         return await request.get(`api/nft/hotcollections`,{params})
     },
+    //内页钱包
+    async getProfitList (params: any):Promise<{high_profit:any}>{
+        return await request.get(`api/nft/highprofit`,{params})
+    },
+
 }
 export default homeApi

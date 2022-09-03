@@ -73,7 +73,7 @@ import {useRouter} from 'vue-router';
 import {homeApi} from '../../api';
 
 const router = useRouter();
-const type = ref(1);
+const type = ref(4);
 
 interface IWallet {
   address: string

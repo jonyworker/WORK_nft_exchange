@@ -46,7 +46,7 @@
                     </p>
                     <p class="card-text  text-white">售價：{{dropsOne?.price}}</p>
                     <p class="card-text  text-white">總量：{{dropsOne?.total}}</p>
-                    <p class="card-text text-white">時間：{{dropsOne?.ori_date}}</p>
+                    <p class="card-text text-white">時間：{{dropsOne?.date}}</p>
                   </div>
                   <!-- 卡片icon -->
                   <div class="card-footer">
@@ -114,7 +114,7 @@
                     </p>
                     <p class="card-text  text-white">售價：{{dropsTwo?.price}}</p>
                     <p class="card-text  text-white">總量：{{dropsTwo?.total}}</p>
-                    <p class="card-text text-white">時間：時間待定</p>
+                    <p class="card-text text-white">時間：{{dropsTwo?.date}}</p>
                   </div>
                   <!-- 卡片icon -->
                   <div class="card-footer">
@@ -182,7 +182,7 @@
                     </p>
                     <p class="card-text  text-white">售價：{{dropsFree?.price}}</p>
                     <p class="card-text  text-white">總量：{{dropsFree?.total}}</p>
-                    <p class="card-text text-white">時間：時間待定</p>
+                    <p class="card-text text-white">時間：{{dropsFree?.date}}</p>
                   </div>
                   <!-- 卡片icon -->
                   <div class="card-footer">
@@ -250,7 +250,7 @@
                     </p>
                     <p class="card-text  text-white">售價：{{dropsForce?.price}}</p>
                     <p class="card-text  text-white">總量：{{dropsForce?.total}}</p>
-                    <p class="card-text text-white">時間：時間待定</p>
+                    <p class="card-text text-white">時間：{{dropsForce?.date}}</p>
                   </div>
                   <!-- 卡片icon -->
                   <div class="card-footer">
@@ -328,6 +328,7 @@ type IInfo ={
   website?:string ;
   discord?:string;
   twitter?:string;
+  date:string;
 }
 const dropsOne = ref<IInfo|null>(null);
 const dropsTwo = ref<IInfo|null> (null);
