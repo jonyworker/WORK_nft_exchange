@@ -17,6 +17,3 @@ import News from './news.vue';
 
 </script>
 
-<style scoped lang="less">
-
-</style>

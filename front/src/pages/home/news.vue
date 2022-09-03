@@ -171,6 +171,181 @@ onMounted(() => {
 </script>
 
 <style scoped lang="less">
-@import "./index.less";
+.news_box{
+  display: flex;
+  justify-content:space-between;
+  margin-top: 82.5px;
+}
+//.news-content{
+//  display: flex;
+//  justify-content: space-between;
+//  flex-wrap: wrap;
+//}
+.news-content .card-item {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/*----- 卡片圖片 -----*/
+.news-content .card-image {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  img{
+    height: 306px;
+  }
+}
+.single-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.multiline-ellipsis {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+}
+.news-content .card-image .card-time-wrap {
+  display: flex;
+  gap: 8px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.news-content .card-image .card-time-wrap p {
+  font-family: "Noto Sans TC", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: #FFFFFF;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #4447E2;
+}
+.news-content .card-image .card-time-wrap p {
+  font-size: 18px;
+}
+@media screen and (min-width: 768px) {
+  .news-content .card-image .card-time-wrap p {
+    font-size: calc(0vw + 18px);
+  }
+}
+@media screen and (min-width: 1536px) {
+  .news-content .card-image .card-time-wrap p {
+    font-size: 18px;
+  }
+}
+
+/*----- 卡片下方文字區塊 -----*/
+/*----- 卡片下方文字 - 容器 -----*/
+.news-content .card-text {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  flex: 1;
+  color: #FFFFFF;
+}
+
+/*----- 卡片下方文字 - 文字 -----*/
+.news-content .card-paragraph {
+  flex: 1;
+}
+
+.news-content .card-text .card-tag {
+  font-family: "Noto Sans TC", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0;
+  padding: 2px 8px;
+  background-color: #4447E2;
+  border-radius: 4px;
+}
+.news-content .card-text .card-tag {
+  font-size: 18px;
+}
+@media screen and (min-width: 768px) {
+  .news-content .card-text .card-tag {
+    font-size: calc(0vw + 18px);
+  }
+}
+@media screen and (min-width: 1536px) {
+  .news-content .card-text .card-tag {
+    font-size: 18px;
+  }
+}
+
+.news-content .card-text h3 {
+  font-family: "Noto Sans TC", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.33;
+  letter-spacing: 0;
+  -webkit-line-clamp: 2;
+}
+.news-content .card-text h3 {
+  font-size: 22px;
+}
+@media screen and (min-width: 768px) {
+  .news-content .card-text h3 {
+    font-size: calc(0.78125vw + 16px);
+  }
+}
+@media screen and (min-width: 1536px) {
+  .news-content .card-text h3 {
+    font-size: 28px;
+  }
+}
+
+.news-content .card-text .card-paragraph p {
+  font-family: "Noto Sans TC", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.57;
+  letter-spacing: 0;
+  -webkit-line-clamp: 4;
+  color: rgba(255, 255, 255, 0.5490196078);
+}
+.news-content .card-text .card-paragraph p {
+  font-size: 14px;
+}
+@media screen and (min-width: 768px) {
+  .news-content .card-text .card-paragraph p {
+    font-size: calc(0vw + 14px);
+  }
+}
+@media screen and (min-width: 1536px) {
+  .news-content .card-text .card-paragraph p {
+    font-size: 14px;
+  }
+}
+
+.news-content .card-text small {
+  font-family: "Noto Sans TC", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.57;
+  letter-spacing: 0;
+  color: rgba(255, 255, 255, 0.3490196078);
+}
+.news-content .card-text small {
+  font-size: 14px;
+}
+@media screen and (min-width: 768px) {
+  .news-content .card-text small {
+    font-size: calc(0vw + 14px);
+  }
+}
+@media screen and (min-width: 1536px) {
+  .news-content .card-text small {
+    font-size: 14px;
+  }
+}
 
 </style>

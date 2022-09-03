@@ -186,6 +186,152 @@ onMounted(() => {
 </script>
 
 <style scoped lang="less">
-@import "./index.less";
+.special_box{
+  display: flex;
+  justify-content:space-between;
+  margin-top: 82.5px;
+}
+
+.hot-item-content{
+  padding-top: 42.5px;
+  //display: flex;
+  //flex-direction: column;
+  //width:416px;
+}
+ .hot-item-card {
+  background-color: #1C1C24;
+  border-radius: 16px;
+  padding: 12px 24px;
+}
+
+.ranking-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.3490196078);
+  padding: 12px 0;
+}
+
+ .ranking-item .ranking-sort {
+  font-family: "Noto Sans TC", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: rgba(255, 255, 255, 0.3490196078);
+}
+ .ranking-item .ranking-sort {
+  font-size: 18px;
+}
+@media screen and (min-width: 768px) {
+  .ranking-item .ranking-sort {
+    font-size: calc(0vw + 18px);
+  }
+}
+@media screen and (min-width: 1536px) {
+ .ranking-item .ranking-sort {
+    font-size: 18px;
+  }
+}
+
+ .ranking-item .ranking-picture {
+  flex: 0 0 50px;
+   width:38px;
+ height:38px;
+   img{
+     width:38px;
+     height:38px;
+     border-radius:50%;
+   }
+}
+
+.ranking-item .ranking-text {
+  width: 100%;
+  min-width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+ .ranking-item .ranking-top,
+.ranking-item .ranking-bottom {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+ .ranking-item .ranking-top .title-wrap {
+  font-family: "Noto Sans TC", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: #FFFFFF;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 8px;
+}
+ .ranking-item .ranking-top .title-wrap {
+  font-size: 18px;
+}
+@media screen and (min-width: 768px) {
+  .ranking-item .ranking-top .title-wrap {
+    font-size: calc(0vw + 18px);
+  }
+}
+@media screen and (min-width: 1536px) {
+  .ranking-item .ranking-top .title-wrap {
+    font-size: 18px;
+  }
+}
+
+.ranking-item .ranking-top .ranking-title {
+  font-family: "Noto Sans TC", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: #FFFFFF;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+ .ranking-item .ranking-top .ranking-title {
+  font-size: 18px;
+}
+@media screen and (min-width: 768px) {
+ .ranking-item .ranking-top .ranking-title {
+    font-size: calc(0vw + 18px);
+  }
+}
+@media screen and (min-width: 1536px) {
+  .ranking-item .ranking-top .ranking-title {
+    font-size: 18px;
+  }
+}
+
+.ranking-item .ranking-top .ranking-value {
+  font-family: "Noto Sans TC", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: #14D400;
+  white-space: nowrap;
+}
+.ranking-item .ranking-top .ranking-value {
+  font-size: 18px;
+}
+@media screen and (min-width: 768px) {
+  .ranking-item .ranking-top .ranking-value {
+    font-size: calc(0vw + 18px);
+  }
+}
+@media screen and (min-width: 1536px) {
+   .ranking-item .ranking-top .ranking-value {
+    font-size: 18px;
+  }
+}
 
 </style>

@@ -347,6 +347,215 @@ onMounted(() => {
 </script>
 
 <style scoped lang="less">
-@import "./index.less";
+.card-icon-img{
+  width: 38px;
+  height: 38px;
+  img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+}
+.card_icon{
+  width: 50px;
+  display: flex;
+  position: absolute;
+  top:10%;
+  left: 10%;
+  gap:12px;
+  .icon_list{
+    width: 50px;
+    img{
+      width: 24px;
+      height: 16.5px;
+    }
+  }
+}
+.minting_box{
+  display: flex;
+  justify-content:space-between;
+  margin-top: 82.5px;
+}
+.minting-content .card-item {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/*----- 卡片圖片 -----*/
+.minting-content .card-image {
+  width: 100%;
+  border-radius: 16px 16px 0px 0px;
+  overflow: hidden;
+  position: relative;
+}
+
+.minting-content .card-image .card-time-wrap {
+  display: flex;
+  gap: 8px;
+  position: absolute;
+  top: 40%;
+  right: 80px;
+}
+
+.minting-content .card-image .card-time-wrap p {
+  font-family: "Noto Sans TC", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: #FFFFFF;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #4447E2;
+}
+.minting-content .card-image .card-time-wrap p {
+  font-size: 18px;
+}
+@media screen and (min-width: 768px) {
+  .minting-content .card-image .card-time-wrap p {
+    font-size: calc(0vw + 18px);
+  }
+}
+@media screen and (min-width: 1536px) {
+  .minting-content .card-image .card-time-wrap p {
+    font-size: 18px;
+  }
+}
+
+/*----- 卡片下方文字區塊 -----*/
+/*----- 卡片下方文字 - 容器 -----*/
+.minting-content .card-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: #1C1C24;
+  border-radius: 0px 0px 16px 16px;
+  padding:6px 16px 0px 16px;
+  color:rgba(255, 255, 255, 0.9);
+}
+
+/*----- 卡片下方文字 - 文字 -----*/
+.minting-content .card-title {
+  flex: 1;
+}
+
+.minting-content .card-text h3 {
+  font-family: "Noto Sans TC", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.33;
+  letter-spacing: 0;
+  -webkit-line-clamp: 2;
+}
+.minting-content .card-text h3 {
+  font-size: 22px;
+}
+@media screen and (min-width: 768px) {
+  .minting-content .card-text h3 {
+    font-size: calc(0.78125vw + 16px);
+  }
+}
+@media screen and (min-width: 1536px) {
+  .minting-content .card-text h3 {
+    font-size: 28px;
+  }
+}
+
+.minting-content .card-text .card-time {
+  font-family: "Noto Sans TC", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.375;
+  letter-spacing: 0;
+}
+.minting-content .card-text .card-time {
+  font-size: 16px;
+}
+@media screen and (min-width: 768px) {
+  .minting-content .card-text .card-time {
+    font-size: calc(0vw + 16px);
+  }
+}
+@media screen and (min-width: 1536px) {
+  .minting-content .card-text .card-time {
+    font-size: 16px;
+  }
+}
+
+/*----- 卡片下方文字 - 列表 -----*/
+.minting-content .card-text .info-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.minting-content .card-text .info-item:nth-of-type(-1n+2) {
+  padding-right: 3.2%;
+  border-right: 1px solid #fff;
+  margin-right: 3%;
+}
+
+.minting-content .card-text .community-icon {
+  fill: #FFFFFF;
+}
+
+.minting-content .card-text .info-item {
+  display: flex;
+}
+
+.minting-content .card-text .info-item h4 {
+  font-family: "Noto Sans TC", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+.minting-content .card-text .info-item h4 {
+  font-size: 18px;
+}
+@media screen and (min-width: 768px) {
+  .minting-content .card-text .info-item h4 {
+    font-size: calc(0vw + 18px);
+  }
+}
+@media screen and (min-width: 1536px) {
+  .minting-content .card-text .info-item h4 {
+    font-size: 18px;
+  }
+}
+
+.minting-content .card-text .info-item small {
+  font-family: "Noto Sans TC", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.66;
+  letter-spacing: 0;
+}
+.minting-content .card-text .info-item small {
+  font-size: 12px;
+}
+@media screen and (min-width: 768px) {
+  .minting-content .card-text .info-item small {
+    font-size: calc(0vw + 12px);
+  }
+}
+@media screen and (min-width: 1536px) {
+  .minting-content .card-text .info-item small {
+    font-size: 12px;
+  }
+}
+.card-footer {
+  padding: 6px 16px 16px;
+  background-color: #1C1C24;
+}
+ .card-footer .social-link-wrap {
+  display: flex;
+  gap: 24px;
+}
+ .card-footer .social-link-wrap .social-link-icon svg {
+  fill: rgba(255, 255, 255, 0.2);
+  height: 32px;
+  width: 32px;
+}
 
 </style>

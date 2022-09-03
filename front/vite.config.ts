@@ -12,7 +12,7 @@ export default defineConfig(() => {
         build: {
             outDir: '../public/dist',
             assetsDir: 'dist',
-            manifest: false,
+            cssCodeSplit: false,
             rollupOptions: {
                 output: {
                     entryFileNames: `assets/[name].js`,
@@ -55,9 +55,6 @@ export default defineConfig(() => {
                 //  target: 'http://www.farm01.com/',
                 ws: true, // 代理的WebSockets
                 changeOrigin: true, // 允许websockets跨域
-                // pathRewrite: {
-                //     '^/api': '',
-                // },
             },
         },
     },
