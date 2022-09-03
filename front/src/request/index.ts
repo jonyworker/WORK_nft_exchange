@@ -1,11 +1,21 @@
 import axios from "axios";
-
 import config from './config'
+import {useStore} from "vuex";
+const store = useStore();
 
 const service = axios.create({
     ...config,
     timeout: 60000
 })
+service.interceptors.request.use(function (config) {
+    // 在发送请求之前做些什么
+    const lan =sessionStorage.getItem('localeLangEnum')??1
+    config.params ={...config.params,lan:Number(lan)}
+    return config;
+}, function (error) {
+    // 对请求错误做些什么
+    return Promise.reject(error);
+});
 service.interceptors.response.use(
     response => {
 

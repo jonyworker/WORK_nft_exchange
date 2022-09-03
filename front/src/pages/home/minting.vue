@@ -10,92 +10,94 @@
       </div>
       <div class="subtitle">前往查看</div>
     </div>
-        <div class="minting-content mt-10">
-          <!-- 觀測站卡片 -->
-          <div class="row">
-            <!-- 1st -->
-            <div class="col-12 col-sm-6 col-lg-3">
-              <div class="card-item card-1">
-                <!-- 卡片圖片 -->
-                <div class="card-image">
-                  <img src="@/assets/images/random_1.png" alt="">
-                  <div class="card_icon">
-                    <div class="icon_list"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px"></div>
-                    <div class="icon_list"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
-                  </div>
-                  <div class="card-time-wrap">
-                    <p class="count-down-day">7</p>
-                    <p class="count-down-hour">13</p>
-                    <p class="count-down-min">30</p>
-                    <p class="count-down-sec">21</p>
-                  </div>
+    <div class="minting-content mt-10">
+      <!-- 觀測站卡片 -->
+      <div class="row">
+        <!-- 1st -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card-item card-1">
+            <!-- 卡片圖片 -->
+            <div class="card-image">
+              <img src="@/assets/images/random_1.png" alt="">
+              <div class="card_icon">
+                <div class="icon_list"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
                 </div>
-                <!-- 卡片內文 -->
-                <div class="card-text">
-                  <!-- icon 圖片 -->
-                  <div class="card-text-icon-wrap">
-                    <div class="card-icon-img">
-                      <img :src="dropsOne?.collection_url" alt="">
-                    </div>
-                    <p class="heading-B-4 text-white">{{dropsOne?.collection}}</p>
-                  </div>
-                  <!-- 內文 -->
-                  <div class="card-text-wrap">
-                    <p class="card-title text-white">
-                      {{dropsOne?.introduction}}
-                    </p>
-                    <p class="card-text  text-white">售價：{{dropsOne?.price}}</p>
-                    <p class="card-text  text-white">總量：{{dropsOne?.total}}</p>
-                    <p class="card-text text-white">時間：{{dropsOne?.date}}</p>
-                  </div>
-                  <!-- 卡片icon -->
-                  <div class="card-footer">
-                    <!-- social-link -->
-                    <ul class="social-link-wrap">
-                      <!-- icon-group -->
-                      <li class="social-link-item">
-                        <div class="social-link-icon" @click="toWebsite(dropsOne?.website || '')">
-                          <img src="@/assets/images/icon_world.png" alt="">
-                        </div>
-                      </li>
-                      <!-- icon-map -->
-                      <li class="social-link-item">
-                        <div class="social-link-icon" @click="toDiscord(dropsOne?.discord || '')">
-                          <img src="@/assets/images/icon_discord.png" alt="">
-                        </div>
-                      </li>
-                      <!-- icon-homepage -->
-                      <li class="social-link-item">
-                        <div class="social-link-icon" @click="toTwitter(dropsOne?.twitter || '')">
-                          <img src="@/assets/images/icon_twitter.png" alt="">
-                        </div>
-                      </li>
-                      <!-- icon-discord -->
-                      <li class="social-link-item">
-                        <div class="social-link-icon">
-                          <img src="@/assets/images/icons.png" alt="">
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+                <div class="icon_list"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
+              </div>
+              <div class="card-time-wrap">
+                <p class="count-down-day">{{ durationDate.days }}</p>
+                <p class="count-down-hour">{{ durationDate.hours }}</p>
+                <p class="count-down-min">{{ durationDate.minutes }}</p>
+                <p class="count-down-sec">{{ durationDate.seconds }}</p>
               </div>
             </div>
-            <!-- 2nd -->
-            <div class="d-none d-sm-block col-sm-6 col-lg-3">
-              <div class="card-item card-1">
-                <!-- 卡片圖片 -->
-                <div class="card-image">
-                  <img src="@/assets/images/random_2.png" alt="">
-                  <div class="card_icon">
-                    <div class="icon_list"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px"></div>
-                    <div class="icon_list"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
-                  </div>
+            <!-- 卡片內文 -->
+            <div class="card-text">
+              <!-- icon 圖片 -->
+              <div class="card-text-icon-wrap">
+                <div class="card-icon-img">
+                  <img :src="dropsOne?.collection_url" alt="">
+                </div>
+                <p class="heading-B-4 text-white">{{ dropsOne?.collection }}</p>
+              </div>
+              <!-- 內文 -->
+              <div class="card-text-wrap">
+                <p class="card-title text-white">
+                  {{ dropsOne?.introduction }}
+                </p>
+                <p class="card-text  text-white">售價：{{ dropsOne?.price }}</p>
+                <p class="card-text  text-white">總量：{{ dropsOne?.total }}</p>
+                <p class="card-text text-white">時間：{{ (dropsOne?.date).split(' ')[1] }}</p>
+              </div>
+              <!-- 卡片icon -->
+              <div class="card-footer">
+                <!-- social-link -->
+                <ul class="social-link-wrap">
+                  <!-- icon-group -->
+                  <li class="social-link-item">
+                    <div class="social-link-icon" @click="toWebsite(dropsOne?.website || '')">
+                      <img src="@/assets/images/icon_world.png" alt="">
+                    </div>
+                  </li>
+                  <!-- icon-map -->
+                  <li class="social-link-item">
+                    <div class="social-link-icon" @click="toDiscord(dropsOne?.discord || '')">
+                      <img src="@/assets/images/icon_discord.png" alt="">
+                    </div>
+                  </li>
+                  <!-- icon-homepage -->
+                  <li class="social-link-item">
+                    <div class="social-link-icon" @click="toTwitter(dropsOne?.twitter || '')">
+                      <img src="@/assets/images/icon_twitter.png" alt="">
+                    </div>
+                  </li>
+                  <!-- icon-discord -->
+                  <li class="social-link-item">
+                    <div class="social-link-icon">
+                      <img src="@/assets/images/icons.png" alt="">
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 2nd -->
+          <div class="d-none d-sm-block col-sm-6 col-lg-3" >
+          <div class="card-item card-1">
+            <!-- 卡片圖片 -->
+            <div class="card-image">
+              <img src="@/assets/images/random_2.png" alt="">
+              <div class="card_icon">
+                <div class="icon_list"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
+                </div>
+                <div class="icon_list"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
+              </div>
                   <div class="card-time-wrap">
-                    <p class="count-down-day">11</p>
-                    <p class="count-down-hour">9</p>
-                    <p class="count-down-min">58</p>
-                    <p class="count-down-sec">45</p>
+                    <p class="count-down-day">{{ durationDateTwo.days }}</p>
+                    <p class="count-down-hour">{{ durationDateTwo.hours }}</p>
+                    <p class="count-down-min">{{ durationDateTwo.minutes }}</p>
+                    <p class="count-down-sec">{{ durationDateTwo.seconds }}</p>
                   </div>
                 </div>
                 <!-- 卡片內文 -->
@@ -114,7 +116,7 @@
                     </p>
                     <p class="card-text  text-white">售價：{{dropsTwo?.price}}</p>
                     <p class="card-text  text-white">總量：{{dropsTwo?.total}}</p>
-                    <p class="card-text text-white">時間：{{dropsTwo?.date}}</p>
+                    <p class="card-text text-white">時間：{{(dropsTwo?.date).split(' ')[1]}}</p>
                   </div>
                   <!-- 卡片icon -->
                   <div class="card-footer">
@@ -150,7 +152,7 @@
               </div>
             </div>
             <!-- 3rd -->
-            <div class="d-none d-lg-block col-lg-3">
+            <div class="d-none d-lg-block col-lg-3" v-for="(item,index) in dropsFree" :key="index">
               <div class="card-item card-1">
                 <!-- 卡片主圖 -->
                 <div class="card-image">
@@ -160,10 +162,10 @@
                     <div class="icon_list"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
                   </div>
                   <div class="card-time-wrap">
-                    <p class="count-down-day">3</p>
-                    <p class="count-down-hour">23</p>
-                    <p class="count-down-min">1</p>
-                    <p class="count-down-sec">32</p>
+                    <p class="count-down-day">{{ durationDateFree.days }}</p>
+                    <p class="count-down-hour">{{ durationDateFree.hours }}</p>
+                    <p class="count-down-min">{{ durationDateFree.minutes }}</p>
+                    <p class="count-down-sec">{{ durationDateFree.seconds }}</p>
                   </div>
                 </div>
                 <!-- 卡片內文 -->
@@ -171,18 +173,18 @@
                   <!-- icon 圖片 -->
                   <div class="card-text-icon-wrap">
                     <div class="card-icon-img">
-                      <img :src="dropsFree?.collection_url" alt="">
+                      <img :src="item.collection_url" alt="">
                     </div>
-                    <p class="heading-B-4 text-white">{{dropsFree?.collection}}</p>
+                    <p class="heading-B-4 text-white">{{item.collection}}</p>
                   </div>
                   <!-- 內文 -->
                   <div class="card-text-wrap">
                     <p class="card-title text-white">
-                      {{dropsFree?.introduction}}
+                      {{item.introduction}}
                     </p>
-                    <p class="card-text  text-white">售價：{{dropsFree?.price}}</p>
-                    <p class="card-text  text-white">總量：{{dropsFree?.total}}</p>
-                    <p class="card-text text-white">時間：{{dropsFree?.date}}</p>
+                    <p class="card-text  text-white">售價：{{item.price}}</p>
+                    <p class="card-text  text-white">總量：{{item.total}}</p>
+                    <p class="card-text text-white">時間：{{(item.date).split(' ')[1]}}</p>
                   </div>
                   <!-- 卡片icon -->
                   <div class="card-footer">
@@ -190,87 +192,19 @@
                     <ul class="social-link-wrap">
                       <!-- icon-group -->
                       <li class="social-link-item">
-                        <div class="social-link-icon" @click="toWebsite(dropsFree?.website|| '')">
+                        <div class="social-link-icon" @click="toWebsite(item.website|| '')">
                           <img src="@/assets/images/icon_world.png" alt="">
                         </div>
                       </li>
                       <!-- icon-map -->
                       <li class="social-link-item">
-                        <div class="social-link-icon" @click="toDiscord(dropsFree?.discord ||'')">
+                        <div class="social-link-icon" @click="toDiscord(item.discord ||'')">
                           <img src="@/assets/images/icon_discord.png" alt="">
                         </div>
                       </li>
                       <!-- icon-homepage -->
                       <li class="social-link-item">
-                        <div class="social-link-icon" @click="toTwitter(dropsFree?.twitter || '')">
-                          <img src="@/assets/images/icon_twitter.png" alt="">
-                        </div>
-                      </li>
-                      <!-- icon-discord -->
-                      <li class="social-link-item">
-                        <div class="social-link-icon">
-                          <img src="@/assets/images/icons.png" alt="">
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- 4th -->
-            <div class="d-none d-lg-block col-lg-3">
-              <div class="card-item card-1">
-                <!-- 卡片圖片 -->
-                <div class="card-image">
-                  <img src="@/assets/images/random_1.png" alt="">
-                  <div class="card_icon">
-                    <div class="icon_list"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px"></div>
-                    <div class="icon_list"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
-                  </div>
-                  <div class="card-time-wrap">
-                    <p class="count-down-day">0</p>
-                    <p class="count-down-hour">4</p>
-                    <p class="count-down-min">51</p>
-                    <p class="count-down-sec">20</p>
-                  </div>
-                </div>
-                <!-- 卡片內文 -->
-                <div class="card-text">
-                  <!-- icon 圖片 -->
-                  <div class="card-text-icon-wrap">
-                    <div class="card-icon-img">
-                      <img :src="dropsForce?.collection_url" alt="">
-                    </div>
-                    <p class="heading-B-4 text-white">{{dropsForce?.collection}}</p>
-                  </div>
-                  <!-- 內文 -->
-                  <div class="card-text-wrap">
-                    <p class="card-title text-white">
-                     {{dropsForce?.introduction}}
-                    </p>
-                    <p class="card-text  text-white">售價：{{dropsForce?.price}}</p>
-                    <p class="card-text  text-white">總量：{{dropsForce?.total}}</p>
-                    <p class="card-text text-white">時間：{{dropsForce?.date}}</p>
-                  </div>
-                  <!-- 卡片icon -->
-                  <div class="card-footer">
-                    <!-- social-link -->
-                    <ul class="social-link-wrap">
-                      <!-- icon-group -->
-                      <li class="social-link-item">
-                        <div class="social-link-icon" @click="toWebsite(dropsForce?.website || '')">
-                          <img src="@/assets/images/icon_world.png" alt="">
-                        </div>
-                      </li>
-                      <!-- icon-map -->
-                      <li class="social-link-item">
-                        <div class="social-link-icon" @click="toDiscord(dropsForce?.discord || '')">
-                          <img src="@/assets/images/icon_discord.png" alt="">
-                        </div>
-                      </li>
-                      <!-- icon-homepage -->
-                      <li class="social-link-item">
-                        <div class="social-link-icon" @click="toTwitter(dropsForce?.twitter || '')">
+                        <div class="social-link-icon" @click="toTwitter(item.twitter || '')">
                           <img src="@/assets/images/icon_twitter.png" alt="">
                         </div>
                       </li>
@@ -295,25 +229,28 @@
 </template>
 
 <script setup lang="ts">
-import {ref} from "vue";
-import { useRouter } from 'vue-router';
-import {onMounted } from 'vue'
+import {onMounted, ref, watch} from "vue";
+import {useRouter} from 'vue-router';
 import {homeApi} from '../../api';
+import {IDuringDate, initDuration} from '@utils/time'
+import moment from "moment";
+
+
 const router = useRouter();
-const toWebsite = (url:string) =>{
-  if(url === ''){
+const toWebsite = (url: string) => {
+  if (url === '') {
     return
   }
   window.open(url)
 }
-const toDiscord = (url:string) =>{
-  if(url === ''){
+const toDiscord = (url: string) => {
+  if (url === '') {
     return
   }
   window.open(url)
 }
-const toTwitter = (url:string) =>{
-  if(url === ''){
+const toTwitter = (url: string) => {
+  if (url === '') {
     return
   }
   window.open(url)
@@ -338,13 +275,94 @@ const getHomeWallet =async()=>{
   const res = await homeApi.getDrops({});
   dropsOne.value = res.data[0]
   dropsTwo.value = res.data[1]
-  dropsFree.value = res.data[2]
+  dropsFree.value = res.data.slice(2, 4)
   dropsForce.value = res.data[3]
 }
 
 onMounted(() => {
   getHomeWallet()
 })
+
+const durationDate = ref<IDuringDate>(initDuration);
+const durationDateTwo = ref<IDuringDate>(initDuration);
+const durationDateFree = ref<IDuringDate>(initDuration);
+const timer: any = ref<number>()
+const buildTimer = (date: Date) => {
+  return setInterval(() => {
+    const now = new Date()
+    if (moment(date).isBefore(now, 'seconds')) {
+      durationDate.value = initDuration;
+      timer.value && clearInterval(timer.value)
+      return
+    }
+    const endTime = moment(date).unix()
+    const nowTime = moment(now).unix()
+    const during = moment.duration(endTime - nowTime, 'seconds');
+    durationDate.value = {
+      months: during.months(),
+      days: during.days(),
+      hours: during.hours(),
+      minutes: during.minutes(),
+      seconds: during.seconds()
+    }
+  }, 1000)
+}
+watch(dropsOne, (value) => {
+  if (value) {
+    timer.value = buildTimer(value.date ? new Date(value.date) : new Date())
+  }
+}, {deep: true});
+const buildTimers = (date: Date) => {
+  return setInterval(() => {
+    const now = new Date()
+    if (moment(date).isBefore(now, 'seconds')) {
+      durationDateFree.value = initDuration;
+      timer.value && clearInterval(timer.value)
+      return
+    }
+    const endTime = moment(date).unix()
+    const nowTime = moment(now).unix()
+    const during = moment.duration(endTime - nowTime, 'seconds');
+    durationDateFree.value = {
+      months: during.months(),
+      days: during.days(),
+      hours: during.hours(),
+      minutes: during.minutes(),
+      seconds: during.seconds()
+    }
+  }, 1000)
+}
+watch(dropsFree, (value) => {
+  if (value) {
+    timer.value = buildTimers(value.date ? new Date(value.date) : new Date())
+  }
+}, {deep: true})
+const buildTimerList = (date: Date) => {
+  return setInterval(() => {
+    const now = new Date()
+    if (moment(date).isBefore(now, 'seconds')) {
+      durationDateTwo.value = initDuration;
+      timer.value && clearInterval(timer.value)
+      return
+    }
+    const endTime = moment(date).unix()
+    const nowTime = moment(now).unix()
+    const during = moment.duration(endTime - nowTime, 'seconds');
+    durationDateTwo.value = {
+      months: during.months(),
+      days: during.days(),
+      hours: during.hours(),
+      minutes: during.minutes(),
+      seconds: during.seconds()
+    }
+  }, 1000)
+}
+watch(dropsTwo, (value) => {
+  if (value) {
+    timer.value = buildTimerList(value.date ? new Date(value.date) : new Date())
+  }
+}, {deep: true})
+
 </script>
 
 <style scoped lang="less">

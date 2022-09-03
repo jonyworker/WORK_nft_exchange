@@ -40,7 +40,7 @@
 
                     <div class="td-wrap-content">
                       <p class="single-ellipsis">{{item.address}}</p>
-                      <div class="profile-pic ml-6">
+                      <div class="profile-pic ml-6" @click="copyInfo(item.address)">
                         <img src="@/assets/images/icon_copy.png" alt="">
                       </div>
                     </div>
@@ -71,7 +71,7 @@
 import {onMounted, ref} from "vue";
 import {useRouter} from 'vue-router';
 import {homeApi} from '../../api';
-
+import {copy} from '@utils/copy'
 const router = useRouter();
 const type = ref(4);
 
@@ -89,6 +89,9 @@ const dateList = ref([{name: '24小时', value: 1,}, {name: '7天', value: 2,}, 
   name: '60天',
   value: 4
 }])
+const copyInfo=(info:string)=>{
+  copy(info)
+}
 const chageTag = async (value: number) => {
   type.value = value
   const res = await homeApi.getWallet(type.value);

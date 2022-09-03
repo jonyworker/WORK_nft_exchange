@@ -39,6 +39,11 @@ export default defineConfig(() => {
     resolve: {
         alias: {
             '@': path.resolve(__dirname, 'src'),
+            '@utils': path.resolve(__dirname, 'src/utils'),
+            '@api': path.resolve(__dirname, 'src/api'),
+            '@components': path.resolve(__dirname, 'src/components'),
+            '@store': path.resolve(__dirname, 'src/store'),
+            '@enum': path.resolve(__dirname, 'src/enum'),
         },
         extensions: ['.js', '.ts', '.json', '.vue'], //导入文件省略后缀
     },

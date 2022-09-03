@@ -50,7 +50,7 @@
 
 <script lang='ts' setup >
 import {useStore} from 'vuex';
-import {langType} from '../enum/options';
+import {langType} from '../enum/lanuage';
 import { ref } from 'vue'
 import {useI18n} from 'vue-i18n';
 import {useDark, useToggle} from '@vueuse/core';
@@ -73,8 +73,8 @@ const handleSelect = (value: string) => {
   console.log("-> value", value);
 }
 const handleCommand = (value: string) => {
-  locale.value = value;
   store.commit('CHANGE_LANGUAGE', value);
+  router.go(0);
 };
 const toHome = () =>{
   router.push({name: 'Home'})
