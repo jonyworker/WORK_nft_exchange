@@ -1,11 +1,12 @@
-import {LANG_TYPE_ENUM} from "../enum/lanuage";
+import {LANG_TYPE_ENUM} from "@enum/lanuage";
 
 export type State = {
+    os: {
+        isTablet: boolean,
+        isPhone: boolean,
+        isAndroid: boolean,
+        isPc: boolean
+    };
     language: string;
     languageEnum: LANG_TYPE_ENUM;
-};
-
-export const state: State = {
-    language: sessionStorage.getItem("localeLang") || "zhCn",
-    languageEnum: LANG_TYPE_ENUM["zh-tw"],
 };

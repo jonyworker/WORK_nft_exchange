@@ -1,4 +1,4 @@
-import {onBeforeUnmount, onMounted, ref} from 'vue'
+import {onBeforeUnmount, ref, watch,toRefs} from 'vue'
 import moment from 'moment'
 
 export interface IDuringDate {
@@ -26,6 +26,7 @@ export const useCountdown = (date: Date) => {
     const isEnd = ref<boolean>(false)
     const timer: any = ref<number>()
     const buildTimer = () => {
+        timer.value && clearInterval(timer.value)
         return setInterval(() => {
             const now = new Date()
             if (moment(date).isBefore(now, 'seconds')) {
@@ -37,6 +38,7 @@ export const useCountdown = (date: Date) => {
             const endTime = moment(date).unix()
             const nowTime = moment(now).unix()
             const during = moment.duration(endTime - nowTime, 'seconds');
+
             durationDate.value = {
                 months: during.months(),
                 days: during.days(),
@@ -46,12 +48,12 @@ export const useCountdown = (date: Date) => {
             }
         }, 1000)
     }
-    onMounted(() => {
+    watch(date, (value) => {
         timer.value = buildTimer()
-    })
+    },{immediate:true})
 
     onBeforeUnmount(() => {
         timer.value && clearInterval(timer.value)
     })
-    return {durationDate, isEnd}
+    return durationDate
 }

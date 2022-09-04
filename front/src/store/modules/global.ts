@@ -1,7 +1,9 @@
 import {MutationTree} from 'vuex';
 import {State} from '../state';
-import {LANG_TYPE_ENUM} from '../../enum/lanuage'
+import {LANG_TYPE_ENUM} from '@enum/lanuage'
+import osInfo from '@utils/judjeOS'
 export const state: State = {
+    os: osInfo,
     language: sessionStorage.getItem('localeLang') || 'zh-tw',
     languageEnum: LANG_TYPE_ENUM['zh-tw'],
 };
