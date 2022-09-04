@@ -98,7 +98,7 @@ const chageTag = async (value: number) => {
   walletList.value = res.high_profit
 }
 const hotRanking = () => {
-  router.push({name: 'HotRanking'})
+  router.push({name: 'HotRanking',query:{type:3}})
 }
 const getHomeWallet = async () => {
   const res = await homeApi.getWallet(type.value);

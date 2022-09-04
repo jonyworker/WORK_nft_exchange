@@ -171,7 +171,7 @@ const chageTag = async (value: number) => {
   hotListFree.value = res.hot_collections.slice(10,15);
 }
 const hotRanking = () => {
-  router.push({name: 'HotRanking'})
+  router.push({name: 'HotRanking',query:{type:2}})
 }
 const getHomeHot = async () => {
   const res = await homeApi.getHotCollections(type.value);
