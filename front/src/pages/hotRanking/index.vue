@@ -95,7 +95,12 @@
                         <th scope="row">0{{index + 1}}</th>
                         <td class="td-wrap">
                           <div class="td-wrap-content">
-                            <p class="single-ellipsis"> {{item.address}}</p>
+                            <div class="parent">
+                              <div class='parent-main'>
+                                <span class='prev-span'>{{item.address.slice(0, 9)}}</span>
+                                <span class='next-span'>{{item.address.slice(-6)}}</span>
+                              </div>
+                            </div>
                             <div class="profile-pic ml-6" @click="copyInfo(item.address)">
                               <img src="@/assets/images/icon_copy.png" alt="">
                             </div>
@@ -237,6 +242,29 @@ onMounted(() => {
 @media screen and (min-width: 1536px) {
   .title-wrap .subtile {
     font-size: 18px;
+  }
+}
+.parent{
+  width: 130px;
+  height: 36px;
+  line-height: 36px;
+  text-align: left;
+  border: 1px solid;
+  .parent-main{
+    width: 100%;
+    height: 36px;
+    display: flex;
+    overflow: hidden;
+    .prev-span{
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .next-span{
+      display: block;
+      white-space: nowrap;
+    }
   }
 }
 </style>
