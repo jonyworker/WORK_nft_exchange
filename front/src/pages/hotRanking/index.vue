@@ -55,12 +55,14 @@
                             <p class="single-ellipsis">{{item.name}}</p>
                           </div>
                         </td>
-                        <td class="">{{ item.volume_24_p }}%</td>
-                        <td class="go-down">-19.18%</td>
-                        <td class="go-up">+19.18%</td>
-                        <td>3.2 ETH</td>
-                        <td>34.4k</td>
-                        <td>98.4k</td>
+                        <td class="" v-if="date === 1">{{ item.volume_24_p }}</td>
+                        <td class="" v-if="date === 2">{{ item.volume_7d }}</td>
+                        <td class="" v-if="date === 3">{{ item.volume_30d}}</td>
+                        <td class="go-down">{{item.volume_24_p}}</td>
+                        <td class="go-up">{{item.volume_7d_p}}</td>
+                        <td>{{item.holders}}</td>
+                        <td>{{item.floor_price}}</td>
+                        <td>{{item.item_qty}}</td>
                       </tr>
                       </tbody>
                     </table>
@@ -138,7 +140,10 @@ interface IHotListFree{
   unit_photo: string;
   floor_price: string;
   volume_24: string;
-
+  volume_7d:string;
+  volume_30d:string;
+  holders:string;
+  volume_7d_p:string;
 }
 interface  IProfit{
   id: string; //profit_stat.id
@@ -149,6 +154,7 @@ interface  IProfit{
   win_ct: string;
   lost_ct: string;
   other_txns: string;
+  item_qty:string;
 }
 const ps = router.currentRoute.value.query.type;
 const type = ref ( 2);
