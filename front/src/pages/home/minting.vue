@@ -18,11 +18,12 @@
           <div class="card-item card-1">
             <!-- 卡片圖片 -->
             <div class="card-image">
+<!--              <img :src="http + dropsOne?.background" alt="">-->
               <img src="@/assets/images/random_1.png" alt="">
               <div class="card_icon">
-                <div class="icon_list"  @click="dialogFormVisible = true"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
+                <div class="icon_list"  @click="toDailog(1)"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
                 </div>
-                <div class="icon_list"  @click="dialogFormVisible = true"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
+                <div class="icon_list"  @click="toDailog(2)"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
               </div>
               <div class="card-time-wrap">
                 <p class="count-down-day">{{ durationDateOne?.value?.days }}</p>
@@ -87,6 +88,7 @@
           <div class="card-item card-1">
             <!-- 卡片圖片 -->
             <div class="card-image">
+<!--              <img :src="http + dropsTwo?.background" alt="">-->
               <img src="@/assets/images/random_2.png" alt="">
               <div class="card_icon">
                 <div class="icon_list"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
@@ -156,6 +158,7 @@
           <div class="card-item card-1">
             <!-- 卡片圖片 -->
             <div class="card-image">
+<!--              <img :src="http + dropsThree?.background" alt="">-->
               <img src="@/assets/images/random_3.png" alt="">
               <div class="card_icon">
                 <div class="icon_list"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
@@ -226,6 +229,7 @@
           <div class="card-item card-1">
             <!-- 卡片圖片 -->
             <div class="card-image">
+<!--              <img :src="http + dropsFour?.background" alt="">-->
               <img src="@/assets/images/random_1.png" alt="">
               <div class="card_icon">
                 <div class="icon_list"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
@@ -298,7 +302,10 @@
           </div>
         </div>
     <el-dialog v-model="dialogFormVisible" >
-        <div class="d-none d-lg-block col-12">
+
+      <!-- PC     -->
+
+        <div class="col-12" v-if="$store.state.os.isPc">
             <div class="main">
               <div class="main-left">
                 <div class="main-img">
@@ -312,24 +319,24 @@
                   </div>
                 </div>
               </div>
-              <div class="main-right">{{dropsOne?.member}}</div>
+              <div class="main-right" v-if="type === 1">{{dropsOne?.member}}</div>
             </div>
         </div>
-      <div class="d-none d-sm-block col-11">
+      <!-- H5 || table-->
+      <div v-else>
           <div>
-            <div>
-              <div class="main-img">
-                <img :src="dropsOne?.collection_url" alt="">
-              </div>
-              <div class="main-name">{{ dropsOne?.collection }}</div>
+            <div class="main-img">
+              <img :src="dropsOne?.collection_url" alt="">
             </div>
-            <div>
-              <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
-                {{item.name}}
-              </div>
+            <div class="main-name">{{ dropsOne?.collection }}</div>
+          </div>
+          <div>
+            <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
+              {{item.name}}
             </div>
           </div>
-      </div>
+        </div>
+
     </el-dialog>
   </div>
 </template>
@@ -349,6 +356,7 @@ const List = ref([{name:'成員介紹',value:1},{name:'路線圖',value:2}]);
 const changeList = (value:number) =>{
   type.value = value
 }
+const http = 'http://v2admin.nftotal.io';
 const toWebsite = (url: string) => {
   if (url === '') {
     return
@@ -370,6 +378,7 @@ const toTwitter = (url: string) => {
 //弹窗
 const dialogFormVisible = ref(false)
 type IInfo = {
+  background:string;
   collection_url: string;
   collection: string;
   introduction: string;
@@ -389,7 +398,11 @@ const dropsTwo = ref<IInfo | null>(null);
 const dropsThree = ref<IInfo | null>(null)
 const dropsFour = ref<IInfo | null>(null)
 
-
+//弹窗
+const toDailog = (val:number) =>{
+  dialogFormVisible.value = true;
+  type.value = val
+}
 const durationDateOne = computed(() => {
   if (dropsOne?.value?.date) {
     return useCountdown(new Date(dropsOne?.value?.date))
@@ -445,7 +458,6 @@ onMounted(() => {
 .main{
   display: flex;
   height: 50vh;
-
 }
 .main-left{
   width:30%;
@@ -471,23 +483,7 @@ onMounted(() => {
 width: 68%;
 }
 /* 设置滚动条的样式 */
-.main-right::-webkit-scrollbar {
-  width:12px;
-}
-/* 滚动槽 */
-.main-right ::-webkit-scrollbar-track {
-  -webkit-box-shadow:inset006pxrgba(0,0,0,0.3);
-  border-radius:10px;
-}
-/* 滚动条滑块 */
-.main-right ::-webkit-scrollbar-thumb {
-  border-radius:10px;
-  background:#999;
-  -webkit-box-shadow:inset006pxrgba(0,0,0,0.5);
-}
-.main-right ::-webkit-scrollbar-thumb:window-inactive {
-  background:rgba(255,0,0,0.4);
-}
+
 .card-icon-img{
   width: 38px;
   height: 38px;
