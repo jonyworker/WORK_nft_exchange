@@ -338,6 +338,7 @@ type IInfo = {
   discord?: string;
   twitter?: string;
   date: string;
+  shortTime:string;
 }
 const dropsOne = ref<IInfo | null>(null);
 const dropsTwo = ref<IInfo | null>(null);

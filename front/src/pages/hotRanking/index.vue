@@ -70,7 +70,7 @@
             </div>
             <div class="row" v-show="type === 3">
               <div class="tabs">
-                <div v-for="(item,index) in dateList" :key="index" :class="['tag',date===item.value?'active_tag':'']" @click="chageDate(item.value)">
+                <div v-for="(item,index) in dateList" :key="index" :class="['tag',date===item.value?'active_tag':'']" @click="changeDate(item.value)">
                   {{item.name}}
                 </div>
               </div>
