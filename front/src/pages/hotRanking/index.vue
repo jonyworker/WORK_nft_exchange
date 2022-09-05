@@ -95,7 +95,7 @@
                         <th scope="row">0{{index + 1}}</th>
                         <td class="td-wrap">
                           <div class="td-wrap-content">
-                            <p class="single-ellipsis">{{item.address}}</p>
+                            <p class="single-ellipsis"> {{item.address}}</p>
                             <div class="profile-pic ml-6" @click="copyInfo(item.address)">
                               <img src="@/assets/images/icon_copy.png" alt="">
                             </div>
@@ -182,7 +182,7 @@ const changeDate = async(value:number) =>{
 }
 
 const hotList = ref<IHotListFree[]>();
-const walletList = ref<IProfit>();
+const walletList = ref<IProfit[]>();
 
 const getHomeHot = async () => {
   const params ={
