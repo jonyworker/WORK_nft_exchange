@@ -20,9 +20,9 @@
             <div class="card-image">
               <img src="@/assets/images/random_1.png" alt="">
               <div class="card_icon">
-                <div class="icon_list"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
+                <div class="icon_list"  @click="dialogFormVisible = true"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
                 </div>
-                <div class="icon_list"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
+                <div class="icon_list"  @click="dialogFormVisible = true"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
               </div>
               <div class="card-time-wrap">
                 <p class="count-down-day">{{ durationDateOne?.value?.days }}</p>
@@ -156,7 +156,7 @@
           <div class="card-item card-1">
             <!-- 卡片圖片 -->
             <div class="card-image">
-              <img src="@/assets/images/random_1.png" alt="">
+              <img src="@/assets/images/random_3.png" alt="">
               <div class="card_icon">
                 <div class="icon_list"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
                 </div>
@@ -297,10 +297,45 @@
             <div class="btn btn-read-more btn-mobile btn-outline d-block d-sm-none">前往查看</div>
           </div>
         </div>
+    <el-dialog v-model="dialogFormVisible" >
+        <div class="d-none d-lg-block col-12">
+            <div class="main">
+              <div class="main-left">
+                <div class="main-img">
+                  <img :src="dropsOne?.collection_url" alt="">
+                </div>
+                <div class="main-name">{{ dropsOne?.collection }}</div>
+
+                <div class="tab-list">
+                  <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
+                    {{item.name}}
+                  </div>
+                </div>
+              </div>
+              <div class="main-right">{{dropsOne?.member}}</div>
+            </div>
+        </div>
+      <div class="d-none d-sm-block col-11">
+          <div>
+            <div>
+              <div class="main-img">
+                <img :src="dropsOne?.collection_url" alt="">
+              </div>
+              <div class="main-name">{{ dropsOne?.collection }}</div>
+            </div>
+            <div>
+              <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
+                {{item.name}}
+              </div>
+            </div>
+          </div>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
 <script setup lang="ts">
+
 import {computed, onMounted, ref} from "vue";
 import {useRouter} from 'vue-router';
 import {homeApi} from '../../api';
@@ -309,6 +344,11 @@ import {useStore} from "vuex";
 
 
 const router = useRouter();
+const type = ref(1)
+const List = ref([{name:'成員介紹',value:1},{name:'路線圖',value:2}]);
+const changeList = (value:number) =>{
+  type.value = value
+}
 const toWebsite = (url: string) => {
   if (url === '') {
     return
@@ -327,6 +367,8 @@ const toTwitter = (url: string) => {
   }
   window.open(url)
 }
+//弹窗
+const dialogFormVisible = ref(false)
 type IInfo = {
   collection_url: string;
   collection: string;
@@ -339,6 +381,8 @@ type IInfo = {
   twitter?: string;
   date: string;
   shortTime:string;
+  member:string;
+  roadmap:string;
 }
 const dropsOne = ref<IInfo | null>(null);
 const dropsTwo = ref<IInfo | null>(null);
@@ -388,6 +432,62 @@ onMounted(() => {
 </script>
 
 <style scoped lang="less">
+.tag{
+  margin-top: 10px;
+}
+.tab-list{
+  width: 65%;
+  margin: auto;
+}
+::v-deep .el-dialog{
+  background: rgba(47, 47, 47, 1);
+}
+.main{
+  display: flex;
+  height: 50vh;
+
+}
+.main-left{
+  width:30%;
+  text-align: center;
+  .main-img{
+
+    width: 196px;
+    margin: auto;
+    height: 196px;
+    img{
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+  }
+  .main-name{
+    padding: 30px 0px;
+  }
+}
+.main-right{
+  overflow-y: scroll;
+  text-indent: 2em;
+width: 68%;
+}
+/* 设置滚动条的样式 */
+.main-right::-webkit-scrollbar {
+  width:12px;
+}
+/* 滚动槽 */
+.main-right ::-webkit-scrollbar-track {
+  -webkit-box-shadow:inset006pxrgba(0,0,0,0.3);
+  border-radius:10px;
+}
+/* 滚动条滑块 */
+.main-right ::-webkit-scrollbar-thumb {
+  border-radius:10px;
+  background:#999;
+  -webkit-box-shadow:inset006pxrgba(0,0,0,0.5);
+}
+.main-right ::-webkit-scrollbar-thumb:window-inactive {
+  background:rgba(255,0,0,0.4);
+}
 .card-icon-img{
   width: 38px;
   height: 38px;
@@ -436,7 +536,7 @@ onMounted(() => {
   gap: 8px;
   position: absolute;
   top: 40%;
-  right: 80px;
+  right: 30%;
 }
 
 .minting-content .card-image .card-time-wrap p {

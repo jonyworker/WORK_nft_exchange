@@ -122,11 +122,10 @@ onMounted(() => {
 
 <style scoped lang="less">
 .parent{
-  width: 130px;
+  width: 128px;
   height: 36px;
   line-height: 36px;
   text-align: left;
-  border: 1px solid;
   .parent-main{
     width: 100%;
     height: 36px;

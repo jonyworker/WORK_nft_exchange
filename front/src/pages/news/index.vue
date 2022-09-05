@@ -134,7 +134,7 @@ onMounted(() => {
 .card-images{
   height:408px;
   img{
-
+    //object-fit:cover;
     height:408px;
     border-radius:4px;
   }
