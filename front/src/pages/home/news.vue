@@ -195,6 +195,7 @@ onMounted(() => {
   position: relative;
   img{
     height: 306px;
+    object-fit:cover;
   }
 }
 .single-ellipsis {

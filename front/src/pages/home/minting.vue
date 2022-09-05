@@ -91,9 +91,9 @@
 <!--              <img :src="http + dropsTwo?.background" alt="">-->
               <img src="@/assets/images/random_2.png" alt="">
               <div class="card_icon">
-                <div class="icon_list"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
+                <div class="icon_list" @click="toDailogTwo(1)"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
                 </div>
-                <div class="icon_list"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
+                <div class="icon_list" @click="toDailogTwo(2)"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
               </div>
               <div class="card-time-wrap">
                 <p class="count-down-day">{{ durationDateTwo?.value?.days }}</p>
@@ -161,9 +161,9 @@
 <!--              <img :src="http + dropsThree?.background" alt="">-->
               <img src="@/assets/images/random_3.png" alt="">
               <div class="card_icon">
-                <div class="icon_list"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
+                <div class="icon_list" @click="toDailogThree(1)"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
                 </div>
-                <div class="icon_list"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
+                <div class="icon_list" @click="toDailogThree(2)"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
               </div>
               <div class="card-time-wrap">
                 <p class="count-down-day">{{ durationDateThree?.value?.days }}</p>
@@ -232,9 +232,9 @@
 <!--              <img :src="http + dropsFour?.background" alt="">-->
               <img src="@/assets/images/random_1.png" alt="">
               <div class="card_icon">
-                <div class="icon_list"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
+                <div class="icon_list" @click="toDailogfour(1)"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
                 </div>
-                <div class="icon_list"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
+                <div class="icon_list" @click="toDailogfour(2)"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
               </div>
               <div class="card-time-wrap">
                 <p class="count-down-day">{{ durationDateFour?.value?.days }}</p>
@@ -301,11 +301,10 @@
             <div class="btn btn-read-more btn-mobile btn-outline d-block d-sm-none">前往查看</div>
           </div>
         </div>
-    <el-dialog v-model="dialogFormVisible" >
+    <el-dialog v-model="dialogFormVisible" width="85%">
 
       <!-- PC     -->
-
-        <div class="col-12" v-if="$store.state.os.isPc">
+        <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
             <div class="main">
               <div class="main-left">
                 <div class="main-img">
@@ -320,22 +319,154 @@
                 </div>
               </div>
               <div class="main-right" v-if="type === 1">{{dropsOne?.member}}</div>
+              <div class="main-right" v-if="type === 2">{{dropsOne?.roadmap}}</div>
             </div>
         </div>
       <!-- H5 || table-->
-      <div v-else>
-          <div>
+      <div v-else >
+          <div class="ipad-main">
             <div class="main-img">
               <img :src="dropsOne?.collection_url" alt="">
             </div>
-            <div class="main-name">{{ dropsOne?.collection }}</div>
-          </div>
-          <div>
+        <div class="right">
+          <div class="main-name">{{ dropsOne?.collection }}</div>
+          <div class="tags">
             <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
               {{item.name}}
             </div>
           </div>
+
         </div>
+          </div>
+        <div v-if="type === 1">{{dropsOne?.member}}</div>
+        <div  v-if="type === 2">{{dropsOne?.roadmap}}</div>
+        </div>
+
+    </el-dialog>
+    <el-dialog v-model="dialogFormTwo" width="85%">
+
+      <!-- PC     -->
+      <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
+        <div class="main">
+          <div class="main-left">
+            <div class="main-img">
+              <img :src="dropsTwo?.collection_url" alt="">
+            </div>
+            <div class="main-name">{{ dropsTwo?.collection }}</div>
+
+            <div class="tab-list">
+              <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
+                {{item.name}}
+              </div>
+            </div>
+          </div>
+          <div class="main-right" v-if="type === 1">{{dropsTwo?.member}}</div>
+          <div class="main-right" v-if="type === 2">{{dropsTwo?.roadmap}}</div>
+        </div>
+      </div>
+      <!-- H5 || table-->
+      <div v-else >
+        <div class="ipad-main">
+          <div class="main-img">
+            <img :src="dropsTwo?.collection_url" alt="">
+          </div>
+          <div class="right">
+            <div class="main-name">{{ dropsTwo?.collection }}</div>
+            <div class="tags">
+              <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
+                {{item.name}}
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div v-if="type === 1">{{dropsTwo?.member}}</div>
+        <div  v-if="type === 2">{{dropsTwo?.roadmap}}</div>
+      </div>
+
+    </el-dialog>
+    <el-dialog v-model="dialogFormThree" width="85%">
+
+      <!-- PC     -->
+      <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
+        <div class="main">
+          <div class="main-left">
+            <div class="main-img">
+              <img :src="dropsThree?.collection_url" alt="">
+            </div>
+            <div class="main-name">{{ dropsThree?.collection }}</div>
+
+            <div class="tab-list">
+              <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
+                {{item.name}}
+              </div>
+            </div>
+          </div>
+          <div class="main-right" v-if="type === 1">{{dropsThree?.member}}</div>
+          <div class="main-right" v-if="type === 2">{{dropsThree?.roadmap}}</div>
+        </div>
+      </div>
+      <!-- H5 || table-->
+      <div v-else >
+        <div class="ipad-main">
+          <div class="main-img">
+            <img :src="dropsThree?.collection_url" alt="">
+          </div>
+          <div class="right">
+            <div class="main-name">{{ dropsThree?.collection }}</div>
+            <div class="tags">
+              <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
+                {{item.name}}
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div v-if="type === 1">{{dropsThree?.member}}</div>
+        <div  v-if="type === 2">{{dropsThree?.roadmap}}</div>
+      </div>
+
+    </el-dialog>
+    <el-dialog v-model="dialogFormFour" width="85%">
+
+      <!-- PC     -->
+      <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
+        <div class="main">
+          <div class="main-left">
+            <div class="main-img">
+              <img :src="dropsFour?.collection_url" alt="">
+            </div>
+            <div class="main-name">{{ dropsFour?.collection }}</div>
+
+            <div class="tab-list">
+              <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
+                {{item.name}}
+              </div>
+            </div>
+          </div>
+          <div class="main-right" v-if="type === 1">{{dropsFour?.member}}</div>
+          <div class="main-right" v-if="type === 2">{{dropsFour?.roadmap}}</div>
+        </div>
+      </div>
+      <!-- H5 || table-->
+      <div v-else >
+        <div class="ipad-main">
+          <div class="main-img">
+            <img :src="dropsFour?.collection_url" alt="">
+          </div>
+          <div class="right">
+            <div class="main-name">{{ dropsFour?.collection }}</div>
+            <div class="tags">
+              <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
+                {{item.name}}
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div v-if="type === 1">{{dropsFour?.member}}</div>
+        <div  v-if="type === 2">{{dropsFour?.roadmap}}</div>
+      </div>
 
     </el-dialog>
   </div>
@@ -376,7 +507,10 @@ const toTwitter = (url: string) => {
   window.open(url)
 }
 //弹窗
-const dialogFormVisible = ref(false)
+const dialogFormVisible = ref(false);
+const dialogFormTwo = ref(false);
+const dialogFormThree = ref(false);
+const dialogFormFour = ref(false)
 type IInfo = {
   background:string;
   collection_url: string;
@@ -401,6 +535,18 @@ const dropsFour = ref<IInfo | null>(null)
 //弹窗
 const toDailog = (val:number) =>{
   dialogFormVisible.value = true;
+  type.value = val
+}
+const toDailogTwo = (val:number) =>{
+  dialogFormTwo.value = true
+  type.value = val
+}
+const toDailogThree = (val:number) =>{
+  dialogFormThree.value = true
+  type.value = val
+}
+const toDailogfour = (val:number) =>{
+  dialogFormFour.value = true
   type.value = val
 }
 const durationDateOne = computed(() => {
@@ -445,6 +591,26 @@ onMounted(() => {
 </script>
 
 <style scoped lang="less">
+.ipad-main{
+  display: flex;
+  padding-bottom: 30px;
+  .tags{
+    display: flex;
+    padding-top:20px;
+  }
+  .right{
+    width: 75%;
+    padding-left:10px;
+  }
+  .main-img{
+    width:25%;
+  }
+  img{
+    width: 132px;
+   /* height:132px;*/
+    border-radius:50%;
+  }
+}
 .tag{
   margin-top: 10px;
 }
