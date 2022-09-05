@@ -35,7 +35,11 @@
                       <tr>
                         <th>#</th>
                         <th>項目</th>
-                        <th>交易量</th>
+                        <th>
+                          交易量
+                          <span @click="toArrow(1)" v-if="row === 2"><el-icon><ArrowUp /></el-icon></span>
+                          <span @click="toArrow(2)" v-if="row === 1"><el-icon><ArrowDown /></el-icon></span>
+                          </th>
                         <th>24H%</th>
                         <th>7D%</th>
                         <th>地板價</th>
@@ -158,7 +162,19 @@ interface  IProfit{
 }
 const ps = router.currentRoute.value.query.type;
 const type = ref ( 2);
-const date = ref(3)
+const date = ref(3);
+const row = ref(1)
+const toArrow = async(val:number) =>{
+  row.value = val;
+  const params ={
+    count :10,    //每頁多少筆紀錄  // 用途:讓前端進行下滑分頁使用, 每次分頁撈取30條
+    page:1,      // 返回第幾頁的數據
+    orderby: date.value,//    排序, 默認1   // 1: volume_24  2: volume_7d   3: volume_30d
+    orderby_ind: row.value,// 排序方向 , 默認1  //1:desc   2:asc
+  }
+  const res = await homeApi.getHotLists(params);
+  hotList.value = res.hot_collections;
+}
 const list = ref([{name:'總覽', value:1,}, {name:'熱門排行 ', value:2,}, {name:'高勝率錢包',value:3}]);
 const dateList = ref([{name: '24小时', value: 1,}, {name: '7天', value: 2,}, {name: '30天', value: 3} ])
 const changeTag = (value:number) =>{
@@ -174,7 +190,7 @@ const changeDate = async(value:number) =>{
       count :10,    //每頁多少筆紀錄  // 用途:讓前端進行下滑分頁使用, 每次分頁撈取30條
       page:1,      // 返回第幾頁的數據
       orderby: date.value,//    排序, 默認1   // 1: volume_24  2: volume_7d   3: volume_30d
-      orderby_ind: 1,// 排序方向 , 默認1  //1:desc   2:asc
+      orderby_ind: row.value,// 排序方向 , 默認1  //1:desc   2:asc
     }
     const res = await homeApi.getHotLists(params);
     hotList.value = res.hot_collections;
