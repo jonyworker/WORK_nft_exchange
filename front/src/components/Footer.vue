@@ -14,14 +14,14 @@
                      </div>
                    </h2>
                    <p>
-                     NFTotal創造初宗在於服務所有正在NFT的華語使用者，我們也將陸續推出更多的應用工具來幫助你們更好的觀測所有NFT項目。
+                     NFTotal{{$t('home.description')}}
                    </p>
                  </div>
                </div>
              </div>
              <!-- links section-->
              <div class="community-link-section col-12 col-md-4">
-               <h4>加入社區</h4>
+               <h4>{{$t('home.community')}}</h4>
                <nav>
                  <ul class="community-link-wrap">
                    <!-- twitter -->
@@ -66,11 +66,11 @@
              </div>
              <!-- CTA section -->
              <div class="cta-section col-12 col-md-8">
-               <h4 class="mb-16">獲取最新的 NFTotal 更新</h4>
+               <h4 class="mb-16">{{$t('home.newsNfTotal')}}</h4>
                <div class="cta-email-subscribe">
                  <div class="cta-email-submit-content">
                    <input type="email" placeholder="請輸入您的 Email">
-                   <button>傳送</button>
+                   <button>{{$t('home.delivery')}}</button>
                  </div>
                </div>
              </div>
@@ -83,12 +83,12 @@
                  <div class="footer-nav-item">
                    <h4>Sitemap</h4>
                    <nav>
-                     <div class="a">探索NFT</div>
-                     <div class="a">Mint觀測站</div>
-                     <div class="a">統計</div>
-                     <div class="a">工具</div>
-                     <div class="a">新聞</div>
-                     <div class="a">專欄</div>
+                     <div class="a">{{$t('home.search')}}</div>
+                     <div class="a">{{$t('home.mint')}}</div>
+                     <div class="a">{{$t('home.overview')}}</div>
+                     <div class="a">{{$t('home.tool')}}</div>
+                     <div class="a">{{$t('home.news')}}</div>
+                     <div class="a">{{$t('home.blog')}}</div>
                    </nav>
                  </div>
                  <!-- Links -->
@@ -113,7 +113,7 @@
                  </div>
                  <!-- 加入社區 -->
                  <div class="footer-nav-item community-link">
-                   <h4>加入社區</h4>
+                   <h4>{{$t('home.community')}}</h4>
                    <nav>
                      <ul class="community-link-wrap">
                        <!-- twitter -->
@@ -154,11 +154,11 @@
                        </li>
                      </ul>
                    </nav>
-                   <h4 class="mb-16">獲取最新的 NFTotal 更新</h4>
+                   <h4 class="mb-16">{{$t('home.newsNfTotal')}}</h4>
                    <div class="cta-email-subscribe">
                      <div class="cta-email-submit-content">
                        <input type="email" placeholder="請輸入您的 Email">
-                       <button>傳送</button>
+                       <button>{{$t('home.delivery')}}</button>
                      </div>
                    </div>
                  </div>

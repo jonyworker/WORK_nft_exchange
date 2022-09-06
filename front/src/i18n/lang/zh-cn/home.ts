@@ -21,6 +21,8 @@ export default {
     wins:'勝次数',
     failures: '败次数',
     tradingDynamics:'交易动态',
-    description: '创造初宗在于服务所有正在NFT的华语使用者，我们也将陆续推出更多的应用工具来帮助你们更好的观测所有NFT项目。'
-
+    description: '创造初宗在于服务所有正在NFT的华语使用者，我们也将陆续推出更多的应用工具来帮助你们更好的观测所有NFT项目。',
+    community:'加入社区',
+    delivery:'传送',
+    newsNfTotal:'获取最新的 NFTotal 更新',
 };

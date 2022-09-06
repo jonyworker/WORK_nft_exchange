@@ -22,5 +22,7 @@ export default {
     failures:'敗次數',
     tradingDynamics:'交易動態',
     description: '創造初宗在於服務所有正在NFT的華語使用者，我們也將陸續推出更多的應用工具來幫助你們更好的觀測所有NFT項目。',
-
+    community:'加入社區',
+    delivery:'傳送',
+    newsNfTotal:'獲取最新的 NFTotal 更新',
 };
