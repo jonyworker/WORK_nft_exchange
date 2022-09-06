@@ -5,10 +5,10 @@
       <div class="title">
         <div class="box">
           <div><img src="@/assets/images/icon_title_news.png" alt="logo"></div>
-          <div class="tit">新聞&專欄</div>
+          <div class="tit">{{$t('home.newsBlog')}}</div>
         </div>
       </div>
-      <div class="subtitle" @click="newsList()">前往查看</div>
+      <div class="subtitle" @click="newsList()">{{$t('home.toView')}}</div>
     </div>
             <div class="news-content mt-10">
               <!-- 新聞 & 專欄卡片 -->
@@ -121,7 +121,7 @@
 
               <!-- 前往查看按鈕 (手機顯示) -->
               <div class="mt-10">
-                <div class="btn btn-read-more btn-mobile btn-outline d-block d-sm-none" @click="newsList()">前往查看</div>
+                <div class="btn btn-read-more btn-mobile btn-outline d-block d-sm-none" @click="newsList()">{{$t('home.toView')}}</div>
               </div>
             </div>
 

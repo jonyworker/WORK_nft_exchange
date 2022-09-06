@@ -8,7 +8,7 @@
             <div class="title">
               <div class="box">
                 <div><img src="@/assets/images/icon_title_wallet.png" alt="logo"></div>
-                <div class="tit">高勝率錢包</div>
+                <div class="tit">{{$t('home.highWinningWallet')}}</div>
               </div>
               <div class="tabs">
                 <div v-for="(item,index) in dateList" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="chageTag(item.value)">
@@ -16,7 +16,7 @@
                 </div>
               </div>
             </div>
-            <div class="subtitle" @click="hotRanking()">前往查看</div>
+            <div class="subtitle" @click="hotRanking()">{{$t('home.toView')}}</div>
           </div>
           <div class="table-responsive">
             <div class="table-wrap">
@@ -24,12 +24,12 @@
                 <thead class="mb-40">
                 <tr>
                   <th></th>
-                  <th>錢包</th>
-                  <th>勝率</th>
-                  <th>交易數</th>
-                  <th>勝次數</th>
-                  <th>敗次數</th>
-                  <th>交易動態</th>
+                  <th>{{$t('home.wallet')}}</th>
+                  <th>{{$t('home.winningRate')}}</th>
+                  <th>{{$t('home.transactions')}}</th>
+                  <th>{{$t('home.wins')}}</th>
+                  <th>{{$t('home.failures')}}</th>
+                  <th>{{$t('home.tradingDynamics')}}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -66,7 +66,7 @@
         </div>
         <!-- 前往查看按鈕 (手機顯示) -->
         <div class="mt-10">
-          <div class="btn btn-read-more btn-mobile btn-outline d-block d-sm-none" @click="hotRanking()">前往查看</div>
+          <div class="btn btn-read-more btn-mobile btn-outline d-block d-sm-none" @click="hotRanking()">{{$t('home.toView')}}</div>
         </div>
       </div>
     </div>

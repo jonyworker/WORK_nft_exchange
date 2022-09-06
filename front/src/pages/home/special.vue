@@ -4,7 +4,7 @@
       <div class="title">
         <div class="box">
           <div><img src="@/assets/images/icon_title_hotitem.png" alt="logo"></div>
-          <div class="tit">熱門項目</div>
+          <div class="tit">{{$t('home.hot_item')}}</div>
         </div>
         <div class="tabs">
           <div v-for="(item,index) in dateList" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="chageTag(item.value)">
@@ -12,7 +12,7 @@
           </div>
         </div>
       </div>
-      <div class="subtitle" @click="hotRanking()">前往查看</div>
+      <div class="subtitle" @click="hotRanking()">{{$t('home.toView')}}</div>
     </div>
     <div class="hot-item-content mt-10">
       <div class="row">
@@ -138,7 +138,7 @@
 
       <!-- 前往查看按鈕 (手機顯示) -->
       <div class="mt-10">
-        <div class="btn btn-read-more btn-mobile btn-outline d-block d-sm-none"  @click="hotRanking()" >前往查看</div>
+        <div class="btn btn-read-more btn-mobile btn-outline d-block d-sm-none"  @click="hotRanking()" >{{$t('home.toView')}}</div>
       </div>
     </div>
   </div>

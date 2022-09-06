@@ -5,10 +5,10 @@
       <div class="title">
         <div class="box">
           <div><img src="@/assets/images/icon_title_minting.png" alt="logo"></div>
-          <div class="tit">Minting 觀測站</div>
+          <div class="tit">{{$t('home.mint')}}</div>
         </div>
       </div>
-      <div class="subtitle">前往查看</div>
+      <div class="subtitle">{{$t('home.toView')}}</div>
     </div>
     <div class="minting-content mt-10">
       <!-- 觀測站卡片 -->
@@ -46,9 +46,9 @@
                 <p class="card-title text-white">
                   {{ dropsOne?.introduction }}
                 </p>
-                <p class="card-text  text-white">售價：{{ dropsOne?.price }}</p>
-                <p class="card-text  text-white">總量：{{ dropsOne?.total }}</p>
-                <p class="card-text text-white">時間：{{ dropsOne?.shortTime }}</p>
+                <p class="card-text  text-white">{{$t('home.price')}}{{ dropsOne?.price }}</p>
+                <p class="card-text  text-white">{{$t('home.total')}}{{ dropsOne?.total }}</p>
+                <p class="card-text text-white">{{$t('home.shortTime')}}{{ dropsOne?.shortTime }}</p>
               </div>
               <!-- 卡片icon -->
               <div class="card-footer">
@@ -116,9 +116,9 @@
                     <p class="card-title text-white">
                       {{dropsTwo?.introduction}}
                     </p>
-                    <p class="card-text  text-white">售價：{{dropsTwo?.price}}</p>
-                    <p class="card-text  text-white">總量：{{dropsTwo?.total}}</p>
-                    <p class="card-text text-white">時間：{{ dropsTwo?.shortTime }}</p>
+                    <p class="card-text  text-white">{{$t('home.price')}}{{dropsTwo?.price}}</p>
+                    <p class="card-text  text-white">{{$t('home.total')}}{{dropsTwo?.total}}</p>
+                    <p class="card-text text-white">{{$t('home.shortTime')}}{{ dropsTwo?.shortTime }}</p>
                   </div>
                   <!-- 卡片icon -->
                   <div class="card-footer">
@@ -186,9 +186,9 @@
                 <p class="card-title text-white">
                   {{ dropsThree?.introduction }}
                 </p>
-                <p class="card-text  text-white">售價：{{ dropsThree?.price }}</p>
-                <p class="card-text  text-white">總量：{{ dropsThree?.total }}</p>
-                <p class="card-text text-white">時間：{{ dropsThree?.shortTime }}</p>
+                <p class="card-text  text-white">{{$t('home.price')}}{{ dropsThree?.price }}</p>
+                <p class="card-text  text-white">{{$t('home.total')}}{{ dropsThree?.total }}</p>
+                <p class="card-text text-white">{{$t('home.shortTime')}}{{ dropsThree?.shortTime }}</p>
               </div>
               <!-- 卡片icon -->
               <div class="card-footer">
@@ -257,9 +257,9 @@
                 <p class="card-title text-white">
                   {{ dropsFour?.introduction }}
                 </p>
-                <p class="card-text  text-white">售價：{{ dropsFour?.price }}</p>
-                <p class="card-text  text-white">總量：{{ dropsFour?.total }}</p>
-                <p class="card-text text-white">時間：{{ dropsFour?.shortTime }}</p>
+                <p class="card-text  text-white">{{$t('home.price')}}{{ dropsFour?.price }}</p>
+                <p class="card-text  text-white">{{$t('home.total')}}{{ dropsFour?.total }}</p>
+                <p class="card-text text-white">{{$t('home.shortTime')}}{{ dropsFour?.shortTime }}</p>
               </div>
               <!-- 卡片icon -->
               <div class="card-footer">
@@ -298,7 +298,7 @@
       </div>
           <!-- 前往查看按鈕 (手機顯示) -->
           <div class="mt-10">
-            <div class="btn btn-read-more btn-mobile btn-outline d-block d-sm-none">前往查看</div>
+            <div class="btn btn-read-more btn-mobile btn-outline d-block d-sm-none">{{$t('home.toView')}}</div>
           </div>
         </div>
     <el-dialog v-model="dialogFormVisible" width="85%">
