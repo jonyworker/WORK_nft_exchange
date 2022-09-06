@@ -25,4 +25,5 @@ export default {
     community:'加入社区',
     delivery:'传送',
     newsNfTotal:'获取最新的 NFTotal 更新',
+    analysis:'NFT分析',
 };
