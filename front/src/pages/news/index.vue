@@ -30,14 +30,14 @@
                   </div>
                   <!-- 卡片內文 -->
                   <div class="card-text">
-                    <div class="card-tag mb-8">
+                    <div class="card-tag  mb-8">
                       <p>{{newListTwo?.ind}}</p>
                     </div>
                     <div class="card-title">
-                      <h3 class="multiline-ellipsis mb-8">{{newListTwo?.title}}</h3>
+                      <h3 class="multiline-ellipsis  mb-8">{{newListTwo?.title}}</h3>
                     </div>
                     <div class="card-paragraph">
-                      <div class="multiline-ellipsis mb-12">
+                      <div class="multiline-ellipsis  mb-12">
                         <div v-html="newListTwo?.content" ></div>
                       </div>
                     </div>
@@ -47,7 +47,7 @@
                   </div>
                 </div>
               </div >
-              <div class=" col-sm-6  col-lg-4" v-for="(item,index) in newList" :key="index">
+              <div class=" col-sm-6  col-lg-4" v-infinite-scroll="load" v-for="(item,index) in newList" :key="index">
                 <div class="card-item card-2" @click="toDetails(item.id)">
                   <!-- 卡片圖片 -->
                   <div class="card-image mb-10">
@@ -59,10 +59,10 @@
                       <p>{{item.ind}}</p>
                     </div>
                     <div class="card-title">
-                      <h3 class="multiline-ellipsis mb-8">{{item.title}}</h3>
+                      <h3 class="multiline-ellipsis  mb-8">{{item.title}}</h3>
                     </div>
                     <div class="card-paragraph">
-                      <div class="multiline-ellipsis mb-12">
+                      <div class="multiline-ellipsis  mb-12">
                         <div v-html="item.content"></div>
                       </div>
                     </div>
@@ -110,6 +110,8 @@ interface INewListFor{
 }
 const newList = ref<INewListFor|null>(null);
 const newListTwo = ref<INewListFor|null>(null);
+const count = ref(0);
+const page = ref(1)
 //请求数据
 const getNews =async()=>{
   const params = {
@@ -118,9 +120,18 @@ const getNews =async()=>{
     ind:type.value,
   }
   const res = await homeApi.getNews(params);
-  newList.value = res.data;
+  newList.value = res.data.slice(0,1);
   newListTwo.value = res.data[0];
 
+}
+const load = async() =>{
+  const params = {
+    count:30,
+     page:page.value + 1,
+    ind:type.value,
+  }
+  const res = await homeApi.getNews(params);
+  newList.value = res.data;
 }
 onMounted(() => {
   getNews()
