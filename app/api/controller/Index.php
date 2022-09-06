@@ -77,12 +77,13 @@ class Index extends BaseController
             'ind' => $this->request->param('ind',1)
         ];
 
+        $order = 'volume_24 desc';
         if ($request['ind'] == 1) {
-            $order = 'volume_24';
+            $order = 'volume_24 desc';
         } elseif ($request['ind'] == 2) {
-            $order = 'volume_7d';
+            $order = 'volume_7d desc';
         } elseif ($request['ind'] == 3) {
-            $order = 'volume_30d';
+            $order = 'volume_30d desc';
         }
 
         $field = 'id,name,photo_url,floor_price,unit,volume_24,volume_24_p,volume_7d,volume_7d_p,volume_30d,volume_30d_p';
