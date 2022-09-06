@@ -53,7 +53,9 @@
           <div>{{$t('home.mint')}}</div>
           <div>{{$t('home.newsBlog')}}</div>
         </div>
-
+        <div index="zhCn" @click="handleCommand('zhCn')">简体中文</div>
+        <div index="zh-tw" @click="handleCommand('zh-tw')">繁體中文</div>
+        <div index="en" @click="handleCommand('en')">English</div>
       </el-drawer>
     </div>
 
@@ -113,7 +115,7 @@ const toNews = () =>{
   height: 100%;
   background-color: rgba(18, 18, 18, 0.85);
   color: #fff;
-  backdrop-filter: blur(20px);
+/*  backdrop-filter: blur(20px);*/
   overflow: auto;
 }
 ::v-deep .el-drawer {
