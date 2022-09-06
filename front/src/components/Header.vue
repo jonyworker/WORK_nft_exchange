@@ -44,13 +44,19 @@
             </div>
           </div>
     </div>
-    <el-drawer v-model="visible" :show-close="false">
-      <div>
-        123
-      </div>
 
-    </el-drawer>
-  </div>
+      <el-drawer v-model="visible" :show-close="false">
+
+        <div class="drawer">
+          <div>{{$t('home.analysis')}}</div>
+          <div>{{$t('home.hot_item')}}</div>
+          <div>{{$t('home.mint')}}</div>
+          <div>{{$t('home.newsBlog')}}</div>
+        </div>
+
+      </el-drawer>
+    </div>
+
 
 </template>
 
@@ -94,7 +100,33 @@ const toNews = () =>{
 }
 </script>
 <style lang="less" scoped>
+.drawer{
 
+}
+::v-deep .el-overlay {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  height: 100%;
+  background-color: rgba(18, 18, 18, 0.85);
+  color: #fff;
+  backdrop-filter: blur(20px);
+  overflow: auto;
+}
+::v-deep .el-drawer {
+  position: absolute;
+  box-sizing: border-box;
+  right: 20px !important;
+  background-color: var(--el-drawer-bg-color);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--el-box-shadow-dark);
+  overflow: hidden;
+  transition: all var(--el-transition-duration);
+}
 .header-logo{
   font-size:32px;
   font-weight: 700;

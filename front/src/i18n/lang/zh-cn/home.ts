@@ -7,7 +7,7 @@ export default {
     tool:'工具',
     news:'新闻',
     blog:'专栏',
-    hot_item:'热门项目',
+    hot_item:'热门排行',
     webSiteName:'NFTotal',
     toView:'前往查看',
     price:'售價：',
