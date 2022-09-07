@@ -13,7 +13,7 @@
                   </h2>
                   <p class="subtile mb-6">{{$t('home.newsList')}}</p>
                   <div class="tabs">
-                    <div v-for="(item,index) in list" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeTag(item.value)">
+                    <div v-for="(item,index) in tabs" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeTag(item.value)">
                       {{item.name}}
                     </div>
                   </div>
@@ -23,7 +23,7 @@
             <!-- 熱門排行 -->
             <div class="row" v-show="type === 2">
               <div class="tabs">
-                <div v-for="(item,index) in dateList" :key="index" :class="['tag',date===item.value?'active_tag':'']" @click="changeDate(item.value)">
+                <div v-for="(item,index) in textList" :key="index" :class="['tag',date===item.value?'active_tag':'']" @click="changeDate(item.value)" v-show="index < 3">
                   {{item.name}}
                 </div>
               </div>
@@ -76,7 +76,7 @@
             </div>
             <div class="row" v-show="type === 3">
               <div class="tabs">
-                <div v-for="(item,index) in dateList" :key="index" :class="['tag',date===item.value?'active_tag':'']" @click="changeDate(item.value)">
+                <div v-for="(item,index) in textList" :key="index" :class="['tag',date ===item.value?'active_tag':'']" @click="changeDate(item.value)" v-show="index < 3">
                   {{item.name}}
                 </div>
               </div>
@@ -160,6 +160,18 @@ interface  IProfit{
   other_txns: string;
   item_qty:string;
 }
+interface IText {
+  name: string
+  value: string
+}
+//获取文本tab
+const textList = ref<IText[]>();
+const tabs = ref<IText[]>()
+const getTextList = async() =>{
+  const res = await homeApi.getText();
+  textList.value = res.period;
+  tabs.value = res.tab
+}
 const ps = router.currentRoute.value.query.type;
 const type = ref ( 2);
 const date = ref(3);
@@ -175,8 +187,6 @@ const toArrow = async(val:number) =>{
   const res = await homeApi.getHotLists(params);
   hotList.value = res.hot_collections;
 }
-const list = ref([{name:'總覽', value:1,}, {name:'熱門排行 ', value:2,}, {name:'高勝率錢包',value:3}]);
-const dateList = ref([{name: '24小时', value: 1,}, {name: '7天', value: 2,}, {name: '30天', value: 3} ])
 const changeTag = (value:number) =>{
   type.value = value
 }
@@ -239,7 +249,7 @@ onMounted(() => {
   getProfig()
   getHomeHot()
   changeTag(Number(ps))
-  console.log("-> ps", ps);
+  getTextList()
 })
 </script>
 

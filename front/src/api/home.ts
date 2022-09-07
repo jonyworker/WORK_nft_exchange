@@ -34,6 +34,10 @@ const homeApi = {
     async getProfitList (params: any):Promise<{high_profit:any}>{
         return await request.get(`api/nft/highprofit`,{params})
     },
+    //
+    async getText ():Promise<{period:any ,tab:any ,newstab:any}>{
+        return await request.get(`api/index/text`)
+    }
 
 }
 export default homeApi

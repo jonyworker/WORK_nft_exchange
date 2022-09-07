@@ -11,7 +11,7 @@
                 </h2>
                 <p class="subtile mb-6">{{$t('home.newsList')}}</p>
                 <div class="tabs">
-                  <div v-for="(item,index) in list" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="chageTag(item.value)">
+                  <div v-for="(item,index) in tabs" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="chageTag(item.value)">
                     {{item.name}}
                   </div>
                 </div>
@@ -86,7 +86,15 @@ import {homeApi} from '../../api';
 const router = useRouter();
 
 const type = ref (1)
-const list = ref([{name:'新聞專區', value:1,}, {name:'NFTotal 專欄', value:2,}])
+interface IText {
+  name: string
+  value: string
+}
+const tabs = ref<IText[]>()
+const getTextList = async() =>{
+  const res = await homeApi.getText();
+  tabs.value = res.newstab
+}
 const toDetails = (id:number) =>{
   router.push({ name: 'NewsDetail',query:{id}})
 }
@@ -126,6 +134,7 @@ const getNews =async()=>{
 }
 onMounted(() => {
   getNews()
+  getTextList()
 })
 </script>
 

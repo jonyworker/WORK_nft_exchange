@@ -11,7 +11,7 @@
                 <div class="tit">{{$t('home.highWinningWallet')}}</div>
               </div>
               <div class="tabs">
-                <div v-for="(item,index) in dateList" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="chageTag(item.value)">
+                <div v-for="(item,index) in textList" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="chageTag(item.value)">
                   {{item.name}}
                 </div>
               </div>
@@ -80,7 +80,14 @@ import {homeApi} from '../../api';
 import {copy} from '@utils/copy'
 const router = useRouter();
 const type = ref(4);
-
+const props = defineProps({
+  textList: {
+    default: function() {
+      return null
+    },
+    type: Array
+  },
+})
 interface IWallet {
   address: string
   win_p: string
@@ -91,10 +98,6 @@ interface IWallet {
 }
 
 const walletList = ref<IWallet[]>([]);
-const dateList = ref([{name: '24小时', value: 1,}, {name: '7天', value: 2,}, {name: '30天', value: 3}, {
-  name: '60天',
-  value: 4
-}])
 const copyInfo=(info:string)=>{
   copy(info)
 }

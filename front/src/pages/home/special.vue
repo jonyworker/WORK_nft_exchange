@@ -7,7 +7,7 @@
           <div class="tit">{{$t('home.hot_item')}}</div>
         </div>
         <div class="tabs">
-          <div v-for="(item,index) in dateList" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="chageTag(item.value)">
+          <div v-for="(item,index) in textList" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="chageTag(item.value)" v-show="index < 3">
                 {{item.name}}
           </div>
         </div>
@@ -148,6 +148,15 @@
 import {onMounted, ref} from 'vue';
 import {useRouter} from 'vue-router';
 import {homeApi} from '../../api';
+const props = defineProps({
+  textList: {
+    default: function() {
+      return null
+    },
+    type: Array
+  },
+})
+
 interface IHotListFree{
   photo_url: string;
   name: string;
@@ -162,7 +171,6 @@ const type = ref(1);
 const hotList = ref<IHotListFree[]>([])
 const hotListTwo = ref<IHotListFree[]>([])
 const hotListFree = ref<IHotListFree[]>([])
-const dateList = ref([{name: '24小时', value: 1,}, {name: '7天', value: 2,}, {name: '30天', value: 3}])
 const chageTag = async (value: number) => {
   type.value = value
   const res = await homeApi.getHotCollections(type.value);
