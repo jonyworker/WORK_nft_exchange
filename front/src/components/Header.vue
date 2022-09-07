@@ -45,7 +45,7 @@
           </div>
     </div>
 
-      <el-drawer v-model="visible" :show-close="false">
+      <el-drawer v-model="visible" :show-close="false" >
 
         <div class="drawer">
           <div>{{$t('home.analysis')}}</div>
@@ -103,7 +103,9 @@ const toNews = () =>{
 </script>
 <style lang="less" scoped>
 .drawer{
-
+line-height: 40px;
+  font-weight: 700;
+  font-size: 28px;
 }
 ::v-deep .el-overlay {
   position: fixed;
@@ -119,6 +121,7 @@ const toNews = () =>{
   overflow: auto;
 }
 ::v-deep .el-drawer {
+  width: 40% !important;
   position: absolute;
   box-sizing: border-box;
   right: 20px !important;
@@ -128,6 +131,15 @@ const toNews = () =>{
   box-shadow: var(--el-box-shadow-dark);
   overflow: hidden;
   transition: all var(--el-transition-duration);
+}
+::v-deep .el-drawer__body {
+  background:rgba(18, 18, 18, 0.85);
+  flex: 1;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  padding: var(--el-drawer-padding-primary);
+  overflow: auto;
+  margin-bottom: 50px;
+  border-radius: 10px;
 }
 .header-logo{
   font-size:32px;
