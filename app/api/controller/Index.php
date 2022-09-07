@@ -151,4 +151,108 @@ class Index extends BaseController
             return error2($e->getMessage());
         }
     }
+
+    // 取得首頁JS文字
+    public function text() {
+        $request = [
+            // 登入用token   允許空
+            'token' => $this->request->param('token',''),
+            // 默認1         //1繁體中文 2簡體中文 3:英文   4:日   5:韓
+            'lan' => $this->request->param('lan',1),
+        ];
+
+        try {
+            $data = [
+                'status' => 'ok',
+                'tab' => [
+                    ['name' => '總覽','value' => 1],
+                    ['name' => '熱門排行','value' => 2],
+                    ['name' => '高勝率錢包','value' => 3]
+                ],
+                'period' => [
+                    ['name' => '24小時','value' => 1],
+                    ['name' => '7天','value' => 2],
+                    ['name' => '30天','value' => 3],
+                    ['name' => '60天','value' => 4]
+                ],
+                'newstab' => [
+                    ['name' => '新聞專區','value' => 1],
+                    ['name' => '專欄','value' => 2]
+                ],
+            ];
+
+            if ($request['lan'] >= 2) {
+                // tab
+                $translate = [
+                    'name' => array()
+                ];
+                foreach ($data['tab'] as $k => $v) {
+                    foreach ($translate as $k_t => $v_t) {
+                        if ($v[$k_t]) {
+                            $translate[$k_t][$k] = $v[$k_t];
+                        }
+                    }
+                }
+
+                foreach ($translate as $k => $v) {
+                    if ($v) {
+                        $google = $this->google($v,$request['lan']);
+
+                        foreach ($google as $k_g => $v_g) {
+                            $data['tab'][$v_g['key']][$k] = $v_g['translations'];
+                        }
+                    }
+                }
+
+                // period
+                $translate = [
+                    'name' => array()
+                ];
+                foreach ($data['period'] as $k => $v) {
+                    foreach ($translate as $k_t => $v_t) {
+                        if ($v[$k_t]) {
+                            $translate[$k_t][$k] = $v[$k_t];
+                        }
+                    }
+                }
+
+                foreach ($translate as $k => $v) {
+                    if ($v) {
+                        $google = $this->google($v,$request['lan']);
+
+                        foreach ($google as $k_g => $v_g) {
+                            $data['period'][$v_g['key']][$k] = $v_g['translations'];
+                        }
+                    }
+                }
+
+                // newstab
+                $translate = [
+                    'name' => array()
+                ];
+                foreach ($data['newstab'] as $k => $v) {
+                    foreach ($translate as $k_t => $v_t) {
+                        if ($v[$k_t]) {
+                            $translate[$k_t][$k] = $v[$k_t];
+                        }
+                    }
+                }
+
+                foreach ($translate as $k => $v) {
+                    if ($v) {
+                        $google = $this->google($v,$request['lan']);
+
+                        foreach ($google as $k_g => $v_g) {
+                            $data['newstab'][$v_g['key']][$k] = $v_g['translations'];
+                        }
+                    }
+                }
+            }
+
+            return success3($data);
+        } catch (\Exception $e) {
+            // 这是进行异常捕获
+            return error2($e->getMessage());
+        }
+    }
 }
