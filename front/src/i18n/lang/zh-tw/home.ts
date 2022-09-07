@@ -1,3 +1,5 @@
+// 繁體中文
+
 export default {
     toggle: '切換',
     search:'探索 NFT',
@@ -33,5 +35,4 @@ export default {
     number:'數量',
     floorPrice:'地板價',
     holder:'持有者',
-
 };

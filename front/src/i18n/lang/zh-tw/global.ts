@@ -1,4 +1,6 @@
+// 繁體中文
+
 export default {
-    dark: '黑夜',
-    light: '日间'
+    dark: '深色模式',
+    light: '淺色模式'
 };
