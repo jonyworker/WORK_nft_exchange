@@ -1,3 +1,5 @@
+// 簡體中文
+
 export default {
     toggle: '切换',
     search:'探索 NFT',

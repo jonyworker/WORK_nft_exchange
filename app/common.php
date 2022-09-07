@@ -40,3 +40,9 @@ function error2($status = "error")
     ];
     return json($result);
 }
+
+//成功返回(自定义返回内容)
+function success3($result = [])
+{
+    return json($result);
+}

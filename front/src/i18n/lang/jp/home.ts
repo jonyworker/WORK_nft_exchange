@@ -1,6 +1,6 @@
-// 英語
+// 日本語
 
-export default   {
+export default {
     toggle: '',
     search:'',
     mint:'',
