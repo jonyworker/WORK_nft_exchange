@@ -28,4 +28,9 @@ export default {
     analysis:'NFT分析',
     latestNews:'最新消息',
     newsList:'NFTotal上排名靠前的NFT，按数量、底价和其他统计数据排名',
+    demo:'项目',
+    tradingVolume:'交易量',
+    number:'数量',
+    floorPrice:'地板价',
+    holder:'持有者',
 };

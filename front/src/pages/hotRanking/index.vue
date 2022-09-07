@@ -34,17 +34,17 @@
                       <thead class="mb-40">
                       <tr>
                         <th>#</th>
-                        <th>項目</th>
+                        <th>{{$t('home.demo')}}</th>
                         <th>
-                          交易量
+                          {{$t('home.tradingVolume')}}
                           <span @click="toArrow(1)" v-if="row === 2"><el-icon><ArrowUp /></el-icon></span>
                           <span @click="toArrow(2)" v-if="row === 1"><el-icon><ArrowDown /></el-icon></span>
                           </th>
                         <th>24H%</th>
                         <th>7D%</th>
-                        <th>地板價</th>
-                        <th>持有者</th>
-                        <th>數量</th>
+                        <th>{{$t('home.floorPrice')}}</th>
+                        <th>{{$t('home.holder')}}</th>
+                        <th>{{$t('home.number')}}</th>
                       </tr>
                       </thead>
                       <tbody>
