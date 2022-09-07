@@ -7,9 +7,9 @@
             <div class="col-12 d-flex justify-content-between align-items-center">
               <div class="title-wrap">
                 <h2 class="title-set mb-6">
-                  最新消息
+                  {{$t('home.latestNews')}}
                 </h2>
-                <p class="subtile mb-6">NFTotal上排名靠前的 NFT，按數量、底價和其他統計數據排名</p>
+                <p class="subtile mb-6">{{$t('home.newsList')}}</p>
                 <div class="tabs">
                   <div v-for="(item,index) in list" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="chageTag(item.value)">
                     {{item.name}}
@@ -98,8 +98,9 @@ const chageTag = async(value:number) =>{
     ind:type.value,
   }
   const res = await homeApi.getNews(params);
-  newList.value = res.data;
   newListTwo.value = res.data[0];
+  newList.value = res.data.splice(1);
+
 }
 interface INewListFor{
   id:any;
@@ -118,8 +119,9 @@ const getNews =async()=>{
     ind:type.value,
   }
   const res = await homeApi.getNews(params);
-  newList.value = res.data;
   newListTwo.value = res.data[0];
+  newList.value = res.data.splice(1);
+
 
 }
 onMounted(() => {
