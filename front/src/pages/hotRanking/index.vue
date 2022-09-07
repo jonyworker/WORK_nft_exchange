@@ -11,7 +11,7 @@
                   <h2 class="title-set mb-6">
                     {{$t('home.analysis')}}
                   </h2>
-                  <p class="subtile mb-6">NFTotal上排名靠前的 NFT，按數量、底價和其他統計數據排名。</p>
+                  <p class="subtile mb-6">{{$t('home.newsList')}}</p>
                   <div class="tabs">
                     <div v-for="(item,index) in list" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeTag(item.value)">
                       {{item.name}}

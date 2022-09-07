@@ -26,4 +26,6 @@ export default {
     delivery:'傳送',
     newsNfTotal:'獲取最新的 NFTotal 更新',
     analysis:'NFT分析',
+    latestNews:'最新消息',
+    newsList:'NFTotal上排名靠前的 NFT，按數量、底價和其他統計數據排名',
 };
