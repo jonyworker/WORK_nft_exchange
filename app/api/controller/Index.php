@@ -169,10 +169,11 @@ class Index extends BaseController
 
             $data = array();
             $lan = ['tw','cn','en','jp','ko'];
+            $name = ['period','tab','tabTime','newstab'];
             $field = $lan[$request['lan'] - 1];
 
             foreach ($words as $k => $v) {
-                $data[$v['id']] = unserialize($v[$field]);
+                $data[$name[$k]] = unserialize($v[$field]);
             }
 
             $data['status'] = 'ok';
