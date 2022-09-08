@@ -35,7 +35,7 @@ const homeApi = {
         return await request.get(`api/nft/highprofit`,{params})
     },
     //
-    async getText ():Promise<{period:any ,tab:any ,newstab:any}>{
+    async getText ():Promise<{period:any ,tab:any ,newstab:any,tabTime:any}>{
         return await request.get(`api/index/text`)
     }
 

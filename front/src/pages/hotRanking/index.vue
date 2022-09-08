@@ -169,8 +169,8 @@ const textList = ref<IText[]>();
 const tabs = ref<IText[]>()
 const getTextList = async() =>{
   const res = await homeApi.getText();
-  textList.value = res.period;
-  tabs.value = res.tab
+  textList.value = res.tab;
+  tabs.value = res.period
 }
 const ps = router.currentRoute.value.query.type;
 const type = ref ( 2);

@@ -24,7 +24,7 @@ interface IText {
 const textList = ref<IText[]>();
 const getTextList = async() =>{
   const res = await homeApi.getText();
-  textList.value = res.period
+  textList.value = res.tabTime
 }
 
 onMounted(() => {
