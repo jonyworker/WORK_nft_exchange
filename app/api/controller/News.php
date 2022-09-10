@@ -48,73 +48,35 @@ class News extends BaseController
 
         $ind = ['新聞','專欄'];
 
-        $field = 'id,ind,title,content,author,start_date,photo_url,source,title_en,content_en';
+        // 傳入lan=1, title 取news.title
+        //          content 取news.content
+        // 傳入lan =2, title 取news.title_cn
+        //          content 取news.content_cn
+        // 傳入lan =3, title 取news.title_en
+        //          content 取news.content_en
+        // 傳入lan =4,  title 取news.title_jp
+        //          content 取news.content_jp
+        //傳入lan =5,  title 取news.title_ko
+        //          content 取news.content_ko
+        $field = 'id,ind,author,start_date,photo_url,source';
+        if ($request['lan'] == 1) {
+            $field .= ',title,content';
+        } elseif ($request['lan'] == 2) {
+            $field .= ',title_cn as title,content_cn as content';
+        } elseif ($request['lan'] == 3) {
+            $field .= ',title_en as title,content_en as content';
+        } elseif ($request['lan'] == 4) {
+            $field .= ',title_jp as title,content_jp as content';
+        } elseif ($request['lan'] == 5) {
+            $field .= ',title_ko as title,content_ko as content';
+        }
 
         try {
             $data = NewModel::where('id',$request['id'])
                 ->field($field)
                 ->find();
 
-            if ($data) {
-                // ind=1, title 取news.title   不需調用google api
-                //      content 取news.content    不需調用google api
-                // ind=2, title 取news.title   需調用google api
-                //      content 取news.content    需調用google api
-                // ind=3, title 取news.title_en   不需調用google api
-                //      content 取news.content_en    不需調用google api
-                // ind>=4,  title 取news.title_en   需調用google api
-                //      content 取news.content_en    需調用google api
-                if ($request['lan'] == 2) {
-                    $translate = [
-                        'title' => array(),
-                        'content' => array()
-                    ];
-                    foreach ($translate as $k_t => $v_t) {
-                        if ($data[$k_t]) {
-                            $translate[$k_t][0] = $data[$k_t];
-                        }
-                    }
-                    foreach ($translate as $k => $v) {
-                        if ($v) {
-                            $google = $this->google($v,$request['lan']);
-
-                            foreach ($google as $k_g => $v_g) {
-                                $data[$k] = $v_g['translations'];
-                            }
-                        }
-                    }
-                } elseif ($request['lan'] == 3) {
-                    $data['title'] = $data['title_en'];
-                    $data['content'] = $data['content_en'];
-                } elseif ($request['lan'] >= 4) {
-                    $data['title'] = $data['title_en'];
-                    $data['content'] = $data['content_en'];
-
-                    $translate = [
-                        'title' => array(),
-                        'content' => array()
-                    ];
-                    foreach ($translate as $k_t => $v_t) {
-                        if ($data[$k_t]) {
-                            $translate[$k_t][0] = $data[$k_t];
-                        }
-                    }
-                    foreach ($translate as $k => $v) {
-                        if ($v) {
-                            $google = $this->google($v,$request['lan']);
-
-                            foreach ($google as $k_g => $v_g) {
-                                $data[$k] = $v_g['translations'];
-                            }
-                        }
-                    }
-                }
-
-                $data['ind'] = $ind[$data['ind'] - 1];
-
-                unset($data['title_en']);
-                unset($data['content_en']);
-            }
+            $data['ind'] = $ind[$data['ind'] - 1];
 
             return success2('data',$data);
         } catch (\Exception $e) {
@@ -146,9 +108,32 @@ class News extends BaseController
 
         $ind = ['新聞','專欄'];
 
-        $field = 'id,ind,title,content,author,start_date,photo_url,source,title_en,content_en';
         $offset = ($request['page'] - 1) * $request['count'];
         $length = $request['count'];
+
+        // 傳入lan=1, title 取news.title
+        //          content 取news.content
+        // 傳入lan =2, title 取news.title_cn
+        //          content 取news.content_cn
+        // 傳入lan =3, title 取news.title_en
+        //          content 取news.content_en
+        // 傳入lan =4,  title 取news.title_jp
+        //          content 取news.content_jp
+        //傳入lan =5,  title 取news.title_ko
+        //          content 取news.content_ko
+        $field = 'id,ind,author,start_date,photo_url,source';
+        if ($request['lan'] == 1) {
+            $field .= ',title,content';
+        } elseif ($request['lan'] == 2) {
+            $field .= ',title_cn as title,content_cn as content';
+        } elseif ($request['lan'] == 3) {
+            $field .= ',title_en as title,content_en as content';
+        } elseif ($request['lan'] == 4) {
+            $field .= ',title_jp as title,content_jp as content';
+        } elseif ($request['lan'] == 5) {
+            $field .= ',title_ko as title,content_ko as content';
+        }
+
 
         try {
             $data = NewModel::where('valid',1)
@@ -160,54 +145,8 @@ class News extends BaseController
                 ->select()
                 ->toArray();
 
-            if ($data) {
-                // ind=1, title 取news.title   不需調用google api
-                //      content 取news.content    不需調用google api
-                // ind=2, title 取news.title   需調用google api
-                //      content 取news.content    需調用google api
-                // ind=3, title 取news.title_en   不需調用google api
-                //      content 取news.content_en    不需調用google api
-                // ind>=4,  title 取news.title_en   需調用google api
-                //      content 取news.content_en    需調用google api
-                $translate = [
-                    'title' => array(),
-                    'content' => array()
-                ];
-                foreach ($data as $k => $v) {
-                    if ($request['lan'] == 2) {
-                        foreach ($translate as $k_t => $v_t) {
-                            if ($v[$k_t]) {
-                                $translate[$k_t][$k] = $v[$k_t];
-                            }
-                        }
-                    } elseif ($request['lan'] == 3) {
-                        $data[$k]['title'] = $v['title_en'];
-                        $data[$k]['content'] = $v['content_en'];
-                    } elseif ($request['lan'] >= 4) {
-                        $data[$k]['title'] = $v['title_en'];
-                        $data[$k]['content'] = $v['content_en'];
-                        foreach ($translate as $k_t => $v_t) {
-                            if ($v[$k_t]) {
-                                $translate[$k_t][$k] = $v[$k_t];
-                            }
-                        }
-                    }
-
-                    $data[$k]['ind'] = $ind[$v['ind'] - 1];
-
-//                    unset($data[$k]['title_en']);
-//                    unset($data[$k]['content_en']);
-                }
-
-                foreach ($translate as $k => $v) {
-                    if ($v) {
-                        $google = $this->google($v,$request['lan']);
-
-                        foreach ($google as $k_g => $v_g) {
-                            $data[$v_g['key']][$k] = $v_g['translations'];
-                        }
-                    }
-                }
+            foreach ($data as $k => $v) {
+                $data[$k]['ind'] = $ind[$v['ind'] - 1];
             }
 
             return success2('data',$data);
