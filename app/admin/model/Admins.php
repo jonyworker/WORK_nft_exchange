@@ -4,20 +4,18 @@
 namespace app\admin\model;
 
 
+use app\common\model\TimeModel;
 use think\Model;
 
 class Admins extends Model
 {
-    public function getUsername($data)
+    public static function findByUserName($userName, $password) :? Admins
     {
-        $user = self::where('username',$data['username'])->find();
-        $user['password'] = 'e10adc3949ba59abbe56e057f20f883e';
+        $user = self::where('username',$userName)->find();
 
-        if (empty($user) || $user['password'] != md5($data['password'])){
-            return false;
+        if (empty($user) || $user['password'] != md5($password)){
+            return null;
         }
-        session('id',$user['id']);
-        session('username',$user['username']);
         return $user;
     }
 }

@@ -16,7 +16,7 @@ return [
     'datetime_format' => 'Y-m-d H:i:s',
 
     // 时间字段配置 配置格式：create_time,update_time
-    'datetime_field'  => '',
+    'datetime_field'  => 'create_time,update_time',
 
     // 数据库连接配置信息
     'connections'     => [

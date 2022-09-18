@@ -1,0 +1,125 @@
+<div class="layuimini-container">
+    <form id="app-form" class="layui-form layuimini-form">
+        <div class="layui-form-item">
+            <label class="layui-form-label">主標(繁)</label>
+            <div class="layui-input-block">
+                <input type="text" name="title" class="layui-input" lay-verify="required" placeholder="請輸入主標題(繁)" value="{$row.title|default=''}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">副標(繁)</label>
+            <div class="layui-input-block">
+                <input type="text" name="sub_title" class="layui-input" placeholder="請輸入副標題" value="{$row.sub_title|default=''}">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">內文(繁)</label>
+            <div class="layui-input-block">
+                <textarea name="content" rows="10" class="layui-textarea editor">{$row.content|default=''}</textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">主標(簡)</label>
+            <div class="layui-input-block">
+                <input type="text" name="title_cn" class="layui-input" lay-verify="required" placeholder="請輸入主標(簡)" value="{$row.title_cn|default=''}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">內文(簡)</label>
+            <div class="layui-input-block">
+                <textarea name="content_cn" rows="10" class="layui-textarea editor">{$row.content_en|default=''}</textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">主標(英)</label>
+            <div class="layui-input-block">
+                <input type="text" name="title_en" class="layui-input" lay-verify="required" placeholder="請輸入主標(英)" value="{$row.title_en|default=''}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">內文(英)</label>
+            <div class="layui-input-block">
+                <textarea name="content_en" rows="10" class="layui-textarea editor">{$row.content_en|default=''}</textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">主標(日)</label>
+            <div class="layui-input-block">
+                <input type="text" name="title_jp" class="layui-input" lay-verify="required" placeholder="請輸入主標(日)" value="{$row.title_jp|default=''}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">內文(日)</label>
+            <div class="layui-input-block">
+                <textarea name="content_jp" rows="10" class="layui-textarea editor">{$row.content_jp|default=''}</textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">主標(韓)</label>
+            <div class="layui-input-block">
+                <input type="text" name="title_ko" class="layui-input" lay-verify="required" placeholder="請輸入主標(韓)" value="{$row.title_ko|default=''}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">內文(韓)</label>
+            <div class="layui-input-block">
+                <textarea name="content_ko" rows="10" class="layui-textarea editor">{$row.content_ko|default=''}</textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">上架日</label>
+            <div class="layui-input-block">
+                <input type="text" name="start_date"  lay-verify="required" data-date="" data-date-type="date" class="layui-input"  placeholder="請選擇上架日" value="{$row.start_date|default=''}">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">專欄大圖</label>
+            <div class="layui-input-block layuimini-upload">
+                <input name="large_photo_url" class="layui-input layui-col-xs6" lay-verify="required" placeholder="請上傳圖片" value="{$row.large_photo_url|default=''}">
+                <div class="layuimini-upload-btn">
+                    <span><a class="layui-btn" data-upload="large_photo_url" data-upload-number="one" data-upload-exts="png|jpg|jpeg" data-upload-icon="image"><i class="fa fa-upload"></i> 上傳</a></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">專欄小圖</label>
+            <div class="layui-input-block layuimini-upload">
+                <input name="small_photo_url" class="layui-input layui-col-xs6" lay-verify="required" placeholder="請上傳圖片" value="{$row.small_photo_url|default=''}">
+                <div class="layuimini-upload-btn">
+                    <span><a class="layui-btn" data-upload="small_photo_url" data-upload-number="one" data-upload-exts="png|jpg|jpeg" data-upload-icon="image"><i class="fa fa-upload"></i> 上傳</a></span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">來源</label>
+            <div class="layui-input-block">
+                <input type="text" name="source" class="layui-input" lay-verify="required" placeholder="請輸入來源" value="{$row.source|default=''}">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">狀態</label>
+            <div class="layui-input-inline">
+                <input type="checkbox" name="valid" lay-skin="switch" lay-text="啓用|作廢" lay-filter="kg1" {if $row["valid"] == 1}checked{/if}>
+            </div>
+        </div>
+
+
+        <div class="hr-line"></div>
+        <div class="layui-form-item text-center">
+            <button type="submit" class="layui-btn layui-btn-normal layui-btn-sm" lay-submit>確認</button>
+            <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">重置</button>
+        </div>
+
+    </form>
+</div>

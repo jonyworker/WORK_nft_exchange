@@ -120,7 +120,7 @@ abstract class BaseController
     }
 
     /** * Desc: * Created by Joker * Date: 2022/08/27 * Time: 10:36
-     * @param $text 翻译为中文
+     * @param $text
      * @param string $to zh-CN:翻译为中文 en:翻译为英文
      * @return string
      */
@@ -157,7 +157,7 @@ abstract class BaseController
     }
 
     /** * Desc: * Created by Joker * Date: 2022/08/28 * Time: 14:10
-     * @param $text 翻译为中文
+     * @param $text
      * @param string $to zh-CN:翻译为中文 en:翻译为英文
      * @return string
      */
