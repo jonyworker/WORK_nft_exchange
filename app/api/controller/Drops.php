@@ -56,7 +56,7 @@ class Drops extends BaseController
         //傳入lan =5,  introduction 取drops.introduction_ko
         //                member 取drops. member_ko
         //                roadmap取drops.roadmap_ko
-        $field = 'id,collection_url,collection,tag,price,blockchain,total,date,website,twitter,discord,mint_url';
+        $field = 'id,collection_url,collection,tag,price,blockchain,total,date,website,twitter,discord,mint_url,ori_date';
         if ($request['lan'] == 1) {
             $field .= ',introduction,member,roadmap';
         } elseif ($request['lan'] == 2) {
@@ -80,6 +80,13 @@ class Drops extends BaseController
                 ->order('date asc')
                 ->select()
                 ->toArray();
+
+            foreach ($data as $k => $v) {
+                $ymd = date('Ymd',$v['ori_date']);
+                $his = date('His',$v['ori_date']);
+                $data[$k]['schedule'] = 'https://calendar.google.com/calendar/u/0/r/eventedit?dates='.$ymd.'T'.$his.'-8/'.$ymd.
+                'T013000-8&location=http://potatopalsnft.com/&text=Mint提醒(SerNFT)&details='.$v['introduction'];
+            }
 
 //            if ($data) {
 //                $translate = [
