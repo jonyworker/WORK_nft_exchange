@@ -659,6 +659,16 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, undefine
                 }
                 return '<a class="layuimini-table-url" href="' + value + '" target="_blank" class="label bg-green">' + value + '</a>';
             },
+            link: function (data, option) {
+                var title = option.title;
+                var field = option.field;
+                try {
+                    var value = eval("data." + field);
+                } catch (e) {
+                    var value = undefined;
+                }
+                return '<a class="layuimini-table-url" href="' + value + '" target="_blank">' + title + '</a>';
+            },
             switch: function (data, option) {
                 var field = option.field;
                 option.filter = option.filter || option.field || null;

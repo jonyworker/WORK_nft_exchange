@@ -27,7 +27,22 @@ define(["jquery", "easy-admin"], function ($, ea) {
                     {field: 'createName', minWidth: 80, title: '建單人員', search:false},
                     {field: 'create_time', minWidth: 120, title: '新增時間', search:false},
                     {field: 'update_time', minWidth: 120, title: '修改時間', search:false},
-                    {width: 140, title: '操作', templet: ea.table.tool}
+                    {
+                        width: 140,
+                        title: '操作',
+                        templet: ea.table.tool,
+                        operat: [
+                            [{
+                                text: '编辑',
+                                url: init.edit_url,
+                                method: 'open',
+                                auth: 'edit',
+                                class: 'layui-btn layui-btn-xs layui-btn-success',
+                                extend: 'data-full="true"',
+                            }],
+                            'delete'
+                        ]
+                    }
                 ]],
             });
 
