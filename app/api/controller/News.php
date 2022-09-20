@@ -64,7 +64,7 @@ class News extends BaseController
         } elseif ($request['lan'] == 2) {
             $field .= ',title_cn as title,content_cn as content';
         } elseif ($request['lan'] == 3) {
-            $field .= ',title_en as title,content_en as content';
+            $field .= ',title_en_public as title,content_en_public as content';
         } elseif ($request['lan'] == 4) {
             $field .= ',title_jp as title,content_jp as content';
         } elseif ($request['lan'] == 5) {
@@ -127,7 +127,7 @@ class News extends BaseController
         } elseif ($request['lan'] == 2) {
             $field .= ',title_cn as title,content_cn as content';
         } elseif ($request['lan'] == 3) {
-            $field .= ',title_en as title,content_en as content';
+            $field .= ',title_en_public as title,content_en_public as content';
         } elseif ($request['lan'] == 4) {
             $field .= ',title_jp as title,content_jp as content';
         } elseif ($request['lan'] == 5) {
