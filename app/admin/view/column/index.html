@@ -20,19 +20,19 @@
           <div class="layui-inline">
             <label class="layui-form-label">主標</label>
             <div class="layui-input-block">
-              <input type="text" name="title" placeholder="请输入" autocomplete="off" class="layui-input">
+              <input type="text" name="title" placeholder="請輸入" autocomplete="off" class="layui-input">
             </div>
           </div>
           <div class="layui-inline">
             <label class="layui-form-label">副標</label>
             <div class="layui-input-block">
-              <input type="text" name="sub_title" placeholder="请输入" autocomplete="off" class="layui-input">
+              <input type="text" name="sub_title" placeholder="請輸入" autocomplete="off" class="layui-input">
             </div>
           </div>
           <div class="layui-inline">
             <label class="layui-form-label">來源</label>
             <div class="layui-input-block">
-              <input type="text" name="content" placeholder="请输入" autocomplete="off" class="layui-input">
+              <input type="text" name="content" placeholder="請輸入" autocomplete="off" class="layui-input">
             </div>
           </div>
           <div class="layui-inline">
@@ -117,16 +117,16 @@
         ,checkData = checkStatus.data; //得到选中的数据
 
         if(checkData.length === 0){
-          return layer.msg('请选择数据');
+          return layer.msg('請選擇數據');
         }
         
         layer.prompt({
           formType: 1
-          ,title: '敏感操作，请验证口令'
+          ,title: '敏感操作，請驗證口令'
         }, function(value, index){
           layer.close(index);
           
-          layer.confirm('确定删除吗？', function(index) {
+          layer.confirm('確定删除嗎？', function(index) {
             
             //执行 Ajax 后重载
             /*
@@ -147,7 +147,7 @@
           ,content: 'add'
           ,maxmin: true
           ,area: ['100%', '100%']
-          ,btn: ['确定', '取消']
+          ,btn: ['確定', '取消']
           , yes: function (index, layero) {
             //点击确认触发 iframe 内容中的按钮提交
             var submit = layero.find('iframe').contents().find("#layuiadmin-app-form-submit");
