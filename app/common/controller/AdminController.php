@@ -268,11 +268,11 @@ class AdminController extends BaseController
         }
 
         // 验证权限
-        if (!in_array($currentController, $adminConfig['no_auth_controller']) &&
-            !in_array($currentNode, $adminConfig['no_auth_node'])) {
-            $check = $authService->checkNode($currentNode);
-            !$check && $this->error('無權限訪問');
-        }
+//        if (!in_array($currentController, $adminConfig['no_auth_controller']) &&
+//            !in_array($currentNode, $adminConfig['no_auth_node'])) {
+//            $check = $authService->checkNode($currentNode);
+//            !$check && $this->error('無權限訪問');
+//        }
     }
 
     /**
