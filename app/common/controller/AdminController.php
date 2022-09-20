@@ -258,21 +258,21 @@ class AdminController extends BaseController
         if (!in_array($currentController, $adminConfig['no_login_controller']) &&
             !in_array($currentNode, $adminConfig['no_login_node'])) {
 
-            empty($adminId) && $this->error('请先登录登录', [], __url('admin/login/index'));
+            empty($adminId) && $this->error('登陸失效，請重新登陸', [], __url('admin/login/index'));
 
             // 判断是否登录过期
             if ($expireTime !== true && time() > $expireTime) {
                 session('admin', null);
-                $this->error('登录已过期，请重新登录', [], __url('admin/login/index'));
+                $this->error('登陸已過期，請重新登陸', [], __url('admin/login/index'));
             }
         }
 
         // 验证权限
-        if (!in_array($currentController, $adminConfig['no_auth_controller']) &&
-            !in_array($currentNode, $adminConfig['no_auth_node'])) {
-            $check = $authService->checkNode($currentNode);
-            !$check && $this->error('无权限访问');
-        }
+//        if (!in_array($currentController, $adminConfig['no_auth_controller']) &&
+//            !in_array($currentNode, $adminConfig['no_auth_node'])) {
+//            $check = $authService->checkNode($currentNode);
+//            !$check && $this->error('無權限訪問');
+//        }
     }
 
     /**
@@ -280,7 +280,7 @@ class AdminController extends BaseController
      */
     protected function checkPostRequest(){
         if (!$this->request->isPost()) {
-            $this->error("当前请求不合法！");
+            $this->error("當前為非法請求！");
         }
     }
 

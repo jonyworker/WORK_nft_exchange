@@ -21,8 +21,6 @@ class Adverts extends AdminController
 
     use \app\admin\traits\Curd;
 
-    protected $collectionId;
-
     protected $sort = [
         'id' => 'asc',
     ];
@@ -36,9 +34,8 @@ class Adverts extends AdminController
     /**
      * @NodeAnotation(title="列表")
      */
-    public function index()
+    public function index($id)
     {
-        $this->collectionId = $this->request->get('id');
         if ($this->request->isAjax()) {
             if (input('selectFields')) {
                 return $this->selectList();
@@ -46,7 +43,7 @@ class Adverts extends AdminController
 
             list($page, $limit, $where) = $this->buildTableParames();
 
-            $where[] = ['collection_id', '=', $this->collectionId];
+            $where[] = ['collection_id', '=', $id];
             $count = $this->model
                 ->where($where)
                 ->count();
@@ -64,7 +61,7 @@ class Adverts extends AdminController
             ];
             return json($data);
         }
-        return $this->fetch('', ['collectionId' => $this->collectionId]);
+        return $this->fetch('', ['collectionId' => $id]);
     }
 
     /**

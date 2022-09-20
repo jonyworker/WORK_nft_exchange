@@ -66,7 +66,10 @@ class MenuService
     {
         $treeList = [];
         foreach ($menuList as &$v) {
-            $check = empty($v['href']) ? true : $authServer->checkNode($v['href']);
+            //TODO 权限
+//            $check = empty($v['href']) ? true : $authServer->checkNode($v['href']);
+            $check = true;
+
             !empty($v['href']) && $v['href'] = __url($v['href']);
             if ($pid == $v['pid'] && $check) {
                 $node = $v;

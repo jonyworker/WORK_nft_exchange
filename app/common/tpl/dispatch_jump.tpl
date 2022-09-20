@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>跳转提示</title>
+    <title>跳轉提示</title>
     <style type="text/css">
         *{box-sizing:border-box;margin:0;padding:0;font-family:Lantinghei SC,Open Sans,Arial,Hiragino Sans GB,Microsoft YaHei,"微软雅黑",STHeiti,WenQuanYi Micro Hei,SimSun,sans-serif;-webkit-font-smoothing:antialiased}
         body{padding:70px 0;background:#edf1f4;font-weight:400;font-size:1pc;-webkit-text-size-adjust:none;color:#333}
@@ -35,11 +35,11 @@
         </div>
         <h1><?php echo(strip_tags($msg));?></h1>
         <p class="jump">
-            页面将在 <span id="wait"><?php echo($wait);?></span> 秒后自动跳转
+            頁面將在 <span id="wait"><?php echo($wait);?></span> 秒後自動跳轉
         </p>
         <p class="clearfix">
-            <a href="#" onClick="javascript :history.back(-1);" class="btn btn-grey">返回上一页</a>
-            <a id="href" href="{$url}" class="btn btn-primary">立即跳转</a>
+            <a href="#" onClick="javascript :history.back(-1);" class="btn btn-grey">返回上一頁</a>
+            <a id="href" href="{$url}" class="btn btn-primary">立即跳轉</a>
         </p>
     </div>
  	<script type="text/javascript">

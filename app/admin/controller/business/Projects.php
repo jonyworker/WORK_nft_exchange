@@ -161,4 +161,25 @@ class Projects extends AdminController
             $this->error('删除失败');
         }
     }
+
+    public function updateNft($id)
+    {
+        $this->checkPostRequest();
+        $row = $this->model->find($id);
+        empty($row) && $this->error('数据不存在');
+        try {
+            $save = $row->save(['bot_process' => 1]);
+        } catch (\Exception $e) {
+            $this->error('更新NFT資訊失败');
+        }
+
+        if ($save) {
+            $this->success('更新NFT資訊成功');
+        } else {
+            $this->error('更新NFT資訊失败');
+        }
+    }
+
+
+
 }
