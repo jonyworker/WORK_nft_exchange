@@ -7,7 +7,8 @@ define(["jquery", "easy-admin"], function ($, ea) {
         add_url: 'business.projects/add',
         edit_url: 'business.projects/edit',
         delete_url: 'business.projects/delete',
-        update_nft_url: 'business.projects/update_nft',
+        update_nft_url: 'business.projects/updateNft',
+        ad_url: 'business.adverts/index',
         export_url: 'business.projects/export',
     };
 
@@ -39,19 +40,24 @@ define(["jquery", "easy-admin"], function ($, ea) {
                     {field: 'process', title: '審核', width: 85, search: 'select', selectList: {2: '已審核 ', 1: '未審核'}, templet: ea.table.switch},
                     {field: 'create_time', minWidth: 120, title: '新增時間', search:false},
                     {field: 'update_time', minWidth: 120, title: '修改時間', search:false},
-                    {field: 'ad_url', minWidth: 80, title: '廣告圖', templet: ea.table.link},
                     {
-                        width: 200,
+                        width: 300,
                         title: '操作',
                         templet: ea.table.tool,
                         operat: [
                             [{
+                                text: '广告图',
+                                url: init.ad_url,
+                                method: 'open',
+                                auth: 'list',
+                                class: 'layui-btn layui-btn-xs layui-btn-primary',
+                                extend: 'data-full="true"'
+                            },{
                                 text: '更新NFT資訊',
                                 url: init.update_nft_url,
-                                method: 'open',
+                                method: 'request',
                                 auth: 'edit',
                                 class: 'layui-btn layui-btn-xs layui-btn-normal',
-                                extend: 'data-full="true"',
                             }, {
                                 text: '编辑',
                                 url: init.edit_url,
