@@ -107,7 +107,7 @@ line-height: 40px;
   font-weight: 700;
   font-size: 28px;
 }
-::v-deep .el-overlay {
+:deep  .el-overlay {
   position: fixed;
   top: 0px;
   right: 0px;
@@ -120,7 +120,7 @@ line-height: 40px;
 /*  backdrop-filter: blur(20px);*/
   overflow: auto;
 }
-::v-deep .el-drawer {
+:deep  .el-drawer {
   width: 40% !important;
   position: absolute;
   box-sizing: border-box;
@@ -132,7 +132,7 @@ line-height: 40px;
   overflow: hidden;
   transition: all var(--el-transition-duration);
 }
-::v-deep .el-drawer__body {
+:deep  .el-drawer__body {
   background:rgba(18, 18, 18, 0.85);
   flex: 1;
   border: 2px solid rgba(255, 255, 255, 0.2);

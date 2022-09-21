@@ -88,7 +88,7 @@ const router = useRouter();
 const type = ref (1)
 interface IText {
   name: string
-  value: string
+  value: number
 }
 const tabs = ref<IText[]>()
 const getTextList = async() =>{
