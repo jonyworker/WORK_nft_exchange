@@ -12,7 +12,6 @@
 
 namespace app\admin\controller;
 
-use app\admin\model\AdminUploadfile;
 use app\admin\service\UploadFile;
 use app\common\controller\AdminController;
 use app\common\service\MenuService;

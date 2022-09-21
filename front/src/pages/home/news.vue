@@ -17,16 +17,16 @@
                 <div class="col-12 col-sm-6 col-lg-3">
                   <div class="card-item card-2" @click="toDetails(newList?.id)">
                     <!-- 卡片圖片 -->
-                    <div class="card-image mb-10">
+                    <div class="card-image mb-5">
                       <img :src="newList?.photo_url" alt="">
                     </div>
                     <!-- 卡片內文 -->
                     <div class="card-text">
-                      <div class="card-tag mb-8">
+                      <div class="card-tag mb-2">
                         <p>{{newList?.ind}}</p>
                       </div>
                       <div class="card-title">
-                        <h3 class="multiline-ellipsis mb-8">{{newList?.title}}</h3>
+                        <h3 class="multiline-ellipsis">{{newList?.title}}</h3>
                       </div>
                       <div class="card-paragraph">
                         <div class="multiline-ellipsis mb-12" >
@@ -43,16 +43,16 @@
                 <div class="d-none d-sm-block col-sm-6 col-lg-3">
                   <div class="card-item card-2" @click="toDetails(newListTwo?.id)">
                     <!-- 卡片圖片 -->
-                    <div class="card-image mb-10">
+                    <div class="card-image mb-5">
                       <img :src="newListTwo?.photo_url" alt="">
                     </div>
                     <!-- 卡片內文 -->
                     <div class="card-text">
-                      <div class="card-tag mb-8">
+                      <div class="card-tag mb-2">
                         <p>{{newListTwo?.ind}}</p>
                       </div>
                       <div class="card-title">
-                        <h3 class="multiline-ellipsis mb-8">{{newListTwo?.title}}</h3>
+                        <h3 class="multiline-ellipsis">{{newListTwo?.title}}</h3>
                       </div>
                       <div class="card-paragraph">
                         <div class="multiline-ellipsis mb-12" >
@@ -69,16 +69,16 @@
                 <div class="d-none d-lg-block col-lg-3">
                   <div class="card-item card-2" @click="toDetails(newListFree?.id)">
                     <!-- 卡片圖片 -->
-                    <div class="card-image mb-10">
+                    <div class="card-image mb-5">
                       <img :src="newListFree?.photo_url" alt="">
                     </div>
                     <!-- 卡片內文 -->
                     <div class="card-text">
-                      <div class="card-tag mb-8">
+                      <div class="card-tag mb-2">
                         <p>{{newListFree?.ind}}</p>
                       </div>
                       <div class="card-title">
-                        <h3 class="multiline-ellipsis mb-8">{{newListFree?.title}}</h3>
+                        <h3 class="multiline-ellipsis">{{newListFree?.title}}</h3>
                       </div>
                       <div class="card-paragraph">
                         <div class="multiline-ellipsis mb-12" >
@@ -95,16 +95,16 @@
                 <div class="d-none d-lg-block col-lg-3">
                   <div class="card-item card-2" @click="toDetails(newListFor?.id)">
                     <!-- 卡片圖片 -->
-                    <div class="card-image mb-10">
+                    <div class="card-image mb-5">
                       <img :src="newListFor?.photo_url" alt="">
                     </div>
                     <!-- 卡片內文 -->
                     <div class="card-text">
-                      <div class="card-tag mb-8">
+                      <div class="card-tag mb-2">
                         <p>{{newListFor?.ind}}</p>
                       </div>
                       <div class="card-title">
-                        <h3 class="multiline-ellipsis mb-8">{{newListFor?.title}}</h3>
+                        <h3 class="multiline-ellipsis">{{newListFor?.title}}</h3>
                       </div>
                       <div class="card-paragraph">
                         <div class="multiline-ellipsis mb-12" >

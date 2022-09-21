@@ -5,6 +5,7 @@ namespace app\admin\controller\business;
 
 
 use app\admin\model\Collection;
+use app\api\model\Drops;
 use app\common\controller\AdminController;
 use EasyAdmin\annotation\NodeAnotation;
 use EasyAdmin\annotation\ControllerAnnotation;
@@ -14,9 +15,9 @@ use think\App;
 /**
  * Class Admin
  * @package app\admin\controller\business
- * @ControllerAnnotation(title="项目管理")
+ * @ControllerAnnotation(title="Mint觀測站管理")
  */
-class Projects extends AdminController
+class Mint extends AdminController
 {
 
     use \app\admin\traits\Curd;
@@ -28,7 +29,7 @@ class Projects extends AdminController
     public function __construct(App $app)
     {
         parent::__construct($app);
-        $this->model = new Collection();
+        $this->model = new Drops();
     }
 
     /**
@@ -52,6 +53,7 @@ class Projects extends AdminController
                 ->page($page, $limit)
                 ->order($this->sort)
                 ->select();
+
             $data = [
                 'code' => 0,
                 'msg' => '',
@@ -68,15 +70,22 @@ class Projects extends AdminController
      */
     public function add($id = null)
     {
+        //ID			id				必填	新增時候為空，修改時Readonly
+        //鏈			blockchain		必填
+        //項目			collection		 	必填	輸入框
+        //時區(UTC)     utc             必填    菜單 ( -12 -11 ….-1, +0, +1, +2, +3…. +12 )
+        //當地時間     ori_date          必填	輸入框
+        //時間         date             必填
         if ($this->request->isPost()) {
             $post = $this->request->post();
             $rule = [
                 'blockchain|鏈' => 'require',
-                'name|項目' => 'require',
-                'contract|合約' => 'require',
-                'item_qty|總數' => 'require',
+                'collection|項目' => 'require',
+                'utc|時區(UTC)' => 'require',
+                'ori_date|當地時間' => 'require',
                 'valid|狀態' => 'require',
-                'process|審核' => 'require',
+                'date|時間' => 'require',
+                'total|項目數' => 'require',
             ];
             $this->validate($post, $rule);
 
@@ -84,7 +93,6 @@ class Projects extends AdminController
                 $post['createName'] = session('admin.username');
                 $save = $this->model->save($post);
             } catch (\Exception $e) {
-                var_dump($e->getMessage());
                 $this->error('保存失败');
             }
             if ($save) {
@@ -93,9 +101,17 @@ class Projects extends AdminController
                 $this->error('保存失败');
             }
         }
+
+        $utc = [];
+        for ($i = -12; $i <= 12; $i++) {
+            $utc[] = $i;
+        }
+
+
         $this->assign('id', $id);
         $this->assign('date', date('Y-m-d'));
         $this->assign('list', []);
+        $this->assign('utcList', $utc);
         return $this->fetch();
     }
 
@@ -110,11 +126,12 @@ class Projects extends AdminController
             $post = $this->request->post();
             $rule = [
                 'blockchain|鏈' => 'require',
-                'name|項目' => 'require',
-                'contract|合約' => 'require',
-                'item_qty|總數' => 'require',
+                'collection|項目' => 'require',
+                'utc|時區(UTC)' => 'require',
+                'ori_date|當地時間' => 'require',
                 'valid|狀態' => 'require',
-                'process|審核' => 'require',
+                'date|時間' => 'require',
+                'total|項目數' => 'require',
             ];
             $this->validate($post, $rule);
             try {
@@ -155,25 +172,4 @@ class Projects extends AdminController
             $this->error('删除失败');
         }
     }
-
-    public function updateNft($id)
-    {
-        $this->checkPostRequest();
-        $row = $this->model->find($id);
-        empty($row) && $this->error('数据不存在');
-        try {
-            $save = $row->save(['bot_process' => 1]);
-        } catch (\Exception $e) {
-            $this->error('更新NFT資訊失败');
-        }
-
-        if ($save) {
-            $this->success('更新NFT資訊成功');
-        } else {
-            $this->error('更新NFT資訊失败');
-        }
-    }
-
-
-
 }

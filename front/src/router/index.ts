@@ -25,6 +25,11 @@ const routes = [
         name:'NewsDetail',
         component: () => import('@/pages/newsDetail/index.vue')
     },
+    {
+        path:'/mintingPage',
+        name:'mintingPage',
+        component: () => import('@/pages/mintingPage/index.vue')
+    },
 ]
 
 const router = createRouter({

@@ -19,6 +19,12 @@ class Login extends AdminController
      */
     public function initialize()
     {
+//        Admins::create([
+//            'id' => 2,
+//            'username' => 'user',
+//            'password' => password('123456')
+//        ]);
+
         parent::initialize();
         $action = $this->request->action();
         if (!empty(session('admin')) && !in_array($action, ['out'])) {
