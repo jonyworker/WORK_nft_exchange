@@ -98,8 +98,12 @@ class Index extends BaseController
                 ->toArray();
 
             foreach ($data as $k => $v) {
-                $data[$k]['unit_photo'] = ExchangeModel::where('cur',$v['unit'])
-                    ->find()['photo_url'];
+                if ($v['unit']) {
+                    $data[$k]['unit_photo'] = ExchangeModel::where('cur',$v['unit'])
+                        ->find()['photo_url'];
+                } else {
+                    $data[$k]['unit_photo'] = '';
+                }
             }
 
             return success2('hot_collections',$data);
