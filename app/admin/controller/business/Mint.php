@@ -102,6 +102,12 @@ class Mint extends AdminController
             }
         }
 
+        $utc = [];
+        for ($i = -12; $i <= 12; $i++) {
+            $utc[] = $i;
+        }
+
+
         $this->assign('id', $id);
         $this->assign('date', date('Y-m-d'));
         $this->assign('list', []);
