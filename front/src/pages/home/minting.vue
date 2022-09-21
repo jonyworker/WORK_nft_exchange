@@ -74,7 +74,7 @@
                   </li>
                   <!-- icon-discord -->
                   <li class="social-link-item">
-                    <div class="social-link-icon">
+                    <div class="social-link-icon" @click="toSchedule(dropsOne?.schedule || '')">
                       <img src="@/assets/images/icons.png" alt="">
                     </div>
                   </li>
@@ -144,7 +144,7 @@
                       </li>
                       <!-- icon-discord -->
                       <li class="social-link-item">
-                        <div class="social-link-icon">
+                        <div class="social-link-icon" @click="toSchedule(dropsTwo?.schedule || '')">
                           <img src="@/assets/images/icons.png" alt="">
                         </div>
                       </li>
@@ -214,7 +214,7 @@
                   </li>
                   <!-- icon-discord -->
                   <li class="social-link-item">
-                    <div class="social-link-icon">
+                    <div class="social-link-icon" @click="toSchedule(dropsThree?.schedule || '')">
                       <img src="@/assets/images/icons.png" alt="">
                     </div>
                   </li>
@@ -285,7 +285,7 @@
                   </li>
                   <!-- icon-discord -->
                   <li class="social-link-item">
-                    <div class="social-link-icon">
+                    <div class="social-link-icon" @click="toSchedule(dropsFour?.schedule || '')">
                       <img src="@/assets/images/icons.png" alt="">
                     </div>
                   </li>
@@ -494,6 +494,12 @@ const toWebsite = (url: string) => {
   }
   window.open(url)
 }
+const toSchedule = (url:string) =>{
+  if (url === '') {
+    return
+  }
+  window.open(url)
+}
 const toDiscord = (url: string) => {
   if (url === '') {
     return
@@ -526,6 +532,7 @@ type IInfo = {
   shortTime:string;
   member:string;
   roadmap:string;
+  schedule:string;
 }
 const dropsOne = ref<IInfo | null>(null);
 const dropsTwo = ref<IInfo | null>(null);
