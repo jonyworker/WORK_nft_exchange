@@ -85,6 +85,7 @@ import { useRouter } from 'vue-router';
 import {homeApi} from '../../api';
 const router = useRouter();
 
+const ps = router.currentRoute.value.query.type;
 const type = ref (1)
 interface IText {
   name: string
@@ -135,6 +136,7 @@ const getNews =async()=>{
 onMounted(() => {
   getNews()
   getTextList()
+  chageTag(Number(ps))
 })
 </script>
 
