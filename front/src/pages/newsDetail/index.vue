@@ -4,13 +4,13 @@
       <!-- 卡片內文 -->
       <div class="card-text">
         <div class="center">
-          <div class="card-tag mb-8">
+          <div class="card-tag mb-16">
             <p>{{newList?.ind}}</p>
           </div>
-          <div class="card-title text-white">
-            <h3 class="multiline-ellipsis mb-8">{{newList?.title}}</h3>
+          <div class="">
+            <h3 class="heading-B-1 text-white mb-32 ">{{newList?.title}}</h3>
           </div>
-          <div>{{newList?.start_date}}</div>
+          <div class="body-B-2 text-white ">{{newList?.start_date}}</div>
         </div>
         <div class="newImg col-12 col-8">
           <img :src="newList?.photo_url" alt="">
