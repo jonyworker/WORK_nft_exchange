@@ -107,7 +107,7 @@ const toMinting = () =>{
 .drawer{
 line-height: 40px;
   font-weight: 700;
-  font-size: 28px;
+  font-size: 17px;
 }
 :deep  .el-overlay {
   position: fixed;

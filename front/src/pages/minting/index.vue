@@ -76,178 +76,51 @@
               </div>
             </div>
           </div>
+          <el-dialog v-model="dialogFormVisible" width="85%">
+            <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
+              <div class="main">
+                <div class="main-left">
+                  <div class="main-img">
+                    <img :src="item?.collection_url" alt="">
+                  </div>
+                  <div class="main-name">{{ item?.collection }}</div>
+
+                  <div class="tab-list">
+                    <div v-for="(items,index) in List" :key="index" :class="['tag',type===items.value?'active_tag':'']" @click="changeList(items.value)">
+                      {{items.name}}
+                    </div>
+                  </div>
+                </div>
+                <div class="main-right" v-if="type === 1">{{item?.member}}</div>
+                <div class="main-right" v-if="type === 2">{{item?.roadmap}}</div>
+              </div>
+            </div>
+            <!--      &lt;!&ndash; H5 || table&ndash;&gt;-->
+            <div v-else >
+              <div class="ipad-main">
+                <div class="main-img">
+                  <img :src="item?.collection_url" alt="">
+                </div>
+                <div class="right">
+                  <div class="main-name">{{ item?.collection }}</div>
+                  <div class="tags">
+                    <div v-for="(ite,index) in List" :key="index" :class="['tag',type===ite.value?'active_tag':'']" @click="changeList(ite.value)">
+                      {{ite.name}}
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div v-if="type === 1">{{item?.member}}</div>
+              <div  v-if="type === 2">{{item?.roadmap}}</div>
+            </div>
+
+          </el-dialog>
         </div>
 
       </div>
     </div>
-<!--    <el-dialog v-model="dialogFormVisible" width="85%">
 
-      &lt;!&ndash; PC     &ndash;&gt;
-      <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
-        <div class="main">
-          <div class="main-left">
-            <div class="main-img">
-              <img :src="dropsOne?.collection_url" alt="">
-            </div>
-            <div class="main-name">{{ dropsOne?.collection }}</div>
-
-            <div class="tab-list">
-              <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
-                {{item.name}}
-              </div>
-            </div>
-          </div>
-          <div class="main-right" v-if="type === 1">{{dropsOne?.member}}</div>
-          <div class="main-right" v-if="type === 2">{{dropsOne?.roadmap}}</div>
-        </div>
-      </div>
-      &lt;!&ndash; H5 || table&ndash;&gt;
-      <div v-else >
-        <div class="ipad-main">
-          <div class="main-img">
-            <img :src="dropsOne?.collection_url" alt="">
-          </div>
-          <div class="right">
-            <div class="main-name">{{ dropsOne?.collection }}</div>
-            <div class="tags">
-              <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
-                {{item.name}}
-              </div>
-            </div>
-
-          </div>
-        </div>
-        <div v-if="type === 1">{{dropsOne?.member}}</div>
-        <div  v-if="type === 2">{{dropsOne?.roadmap}}</div>
-      </div>
-
-    </el-dialog>
-    <el-dialog v-model="dialogFormTwo" width="85%">
-
-      &lt;!&ndash; PC     &ndash;&gt;
-      <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
-        <div class="main">
-          <div class="main-left">
-            <div class="main-img">
-              <img :src="dropsTwo?.collection_url" alt="">
-            </div>
-            <div class="main-name">{{ dropsTwo?.collection }}</div>
-
-            <div class="tab-list">
-              <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
-                {{item.name}}
-              </div>
-            </div>
-          </div>
-          <div class="main-right" v-if="type === 1">{{dropsTwo?.member}}</div>
-          <div class="main-right" v-if="type === 2">{{dropsTwo?.roadmap}}</div>
-        </div>
-      </div>
-      &lt;!&ndash; H5 || table&ndash;&gt;
-      <div v-else >
-        <div class="ipad-main">
-          <div class="main-img">
-            <img :src="dropsTwo?.collection_url" alt="">
-          </div>
-          <div class="right">
-            <div class="main-name">{{ dropsTwo?.collection }}</div>
-            <div class="tags">
-              <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
-                {{item.name}}
-              </div>
-            </div>
-
-          </div>
-        </div>
-        <div v-if="type === 1">{{dropsTwo?.member}}</div>
-        <div  v-if="type === 2">{{dropsTwo?.roadmap}}</div>
-      </div>
-
-    </el-dialog>
-    <el-dialog v-model="dialogFormThree" width="85%">
-
-      &lt;!&ndash; PC     &ndash;&gt;
-      <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
-        <div class="main">
-          <div class="main-left">
-            <div class="main-img">
-              <img :src="dropsThree?.collection_url" alt="">
-            </div>
-            <div class="main-name">{{ dropsThree?.collection }}</div>
-
-            <div class="tab-list">
-              <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
-                {{item.name}}
-              </div>
-            </div>
-          </div>
-          <div class="main-right" v-if="type === 1">{{dropsThree?.member}}</div>
-          <div class="main-right" v-if="type === 2">{{dropsThree?.roadmap}}</div>
-        </div>
-      </div>
-      &lt;!&ndash; H5 || table&ndash;&gt;
-      <div v-else >
-        <div class="ipad-main">
-          <div class="main-img">
-            <img :src="dropsThree?.collection_url" alt="">
-          </div>
-          <div class="right">
-            <div class="main-name">{{ dropsThree?.collection }}</div>
-            <div class="tags">
-              <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
-                {{item.name}}
-              </div>
-            </div>
-
-          </div>
-        </div>
-        <div v-if="type === 1">{{dropsThree?.member}}</div>
-        <div  v-if="type === 2">{{dropsThree?.roadmap}}</div>
-      </div>
-
-    </el-dialog>
-    <el-dialog v-model="dialogFormFour" width="85%">
-
-      &lt;!&ndash; PC     &ndash;&gt;
-      <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
-        <div class="main">
-          <div class="main-left">
-            <div class="main-img">
-              <img :src="dropsFour?.collection_url" alt="">
-            </div>
-            <div class="main-name">{{ dropsFour?.collection }}</div>
-
-            <div class="tab-list">
-              <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
-                {{item.name}}
-              </div>
-            </div>
-          </div>
-          <div class="main-right" v-if="type === 1">{{dropsFour?.member}}</div>
-          <div class="main-right" v-if="type === 2">{{dropsFour?.roadmap}}</div>
-        </div>
-      </div>
-      &lt;!&ndash; H5 || table&ndash;&gt;
-      <div v-else >
-        <div class="ipad-main">
-          <div class="main-img">
-            <img :src="dropsFour?.collection_url" alt="">
-          </div>
-          <div class="right">
-            <div class="main-name">{{ dropsFour?.collection }}</div>
-            <div class="tags">
-              <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
-                {{item.name}}
-              </div>
-            </div>
-
-          </div>
-        </div>
-        <div v-if="type === 1">{{dropsFour?.member}}</div>
-        <div  v-if="type === 2">{{dropsFour?.roadmap}}</div>
-      </div>
-
-    </el-dialog>-->
   </div>
 </template>
 
