@@ -21,7 +21,7 @@
         </div>
 
         <!-- 標題組 - 主圖 -->
-        <div class="row justify-content-center mb-xl-56">
+        <div class="row justify-content-center bs-mb-32">
           <div class="col-12">
             <div class="blog-main-img-wrap">
               <img class="blog-main-img" :src="newList?.photo_url" alt="">
