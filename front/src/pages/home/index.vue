@@ -19,7 +19,7 @@ import News from './news.vue';
 import {homeApi} from '../../api';
 interface IText {
   name: string
-  value: string
+  value: number
 }
 const textList = ref<IText[]>();
 const getTextList = async() =>{

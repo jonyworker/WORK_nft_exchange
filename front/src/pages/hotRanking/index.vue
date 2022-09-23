@@ -148,6 +148,7 @@ interface IHotListFree{
   volume_30d:string;
   holders:string;
   volume_7d_p:string;
+  item_qty:string;
 }
 interface  IProfit{
   id: string; //profit_stat.id
@@ -162,7 +163,7 @@ interface  IProfit{
 }
 interface IText {
   name: string
-  value: string
+  value: number
 }
 //获取文本tab
 const textList = ref<IText[]>();

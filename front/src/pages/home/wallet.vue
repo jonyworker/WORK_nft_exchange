@@ -85,7 +85,7 @@ const props = defineProps({
     default: function() {
       return null
     },
-    type: Array
+    type: Array<{name:string,value:number}>
   },
 })
 interface IWallet {

@@ -8,7 +8,7 @@
           <div class="tit">{{$t('home.mint')}}</div>
         </div>
       </div>
-      <div class="subtitle">{{$t('home.toView')}}</div>
+      <div class="subtitle"  @click="toView()">{{$t('home.toView')}}</div>
     </div>
     <div class="minting-content mt-10">
       <!-- 觀測站卡片 -->
@@ -298,7 +298,7 @@
       </div>
           <!-- 前往查看按鈕 (手機顯示) -->
           <div class="mt-10">
-            <div class="btn btn-read-more btn-mobile btn-outline d-block d-sm-none">{{$t('home.toView')}}</div>
+            <div class="btn btn-read-more btn-mobile btn-outline d-block d-sm-none" @click="toView()">{{$t('home.toView')}}</div>
           </div>
         </div>
     <el-dialog v-model="dialogFormVisible" width="85%">
@@ -487,6 +487,9 @@ const List = ref([{name:'成員介紹',value:1},{name:'路線圖',value:2}]);
 const changeList = (value:number) =>{
   type.value = value
 }
+const toView = () =>{
+  router.push({name:'Minting'})
+}
 const http = 'http://v2admin.nftotal.io';
 const toWebsite = (url: string) => {
   if (url === '') {
@@ -625,7 +628,7 @@ onMounted(() => {
   width: 65%;
   margin: auto;
 }
-::v-deep .el-dialog{
+:deep  .el-dialog{
   background: rgba(47, 47, 47, 1);
 }
 .main{
