@@ -30,7 +30,11 @@ const routes = [
         name:'NewsDetail',
         component: () => import('@/pages/newsDetail/index.vue')
     },
-
+    {
+        path:'/wallet',
+        name:'Wallet',
+        component: () => import('@/pages/wallet/index.vue')
+    },
 ]
 
 const router = createRouter({

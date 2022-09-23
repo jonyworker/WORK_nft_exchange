@@ -17,9 +17,13 @@
           <el-menu-item index="5" @click="toNews(1)">{{$t('home.news')}}</el-menu-item>
           <el-menu-item index="6" @click="toNews(2)">{{$t('home.blog')}}</el-menu-item>
           <div class="flex-grow"/>
+
           <el-menu-item index="7" @click="toggleDark(!isDark)">
             {{ $t(isDark ? 'global.dark' : 'global.light') }}
           </el-menu-item>
+            <div class="top_center" @click="toWallet()">
+              Connect Wallet
+            </div>
           <el-sub-menu index="8">
             <template #title>语言 - {{ langType[language] }}</template>
             <el-menu-item index="zhCn" @click="handleCommand('zhCn')">简体中文</el-menu-item>
@@ -35,7 +39,7 @@
               <div class="header-logo" @click="toHome()">
                 NFTotal
               </div>
-              <div class="top_center">
+              <div class="top_center" @click="toWallet()">
                 Connect Wallet
               </div>
               <div class="menu_icon" @click="visible = true">
@@ -93,6 +97,9 @@ const handleCommand = (value: string) => {
   store.commit('CHANGE_LANGUAGE', value);
   router.go(0);
 };
+const toWallet = () =>{
+  router.push({name: 'Wallet'})
+}
 const toHome = () =>{
   router.push({name: 'Home'})
 };
@@ -153,8 +160,8 @@ line-height: 40px;
   background: linear-gradient(180deg, #8585FF 0%, #4A4AC4 100%);
   border-radius: 24px;
   text-align: center;
-  height: 38px;
-  line-height:19px;
+  height: 32px;
+  line-height:12px;
   padding: 8px 24px;
   margin-top: 17px;
   margin-right: 15px;

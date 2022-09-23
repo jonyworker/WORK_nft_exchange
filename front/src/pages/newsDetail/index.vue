@@ -3,9 +3,8 @@
     <div>
       <!-- 卡片內文 -->
       <div class="card-text">
-
         <!-- 標題組 -->
-        <div class="row justify-content-center mb-56">
+        <div class="row justify-content-center mb-5">
           <div class="col-lg-8 col-12">
             <!-- 標題組 - 新聞標籤 -->
             <div class="card-tag mb-16">
@@ -19,7 +18,6 @@
             <div class="body-B-2 text-white ">{{newList?.start_date}}</div>
           </div>
         </div>
-
         <!-- 標題組 - 主圖 -->
         <div class="row justify-content-center bs-mb-32">
           <div class="col-12">
@@ -28,15 +26,12 @@
             </div>
           </div>
         </div>
-        
-        
         <!-- 新聞內容 -->  
         <div class="row justify-content-center">
           <div class="col-lg-8 col-12">
             <div v-html="newList?.content" ></div>
           </div>
         </div>
-
       </div>
     </div>
 
