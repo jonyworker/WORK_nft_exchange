@@ -3,26 +3,40 @@
     <div>
       <!-- 卡片內文 -->
       <div class="card-text">
-        <div class="center">
-          <div class="card-tag mb-16">
-            <p>{{newList?.ind}}</p>
+
+        <!-- 標題組 -->
+        <div class="row justify-content-center mb-56">
+          <div class="col-lg-8 col-12">
+            <!-- 標題組 - 新聞標籤 -->
+            <div class="card-tag mb-16">
+              <p>{{newList?.ind}}</p>
+            </div>
+            <!-- 標題組 - 新聞標題 -->
+            <div class="">
+              <h3 class="heading-B-1 text-white mb-24 ">{{newList?.title}}</h3>
+            </div>
+            <!-- 標題組 - upload 時間 -->
+            <div class="body-B-2 text-white ">{{newList?.start_date}}</div>
           </div>
-          <div class="">
-            <h3 class="heading-B-1 text-white mb-32 ">{{newList?.title}}</h3>
+        </div>
+
+        <!-- 標題組 - 主圖 -->
+        <div class="row justify-content-center mb-xl-56">
+          <div class="col-12">
+            <div class="blog-main-img-wrap">
+              <img class="blog-main-img" :src="newList?.photo_url" alt="">
+            </div>
           </div>
-          <div class="body-B-2 text-white ">{{newList?.start_date}}</div>
         </div>
-        <div class="newImg col-12 col-8">
-          <img :src="newList?.photo_url" alt="">
-        </div>
-        <div class="card-paragraph text-white">
-          <div class=" mb-12">
+        
+        
+        <!-- 新聞內容 -->  
+        <div class="row justify-content-center">
+          <div class="col-lg-8 col-12">
             <div v-html="newList?.content" ></div>
           </div>
         </div>
-        <!--                    <small class="">-->
-        <!--                      <time datetime="">2022-03-30</time>-->
-        <!--                    </small>-->
+
       </div>
     </div>
 
@@ -84,5 +98,16 @@ onMounted(() => {
 .card-paragraph{
   width:80%;
   margin: auto;
+}
+.blog-main-img-wrap {
+  display: block;
+  width: 100%;
+  aspect-ratio: 7/4;
+}
+.blog-main-img {
+  vertical-align: middle;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 </style>
