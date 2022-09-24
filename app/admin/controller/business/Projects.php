@@ -43,7 +43,6 @@ class Projects extends AdminController
 
             list($page, $limit, $where) = $this->buildTableParames();
 
-            $where[] = ['valid', '=', 1];
             $count = $this->model
                 ->where($where)
                 ->count();
