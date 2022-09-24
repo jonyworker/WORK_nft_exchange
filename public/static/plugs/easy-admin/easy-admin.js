@@ -1,4 +1,4 @@
-define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, undefined) {
+define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, ckeditor) {
 
     var form = layui.form,
         layer = layui.layer,
@@ -527,6 +527,7 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, undefine
                         }
 
                         // 判断是否多层对象
+                        // console.log(val)
                         if (val.field !== undefined && val.field.split(".").length > 1) {
                             if (val.templet === undefined) {
                                 cols[i][index]['templet'] = admin.table.value;
@@ -1427,6 +1428,7 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, undefine
                 var editorList = document.querySelectorAll(".editor");
                 if (editorList.length > 0) {
                     $.each(editorList, function (i, v) {
+
                         CKEDITOR.replace(
                             $(this).attr("name"),
                             {
