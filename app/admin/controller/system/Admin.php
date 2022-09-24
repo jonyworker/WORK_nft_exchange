@@ -33,7 +33,6 @@ class Admin extends AdminController
     use \app\admin\traits\Curd;
 
     protected $sort = [
-        'sort' => 'desc',
         'id'   => 'desc',
     ];
 
@@ -41,7 +40,7 @@ class Admin extends AdminController
     {
         parent::__construct($app);
         $this->model = new Admins();
-//        $this->assign('auth_list', $this->model->getAuthList());
+        $this->assign('auth_list', $this->model->getAuthList());
     }
 
     /**
@@ -129,7 +128,7 @@ class Admin extends AdminController
      */
     public function password($id)
     {
-        $this->checkPostRequest();
+//        $this->checkPostRequest();
         $row = $this->model->find($id);
         empty($row) && $this->error('数据不存在');
         if ($this->request->isAjax()) {
@@ -194,7 +193,7 @@ class Admin extends AdminController
         if (!in_array($post['field'], $this->allowModifyFields)) {
             $this->error('该字段不允许修改：' . $post['field']);
         }
-        if ($post['id'] == AdminConstant::SUPER_ADMIN_ID && $post['field'] == 'status') {
+        if ($post['id'] == AdminConstant::SUPER_ADMIN_ID && $post['field'] == 'enable') {
             $this->error('超级管理员状态不允许修改');
         }
         $row = $this->model->find($post['id']);

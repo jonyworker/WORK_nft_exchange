@@ -14,7 +14,7 @@ namespace app\admin\controller\system;
 
 use app\admin\model\AdminMenu;
 use app\admin\model\SystemMenu;
-use app\admin\model\SystemNode;
+use app\admin\model\AdminNode;
 use app\admin\service\TriggerService;
 use app\common\constants\MenuConstant;
 use EasyAdmin\annotation\ControllerAnnotation;
@@ -206,7 +206,7 @@ class Menu extends AdminController
     public function getMenuTips()
     {
         $node = input('get.keywords');
-        $list = SystemNode::whereLike('node', "%{$node}%")
+        $list = AdminNode::whereLike('node', "%{$node}%")
             ->field('node,title')
             ->limit(10)
             ->select();

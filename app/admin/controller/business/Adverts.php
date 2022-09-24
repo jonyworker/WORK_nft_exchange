@@ -43,7 +43,7 @@ class Adverts extends AdminController
 
             list($page, $limit, $where) = $this->buildTableParames();
 
-            $where[] = ['collection_id', '=', $id];
+            $where[] = ['collection_id', '=', input('id')];
             $count = $this->model
                 ->where($where)
                 ->count();

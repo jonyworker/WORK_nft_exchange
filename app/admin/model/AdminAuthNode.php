@@ -10,13 +10,12 @@
 // | github开源项目：https://github.com/zhongshaofa/EasyAdmin
 // +----------------------------------------------------------------------
 
-
 namespace app\admin\model;
 
 
 use think\Model;
 
-class AdminConfig extends Model
+class AdminAuthNode extends Model
 {
 
 }

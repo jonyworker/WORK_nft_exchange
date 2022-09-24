@@ -18,7 +18,7 @@ define(["jquery", "easy-admin"], function ($, ea) {
 
     var Controller = {
         index: function () {
-            ea.table.render({
+            ea.table.rendxer({
                 init: init,
                 toolbar:['refresh', 'delete'],
                 cols: [[

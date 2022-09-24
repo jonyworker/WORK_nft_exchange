@@ -9,13 +9,13 @@ use think\Model;
 
 class Admins extends Model
 {
-    public static function findByUserName($userName, $password) :? Admins
-    {
-        $user = self::where('username',$userName)->find();
 
-        if (empty($user) || $user['password'] != md5($password)){
-            return null;
-        }
-        return $user;
+    public function getAuthList(): array
+    {
+        return (new AdminAuth())
+            ->where('status', 1)
+            ->column('title', 'id');
     }
+
+
 }
