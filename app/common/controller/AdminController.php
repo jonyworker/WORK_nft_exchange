@@ -59,7 +59,6 @@ class AdminController extends BaseController
         'is_auth',
         'title',
         'valid',
-        'enable',
     ];
 
     /**

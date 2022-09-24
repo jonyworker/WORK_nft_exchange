@@ -25,7 +25,7 @@ define(["jquery", "easy-admin"], function ($, ea) {
                     {field: 'avatar', minWidth: 80, title: '头像', search: false, templet: ea.table.image},
                     {field: 'mobile', minWidth: 80, title: '手机'},
                     {field: 'remark', minWidth: 80, title: '备注信息'},
-                    {field: 'enable', title: '状态', width: 85, search: 'select', selectList: {2: '禁用', 1: '启用'}, templet: ea.table.switch},
+                    {field: 'status', title: '状态', width: 85, search: 'select', selectList: {2: '禁用', 1: '启用'}, templet: ea.table.switch},
                     {field: 'create_time', minWidth: 80, title: '创建时间', search: 'range'},
                     {
                         width: 250,

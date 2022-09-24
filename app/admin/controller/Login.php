@@ -59,7 +59,7 @@ class Login extends AdminController
                 $this->error('密码输入有误');
             }
 
-            if ($admin->enable == 0) {
+            if ($admin->status == 0) {
                 $this->error('账号已被禁用');
             }
 

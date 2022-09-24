@@ -193,7 +193,7 @@ class Admin extends AdminController
         if (!in_array($post['field'], $this->allowModifyFields)) {
             $this->error('该字段不允许修改：' . $post['field']);
         }
-        if ($post['id'] == AdminConstant::SUPER_ADMIN_ID && $post['field'] == 'enable') {
+        if ($post['id'] == AdminConstant::SUPER_ADMIN_ID && $post['field'] == 'status') {
             $this->error('超级管理员状态不允许修改');
         }
         $row = $this->model->find($post['id']);

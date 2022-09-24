@@ -143,7 +143,7 @@ class AuthService
         $adminInfo = Db::name($this->config['system_admin'])
             ->where([
                 'id'     => $this->adminId,
-                'enable' => 1,
+                'status' => 1,
             ])->find();
         if (!empty($adminInfo) && !empty($adminInfo['auth_ids'])) {
             $buildAuthSql = Db::name($this->config['system_auth'])
