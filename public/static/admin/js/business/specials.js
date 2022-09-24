@@ -20,6 +20,12 @@ define(["jquery", "easy-admin"], function ($, ea) {
                     {field: 'title', minWidth: 80, title: '主標(繁)'},
                     {field: 'sub_title', minWidth: 80, title: '副標(繁)'},
                     {field: 'content', minWidth: 80, title: '內文', search:false},
+
+                    {field: 'title_en', minWidth: 80, title: '主標(英/原文)', search:false},
+                    {field: 'content_en', minWidth: 80, title: '內文(英/原文)', search:false},
+                    {field: 'title_en_public', minWidth: 80, title: '主標(英//對外)', search:false},
+                    {field: 'content_en_public', minWidth: 80, title: '內文(英//對外)', search:false},
+                    
                     {field: 'start_date', minWidth: 80, title: '上架日', search:false},
                     {field: 'large_photo_url', minWidth: 80, title: '專欄大圖', search: false, templet: ea.table.image},
                     {field: 'small_photo_url', minWidth: 80, title: '專欄小圖', search: false, templet: ea.table.image},

@@ -43,7 +43,7 @@ class News extends AdminController
 
             list($page, $limit, $where) = $this->buildTableParames();
 
-            $where[] = ['valid', '=', 1];
+//            $where[] = ['valid', '=', 1];
             $where[] = ['ind', '=', $this->model::Types['news']];
             $count = $this->model
                 ->where($where)

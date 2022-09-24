@@ -42,7 +42,7 @@ class Specials extends AdminController
                 return $this->selectList();
             }
             list($page, $limit, $where) = $this->buildTableParames();
-            $where[] = ['valid', '=', 1];
+//            $where[] = ['valid', '=', 1];
             $where[] = ['ind', '=', $this->model::Types['specials']];
 
             $count = $this->model

@@ -42,7 +42,7 @@ class Plannings extends AdminController
                 return $this->selectList();
             }
             list($page, $limit, $where) = $this->buildTableParames();
-            $where[] = ['valid', '=', 1];
+//            $where[] = ['valid', '=', 1];
             $where[] = ['ind', '=', $this->model::Types['plannings']];
 
             $count = $this->model

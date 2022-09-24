@@ -33,13 +33,26 @@
         </div>
 
         <div class="layui-form-item">
-            <label class="layui-form-label">主標(英)</label>
+            <label class="layui-form-label">主標(英/原文)</label>
             <div class="layui-input-block">
-                <input type="text" name="title_en" class="layui-input" lay-verify="required" placeholder="請輸入主標(英)" value="">
+                <input type="text" name="title_en_public" class="layui-input" lay-verify="required" placeholder="請輸入主標(英/原文)" value="">
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">內文(英)</label>
+            <label class="layui-form-label">內文(英/原文)</label>
+            <div class="layui-input-block">
+                <textarea name="content_en" rows="10" class="layui-textarea editor"></textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">主標(英/對外)</label>
+            <div class="layui-input-block">
+                <input type="text" name="title_en_public" class="layui-input" lay-verify="required" placeholder="請輸入主標(英/對外)" value="">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">內文(英/對外)</label>
             <div class="layui-input-block">
                 <textarea name="content_en" rows="10" class="layui-textarea editor"></textarea>
             </div>
