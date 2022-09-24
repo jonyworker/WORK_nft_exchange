@@ -8,7 +8,7 @@
           <div class="tit">{{$t('home.mint')}}</div>
         </div>
       </div>
-      <div class="subtitle">{{$t('home.toView')}}</div>
+      <div class="subtitle"  @click="toView()">{{$t('home.toView')}}</div>
     </div>
     <div class="minting-content mt-10">
       <!-- 觀測站卡片 -->
@@ -74,7 +74,7 @@
                   </li>
                   <!-- icon-discord -->
                   <li class="social-link-item">
-                    <div class="social-link-icon">
+                    <div class="social-link-icon" @click="toSchedule(dropsOne?.schedule || '')">
                       <img src="@/assets/images/icons.png" alt="">
                     </div>
                   </li>
@@ -144,7 +144,7 @@
                       </li>
                       <!-- icon-discord -->
                       <li class="social-link-item">
-                        <div class="social-link-icon">
+                        <div class="social-link-icon" @click="toSchedule(dropsTwo?.schedule || '')">
                           <img src="@/assets/images/icons.png" alt="">
                         </div>
                       </li>
@@ -214,7 +214,7 @@
                   </li>
                   <!-- icon-discord -->
                   <li class="social-link-item">
-                    <div class="social-link-icon">
+                    <div class="social-link-icon" @click="toSchedule(dropsThree?.schedule || '')">
                       <img src="@/assets/images/icons.png" alt="">
                     </div>
                   </li>
@@ -285,7 +285,7 @@
                   </li>
                   <!-- icon-discord -->
                   <li class="social-link-item">
-                    <div class="social-link-icon">
+                    <div class="social-link-icon" @click="toSchedule(dropsFour?.schedule || '')">
                       <img src="@/assets/images/icons.png" alt="">
                     </div>
                   </li>
@@ -298,7 +298,7 @@
       </div>
           <!-- 前往查看按鈕 (手機顯示) -->
           <div class="mt-10">
-            <div class="btn btn-read-more btn-mobile btn-outline d-block d-sm-none">{{$t('home.toView')}}</div>
+            <div class="btn btn-read-more btn-mobile btn-outline d-block d-sm-none" @click="toView()">{{$t('home.toView')}}</div>
           </div>
         </div>
     <el-dialog v-model="dialogFormVisible" width="85%">
@@ -487,8 +487,17 @@ const List = ref([{name:'成員介紹',value:1},{name:'路線圖',value:2}]);
 const changeList = (value:number) =>{
   type.value = value
 }
+const toView = () =>{
+  router.push({name:'Minting'})
+}
 const http = 'http://v2admin.nftotal.io';
 const toWebsite = (url: string) => {
+  if (url === '') {
+    return
+  }
+  window.open(url)
+}
+const toSchedule = (url:string) =>{
   if (url === '') {
     return
   }
@@ -526,6 +535,7 @@ type IInfo = {
   shortTime:string;
   member:string;
   roadmap:string;
+  schedule:string;
 }
 const dropsOne = ref<IInfo | null>(null);
 const dropsTwo = ref<IInfo | null>(null);
@@ -618,7 +628,7 @@ onMounted(() => {
   width: 65%;
   margin: auto;
 }
-::v-deep .el-dialog{
+:deep  .el-dialog{
   background: rgba(47, 47, 47, 1);
 }
 .main{

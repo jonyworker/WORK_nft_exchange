@@ -16,6 +16,11 @@ const routes = [
         component: () => import('@/pages/hotRanking/index.vue')
     },
     {
+        path:'/minting',
+        name:'Minting',
+        component: () => import('@/pages/minting/index.vue')
+    },
+    {
         path:'/news',
         name:'News',
         component: () => import('@/pages/news/index.vue')
@@ -24,6 +29,11 @@ const routes = [
         path:'/newsDetail',
         name:'NewsDetail',
         component: () => import('@/pages/newsDetail/index.vue')
+    },
+    {
+        path:'/wallet',
+        name:'Wallet',
+        component: () => import('@/pages/wallet/index.vue')
     },
 ]
 

@@ -54,6 +54,7 @@ export default defineConfig(() => {
         strictPort: true,
         port: 8088,
         host: 'localhost',
+        hmr: { overlay: true },
         proxy: {
             '^/api': {
                 target: 'http://v2admin.nftotal.io/',

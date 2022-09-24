@@ -11,15 +11,19 @@
           <el-menu-item index="0" @click="toHome()">NFTotal</el-menu-item>
           <el-menu-item index="9" class="!h-[58px]"><el-input class="border-circle" v-model="input" placeholder="搜索NFT和錢包" /></el-menu-item>
           <el-menu-item index="1">{{$t('home.search')}}</el-menu-item>
-          <el-menu-item index="2">{{$t('home.mint')}}</el-menu-item>
+          <el-menu-item index="2" @click="toMinting()">{{$t('home.mint')}}</el-menu-item>
           <el-menu-item index="3">{{$t('home.overview')}}</el-menu-item>
           <el-menu-item index="4">{{$t('home.tool')}}</el-menu-item>
-          <el-menu-item index="5" @click="toNews()">{{$t('home.news')}}</el-menu-item>
-          <el-menu-item index="6">{{$t('home.blog')}}</el-menu-item>
+          <el-menu-item index="5" @click="toNews(1)">{{$t('home.news')}}</el-menu-item>
+          <el-menu-item index="6" @click="toNews(2)">{{$t('home.blog')}}</el-menu-item>
           <div class="flex-grow"/>
+
           <el-menu-item index="7" @click="toggleDark(!isDark)">
             {{ $t(isDark ? 'global.dark' : 'global.light') }}
           </el-menu-item>
+            <div class="top_center" @click="toWallet()">
+              Connect Wallet
+            </div>
           <el-sub-menu index="8">
             <template #title>语言 - {{ langType[language] }}</template>
             <el-menu-item index="zhCn" @click="handleCommand('zhCn')">简体中文</el-menu-item>
@@ -35,7 +39,7 @@
               <div class="header-logo" @click="toHome()">
                 NFTotal
               </div>
-              <div class="top_center">
+              <div class="top_center" @click="toWallet()">
                 Connect Wallet
               </div>
               <div class="menu_icon" @click="visible = true">
@@ -88,26 +92,31 @@ const language = computed<languageType>(() => store.state.language);
 
 const {locale} = useI18n();
 const handleSelect = (value: string) => {
-  console.log("-> value", value);
 }
 const handleCommand = (value: string) => {
   store.commit('CHANGE_LANGUAGE', value);
   router.go(0);
 };
+const toWallet = () =>{
+  router.push({name: 'Wallet'})
+}
 const toHome = () =>{
   router.push({name: 'Home'})
 };
-const toNews = () =>{
-  router.push({name: 'News'})
+const toNews = (value:number) =>{
+  router.push({name: 'News',query:{type:value}})
+}
+const toMinting = () =>{
+  router.push({name:'Minting'})
 }
 </script>
 <style lang="less" scoped>
 .drawer{
 line-height: 40px;
   font-weight: 700;
-  font-size: 28px;
+  font-size: 17px;
 }
-::v-deep .el-overlay {
+:deep  .el-overlay {
   position: fixed;
   top: 0px;
   right: 0px;
@@ -120,7 +129,7 @@ line-height: 40px;
 /*  backdrop-filter: blur(20px);*/
   overflow: auto;
 }
-::v-deep .el-drawer {
+:deep  .el-drawer {
   width: 40% !important;
   position: absolute;
   box-sizing: border-box;
@@ -132,7 +141,7 @@ line-height: 40px;
   overflow: hidden;
   transition: all var(--el-transition-duration);
 }
-::v-deep .el-drawer__body {
+:deep  .el-drawer__body {
   background:rgba(18, 18, 18, 0.85);
   flex: 1;
   border: 2px solid rgba(255, 255, 255, 0.2);
@@ -151,8 +160,8 @@ line-height: 40px;
   background: linear-gradient(180deg, #8585FF 0%, #4A4AC4 100%);
   border-radius: 24px;
   text-align: center;
-  height: 38px;
-  line-height:19px;
+  height: 32px;
+  line-height:12px;
   padding: 8px 24px;
   margin-top: 17px;
   margin-right: 15px;
