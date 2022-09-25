@@ -1,0 +1,154 @@
+<div class="layuimini-container">
+    <form id="app-form" class="layui-form layuimini-form">
+        <div class="layui-form-item">
+            <label class="layui-form-label">鏈</label>
+            <div class="layui-input-block">
+                <input type="text" name="blockchain" class="layui-input" lay-verify="required" placeholder="請輸入鏈" value="{$row.blockchain|default=''}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">項目</label>
+            <div class="layui-input-block">
+                <input type="text" name="name" class="layui-input" placeholder="請輸入項目" value="{$row.name|default=''}">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">圖片網址</label>
+            <div class="layui-input-block layuimini-upload">
+                <input name="photo_url" class="layui-input layui-col-xs6" lay-verify="required" placeholder="請上傳圖片" value="{$row.photo_url|default=''}">
+                <div class="layuimini-upload-btn">
+                    <span><a class="layui-btn" data-upload="photo_url" data-upload-number="one" data-upload-exts="png|jpg|jpeg" data-upload-icon="image"><i class="fa fa-upload"></i> 上傳</a></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">合約</label>
+            <div class="layui-input-block">
+                <input type="text" name="contract" class="layui-input" lay-verify="required" placeholder="請輸入合約" value="{$row.contract|default=''}">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">總數</label>
+            <div class="layui-input-block">
+                <input type="text" name="item_qty" class="layui-input" lay-verify="required" placeholder="請輸入總數" value="{$row.item_qty|default=''}">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">發行價</label>
+            <div class="layui-input-block">
+                <input type="text" name="publish_price" class="layui-input" placeholder="請輸入發行價" value="{$row.publish_price|default=''}">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">主要交易平台</label>
+            <div class="layui-input-block">
+                <input type="text" name="platform_url" class="layui-input" placeholder="請輸入主要交易平台" value="{$row.platform_url|default=''}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">網站</label>
+            <div class="layui-input-block">
+                <input type="text" name="website" class="layui-input" placeholder="請輸入網站" value="{$row.website|default=''}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">Twitter</label>
+            <div class="layui-input-block">
+                <input type="text" name="twitter" class="layui-input" placeholder="請輸入Twitter" value="{$row.twitter|default=''}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">Discord</label>
+            <div class="layui-input-block">
+                <input type="text" name="discord" class="layui-input" placeholder="請輸入Discord" value="{$row.discord|default=''}">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">Instagram</label>
+            <div class="layui-input-block">
+                <input type="text" name="instagram" class="layui-input" placeholder="請輸入Instagram" value="{$row.instagram|default=''}">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">標籤</label>
+            <div class="layui-input-block">
+                <input type="text" name="category[]" class="layui-input" placeholder="請輸入標籤" value="">
+                <input type="text" name="category[]" class="layui-input" placeholder="請輸入標籤" value="">
+                <input type="text" name="category[]" class="layui-input" placeholder="請輸入標籤" value="">
+                <input type="text" name="category[]" class="layui-input" placeholder="請輸入標籤" value="">
+                <input type="text" name="category[]" class="layui-input" placeholder="請輸入標籤" value="">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">重點項目</label>
+            <div class="layui-input-block">
+                <input type="radio" name="level_ind" value="1" title="是">
+                <input type="radio" name="level_ind" value="2" title="否">
+            </div>
+        </div>
+
+        <!--        introduction-->
+        <div class="layui-form-item">
+            <label class="layui-form-label">簡介</label>
+            <div class="layui-input-block">
+                <input type="text" name="introduction" class="layui-input" placeholder="請輸入簡介" value="{$row.introduction|default=''}">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">成員介紹</label>
+            <div class="layui-input-block">
+                <input type="text" name="member" class="layui-input" placeholder="請輸入成員介紹" value="{$row.member|default=''}">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">更新順序</label>
+            <div class="layui-input-block">
+                <input type="text" name="priority" class="layui-input" lay-verify="number" placeholder="請輸入更新順序" value="{$row.priority|default=''}">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">廣告上架日</label>
+            <div class="layui-input-block">
+                <input type="text" name="ad_start_date" data-date="" data-date-type="date" class="layui-input"  placeholder="" value="{$row.ad_start_date|default=''}">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">廣告下架日</label>
+            <div class="layui-input-block">
+                <input type="text" name="ad_end_date"  data-date="" data-date-type="date" class="layui-input"  placeholder="" value="{$row.ad_end_date|default=''}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">審核</label>
+            <div class="layui-input-inline">
+                <input type="radio" name="process" value="1" title="未審核">
+                <input type="radio" name="process" value="2" title="已審核">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">狀態</label>
+            <div class="layui-input-inline">
+                <input type="radio" name="valid" value="1" title="啓用">
+                <input type="radio" name="valid" value="2" title="作廢">
+            </div>
+        </div>
+
+        <div class="hr-line"></div>
+        <div class="layui-form-item text-center">
+            <button type="submit" class="layui-btn layui-btn-normal layui-btn-sm" lay-submit>確認</button>
+            <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">重置</button>
+        </div>
+    </form>
+</div>

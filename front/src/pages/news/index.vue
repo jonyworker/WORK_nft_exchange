@@ -7,11 +7,11 @@
             <div class="col-12 d-flex justify-content-between align-items-center">
               <div class="title-wrap">
                 <h2 class="title-set mb-6">
-                  最新消息
+                  {{$t('home.latestNews')}}
                 </h2>
-                <p class="subtile mb-6">NFTotal上排名靠前的 NFT，按數量、底價和其他統計數據排名</p>
+                <p class="subtile mb-6">{{$t('home.newsList')}}</p>
                 <div class="tabs">
-                  <div v-for="(item,index) in list" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="chageTag(item.value)">
+                  <div v-for="(item,index) in tabs" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="chageTag(item.value)">
                     {{item.name}}
                   </div>
                 </div>
@@ -85,8 +85,17 @@ import { useRouter } from 'vue-router';
 import {homeApi} from '../../api';
 const router = useRouter();
 
+const ps = router.currentRoute.value.query.type;
 const type = ref (1)
-const list = ref([{name:'新聞專區', value:1,}, {name:'NFTotal 專欄', value:2,}])
+interface IText {
+  name: string
+  value: number
+}
+const tabs = ref<IText[]>()
+const getTextList = async() =>{
+  const res = await homeApi.getText();
+  tabs.value = res.newstab
+}
 const toDetails = (id:number) =>{
   router.push({ name: 'NewsDetail',query:{id}})
 }
@@ -98,8 +107,9 @@ const chageTag = async(value:number) =>{
     ind:type.value,
   }
   const res = await homeApi.getNews(params);
-  newList.value = res.data;
   newListTwo.value = res.data[0];
+  newList.value = res.data.splice(1);
+
 }
 interface INewListFor{
   id:any;
@@ -120,8 +130,13 @@ const getNews =async()=>{
     ind:type.value,
   }
   const res = await homeApi.getNews(params);
+<<<<<<< HEAD
   newList.value = res.data.slice(0,1);
+=======
+>>>>>>> e707d4797dc4a6f610fefce3897823d5f8af0539
   newListTwo.value = res.data[0];
+  newList.value = res.data.splice(1);
+
 
 }
 const load = async() =>{
@@ -135,6 +150,8 @@ const load = async() =>{
 }
 onMounted(() => {
   getNews()
+  getTextList()
+  chageTag(Number(ps))
 })
 </script>
 

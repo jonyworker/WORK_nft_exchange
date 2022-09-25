@@ -2,6 +2,7 @@
   <div class="container ">
     <div class="page ">
       <!-- 卡片內文 -->
+<<<<<<< HEAD
       <div class="card-text ">
         <div class="center">
           <div class="pt-1"></div>
@@ -18,12 +19,38 @@
         </div>
         <div class="card-paragraph text-white">
           <div class=" text-black mb-12">
+=======
+      <div class="card-text">
+        <!-- 標題組 -->
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 col-12">
+            <!-- 標題組 - 新聞標籤 -->
+            <div class="card-tag mb-16">
+              <p>{{newList?.ind}}</p>
+            </div>
+            <!-- 標題組 - 新聞標題 -->
+            <div class="">
+              <h3 class="heading-B-1 text-white mb-24 ">{{newList?.title}}</h3>
+            </div>
+            <!-- 標題組 - upload 時間 -->
+            <div class="body-B-2 text-white ">{{newList?.start_date}}</div>
+          </div>
+        </div>
+        <!-- 標題組 - 主圖 -->
+        <div class="row justify-content-center bs-mb-32">
+          <div class="col-12">
+            <div class="blog-main-img-wrap">
+              <img class="blog-main-img" :src="newList?.photo_url" alt="">
+            </div>
+          </div>
+        </div>
+        <!-- 新聞內容 -->  
+        <div class="row justify-content-center">
+          <div class="col-lg-8 col-12">
+>>>>>>> e707d4797dc4a6f610fefce3897823d5f8af0539
             <div v-html="newList?.content" ></div>
           </div>
         </div>
-        <!--                    <small class="">-->
-        <!--                      <time datetime="">2022-03-30</time>-->
-        <!--                    </small>-->
       </div>
     </div>
 
@@ -90,5 +117,16 @@ onMounted(() => {
 .card-paragraph{
   width:80%;
   margin: auto;
+}
+.blog-main-img-wrap {
+  display: block;
+  width: 100%;
+  aspect-ratio: 7/4;
+}
+.blog-main-img {
+  vertical-align: middle;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 </style>

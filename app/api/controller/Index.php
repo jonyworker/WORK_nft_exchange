@@ -9,6 +9,7 @@ use app\api\model\Banner as BannerModel;
 use app\api\model\Collection as CollectionModel;
 use app\api\model\Exchange as ExchangeModel;
 use app\api\model\ProfitStat as ProfitStatModel;
+use app\api\model\Words as WordsModel;
 use think\App;
 use think\facade\Db;
 
@@ -77,12 +78,13 @@ class Index extends BaseController
             'ind' => $this->request->param('ind',1)
         ];
 
+        $order = 'volume_24 desc';
         if ($request['ind'] == 1) {
-            $order = 'volume_24';
+            $order = 'volume_24 desc';
         } elseif ($request['ind'] == 2) {
-            $order = 'volume_7d';
+            $order = 'volume_7d desc';
         } elseif ($request['ind'] == 3) {
-            $order = 'volume_30d';
+            $order = 'volume_30d desc';
         }
 
         $field = 'id,name,photo_url,floor_price,unit,volume_24,volume_24_p,volume_7d,volume_7d_p,volume_30d,volume_30d_p';
@@ -96,8 +98,12 @@ class Index extends BaseController
                 ->toArray();
 
             foreach ($data as $k => $v) {
-                $data[$k]['unit_photo'] = ExchangeModel::where('cur',$v['unit'])
-                    ->find()['photo_url'];
+                if ($v['unit']) {
+                    $data[$k]['unit_photo'] = ExchangeModel::where('cur',$v['unit'])
+                        ->find()['photo_url'];
+                } else {
+                    $data[$k]['unit_photo'] = '';
+                }
             }
 
             return success2('hot_collections',$data);
@@ -145,6 +151,37 @@ class Index extends BaseController
             }
 
             return success2('high_profit',$data);
+        } catch (\Exception $e) {
+            // 这是进行异常捕获
+            return error2($e->getMessage());
+        }
+    }
+
+    // 取得首頁JS文字
+    public function text() {
+        $request = [
+            // 登入用token   允許空
+            'token' => $this->request->param('token',''),
+            // 默認1         //1繁體中文 2簡體中文 3:英文   4:日   5:韓
+            'lan' => $this->request->param('lan',1),
+        ];
+
+        try {
+            $words = WordsModel::where('1=1')
+                ->select()
+                ->toArray();
+
+            $data = array();
+            $lan = ['tw','cn','en','jp','ko'];
+            $name = ['period','tab','tabTime','newstab'];
+            $field = $lan[$request['lan'] - 1];
+
+            foreach ($words as $k => $v) {
+                $data[$name[$k]] = unserialize($v[$field]);
+            }
+
+            $data['status'] = 'ok';
+            return success3($data);
         } catch (\Exception $e) {
             // 这是进行异常捕获
             return error2($e->getMessage());

@@ -14,6 +14,7 @@ return [
     'view_suffix'   => 'html',
     // 模板文件名分隔符
     'view_depr'     => DIRECTORY_SEPARATOR,
+    'tpl_cache' => false,
     // 模板引擎普通标签开始标记
     'tpl_begin'     => '{',
     // 模板引擎普通标签结束标记
@@ -25,7 +26,9 @@ return [
     //模板替换
     'tpl_replace_string'  =>  [
         '__NFT__'=>'/nftotal',
-        '__ADMIN__'=>'/static/layuiadmin',//layui库
+//        '__ADMIN__'=>'/static/layuiadmin',//layui库
         '__UPLOAD__'=>'/storage',
+        '__STATIC__' => '/static',
+        '__JS__'     => '/static/javascript',
     ]
 ];

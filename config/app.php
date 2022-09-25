@@ -29,4 +29,15 @@ return [
     'error_message'    => '页面错误！请稍后再试～',
     // 显示错误信息
     'show_error_msg'   => true,
+
+
+    // 后台别名
+    'admin_alias_name' => env('admin.admin', 'admin'),
+
+    // 跳转页面的成功模板文件
+    'dispatch_success_tmpl'   => app()->getBasePath() . 'common' . DIRECTORY_SEPARATOR . 'tpl' . DIRECTORY_SEPARATOR . 'dispatch_jump.tpl',
+    // 跳转页面的失败模板文件
+    'dispatch_error_tmpl'   => app()->getBasePath() . 'common' . DIRECTORY_SEPARATOR . 'tpl' . DIRECTORY_SEPARATOR . 'dispatch_jump.tpl',
+
+
 ];
