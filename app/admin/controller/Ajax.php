@@ -124,8 +124,7 @@ class Ajax extends AdminController
         ];
         $this->validate($data, $rule);
         try {
-            $upload = Uploadfile::instance()
-                ->setTableName('admin_uploadfile')
+            $upload = UploadFile::instance()
                 ->setUploadType($data['upload_type'])
                 ->setUploadConfig($uploadConfig)
                 ->setFile($data['file'])
@@ -157,30 +156,30 @@ class Ajax extends AdminController
      */
     public function getUploadFiles()
     {
-        $get = $this->request->get();
-        $page = isset($get['page']) && !empty($get['page']) ? $get['page'] : 1;
-        $limit = isset($get['limit']) && !empty($get['limit']) ? $get['limit'] : 10;
-        $title = isset($get['title']) && !empty($get['title']) ? $get['title'] : null;
-        $this->model = new AdminUploadfile();
-        $count = $this->model
-            ->where(function (Query $query) use ($title) {
-                !empty($title) && $query->where('original_name', 'like', "%{$title}%");
-            })
-            ->count();
-        $list = $this->model
-            ->where(function (Query $query) use ($title) {
-                !empty($title) && $query->where('original_name', 'like', "%{$title}%");
-            })
-            ->page($page, $limit)
-            ->order($this->sort)
-            ->select();
-        $data = [
-            'code' => 0,
-            'msg' => '',
-            'count' => $count,
-            'data' => $list,
-        ];
-        return json($data);
+//        $get = $this->request->get();
+//        $page = isset($get['page']) && !empty($get['page']) ? $get['page'] : 1;
+//        $limit = isset($get['limit']) && !empty($get['limit']) ? $get['limit'] : 10;
+//        $title = isset($get['title']) && !empty($get['title']) ? $get['title'] : null;
+//        $this->model = new AdminUploadfile();
+//        $count = $this->model
+//            ->where(function (Query $query) use ($title) {
+//                !empty($title) && $query->where('original_name', 'like', "%{$title}%");
+//            })
+//            ->count();
+//        $list = $this->model
+//            ->where(function (Query $query) use ($title) {
+//                !empty($title) && $query->where('original_name', 'like', "%{$title}%");
+//            })
+//            ->page($page, $limit)
+//            ->order($this->sort)
+//            ->select();
+//        $data = [
+//            'code' => 0,
+//            'msg' => '',
+//            'count' => $count,
+//            'data' => $list,
+//        ];
+//        return json($data);
     }
 
 }

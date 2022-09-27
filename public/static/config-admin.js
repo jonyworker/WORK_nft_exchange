@@ -23,6 +23,7 @@ require.config({
         "vue": ["plugs/vue-2.6.10/vue.min"],
         "ckeditor": ["plugs/ckeditor4/ckeditor"],
         // "ckeditor": ["plugs/ckeditor5/ckeditor"],
+        // "ckeditor-language": ["plugs/ckeditor5/translations/zh"],
     }
 });
 
