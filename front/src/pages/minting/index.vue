@@ -193,7 +193,6 @@ const Lists = ref([])
 const toDialog = (val:number,item:Object) =>{
   dialogFormVisible.value = true;
   dataList.value = item;
-console.log(dataList.value,'====')
   type.value = val
 }
 const durationDateOne = computed(() => {

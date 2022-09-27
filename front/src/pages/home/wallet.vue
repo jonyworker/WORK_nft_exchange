@@ -11,7 +11,7 @@
                 <div class="tit">{{$t('home.highWinningWallet')}}</div>
               </div>
               <div class="tabs">
-                <div v-for="(item,index) in textList" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="chageTag(item.value)">
+                <div v-for="(item,index) in textList" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeTag(item.value)">
                   {{item.name}}
                 </div>
               </div>
@@ -101,7 +101,7 @@ const walletList = ref<IWallet[]>([]);
 const copyInfo=(info:string)=>{
   copy(info)
 }
-const chageTag = async (value: number) => {
+const changeTag = async (value: number) => {
   type.value = value
   const res = await homeApi.getWallet(type.value);
   walletList.value = res.high_profit
