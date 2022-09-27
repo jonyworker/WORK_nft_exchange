@@ -1,3 +1,4 @@
+
 define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, ckeditor) {
 
     var form = layui.form,
@@ -7,7 +8,6 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, ckeditor
         upload = layui.upload,
         element = layui.element,
         laytpl = layui.laytpl,
-        tableSelect = layui.tableSelect,
         util = layui.util;
 
     layer.config({
@@ -1272,7 +1272,10 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, ckeditor
                             if (editorList.length > 0) {
                                 $.each(editorList, function (i, v) {
                                     var name = $(this).attr("name");
+
+                                    // console.log(i)
                                     dataField[name] = CKEDITOR.instances[name].getData();
+                                    // dataField[name] = editor.getData();
                                 });
                             }
 
@@ -1428,6 +1431,14 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, ckeditor
                 var editorList = document.querySelectorAll(".editor");
                 if (editorList.length > 0) {
                     $.each(editorList, function (i, v) {
+                        // ckeditor.create(v, {
+                        //     language: 'zh',
+                        //     ckfinder: {
+                        //         uploadUrl: admin.url('ajax/uploadEditor')
+                        //     }
+                        // }).then( editor => {
+                        //     window.editor = editor;
+                        // } )
 
                         CKEDITOR.replace(
                             $(this).attr("name"),
