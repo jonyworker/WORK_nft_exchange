@@ -1,7 +1,25 @@
 <template>
   <div class="container ">
-    <div>
+    <div class="page ">
       <!-- 卡片內文 -->
+<<<<<<< HEAD
+      <div class="card-text ">
+        <div class="center">
+          <div class="pt-1"></div>
+          <div class="card-tag mb-8 ">
+            <p>{{newList?.ind}}</p>
+          </div>
+          <div class="card-title text-white">
+            <h3 class="multiline-ellipsis text-black mb-8">{{newList?.title}}</h3>
+          </div>
+          <div class="text-black">{{newList?.start_date}}</div>
+        </div>
+        <div class="newImg col-12 col-8">
+          <img :src="newList?.photo_url" alt="">
+        </div>
+        <div class="card-paragraph text-white">
+          <div class=" text-black mb-12">
+=======
       <div class="card-text">
         <!-- 標題組 -->
         <div class="row justify-content-center mb-5">
@@ -29,6 +47,7 @@
         <!-- 新聞內容 -->  
         <div class="row justify-content-center">
           <div class="col-lg-8 col-12">
+>>>>>>> e707d4797dc4a6f610fefce3897823d5f8af0539
             <div v-html="newList?.content" ></div>
           </div>
         </div>
@@ -65,6 +84,11 @@ onMounted(() => {
 </script>
 
 <style scoped lang="less">
+.container{
+  background-color: #fff;
+  color:#333;
+  padding-bottom: 10px;
+}
 .center{
   width: 80%;
   margin: auto;

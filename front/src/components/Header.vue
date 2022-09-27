@@ -60,6 +60,9 @@
         <div index="zhCn" @click="handleCommand('zhCn')">简体中文</div>
         <div index="zh-tw" @click="handleCommand('zh-tw')">繁體中文</div>
         <div index="en" @click="handleCommand('en')">English</div>
+        <div class="to-wallet" @click="toWallet()"  >
+          Connect Wallet
+        </div>
       </el-drawer>
     </div>
 
@@ -67,7 +70,6 @@
 </template>
 
 <script lang='ts' setup >
-import {useStore} from 'vuex';
 import {langType} from '../enum/lanuage';
 import { ElButton, ElDrawer } from 'element-plus'
 import { CircleCloseFilled } from '@element-plus/icons-vue'
@@ -78,7 +80,7 @@ import {useI18n} from 'vue-i18n';
 import {useDark, useToggle} from '@vueuse/core';
 import {useRouter} from 'vue-router';
 import {computed} from 'vue';
-
+import {useStore} from "vuex";
 const input = ref('')
 const visible = ref(false)
 const isDark = useDark();
@@ -130,7 +132,7 @@ line-height: 40px;
   overflow: auto;
 }
 :deep  .el-drawer {
-  width: 40% !important;
+  width: 45% !important;
   position: absolute;
   box-sizing: border-box;
   right: 20px !important;
@@ -154,6 +156,15 @@ line-height: 40px;
   font-size:32px;
   font-weight: 700;
   width:72%;
+}
+.to-wallet{
+  background: linear-gradient(180deg, #8585FF 0%, #4A4AC4 100%);
+  border-radius: 24px;
+  text-align: center;
+  margin-top: 17px;
+  height: 32px;
+  line-height:28px;
+
 }
 .top_center{
   width:167px;

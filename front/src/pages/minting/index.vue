@@ -20,9 +20,9 @@
               <!--              <img :src="http + dropsOne?.background" alt="">-->
               <img src="@/assets/images/random_1.png" alt="">
               <div class="card_icon">
-                <div class="icon_list"  @click="toDailog(1)"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
+                <div class="icon_list"  @click="toDialog(1,item)"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
                 </div>
-                <div class="icon_list"  @click="toDailog(2)"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
+                <div class="icon_list"  @click="toDialog(2,item)"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
               </div>
               <CountDown :count_down_date="item.date"/>
             </div>
@@ -76,51 +76,51 @@
               </div>
             </div>
           </div>
-          <el-dialog v-model="dialogFormVisible" width="85%">
-            <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
-              <div class="main">
-                <div class="main-left">
-                  <div class="main-img">
-                    <img :src="item?.collection_url" alt="">
-                  </div>
-                  <div class="main-name">{{ item?.collection }}</div>
 
-                  <div class="tab-list">
-                    <div v-for="(items,index) in List" :key="index" :class="['tag',type===items.value?'active_tag':'']" @click="changeList(items.value)">
-                      {{items.name}}
-                    </div>
-                  </div>
-                </div>
-                <div class="main-right" v-if="type === 1">{{item?.member}}</div>
-                <div class="main-right" v-if="type === 2">{{item?.roadmap}}</div>
-              </div>
-            </div>
-            <!--      &lt;!&ndash; H5 || table&ndash;&gt;-->
-            <div v-else >
-              <div class="ipad-main">
-                <div class="main-img">
-                  <img :src="item?.collection_url" alt="">
-                </div>
-                <div class="right">
-                  <div class="main-name">{{ item?.collection }}</div>
-                  <div class="tags">
-                    <div v-for="(ite,index) in List" :key="index" :class="['tag',type===ite.value?'active_tag':'']" @click="changeList(ite.value)">
-                      {{ite.name}}
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-              <div v-if="type === 1">{{item?.member}}</div>
-              <div  v-if="type === 2">{{item?.roadmap}}</div>
-            </div>
-
-          </el-dialog>
         </div>
 
       </div>
     </div>
+    <el-dialog v-model="dialogFormVisible" width="85%">
+      <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
+        <div class="main">
+          <div class="main-left">
+            <div class="main-img">
+              <img :src="dataList?.collection_url" alt="">
+            </div>
+            <div class="main-name">{{ dataList?.collection }}</div>
 
+            <div class="tab-list">
+              <div v-for="(items,index) in List" :key="index" :class="['tag',type===items.value?'active_tag':'']" @click="changeList(items.value)">
+                {{items.name}}
+              </div>
+            </div>
+          </div>
+          <div class="main-right" v-if="type === 1">{{dataList?.member}}</div>
+          <div class="main-right" v-if="type === 2">{{dataList?.roadmap}}</div>
+        </div>
+      </div>
+      <!--      &lt;!&ndash; H5 || table&ndash;&gt;-->
+      <div v-else >
+        <div class="ipad-main">
+          <div class="main-img">
+            <img :src="dataList?.collection_url" alt="">
+          </div>
+          <div class="right">
+            <div class="main-name">{{ dataList?.collection }}</div>
+            <div class="tags">
+              <div v-for="(ite,index) in List" :key="index" :class="['tag',type===ite.value?'active_tag':'']" @click="changeList(ite.value)">
+                {{ite.name}}
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div v-if="type === 1">{{dataList?.member}}</div>
+        <div  v-if="type === 2">{{dataList?.roadmap}}</div>
+      </div>
+
+    </el-dialog>
   </div>
 </template>
 
@@ -133,9 +133,27 @@ import {useCountdown} from '@utils/time'
 import {useStore} from "vuex";
 import CountDown from "@components/CountDown.vue";
 
+type IInfo = {
+  background:string;
+  collection_url: string;
+  collection: string;
+  introduction: string;
+  price: string;
+  ori_date: string;
+  total: string;
+  website?: string;
+  discord?: string;
+  twitter?: string;
+  date: string;
+  shortTime:string;
+  member:string;
+  roadmap:string;
+  schedule:string;
+}
 
 const router = useRouter();
-const type = ref(1)
+const type = ref(1);
+const dataList = ref<IInfo[] | null>(null);
 const List = ref([{name:'成員介紹',value:1},{name:'路線圖',value:2}]);
 const changeList = (value:number) =>{
   type.value = value
@@ -167,44 +185,15 @@ const toTwitter = (url: string) => {
 }
 //弹窗
 const dialogFormVisible = ref(false);
-const dialogFormTwo = ref(false);
-const dialogFormThree = ref(false);
-const dialogFormFour = ref(false)
-type IInfo = {
-  background:string;
-  collection_url: string;
-  collection: string;
-  introduction: string;
-  price: string;
-  ori_date: string;
-  total: string;
-  website?: string;
-  discord?: string;
-  twitter?: string;
-  date: string;
-  shortTime:string;
-  member:string;
-  roadmap:string;
-  schedule:string;
-}
+
 const dropsList = ref<IInfo[] | null>(null);
 const Lists = ref([])
 
 //弹窗
-const toDailog = (val:number) =>{
+const toDialog = (val:number,item:Object) =>{
   dialogFormVisible.value = true;
-  type.value = val
-}
-const toDailogTwo = (val:number) =>{
-  dialogFormTwo.value = true
-  type.value = val
-}
-const toDailogThree = (val:number) =>{
-  dialogFormThree.value = true
-  type.value = val
-}
-const toDailogfour = (val:number) =>{
-  dialogFormFour.value = true
+  dataList.value = item;
+console.log(dataList.value,'====')
   type.value = val
 }
 const durationDateOne = computed(() => {
