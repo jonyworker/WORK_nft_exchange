@@ -35,6 +35,11 @@ const routes = [
         name:'Wallet',
         component: () => import('@/pages/wallet/index.vue')
     },
+    {
+        path:'/analysis',
+        name:'Analysis',
+        component: () => import('@/pages/analysis/index.vue')
+    },
 ]
 
 const router = createRouter({

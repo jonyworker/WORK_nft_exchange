@@ -10,7 +10,7 @@
         >
           <el-menu-item index="0" @click="toHome()">NFTotal</el-menu-item>
           <el-menu-item index="9" class="!h-[58px]"><el-input class="border-circle" v-model="input" placeholder="搜索NFT和錢包" /></el-menu-item>
-          <el-menu-item index="1">{{$t('home.search')}}</el-menu-item>
+          <el-menu-item index="1" @click="toAnalysis()">{{$t('home.search')}}</el-menu-item>
           <el-menu-item index="2" @click="toMinting()">{{$t('home.mint')}}</el-menu-item>
           <el-menu-item index="3">{{$t('home.overview')}}</el-menu-item>
           <el-menu-item index="4">{{$t('home.tool')}}</el-menu-item>
@@ -52,7 +52,7 @@
       <el-drawer v-model="visible" :show-close="false" >
 
         <div class="drawer">
-          <div>{{$t('home.analysis')}}</div>
+          <div @click="toAnalysis()">{{$t('home.analysis')}}</div>
           <div>{{$t('home.hot_item')}}</div>
           <div>{{$t('home.mint')}}</div>
           <div>{{$t('home.newsBlog')}}</div>
@@ -99,9 +99,13 @@ const handleCommand = (value: string) => {
   store.commit('CHANGE_LANGUAGE', value);
   router.go(0);
 };
+const toAnalysis = () =>{
+  router.push({name: 'Analysis'})
+}
 const toWallet = () =>{
   router.push({name: 'Wallet'})
 }
+
 const toHome = () =>{
   router.push({name: 'Home'})
 };

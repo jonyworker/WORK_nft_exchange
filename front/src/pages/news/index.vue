@@ -130,10 +130,7 @@ const getNews =async()=>{
     ind:type.value,
   }
   const res = await homeApi.getNews(params);
-<<<<<<< HEAD
   newList.value = res.data.slice(0,1);
-=======
->>>>>>> e707d4797dc4a6f610fefce3897823d5f8af0539
   newListTwo.value = res.data[0];
   newList.value = res.data.splice(1);
 
