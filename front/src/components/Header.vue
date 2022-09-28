@@ -12,7 +12,7 @@
           <el-menu-item index="9" class="!h-[58px]"><el-input class="border-circle" v-model="input" placeholder="搜索NFT和錢包" /></el-menu-item>
           <el-menu-item index="1" @click="toAnalysis()">{{$t('home.search')}}</el-menu-item>
           <el-menu-item index="2" @click="toMinting()">{{$t('home.mint')}}</el-menu-item>
-          <el-menu-item index="3">{{$t('home.overview')}}</el-menu-item>
+          <el-menu-item index="3" @click="toIndex()">{{$t('home.overview')}}</el-menu-item>
           <el-menu-item index="4">{{$t('home.tool')}}</el-menu-item>
           <el-menu-item index="5" @click="toNews(1)">{{$t('home.news')}}</el-menu-item>
           <el-menu-item index="6" @click="toNews(2)">{{$t('home.blog')}}</el-menu-item>
@@ -53,9 +53,9 @@
 
         <div class="drawer">
           <div @click="toAnalysis()">{{$t('home.analysis')}}</div>
-          <div>{{$t('home.hot_item')}}</div>
-          <div>{{$t('home.mint')}}</div>
-          <div>{{$t('home.newsBlog')}}</div>
+          <div @click="toHotItem()">{{$t('home.hot_item')}}</div>
+          <div @click="toMinting()">{{$t('home.mint')}}</div>
+          <div @click="toNews(1)">{{$t('home.newsBlog')}}</div>
         </div>
         <div index="zhCn" @click="handleCommand('zhCn')">简体中文</div>
         <div index="zh-tw" @click="handleCommand('zh-tw')">繁體中文</div>
@@ -111,6 +111,12 @@ const toHome = () =>{
 };
 const toNews = (value:number) =>{
   router.push({name: 'News',query:{type:value}})
+}
+const toHotItem = () =>{
+  router.push({name: 'HotRanking',query:{type:2}})
+}
+const toIndex = () =>{
+  router.push({name: 'Index',})
 }
 const toMinting = () =>{
   router.push({name:'Minting'})
