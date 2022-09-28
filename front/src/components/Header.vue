@@ -116,7 +116,7 @@ const toHotItem = () =>{
   router.push({name: 'HotRanking',query:{type:2}})
 }
 const toIndex = () =>{
-  router.push({name: 'Index',})
+  router.push({name: 'HomePage',})
 }
 const toMinting = () =>{
   router.push({name:'Minting'})

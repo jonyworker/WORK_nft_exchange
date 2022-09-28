@@ -11,9 +11,9 @@ const routes = [
         component: () => import('@/pages/home/index.vue')
     },
     {
-        path:'/index',
-        name:'Index',
-        component: () => import('@/pages/index/index.vue')
+        path:'/homePage',
+        name:'HomePage',
+        component: () => import('@/pages/homePage/index.vue')
     },
     {
         path:'/hotRanking',
