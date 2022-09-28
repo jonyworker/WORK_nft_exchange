@@ -115,15 +115,6 @@ type IInfo = {
   introduction: string;
   price: string;
   ori_date: string;
-  total: string;
-  website?: string;
-  discord?: string;
-  twitter?: string;
-  date: string;
-  shortTime:string;
-  member:string;
-  roadmap:string;
-  schedule:string;
 }
 const type = ref(1);
 const analysisList = ref({})
@@ -135,7 +126,7 @@ const changeTag = async (value: number) => {
 const copyInfo=(info:string)=>{
   copy(info)
 }
-const getHomeWallet = async () => {
+const getAnalysis = async () => {
   const res = await homeApi.getDrops({});
   const list = res.data.map((item: { shortTime: any; date: string; }) => {
     item.shortTime = item.date.split(' ')[1]
@@ -145,7 +136,7 @@ const getHomeWallet = async () => {
 }
 
 onMounted(() => {
-  getHomeWallet()
+  getAnalysis()
 })
 
 </script>
