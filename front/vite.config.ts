@@ -2,7 +2,7 @@ import {defineConfig} from 'vite';
 import vue from '@vitejs/plugin-vue';
 import * as path from 'path';
 import AutoImport from 'unplugin-auto-import/vite';
-import WindiCSS from 'vite-plugin-windicss'; // windi css 样式框架
+ // windi css 样式框架
 import vueJsx from '@vitejs/plugin-vue-jsx'; // JSX语法编写组件
 export default defineConfig(() => {
     return {
@@ -30,7 +30,7 @@ export default defineConfig(() => {
             // }),
             // gzip压缩 生产环境生成 .gz 文件
             vueJsx({}),
-            WindiCSS(),
+            
             AutoImport({
                 imports: ['vue', 'vue-router'],
             }),
