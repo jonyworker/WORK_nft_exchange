@@ -7,6 +7,7 @@ use app\api\model\Collection;
 use app\BaseController;
 use think\App;
 use think\exception\HttpException;
+use think\response\Json;
 
 class Collections extends BaseController
 {
@@ -15,10 +16,10 @@ class Collections extends BaseController
         parent::__construct($app);
     }
 
-    public function index()
+    public function index(): Json
     {
         $collectionId = (int)$this->request->get('collectionId');
-        if($collectionId <= 0) {
+        if ($collectionId <= 0) {
             throw new HttpException(400, '项目id不能为空');
         }
         $lan = (int)$this->request->get('lan', 1);

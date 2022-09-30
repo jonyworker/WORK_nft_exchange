@@ -16,6 +16,14 @@ class MemberCollection extends BaseController
         parent::__construct($app);
     }
 
+    public function index() : Json
+    {
+        $data['status'] = 'OK';
+        $data['data'] = Collection::getListByApi($this->getUserId());
+
+        return json($data);
+    }
+
     public function add(): Json
     {
         $collectionId = (int)$this->request->post('collectionId');

@@ -9,7 +9,7 @@ use think\Model;
 class Collection extends Model
 {
 
-    public static function queryByCollectionId($collectionId, $lan) : array
+    public static function queryByCollectionId($collectionId, $lan): array
     {
         $fieldLan = config('api.language')[$lan] ?? '';
         $info = self::findById($collectionId);
@@ -43,5 +43,11 @@ class Collection extends Model
     public static function findById($id)
     {
         return self::where('id', '=', $id)->find();
+    }
+
+    public static function getInfoByIds($ids): array
+    {
+        if (empty($ids)) return [];
+        return self::where('id', 'in', $ids)->select()->column('*', 'id');
     }
 }
