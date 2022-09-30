@@ -23,11 +23,11 @@
                     </div>
                     <div class="text-area">
                       <div class="title-group mb-16 mb-sm-24">
-<!--                          <h2>Machina マキナ</h2>-->
-<!--                          <p>@Machina_NFT</p>-->
+                         <h2>Machina マキナ</h2>
+                         <p>@Machina_NFT</p>
                       </div>
                       <p class="mb-4">{{bannerList?.description}}</p>
-<!--                        <small>Mar 30, 2022</small>-->
+                       <small>Mar 30, 2022</small>
                     </div>
                   </div>
                 </a>
