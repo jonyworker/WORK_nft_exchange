@@ -1,144 +1,162 @@
 <template>
-  <div class="container">
-    <div class="special_box">
-      <div class="title">
-        <div class="box">
-          <div><img src="@/assets/images/icon_title_hotitem.png" alt="logo"></div>
-          <div class="tit">{{$t('home.hot_item')}}</div>
+  <div class="wallet-section section mb-80">
+    <div class="container">
+      <div class="content">
+        <!-- 標題組 -->
+        <div class="row mb-40">
+          <div class="col-12 d-flex justify-content-between align-items-center">
+            <div class="title-wrap d-flex flex-column flex-md-row align-items-md-center ">
+              <!-- 標題  -->
+              <div class="section-title-wrap mr-24">
+                <div class="title-icon">
+                  <img src="@/assets/images/icon_title_hotitem.png" alt="logo">
+                </div>
+                <h2 class="section-title color-white">{{$t('home.hot_item')}}</h2>
+              </div>
+
+              <!-- 子選項 -->
+              <div class="tabs">
+                <div v-for="(item,index) in textList" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="chageTag(item.value)" v-show="index < 3">
+                      {{item.name}}
+                </div>
+              </div>
+            </div>
+
+            <!-- 前往查看按鈕 -->
+            <div class="d-none d-sm-block">
+              <a class="btn btn-bold btn-outline" @click="hotRanking()">{{$t('home.toView')}}</a>
+            </div>
+          </div>  
         </div>
-        <div class="tabs">
-          <div v-for="(item,index) in textList" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="chageTag(item.value)" v-show="index < 3">
-                {{item.name}}
+
+        <div class="">
+          <div class="row">
+          <div class="col-sm-12  col-lg-4">
+            <div class="hot-item-card ">
+              <ul class="ranking-list" v-for="(item,index) in hotList" :key="index">
+                <!-- 1st -->
+                <li class="ranking-item">
+                  <small class="ranking-sort">0{{index+1}}</small>
+                  <div class="ranking-picture">
+                    <img :src="item.photo_url" alt="">
+                  </div>
+                  <div class="ranking-text">
+                    <div class="ranking-top">
+                    <span class="title-wrap">
+                            <span class="ranking-title">{{item.name}}</span>
+                      </span>
+                      <span class="ranking-value">
+                        <span>{{ item.volume_24_p }}%</span>
+                  </span>
+                    </div>
+                    <div class="ranking-bottom">
+                          <span class="floor-price">
+                            <span>Floor price:
+                              <span>
+                                <span><img :src="item.unit_photo" alt="" class="unitImg">{{item.floor_price}}</span>
+                                <span>ETH</span>
+                              </span>
+                            </span>
+                          </span>
+                      <span class="now-price">
+                        <span>
+                          <span><img :src="item.unit_photo" alt="" class="unitImg">{{ item.volume_24}}</span>
+                          <span>ETH</span>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="subtitle" @click="hotRanking()">{{$t('home.toView')}}</div>
-    </div>
-    <div class="hot-item-content mt-10">
-      <div class="row">
-        <div class="col-sm-12  col-lg-4">
+        <div class="d-none d-lg-block col-sm-6   col-lg-4">
           <div class="hot-item-card ">
-            <ul class="ranking-list" v-for="(item,index) in hotList" :key="index">
+            <ul class="ranking-list" v-for="(item,index) in hotListTwo" :key="index">
               <!-- 1st -->
               <li class="ranking-item">
-                <small class="ranking-sort">0{{index+1}}</small>
+                <small class="ranking-sort">{{index+6}}</small>
                 <div class="ranking-picture">
                   <img :src="item.photo_url" alt="">
                 </div>
                 <div class="ranking-text">
                   <div class="ranking-top">
-                  <span class="title-wrap">
-                         <span class="ranking-title">{{item.name}}</span>
-                   </span>
+                    <span class="title-wrap">
+                            <span class="ranking-title">{{item.name}}</span>
+                      </span>
                     <span class="ranking-value">
-                      <span>{{ item.volume_24_p }}%</span>
-                </span>
+                        <span>{{ item.volume_24_p }}%</span>
+                  </span>
                   </div>
                   <div class="ranking-bottom">
-                        <span class="floor-price">
-                          <span>Floor price:
-                            <span>
-                              <span><img :src="item.unit_photo" alt="" class="unitImg">{{item.floor_price}}</span>
-                              <span>ETH</span>
+                          <span class="floor-price">
+                            <span>Floor price:
+                              <span>
+                                <span><img :src="item.unit_photo" alt="" class="unitImg">{{item.floor_price}}</span>
+                                <span>ETH</span>
+                              </span>
                             </span>
                           </span>
-                        </span>
                     <span class="now-price">
-                      <span>
-                        <span><img :src="item.unit_photo" alt="" class="unitImg">{{ item.volume_24}}</span>
-                        <span>ETH</span>
+                        <span>
+                          <span><img :src="item.unit_photo" alt="" class="unitImg">{{ item.volume_24}}</span>
+                          <span>ETH</span>
+                        </span>
                       </span>
-                   </span>
                   </div>
                 </div>
               </li>
             </ul>
           </div>
         </div>
-      <div class="d-none d-lg-block col-sm-6   col-lg-4">
-        <div class="hot-item-card ">
-          <ul class="ranking-list" v-for="(item,index) in hotListTwo" :key="index">
-            <!-- 1st -->
-            <li class="ranking-item">
-              <small class="ranking-sort">{{index+6}}</small>
-              <div class="ranking-picture">
-                <img :src="item.photo_url" alt="">
-              </div>
-              <div class="ranking-text">
-                <div class="ranking-top">
-                  <span class="title-wrap">
-                         <span class="ranking-title">{{item.name}}</span>
-                   </span>
-                  <span class="ranking-value">
-                      <span>{{ item.volume_24_p }}%</span>
-                </span>
-                </div>
-                <div class="ranking-bottom">
-                        <span class="floor-price">
-                          <span>Floor price:
-                            <span>
-                              <span><img :src="item.unit_photo" alt="" class="unitImg">{{item.floor_price}}</span>
-                              <span>ETH</span>
+          <div class="d-none d-lg-block col-lg-4">
+            <div class="hot-item-card ">
+              <ul class="ranking-list" v-for="(item,index) in hotListFree" :key="index">
+                <!-- 1st -->
+                <li class="ranking-item">
+                  <small class="ranking-sort">{{index+11}}</small>
+                  <div class="ranking-picture">
+                    <img :src="item.photo_url" alt="">
+                  </div>
+                  <div class="ranking-text">
+                    <div class="ranking-top">
+                    <span class="title-wrap">
+                            <span class="ranking-title">{{item.name}}</span>
+                      </span>
+                      <span class="ranking-value">
+                        <span>{{ item.volume_24_p }}%</span>
+                  </span>
+                    </div>
+                    <div class="ranking-bottom">
+                          <span class="floor-price">
+                            <span>Floor price:
+                              <span>
+                                <span><img :src="item.unit_photo" alt="" class="unitImg">{{item.floor_price}}</span>
+                                <span>ETH</span>
+                              </span>
                             </span>
                           </span>
+                      <span class="now-price">
+                        <span>
+                          <span><img :src="item.unit_photo" alt="" class="unitImg">{{ item.volume_24}}</span>
+                          <span>ETH</span>
                         </span>
-                  <span class="now-price">
-                      <span>
-                        <span><img :src="item.unit_photo" alt="" class="unitImg">{{ item.volume_24}}</span>
-                        <span>ETH</span>
                       </span>
-                   </span>
-                </div>
-              </div>
-            </li>
-          </ul>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+  
+        </div>
+    
+        <!-- 前往查看按鈕 (手機顯示) -->
+        <div class="mt-10">
+          <div class="btn btn-read-more btn-mobile btn-outline d-block d-sm-none"  @click="hotRanking()" >{{$t('home.toView')}}</div>
         </div>
       </div>
-       <div class="d-none d-lg-block col-lg-4">
-         <div class="hot-item-card ">
-           <ul class="ranking-list" v-for="(item,index) in hotListFree" :key="index">
-             <!-- 1st -->
-             <li class="ranking-item">
-               <small class="ranking-sort">{{index+11}}</small>
-               <div class="ranking-picture">
-                 <img :src="item.photo_url" alt="">
-               </div>
-               <div class="ranking-text">
-                 <div class="ranking-top">
-                  <span class="title-wrap">
-                         <span class="ranking-title">{{item.name}}</span>
-                   </span>
-                   <span class="ranking-value">
-                      <span>{{ item.volume_24_p }}%</span>
-                </span>
-                 </div>
-                 <div class="ranking-bottom">
-                        <span class="floor-price">
-                          <span>Floor price:
-                            <span>
-                              <span><img :src="item.unit_photo" alt="" class="unitImg">{{item.floor_price}}</span>
-                              <span>ETH</span>
-                            </span>
-                          </span>
-                        </span>
-                   <span class="now-price">
-                      <span>
-                        <span><img :src="item.unit_photo" alt="" class="unitImg">{{ item.volume_24}}</span>
-                        <span>ETH</span>
-                      </span>
-                   </span>
-                 </div>
-               </div>
-             </li>
-           </ul>
-         </div>
-       </div>
 
-      </div>
-
-      <!-- 前往查看按鈕 (手機顯示) -->
-      <div class="mt-10">
-        <div class="btn btn-read-more btn-mobile btn-outline d-block d-sm-none"  @click="hotRanking()" >{{$t('home.toView')}}</div>
       </div>
     </div>
   </div>
