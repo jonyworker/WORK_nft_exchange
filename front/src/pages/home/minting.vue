@@ -1,124 +1,64 @@
 <template>
-  <div class="container">
-<!--标题-->
-    <div class="minting_box">
-      <div class="title">
-        <div class="box">
-          <div><img src="@/assets/images/icon_title_minting.png" alt="logo"></div>
-          <div class="tit">{{$t('home.mint')}}</div>
-        </div>
-      </div>
-      <div class="subtitle"  @click="toView()">{{$t('home.toView')}}</div>
-    </div>
-    <div class="minting-content mt-10">
-      <!-- 觀測站卡片 -->
-      <div class="row">
-        <!-- 1st -->
-        <div class="col-12 col-sm-6 col-lg-3">
-          <div class="card-item card-1">
-            <!-- 卡片圖片 -->
-            <div class="card-image">
-<!--              <img :src="http + dropsOne?.background" alt="">-->
-              <img src="@/assets/images/random_1.png" alt="">
-              <div class="card_icon">
-                <div class="icon_list"  @click="toDailog(1)"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
-                </div>
-                <div class="icon_list"  @click="toDailog(2)"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
+  <div class="section mb-80">
+    <div class="container">
+      <div class="content">
+        <!--區域標題-->
+        <div class="row mb-40">
+          <div class="col-12 d-flex justify-content-between align-items-center">
+            <div class="section-title-wrap">
+              <div class="title-icon">
+                <img src="@/assets/images/icon_title_minting.png" alt="logo">
               </div>
-              <div class="card-time-wrap">
-                <p class="count-down-day">{{ durationDateOne?.value?.days }}</p>
-                <p class="count-down-hour">{{ durationDateOne?.value?.hours }}</p>
-                <p class="count-down-min">{{ durationDateOne?.value?.minutes }}</p>
-                <p class="count-down-sec">{{ durationDateOne?.value?.seconds }}</p>
-              </div>
+              <h2 class="section-title color-white">{{$t('home.mint')}}</h2>
             </div>
-            <!-- 卡片內文 -->
-            <div class="card-text">
-              <!-- icon 圖片 -->
-              <div class="card-text-icon-wrap">
-                <div class="card-icon-img">
-                  <img :src="dropsOne?.collection_url" alt="">
-                </div>
-                <p class="heading-B-4 text-white">{{ dropsOne?.collection }}</p>
-              </div>
-              <!-- 內文 -->
-              <div class="card-text-wrap">
-                <p class="card-title text-white">
-                  {{ dropsOne?.introduction }}
-                </p>
-                <p class="card-text  text-white">{{$t('home.price')}}{{ dropsOne?.price }}</p>
-                <p class="card-text  text-white">{{$t('home.total')}}{{ dropsOne?.total }}</p>
-                <p class="card-text text-white">{{$t('home.shortTime')}}{{ dropsOne?.shortTime }}</p>
-              </div>
-              <!-- 卡片icon -->
-              <div class="card-footer">
-                <!-- social-link -->
-                <ul class="social-link-wrap">
-                  <!-- icon-group -->
-                  <li class="social-link-item">
-                    <div class="social-link-icon" @click="toWebsite(dropsOne?.website || '')">
-                      <img src="@/assets/images/icon_world.png" alt="">
-                    </div>
-                  </li>
-                  <!-- icon-map -->
-                  <li class="social-link-item">
-                    <div class="social-link-icon" @click="toDiscord(dropsOne?.discord || '')">
-                      <img src="@/assets/images/icon_discord.png" alt="">
-                    </div>
-                  </li>
-                  <!-- icon-homepage -->
-                  <li class="social-link-item">
-                    <div class="social-link-icon" @click="toTwitter(dropsOne?.twitter || '')">
-                      <img src="@/assets/images/icon_twitter.png" alt="">
-                    </div>
-                  </li>
-                  <!-- icon-discord -->
-                  <li class="social-link-item">
-                    <div class="social-link-icon" @click="toSchedule(dropsOne?.schedule || '')">
-                      <img src="@/assets/images/icons.png" alt="">
-                    </div>
-                  </li>
-                </ul>
-              </div>
+    
+            <!-- 前往查看按鈕 -->
+            <div class="d-none d-sm-block">
+              <button class="btn btn-bold btn-outline" @click="toView()">{{$t('home.toView')}}</button>
             </div>
           </div>
         </div>
-        <!-- 2nd -->
-          <div class="d-none d-sm-block col-sm-6 col-lg-3" >
-          <div class="card-item card-1">
-            <!-- 卡片圖片 -->
-            <div class="card-image">
-<!--              <img :src="http + dropsTwo?.background" alt="">-->
-              <img src="@/assets/images/random_2.png" alt="">
-              <div class="card_icon">
-                <div class="icon_list" @click="toDailogTwo(1)"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
+    
+        <!-- 卡片 -->
+        <div class="minting-content mt-10">
+          <!-- 觀測站卡片 -->
+          <div class="row">
+            <!-- 1st -->
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="card-item card-1">
+                <!-- 卡片圖片 -->
+                <div class="card-image">
+    <!--              <img :src="http + dropsOne?.background" alt="">-->
+                  <img src="@/assets/images/random_1.png" alt="">
+                  <div class="card_icon">
+                    <div class="icon_list"  @click="toDailog(1)"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
+                    </div>
+                    <div class="icon_list"  @click="toDailog(2)"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
+                  </div>
+                  <div class="card-time-wrap">
+                    <p class="count-down-day">{{ durationDateOne?.value?.days }}</p>
+                    <p class="count-down-hour">{{ durationDateOne?.value?.hours }}</p>
+                    <p class="count-down-min">{{ durationDateOne?.value?.minutes }}</p>
+                    <p class="count-down-sec">{{ durationDateOne?.value?.seconds }}</p>
+                  </div>
                 </div>
-                <div class="icon_list" @click="toDailogTwo(2)"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
-              </div>
-              <div class="card-time-wrap">
-                <p class="count-down-day">{{ durationDateTwo?.value?.days }}</p>
-                <p class="count-down-hour">{{ durationDateTwo?.value?.hours }}</p>
-                <p class="count-down-min">{{ durationDateTwo?.value?.minutes }}</p>
-                <p class="count-down-sec">{{ durationDateTwo?.value?.seconds }}</p>
-              </div>
-            </div>
                 <!-- 卡片內文 -->
                 <div class="card-text">
                   <!-- icon 圖片 -->
                   <div class="card-text-icon-wrap">
                     <div class="card-icon-img">
-                      <img :src="dropsTwo?.collection_url" alt="">
+                      <img :src="dropsOne?.collection_url" alt="">
                     </div>
-                    <p class="heading-B-4 text-white">{{dropsTwo?.collection}}</p>
+                    <p class="heading-B-4 text-white">{{ dropsOne?.collection }}</p>
                   </div>
                   <!-- 內文 -->
                   <div class="card-text-wrap">
                     <p class="card-title text-white">
-                      {{dropsTwo?.introduction}}
+                      {{ dropsOne?.introduction }}
                     </p>
-                    <p class="card-text  text-white">{{$t('home.price')}}{{dropsTwo?.price}}</p>
-                    <p class="card-text  text-white">{{$t('home.total')}}{{dropsTwo?.total}}</p>
-                    <p class="card-text text-white">{{$t('home.shortTime')}}{{ dropsTwo?.shortTime }}</p>
+                    <p class="card-text  text-white">{{$t('home.price')}}{{ dropsOne?.price }}</p>
+                    <p class="card-text  text-white">{{$t('home.total')}}{{ dropsOne?.total }}</p>
+                    <p class="card-text text-white">{{$t('home.shortTime')}}{{ dropsOne?.shortTime }}</p>
                   </div>
                   <!-- 卡片icon -->
                   <div class="card-footer">
@@ -126,349 +66,421 @@
                     <ul class="social-link-wrap">
                       <!-- icon-group -->
                       <li class="social-link-item">
-                        <div class="social-link-icon" @click="toWebsite(dropsTwo?.website || '')">
+                        <div class="social-link-icon" @click="toWebsite(dropsOne?.website || '')">
                           <img src="@/assets/images/icon_world.png" alt="">
                         </div>
                       </li>
                       <!-- icon-map -->
                       <li class="social-link-item">
-                        <div class="social-link-icon" @click="toDiscord(dropsTwo?.discord ||'')">
+                        <div class="social-link-icon" @click="toDiscord(dropsOne?.discord || '')">
                           <img src="@/assets/images/icon_discord.png" alt="">
                         </div>
                       </li>
                       <!-- icon-homepage -->
                       <li class="social-link-item">
-                        <div class="social-link-icon" @click="toTwitter(dropsTwo?.twitter || '')">
+                        <div class="social-link-icon" @click="toTwitter(dropsOne?.twitter || '')">
                           <img src="@/assets/images/icon_twitter.png" alt="">
                         </div>
                       </li>
                       <!-- icon-discord -->
                       <li class="social-link-item">
-                        <div class="social-link-icon" @click="toSchedule(dropsTwo?.schedule || '')">
+                        <div class="social-link-icon" @click="toSchedule(dropsOne?.schedule || '')">
                           <img src="@/assets/images/icons.png" alt="">
                         </div>
                       </li>
                     </ul>
                   </div>
                 </div>
-          </div>
-          </div>
-        <!-- 3rd -->
-        <div class="d-none d-lg-block col-lg-3">
-          <div class="card-item card-1">
-            <!-- 卡片圖片 -->
-            <div class="card-image">
-<!--              <img :src="http + dropsThree?.background" alt="">-->
-              <img src="@/assets/images/random_3.png" alt="">
-              <div class="card_icon">
-                <div class="icon_list" @click="toDailogThree(1)"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
-                </div>
-                <div class="icon_list" @click="toDailogThree(2)"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
-              </div>
-              <div class="card-time-wrap">
-                <p class="count-down-day">{{ durationDateThree?.value?.days }}</p>
-                <p class="count-down-hour">{{ durationDateThree?.value?.hours }}</p>
-                <p class="count-down-min">{{ durationDateThree?.value?.minutes }}</p>
-                <p class="count-down-sec">{{ durationDateThree?.value?.seconds }}</p>
               </div>
             </div>
-            <!-- 卡片內文 -->
-            <div class="card-text">
-              <!-- icon 圖片 -->
-              <div class="card-text-icon-wrap">
-                <div class="card-icon-img">
-                  <img :src="dropsThree?.collection_url" alt="">
+            <!-- 2nd -->
+              <div class="d-none d-sm-block col-sm-6 col-lg-3" >
+              <div class="card-item card-1">
+                <!-- 卡片圖片 -->
+                <div class="card-image">
+    <!--              <img :src="http + dropsTwo?.background" alt="">-->
+                  <img src="@/assets/images/random_2.png" alt="">
+                  <div class="card_icon">
+                    <div class="icon_list" @click="toDailogTwo(1)"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
+                    </div>
+                    <div class="icon_list" @click="toDailogTwo(2)"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
+                  </div>
+                  <div class="card-time-wrap">
+                    <p class="count-down-day">{{ durationDateTwo?.value?.days }}</p>
+                    <p class="count-down-hour">{{ durationDateTwo?.value?.hours }}</p>
+                    <p class="count-down-min">{{ durationDateTwo?.value?.minutes }}</p>
+                    <p class="count-down-sec">{{ durationDateTwo?.value?.seconds }}</p>
+                  </div>
                 </div>
-                <p class="heading-B-4 text-white">{{ dropsThree?.collection }}</p>
+                    <!-- 卡片內文 -->
+                    <div class="card-text">
+                      <!-- icon 圖片 -->
+                      <div class="card-text-icon-wrap">
+                        <div class="card-icon-img">
+                          <img :src="dropsTwo?.collection_url" alt="">
+                        </div>
+                        <p class="heading-B-4 text-white">{{dropsTwo?.collection}}</p>
+                      </div>
+                      <!-- 內文 -->
+                      <div class="card-text-wrap">
+                        <p class="card-title text-white">
+                          {{dropsTwo?.introduction}}
+                        </p>
+                        <p class="card-text  text-white">{{$t('home.price')}}{{dropsTwo?.price}}</p>
+                        <p class="card-text  text-white">{{$t('home.total')}}{{dropsTwo?.total}}</p>
+                        <p class="card-text text-white">{{$t('home.shortTime')}}{{ dropsTwo?.shortTime }}</p>
+                      </div>
+                      <!-- 卡片icon -->
+                      <div class="card-footer">
+                        <!-- social-link -->
+                        <ul class="social-link-wrap">
+                          <!-- icon-group -->
+                          <li class="social-link-item">
+                            <div class="social-link-icon" @click="toWebsite(dropsTwo?.website || '')">
+                              <img src="@/assets/images/icon_world.png" alt="">
+                            </div>
+                          </li>
+                          <!-- icon-map -->
+                          <li class="social-link-item">
+                            <div class="social-link-icon" @click="toDiscord(dropsTwo?.discord ||'')">
+                              <img src="@/assets/images/icon_discord.png" alt="">
+                            </div>
+                          </li>
+                          <!-- icon-homepage -->
+                          <li class="social-link-item">
+                            <div class="social-link-icon" @click="toTwitter(dropsTwo?.twitter || '')">
+                              <img src="@/assets/images/icon_twitter.png" alt="">
+                            </div>
+                          </li>
+                          <!-- icon-discord -->
+                          <li class="social-link-item">
+                            <div class="social-link-icon" @click="toSchedule(dropsTwo?.schedule || '')">
+                              <img src="@/assets/images/icons.png" alt="">
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
               </div>
-              <!-- 內文 -->
-              <div class="card-text-wrap">
-                <p class="card-title text-white">
-                  {{ dropsThree?.introduction }}
-                </p>
-                <p class="card-text  text-white">{{$t('home.price')}}{{ dropsThree?.price }}</p>
-                <p class="card-text  text-white">{{$t('home.total')}}{{ dropsThree?.total }}</p>
-                <p class="card-text text-white">{{$t('home.shortTime')}}{{ dropsThree?.shortTime }}</p>
               </div>
-              <!-- 卡片icon -->
-              <div class="card-footer">
-                <!-- social-link -->
-                <ul class="social-link-wrap">
-                  <!-- icon-group -->
-                  <li class="social-link-item">
-                    <div class="social-link-icon" @click="toWebsite(dropsThree?.website || '')">
-                      <img src="@/assets/images/icon_world.png" alt="">
+            <!-- 3rd -->
+            <div class="d-none d-lg-block col-lg-3">
+              <div class="card-item card-1">
+                <!-- 卡片圖片 -->
+                <div class="card-image">
+    <!--              <img :src="http + dropsThree?.background" alt="">-->
+                  <img src="@/assets/images/random_3.png" alt="">
+                  <div class="card_icon">
+                    <div class="icon_list" @click="toDailogThree(1)"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
                     </div>
-                  </li>
-                  <!-- icon-map -->
-                  <li class="social-link-item">
-                    <div class="social-link-icon" @click="toDiscord(dropsThree?.discord || '')">
-                      <img src="@/assets/images/icon_discord.png" alt="">
+                    <div class="icon_list" @click="toDailogThree(2)"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
+                  </div>
+                  <div class="card-time-wrap">
+                    <p class="count-down-day">{{ durationDateThree?.value?.days }}</p>
+                    <p class="count-down-hour">{{ durationDateThree?.value?.hours }}</p>
+                    <p class="count-down-min">{{ durationDateThree?.value?.minutes }}</p>
+                    <p class="count-down-sec">{{ durationDateThree?.value?.seconds }}</p>
+                  </div>
+                </div>
+                <!-- 卡片內文 -->
+                <div class="card-text">
+                  <!-- icon 圖片 -->
+                  <div class="card-text-icon-wrap">
+                    <div class="card-icon-img">
+                      <img :src="dropsThree?.collection_url" alt="">
                     </div>
-                  </li>
-                  <!-- icon-homepage -->
-                  <li class="social-link-item">
-                    <div class="social-link-icon" @click="toTwitter(dropsThree?.twitter || '')">
-                      <img src="@/assets/images/icon_twitter.png" alt="">
-                    </div>
-                  </li>
-                  <!-- icon-discord -->
-                  <li class="social-link-item">
-                    <div class="social-link-icon" @click="toSchedule(dropsThree?.schedule || '')">
-                      <img src="@/assets/images/icons.png" alt="">
-                    </div>
-                  </li>
-                </ul>
+                    <p class="heading-B-4 text-white">{{ dropsThree?.collection }}</p>
+                  </div>
+                  <!-- 內文 -->
+                  <div class="card-text-wrap">
+                    <p class="card-title text-white">
+                      {{ dropsThree?.introduction }}
+                    </p>
+                    <p class="card-text  text-white">{{$t('home.price')}}{{ dropsThree?.price }}</p>
+                    <p class="card-text  text-white">{{$t('home.total')}}{{ dropsThree?.total }}</p>
+                    <p class="card-text text-white">{{$t('home.shortTime')}}{{ dropsThree?.shortTime }}</p>
+                  </div>
+                  <!-- 卡片icon -->
+                  <div class="card-footer">
+                    <!-- social-link -->
+                    <ul class="social-link-wrap">
+                      <!-- icon-group -->
+                      <li class="social-link-item">
+                        <div class="social-link-icon" @click="toWebsite(dropsThree?.website || '')">
+                          <img src="@/assets/images/icon_world.png" alt="">
+                        </div>
+                      </li>
+                      <!-- icon-map -->
+                      <li class="social-link-item">
+                        <div class="social-link-icon" @click="toDiscord(dropsThree?.discord || '')">
+                          <img src="@/assets/images/icon_discord.png" alt="">
+                        </div>
+                      </li>
+                      <!-- icon-homepage -->
+                      <li class="social-link-item">
+                        <div class="social-link-icon" @click="toTwitter(dropsThree?.twitter || '')">
+                          <img src="@/assets/images/icon_twitter.png" alt="">
+                        </div>
+                      </li>
+                      <!-- icon-discord -->
+                      <li class="social-link-item">
+                        <div class="social-link-icon" @click="toSchedule(dropsThree?.schedule || '')">
+                          <img src="@/assets/images/icons.png" alt="">
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
+    
+            <!-- 4th -->
+            <div class="d-none d-lg-block col-lg-3">
+              <div class="card-item card-1">
+                <!-- 卡片圖片 -->
+                <div class="card-image">
+    <!--              <img :src="http + dropsFour?.background" alt="">-->
+                  <img src="@/assets/images/random_1.png" alt="">
+                  <div class="card_icon">
+                    <div class="icon_list" @click="toDailogfour(1)"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
+                    </div>
+                    <div class="icon_list" @click="toDailogfour(2)"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
+                  </div>
+                  <div class="card-time-wrap">
+                    <p class="count-down-day">{{ durationDateFour?.value?.days }}</p>
+                    <p class="count-down-hour">{{ durationDateFour?.value?.hours }}</p>
+                    <p class="count-down-min">{{ durationDateFour?.value?.minutes }}</p>
+                    <p class="count-down-sec">{{ durationDateFour?.value?.seconds }}</p>
+                  </div>
+                </div>
+                <!-- 卡片內文 -->
+                <div class="card-text">
+                  <!-- icon 圖片 -->
+                  <div class="card-text-icon-wrap">
+                    <div class="card-icon-img">
+                      <img :src="dropsFour?.collection_url" alt="">
+                    </div>
+                    <p class="heading-B-4 text-white">{{ dropsFour?.collection }}</p>
+                  </div>
+                  <!-- 內文 -->
+                  <div class="card-text-wrap">
+                    <p class="card-title text-white">
+                      {{ dropsFour?.introduction }}
+                    </p>
+                    <p class="card-text  text-white">{{$t('home.price')}}{{ dropsFour?.price }}</p>
+                    <p class="card-text  text-white">{{$t('home.total')}}{{ dropsFour?.total }}</p>
+                    <p class="card-text text-white">{{$t('home.shortTime')}}{{ dropsFour?.shortTime }}</p>
+                  </div>
+                  <!-- 卡片icon -->
+                  <div class="card-footer">
+                    <!-- social-link -->
+                    <ul class="social-link-wrap">
+                      <!-- icon-group -->
+                      <li class="social-link-item">
+                        <div class="social-link-icon" @click="toWebsite(dropsFour?.website || '')">
+                          <img src="@/assets/images/icon_world.png" alt="">
+                        </div>
+                      </li>
+                      <!-- icon-map -->
+                      <li class="social-link-item">
+                        <div class="social-link-icon" @click="toDiscord(dropsFour?.discord || '')">
+                          <img src="@/assets/images/icon_discord.png" alt="">
+                        </div>
+                      </li>
+                      <!-- icon-homepage -->
+                      <li class="social-link-item">
+                        <div class="social-link-icon" @click="toTwitter(dropsFour?.twitter || '')">
+                          <img src="@/assets/images/icon_twitter.png" alt="">
+                        </div>
+                      </li>
+                      <!-- icon-discord -->
+                      <li class="social-link-item">
+                        <div class="social-link-icon" @click="toSchedule(dropsFour?.schedule || '')">
+                          <img src="@/assets/images/icons.png" alt="">
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
           </div>
+              <!-- 前往查看按鈕 (手機顯示) -->
+              <div class="mt-10">
+                <div class="btn btn-read-more btn-mobile btn-outline d-block d-sm-none" @click="toView()">{{$t('home.toView')}}</div>
+              </div>
         </div>
-
-        <!-- 4th -->
-        <div class="d-none d-lg-block col-lg-3">
-          <div class="card-item card-1">
-            <!-- 卡片圖片 -->
-            <div class="card-image">
-<!--              <img :src="http + dropsFour?.background" alt="">-->
-              <img src="@/assets/images/random_1.png" alt="">
-              <div class="card_icon">
-                <div class="icon_list" @click="toDailogfour(1)"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
+        <el-dialog v-model="dialogFormVisible" width="85%">
+    
+          <!-- PC     -->
+            <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
+                <div class="main">
+                  <div class="main-left">
+                    <div class="main-img">
+                      <img :src="dropsOne?.collection_url" alt="">
+                    </div>
+                    <div class="main-name">{{ dropsOne?.collection }}</div>
+    
+                    <div class="tab-list">
+                      <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
+                        {{item.name}}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="main-right" v-if="type === 1">{{dropsOne?.member}}</div>
+                  <div class="main-right" v-if="type === 2">{{dropsOne?.roadmap}}</div>
                 </div>
-                <div class="icon_list" @click="toDailogfour(2)"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
-              </div>
-              <div class="card-time-wrap">
-                <p class="count-down-day">{{ durationDateFour?.value?.days }}</p>
-                <p class="count-down-hour">{{ durationDateFour?.value?.hours }}</p>
-                <p class="count-down-min">{{ durationDateFour?.value?.minutes }}</p>
-                <p class="count-down-sec">{{ durationDateFour?.value?.seconds }}</p>
-              </div>
             </div>
-            <!-- 卡片內文 -->
-            <div class="card-text">
-              <!-- icon 圖片 -->
-              <div class="card-text-icon-wrap">
-                <div class="card-icon-img">
-                  <img :src="dropsFour?.collection_url" alt="">
-                </div>
-                <p class="heading-B-4 text-white">{{ dropsFour?.collection }}</p>
-              </div>
-              <!-- 內文 -->
-              <div class="card-text-wrap">
-                <p class="card-title text-white">
-                  {{ dropsFour?.introduction }}
-                </p>
-                <p class="card-text  text-white">{{$t('home.price')}}{{ dropsFour?.price }}</p>
-                <p class="card-text  text-white">{{$t('home.total')}}{{ dropsFour?.total }}</p>
-                <p class="card-text text-white">{{$t('home.shortTime')}}{{ dropsFour?.shortTime }}</p>
-              </div>
-              <!-- 卡片icon -->
-              <div class="card-footer">
-                <!-- social-link -->
-                <ul class="social-link-wrap">
-                  <!-- icon-group -->
-                  <li class="social-link-item">
-                    <div class="social-link-icon" @click="toWebsite(dropsFour?.website || '')">
-                      <img src="@/assets/images/icon_world.png" alt="">
-                    </div>
-                  </li>
-                  <!-- icon-map -->
-                  <li class="social-link-item">
-                    <div class="social-link-icon" @click="toDiscord(dropsFour?.discord || '')">
-                      <img src="@/assets/images/icon_discord.png" alt="">
-                    </div>
-                  </li>
-                  <!-- icon-homepage -->
-                  <li class="social-link-item">
-                    <div class="social-link-icon" @click="toTwitter(dropsFour?.twitter || '')">
-                      <img src="@/assets/images/icon_twitter.png" alt="">
-                    </div>
-                  </li>
-                  <!-- icon-discord -->
-                  <li class="social-link-item">
-                    <div class="social-link-icon" @click="toSchedule(dropsFour?.schedule || '')">
-                      <img src="@/assets/images/icons.png" alt="">
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-          <!-- 前往查看按鈕 (手機顯示) -->
-          <div class="mt-10">
-            <div class="btn btn-read-more btn-mobile btn-outline d-block d-sm-none" @click="toView()">{{$t('home.toView')}}</div>
-          </div>
-        </div>
-    <el-dialog v-model="dialogFormVisible" width="85%">
-
-      <!-- PC     -->
-        <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
-            <div class="main">
-              <div class="main-left">
+          <!-- H5 || table-->
+          <div v-else >
+              <div class="ipad-main">
                 <div class="main-img">
                   <img :src="dropsOne?.collection_url" alt="">
                 </div>
-                <div class="main-name">{{ dropsOne?.collection }}</div>
-
+            <div class="right">
+              <div class="main-name">{{ dropsOne?.collection }}</div>
+              <div class="tags">
+                <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
+                  {{item.name}}
+                </div>
+              </div>
+    
+            </div>
+              </div>
+            <div v-if="type === 1">{{dropsOne?.member}}</div>
+            <div  v-if="type === 2">{{dropsOne?.roadmap}}</div>
+            </div>
+    
+        </el-dialog>
+        <el-dialog v-model="dialogFormTwo" width="85%">
+    
+          <!-- PC     -->
+          <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
+            <div class="main">
+              <div class="main-left">
+                <div class="main-img">
+                  <img :src="dropsTwo?.collection_url" alt="">
+                </div>
+                <div class="main-name">{{ dropsTwo?.collection }}</div>
+    
                 <div class="tab-list">
                   <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
                     {{item.name}}
                   </div>
                 </div>
               </div>
-              <div class="main-right" v-if="type === 1">{{dropsOne?.member}}</div>
-              <div class="main-right" v-if="type === 2">{{dropsOne?.roadmap}}</div>
-            </div>
-        </div>
-      <!-- H5 || table-->
-      <div v-else >
-          <div class="ipad-main">
-            <div class="main-img">
-              <img :src="dropsOne?.collection_url" alt="">
-            </div>
-        <div class="right">
-          <div class="main-name">{{ dropsOne?.collection }}</div>
-          <div class="tags">
-            <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
-              {{item.name}}
+              <div class="main-right" v-if="type === 1">{{dropsTwo?.member}}</div>
+              <div class="main-right" v-if="type === 2">{{dropsTwo?.roadmap}}</div>
             </div>
           </div>
-
-        </div>
-          </div>
-        <div v-if="type === 1">{{dropsOne?.member}}</div>
-        <div  v-if="type === 2">{{dropsOne?.roadmap}}</div>
-        </div>
-
-    </el-dialog>
-    <el-dialog v-model="dialogFormTwo" width="85%">
-
-      <!-- PC     -->
-      <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
-        <div class="main">
-          <div class="main-left">
-            <div class="main-img">
-              <img :src="dropsTwo?.collection_url" alt="">
-            </div>
-            <div class="main-name">{{ dropsTwo?.collection }}</div>
-
-            <div class="tab-list">
-              <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
-                {{item.name}}
+          <!-- H5 || table-->
+          <div v-else >
+            <div class="ipad-main">
+              <div class="main-img">
+                <img :src="dropsTwo?.collection_url" alt="">
+              </div>
+              <div class="right">
+                <div class="main-name">{{ dropsTwo?.collection }}</div>
+                <div class="tags">
+                  <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
+                    {{item.name}}
+                  </div>
+                </div>
+    
               </div>
             </div>
+            <div v-if="type === 1">{{dropsTwo?.member}}</div>
+            <div  v-if="type === 2">{{dropsTwo?.roadmap}}</div>
           </div>
-          <div class="main-right" v-if="type === 1">{{dropsTwo?.member}}</div>
-          <div class="main-right" v-if="type === 2">{{dropsTwo?.roadmap}}</div>
-        </div>
-      </div>
-      <!-- H5 || table-->
-      <div v-else >
-        <div class="ipad-main">
-          <div class="main-img">
-            <img :src="dropsTwo?.collection_url" alt="">
+    
+        </el-dialog>
+        <el-dialog v-model="dialogFormThree" width="85%">
+    
+          <!-- PC     -->
+          <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
+            <div class="main">
+              <div class="main-left">
+                <div class="main-img">
+                  <img :src="dropsThree?.collection_url" alt="">
+                </div>
+                <div class="main-name">{{ dropsThree?.collection }}</div>
+    
+                <div class="tab-list">
+                  <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
+                    {{item.name}}
+                  </div>
+                </div>
+              </div>
+              <div class="main-right" v-if="type === 1">{{dropsThree?.member}}</div>
+              <div class="main-right" v-if="type === 2">{{dropsThree?.roadmap}}</div>
+            </div>
           </div>
-          <div class="right">
-            <div class="main-name">{{ dropsTwo?.collection }}</div>
-            <div class="tags">
-              <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
-                {{item.name}}
+          <!-- H5 || table-->
+          <div v-else >
+            <div class="ipad-main">
+              <div class="main-img">
+                <img :src="dropsThree?.collection_url" alt="">
+              </div>
+              <div class="right">
+                <div class="main-name">{{ dropsThree?.collection }}</div>
+                <div class="tags">
+                  <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
+                    {{item.name}}
+                  </div>
+                </div>
+    
               </div>
             </div>
-
+            <div v-if="type === 1">{{dropsThree?.member}}</div>
+            <div  v-if="type === 2">{{dropsThree?.roadmap}}</div>
           </div>
-        </div>
-        <div v-if="type === 1">{{dropsTwo?.member}}</div>
-        <div  v-if="type === 2">{{dropsTwo?.roadmap}}</div>
-      </div>
-
-    </el-dialog>
-    <el-dialog v-model="dialogFormThree" width="85%">
-
-      <!-- PC     -->
-      <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
-        <div class="main">
-          <div class="main-left">
-            <div class="main-img">
-              <img :src="dropsThree?.collection_url" alt="">
+    
+        </el-dialog>
+        <el-dialog v-model="dialogFormFour" width="85%">
+    
+          <!-- PC     -->
+          <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
+            <div class="main">
+              <div class="main-left">
+                <div class="main-img">
+                  <img :src="dropsFour?.collection_url" alt="">
+                </div>
+                <div class="main-name">{{ dropsFour?.collection }}</div>
+    
+                <div class="tab-list">
+                  <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
+                    {{item.name}}
+                  </div>
+                </div>
+              </div>
+              <div class="main-right" v-if="type === 1">{{dropsFour?.member}}</div>
+              <div class="main-right" v-if="type === 2">{{dropsFour?.roadmap}}</div>
             </div>
-            <div class="main-name">{{ dropsThree?.collection }}</div>
-
-            <div class="tab-list">
-              <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
-                {{item.name}}
+          </div>
+          <!-- H5 || table-->
+          <div v-else >
+            <div class="ipad-main">
+              <div class="main-img">
+                <img :src="dropsFour?.collection_url" alt="">
+              </div>
+              <div class="right">
+                <div class="main-name">{{ dropsFour?.collection }}</div>
+                <div class="tags">
+                  <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
+                    {{item.name}}
+                  </div>
+                </div>
+    
               </div>
             </div>
+            <div v-if="type === 1">{{dropsFour?.member}}</div>
+            <div  v-if="type === 2">{{dropsFour?.roadmap}}</div>
           </div>
-          <div class="main-right" v-if="type === 1">{{dropsThree?.member}}</div>
-          <div class="main-right" v-if="type === 2">{{dropsThree?.roadmap}}</div>
-        </div>
+    
+        </el-dialog>
       </div>
-      <!-- H5 || table-->
-      <div v-else >
-        <div class="ipad-main">
-          <div class="main-img">
-            <img :src="dropsThree?.collection_url" alt="">
-          </div>
-          <div class="right">
-            <div class="main-name">{{ dropsThree?.collection }}</div>
-            <div class="tags">
-              <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
-                {{item.name}}
-              </div>
-            </div>
-
-          </div>
-        </div>
-        <div v-if="type === 1">{{dropsThree?.member}}</div>
-        <div  v-if="type === 2">{{dropsThree?.roadmap}}</div>
-      </div>
-
-    </el-dialog>
-    <el-dialog v-model="dialogFormFour" width="85%">
-
-      <!-- PC     -->
-      <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
-        <div class="main">
-          <div class="main-left">
-            <div class="main-img">
-              <img :src="dropsFour?.collection_url" alt="">
-            </div>
-            <div class="main-name">{{ dropsFour?.collection }}</div>
-
-            <div class="tab-list">
-              <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
-                {{item.name}}
-              </div>
-            </div>
-          </div>
-          <div class="main-right" v-if="type === 1">{{dropsFour?.member}}</div>
-          <div class="main-right" v-if="type === 2">{{dropsFour?.roadmap}}</div>
-        </div>
-      </div>
-      <!-- H5 || table-->
-      <div v-else >
-        <div class="ipad-main">
-          <div class="main-img">
-            <img :src="dropsFour?.collection_url" alt="">
-          </div>
-          <div class="right">
-            <div class="main-name">{{ dropsFour?.collection }}</div>
-            <div class="tags">
-              <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
-                {{item.name}}
-              </div>
-            </div>
-
-          </div>
-        </div>
-        <div v-if="type === 1">{{dropsFour?.member}}</div>
-        <div  v-if="type === 2">{{dropsFour?.roadmap}}</div>
-      </div>
-
-    </el-dialog>
+    </div>
   </div>
 </template>
 
