@@ -1,0 +1,176 @@
+/*//////////////////////////////
+===== Font Mixin START 粗體 =====
+//////////////////////////////*/
+
+/*----- 字體 - 基礎組件 -----*/
+// @mixin font-info ($font-family, $font-style, $font-size, $font-weight, $line-height, $letter-spacing)
+
+/*----- 字體 - display-B-1 (36px)-----*/
+@mixin display-B-1 {
+  @include font-info ($font-Noto-TC,normal, null, 700, 1.22, 0);
+  // 超級文字縮放公式 minWidth(px), maxWidth(px), minFont(px), maxFont(px)
+  @include interpolate(font-size, 768px, 1536px, 36px, 36px);
+}
+/*----- 字體 - display-B-2 (32px)-----*/
+@mixin display-B-2 {
+  @include font-info ($font-Noto-TC,normal, null, 700, 1.125, 0);
+  // 超級文字縮放公式 minWidth(px), maxWidth(px), minFont(px), maxFont(px)
+  @include interpolate(font-size, 768px, 1536px, 26px, 36px);
+}
+/*----- 字體 - display-B-3 (24px)-----*/
+@mixin display-B-3 {
+  @include font-info ($font-Noto-TC,normal, null, 700, 1.33, 0);
+  // 超級文字縮放公式 minWidth(px), maxWidth(px), minFont(px), maxFont(px)
+  @include interpolate(font-size, 768px, 1536px, 22px, 28px);
+}
+/*----- 字體 - display-B-4 (20px)-----*/
+@mixin display-B-4 {
+  @include font-info ($font-Noto-TC,normal, null, 700, 1.4, 0);
+  // 超級文字縮放公式 minWidth(px), maxWidth(px), minFont(px), maxFont(px)
+  @include interpolate(font-size, 768px, 1536px, 18px, 18px);
+}
+/*----- 字體 - body-B-1 (16px)-----*/
+@mixin body-B-1 {
+  @include font-info ($font-Noto-TC,normal, null, 700, 1.57, 0);
+  // 超級文字縮放公式 minWidth(px), maxWidth(px), minFont(px), maxFont(px)
+  @include interpolate(font-size, 768px, 1536px, 16px, 16px);
+}
+/*----- 字體 - body-B-1 (14px)-----*/
+@mixin body-B-2 {
+  @include font-info ($font-Noto-TC,normal, null, 700, 1.57, 0);
+  // 超級文字縮放公式 minWidth(px), maxWidth(px), minFont(px), maxFont(px)
+  @include interpolate(font-size, 768px, 1536px, 14px, 14px);
+}
+/*----- 字體 - functional-B-1 (12px)-----*/
+@mixin functional-B-1 {
+  @include font-info ($font-Noto-TC,normal, null, 700, 1.66, 0);
+  // 超級文字縮放公式 minWidth(px), maxWidth(px), minFont(px), maxFont(px   )
+  @include interpolate(font-size, 768px, 1536px, 12px, 12px);
+}
+@mixin button-B-1 {
+  @include font-info ($font-Noto-TC,normal, null, 700, 1.5, 0);
+  // 超級文字縮放公式 minWidth(px), maxWidth(px), minFont(px), maxFont(px)
+  @include interpolate(font-size, 768px, 1536px, 16px, 16px);
+}
+
+/*//////////////////////////////
+===== Font Mixin START 細體 =====
+//////////////////////////////*/
+
+/*----- 字體 - display-L-1 (36px)-----*/
+@mixin display-L-1 {
+  @include font-info ($font-Noto-TC,normal, null, 400, 1.22, 0);
+  // 超級文字縮放公式 minWidth(px), maxWidth(px), minFont(px), maxFont(px)
+  @include interpolate(font-size, 768px, 1536px, 36px, 36px);
+}
+/*----- 字體 - display-L-2 (32px)-----*/
+@mixin display-L-2 {
+  @include font-info ($font-Noto-TC,normal, null, 400, 1.25, 0);
+  // 超級文字縮放公式 minWidth(px), maxWidth(px), minFont(px), maxFont(px)
+  @include interpolate(font-size, 768px, 1536px, 32px, 36px);
+}
+/*----- 字體 - display-L-3 (24px)-----*/
+@mixin display-L-3 {
+  @include font-info ($font-Noto-TC,normal, null, 400, 1.33, 0);
+  // 超級文字縮放公式 minWidth(px), maxWidth(px), minFont(px), maxFont(px)
+  @include interpolate(font-size, 768px, 1536px, 22px, 28px);
+}
+/*----- 字體 - display-L-4 (20px)-----*/
+@mixin display-L-4 {
+  @include font-info ($font-Noto-TC,normal, null, 400, 1.4, 0);
+  // 超級文字縮放公式 minWidth(px), maxWidth(px), minFont(px), maxFont(px)
+  @include interpolate(font-size, 768px, 1536px, 18px, 18px);
+}
+/*----- 字體 - body-L-1 (14px)-----*/
+@mixin body-L-1 {
+  @include font-info ($font-Noto-TC,normal, null, 400, 1.375, 0);
+  // 超級文字縮放公式 minWidth(px), maxWidth(px), minFont(px), maxFont(px)
+  @include interpolate(font-size, 768px, 1536px, 16px, 16px);
+}
+/*----- 字體 - body-L-2 (14px)-----*/
+@mixin body-L-2 {
+  @include font-info ($font-Noto-TC,normal, null, 400, 1.57, 0);
+  // 超級文字縮放公式 minWidth(px), maxWidth(px), minFont(px), maxFont(px)
+  @include interpolate(font-size, 768px, 1536px, 14px, 14px);
+}
+/*----- 字體 - functional-L-1 (12px)-----*/
+@mixin functional-L-1 {
+  @include font-info ($font-Noto-TC,normal, null, 400, 1.66, 0);
+  // 超級文字縮放公式 minWidth(px), maxWidth(px), minFont(px), maxFont(px   )
+  @include interpolate(font-size, 768px, 1536px, 12px, 12px);
+}
+@mixin button-L-1 {
+  @include font-info ($font-Noto-TC,normal, null, 400, 1.5, 0);
+  // 超級文字縮放公式 minWidth(px), maxWidth(px), minFont(px), maxFont(px)
+  @include interpolate(font-size, 768px, 1536px, 16px, 16px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*///////////////////////////////
+===== Base Typography START =====
+///////////////////////////////*/
+
+.heading-B-1 {
+  @include display-B-1;
+  color: $color-main;
+}
+.heading-B-2 {
+  @include display-B-2;
+  color: $color-main;
+}
+.heading-B-3 {
+  @include display-B-3;
+  color: $color-main;
+}
+.heading-B-4 {
+  @include display-B-4;
+  color: $color-main;
+}
+.body-B-1 {
+  @include body-B-1;
+  color: $color-main;
+}
+.button-B-1 {
+  @include functional-B-1;
+  color: $color-main;
+}
+.caption-B-1 {
+  @include button-B-1;
+  color: $color-main;
+}
+
+
+.body-text {
+  @include body-B-1;
+  color: $color-black;
+}
+
+.intro-link {
+  display: inline-block;
+  @include body-B-1;
+  color: $color-white;
+  padding: 12px 24px;
+  border-radius: 100px;
+  background-color: $color-main;
+}
