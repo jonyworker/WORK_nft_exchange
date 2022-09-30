@@ -29,6 +29,7 @@
 /*----- 字體 - display-B-2 (32px)-----*/
 /*----- 字體 - display-B-3 (24px)-----*/
 /*----- 字體 - display-B-4 (22px)-----*/
+/*----- 字體 - display-B-5 (18px)-----*/
 /*----- 字體 - body-B-1 (16px)-----*/
 /*----- 字體 - body-B-1 (14px)-----*/
 /*----- 字體 - functional-B-1 (12px)-----*/
@@ -38,7 +39,8 @@
 /*----- 字體 - display-L-1 (36px)-----*/
 /*----- 字體 - display-L-2 (32px)-----*/
 /*----- 字體 - display-L-3 (24px)-----*/
-/*----- 字體 - display-L-4 (20px)-----*/
+/*----- 字體 - display-L-4 (22px)-----*/
+/*----- 字體 - display-L-5 (18px)-----*/
 /*----- 字體 - body-L-1 (14px)-----*/
 /*----- 字體 - body-L-2 (14px)-----*/
 /*----- 字體 - functional-L-1 (12px)-----*/
@@ -8926,7 +8928,7 @@ img {
   }
 }
 
-.title-icon {
+.section-title-wrap .title-icon {
   width: 50px;
   height: 50px;
 }
@@ -8936,6 +8938,22 @@ img {
   flex-direction: column;
   align-items: start;
   height: 100%;
+}
+
+.card .card-icon-title-wrap {
+  display: flex;
+  align-items: baseline;
+}
+
+.card-icon-title-wrap .icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.card-icon-title-wrap .title {
+  flex: 1;
 }
 
 /*----- card-image-content -----*/
@@ -9027,6 +9045,27 @@ img {
   }
 }
 
+.card-title-h5 {
+  font-family: "Noto Sans TC", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+.card-title-h5 {
+  font-size: 18px;
+}
+@media screen and (min-width: 768px) {
+  .card-title-h5 {
+    font-size: calc(0vw + 18px);
+  }
+}
+@media screen and (min-width: 1536px) {
+  .card-title-h5 {
+    font-size: 18px;
+  }
+}
+
 .card-text-p {
   font-family: "Noto Sans TC", sans-serif;
   font-style: normal;
@@ -9071,9 +9110,10 @@ img {
 }
 
 .clamp-1 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .clamp-2 {
@@ -9126,6 +9166,17 @@ img {
   .card .card-tag {
     font-size: 14px;
   }
+}
+
+.card .link-wrap {
+  display: flex;
+  gap: 24px;
+}
+
+.card .link-wrap .link-icon svg {
+  fill: rgba(255, 255, 255, 0.2);
+  height: 32px;
+  width: 32px;
 }
 
 /*///////////////////////////////////

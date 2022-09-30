@@ -17,7 +17,7 @@ img {
 .section-title-wrap .section-title {
   @include display-B-2;
 }
-.title-icon {
+.section-title-wrap .title-icon {
   width: 50px;
   height: 50px;
 }
@@ -27,6 +27,19 @@ img {
   flex-direction: column;
   align-items: start;
   height: 100%;
+}
+.card .card-icon-title-wrap {
+  display: flex;
+  align-items: baseline;
+}
+.card-icon-title-wrap .icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.card-icon-title-wrap .title {
+  flex: 1;
 }
 
 
@@ -69,10 +82,16 @@ img {
   flex: 1;
 }
 .card-title-h3 {
+  // 28px-22px
   @include display-B-3;
 }
 .card-title-h4 {
+  // 22px-20px
   @include display-B-4;
+}
+.card-title-h5 {
+  // 22px-20px
+  @include display-B-5;
 }
 .card-text-p {
   @include body-L-1;
@@ -82,10 +101,16 @@ img {
   color: rgba(255,255,255,.3490196078);
 }
 
+// .clamp-1 {
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   white-space: nowrap;
+// }
 .clamp-1 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 .clamp-2 {
   display: -webkit-box;
@@ -118,4 +143,14 @@ img {
   padding: 2px 8px;
   background-color: #4447E2;
   border-radius: 4px;
+}
+
+.card .link-wrap {
+  display: flex;
+  gap: 24px;
+}
+ .card .link-wrap .link-icon svg {
+  fill: rgba(255, 255, 255, 0.2);
+  height: 32px;
+  width: 32px;
 }
