@@ -1,73 +1,85 @@
 <template>
-  <div>
-    <div class="wallet-section">
-      <div class="container">
-        <div class="wallet-content">
-          <!-- 標題組 -->
-          <div class="wallet_box">
-            <div class="title">
-              <div class="box">
-                <div><img src="@/assets/images/icon_title_wallet.png" alt="logo"></div>
-                <div class="tit">{{$t('home.highWinningWallet')}}</div>
+  <div class="wallet-section section mb-80">
+    <div class="container">
+      <div class="wallet-content content">
+        
+        <!-- 標題組 -->
+        <div class="row mb-40">
+          <div class="col-12 d-flex justify-content-between align-items-center">
+            <div class="title-wrap d-flex flex-column flex-md-row align-items-md-center ">
+              <!-- 標題  -->
+              <div class="section-title-wrap mr-24">
+                <div class="title-icon">
+                  <img src="@/assets/images/icon_title_wallet.png" alt="logo">
+                </div>
+                <h2 class="section-title color-white">{{$t('home.highWinningWallet')}}</h2>
               </div>
+
+              <!-- 子選項 -->
               <div class="tabs">
                 <div v-for="(item,index) in textList" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeTag(item.value)">
                   {{item.name}}
                 </div>
               </div>
             </div>
-            <div class="subtitle" @click="hotRanking()">{{$t('home.toView')}}</div>
-          </div>
-          <div class="table-responsive">
-            <div class="table-wrap">
-              <table>
-                <thead class="mb-40">
-                <tr>
-                  <th></th>
-                  <th>{{$t('home.wallet')}}</th>
-                  <th>{{$t('home.winningRate')}}</th>
-                  <th>{{$t('home.transactions')}}</th>
-                  <th>{{$t('home.wins')}}</th>
-                  <th>{{$t('home.failures')}}</th>
-                  <th>{{$t('home.tradingDynamics')}}</th>
-                </tr>
-                </thead>
-                <tbody>
-                <!-- 1st -->
-                <tr v-for="(item,index) in walletList" :key="index">
-                  <th scope="row">0{{index + 1}}</th>
-                  <td>
 
-                    <div class="td-wrap-content">
-                      <div class="parent">
-                        <div class='parent-main'>
-                          <span class='prev-span'>{{item.address.slice(0, 9)}}</span>
-                          <span class='next-span'>{{item.address.slice(-6)}}</span>
-                        </div>
-                      </div>
-<!--                      <p class="single-ellipsis">{{item.address}}</p>-->
-                      <div class="profile-pic ml-6" @click="copyInfo(item.address)">
-                        <img src="@/assets/images/icon_copy.png" alt="">
+            <!-- 前往查看按鈕 -->
+            <div class="d-none d-sm-block">
+              <a class="btn btn-bold btn-outline" @click="hotRanking()">{{$t('home.toView')}}</a>
+            </div>
+          </div>  
+        </div>
+
+
+        <div class="table-responsive">
+          <div class="table-wrap">
+            <table>
+              <thead class="mb-40">
+              <tr>
+                <th></th>
+                <th>{{$t('home.wallet')}}</th>
+                <th>{{$t('home.winningRate')}}</th>
+                <th>{{$t('home.transactions')}}</th>
+                <th>{{$t('home.wins')}}</th>
+                <th>{{$t('home.failures')}}</th>
+                <th>{{$t('home.tradingDynamics')}}</th>
+              </tr>
+              </thead>
+              <tbody>
+              <!-- 1st -->
+              <tr v-for="(item,index) in walletList" :key="index">
+                <th scope="row">0{{index + 1}}</th>
+                <td>
+
+                  <div class="td-wrap-content">
+                    <div class="parent">
+                      <div class='parent-main'>
+                        <span class='prev-span'>{{item.address.slice(0, 9)}}</span>
+                        <span class='next-span'>{{item.address.slice(-6)}}</span>
                       </div>
                     </div>
-                  </td>
-                  <td>{{item.win_p}}</td>
-                  <td>{{item.txn_ct}}</td>
-                  <td>{{item.win_ct}}</td>
-                  <td>{{item.lost_ct}}</td>
-                  <td>
-                    <div class="profile-pic mr-8"> <img src="@/assets/images/link.png" alt="" @click="toLink(item.other_txns)"></div>
-                  </td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
+<!--                      <p class="single-ellipsis">{{item.address}}</p>-->
+                    <div class="profile-pic ml-6" @click="copyInfo(item.address)">
+                      <img src="@/assets/images/icon_copy.png" alt="">
+                    </div>
+                  </div>
+                </td>
+                <td>{{item.win_p}}</td>
+                <td>{{item.txn_ct}}</td>
+                <td>{{item.win_ct}}</td>
+                <td>{{item.lost_ct}}</td>
+                <td>
+                  <div class="profile-pic mr-8"> <img src="@/assets/images/link.png" alt="" @click="toLink(item.other_txns)"></div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
           </div>
         </div>
-        <!-- 前往查看按鈕 (手機顯示) -->
-        <div class="mt-10">
-          <div class="btn btn-read-more btn-mobile btn-outline d-block d-sm-none" @click="hotRanking()">{{$t('home.toView')}}</div>
-        </div>
+      </div>
+      <!-- 前往查看按鈕 (手機顯示) -->
+      <div class="mt-10">
+        <div class="btn btn-read-more btn-mobile btn-outline d-block d-sm-none" @click="hotRanking()">{{$t('home.toView')}}</div>
       </div>
     </div>
   </div>
