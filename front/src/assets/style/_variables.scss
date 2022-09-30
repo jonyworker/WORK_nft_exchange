@@ -1,0 +1,69 @@
+
+/*/////////////////////////
+===== Variables START =====
+/////////////////////////*/
+/*----- 文字 變數 -----*/
+$font-Noto-TC:  'Noto Sans TC', sans-serif;
+
+/*----- 顏料 -----*/
+$color-white: #FFFFFF;
+$color-black: #000000;
+
+$color-alpha-white-90: #FFFFFFE5;
+$color-alpha-white-80: #FFFFFFCC;
+$color-alpha-white-60: #FFFFFF99;
+$color-alpha-white-55: #FFFFFF8C;
+$color-alpha-white-40: #FFFFFF66;
+$color-alpha-white-35: #FFFFFF59;
+$color-alpha-white-22: #FFFFFF38;
+$color-alpha-white-20: #FFFFFF33;
+$color-alpha-white-10: #FFFFFF1A;
+
+$color-alpha-black-90: #000000E5;
+$color-alpha-black-60: #00000099;
+$color-alpha-black-40: #00000066;
+$color-alpha-black-26: #00000042;
+
+$color-alpha-gray-100: #181818;
+$color-alpha-gray-90: #181818E5;
+$color-alpha-gray-80: #181818CC;
+$color-alpha-gray-60: #18181899;
+$color-alpha-gray-40: #18181866;
+$color-alpha-gray-20: #18181833;
+$color-alpha-gray-10: #1818181A;
+
+$color-purple: #4447E2;
+$color-green: #14D400;
+
+$color-elevation-0: #121212;
+$color-elevation-1: #1C1C24;
+
+$color-gradient-1:linear-gradient(180deg, #8585FF 0%, #4A4AC4 100%);
+$color-gradient-2:linear-gradient(111.96deg, #960CE2 0%, #62A3EF 100%);
+
+
+/*----- 調色盤 -----*/
+$color-main: $color-purple;
+$color-text-main: $color-alpha-white-35;
+$color-border-light: $color-alpha-white-20;
+$color-border: $color-alpha-white-40;
+
+$color-primary-default: #166A39;
+$color-primary-dark: #0E3D1E;
+$color-primary-light: #E6F5EA;
+
+$text-color-primary: #1C2B36;
+$text-color-secondary: #3E5463;
+$text-color-tertiary: #9FB1BD;
+
+@property --rotate-angle {
+  syntax: "<angle>";
+  initial-value: 101.97deg;
+  inherits: false;
+}
+
+@property --sub-rotate-angle {
+  syntax: "<angle>";
+  initial-value: 101.97deg;
+  inherits: false;
+}
