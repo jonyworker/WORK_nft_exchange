@@ -2,7 +2,7 @@
   <div class="container ">
     <div class="page ">
       <!-- 卡片內文 -->
-<<<<<<< HEAD
+<!-- <<<<<<< HEAD
       <div class="card-text ">
         <div class="center">
           <div class="pt-1"></div>
@@ -19,7 +19,7 @@
         </div>
         <div class="card-paragraph text-white">
           <div class=" text-black mb-12">
-=======
+======= -->
       <div class="card-text">
         <!-- 標題組 -->
         <div class="row justify-content-center mb-5">
@@ -47,7 +47,7 @@
         <!-- 新聞內容 -->  
         <div class="row justify-content-center">
           <div class="col-lg-8 col-12">
->>>>>>> e707d4797dc4a6f610fefce3897823d5f8af0539
+<!-- >>>>>>> e707d4797dc4a6f610fefce3897823d5f8af0539 -->
             <div v-html="newList?.content" ></div>
           </div>
         </div>
