@@ -91,6 +91,12 @@ abstract class BaseController
         return $v->failException(true)->check($data);
     }
 
+    //用户id
+    public function getUserId()
+    {
+        return $this->request->middleware('userId');
+    }
+
     /** * Desc: * Created by Joker * Date: 2019/7/3 * Time: 10:36
      * @param array $translate 所需翻译的字段
      * @param array $data 所需翻译的数据数组
