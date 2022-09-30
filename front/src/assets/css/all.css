@@ -28,7 +28,7 @@
 /*----- 字體 - display-B-1 (36px)-----*/
 /*----- 字體 - display-B-2 (32px)-----*/
 /*----- 字體 - display-B-3 (24px)-----*/
-/*----- 字體 - display-B-4 (20px)-----*/
+/*----- 字體 - display-B-4 (22px)-----*/
 /*----- 字體 - body-B-1 (16px)-----*/
 /*----- 字體 - body-B-1 (14px)-----*/
 /*----- 字體 - functional-B-1 (12px)-----*/
@@ -120,16 +120,16 @@
   color: #4447E2;
 }
 .heading-B-4 {
-  font-size: 18px;
+  font-size: 20px;
 }
 @media screen and (min-width: 768px) {
   .heading-B-4 {
-    font-size: calc(0vw + 18px);
+    font-size: calc(0.2604166667vw + 18px);
   }
 }
 @media screen and (min-width: 1536px) {
   .heading-B-4 {
-    font-size: 18px;
+    font-size: 22px;
   }
 }
 
@@ -8907,26 +8907,89 @@ img {
   vertical-align: middle;
 }
 
-.card-text {
+.section-title-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.section-title-wrap .section-title {
   font-family: "Noto Sans TC", sans-serif;
   font-style: normal;
-  font-weight: 400;
-  line-height: 1.375;
+  font-weight: 700;
+  line-height: 1.125;
   letter-spacing: 0;
-  color: rgba(255, 255, 255, 0.3490196078);
 }
-.card-text {
-  font-size: 16px;
+.section-title-wrap .section-title {
+  font-size: 26px;
 }
 @media screen and (min-width: 768px) {
-  .card-text {
-    font-size: calc(0vw + 16px);
+  .section-title-wrap .section-title {
+    font-size: calc(1.3020833333vw + 16px);
   }
 }
 @media screen and (min-width: 1536px) {
-  .card-text {
-    font-size: 16px;
+  .section-title-wrap .section-title {
+    font-size: 36px;
   }
+}
+
+.title-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  height: 100%;
+}
+
+/*----- card-image-content -----*/
+.card-image-content {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.card-image-content img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.card-image-content.ratio--1_1 {
+  aspect-ratio: 1/1;
+}
+
+.card-image-content.ratio--1-91_1 {
+  aspect-ratio: 1.91/1;
+}
+
+.card-image-content.ratio--3_2 {
+  aspect-ratio: 3/2;
+}
+
+.card-image-content.ratio--4_3 {
+  aspect-ratio: 4/3;
+}
+
+.card-image-content.ratio--16_9 {
+  aspect-ratio: 16/9;
+}
+
+.card-image-content.bdRadius-8 {
+  border-radius: 8px;
+}
+
+.card-image-content.bdRadius-16 {
+  border-radius: 8px;
+}
+
+/*----- card-body-content -----*/
+.card-body-content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  flex: 1;
 }
 
 .card-title-h3 {
@@ -8958,24 +9021,66 @@ img {
   letter-spacing: 0;
 }
 .card-title-h4 {
-  font-size: 18px;
+  font-size: 20px;
 }
 @media screen and (min-width: 768px) {
   .card-title-h4 {
-    font-size: calc(0vw + 18px);
+    font-size: calc(0.2604166667vw + 18px);
   }
 }
 @media screen and (min-width: 1536px) {
   .card-title-h4 {
-    font-size: 18px;
+    font-size: 22px;
+  }
+}
+
+.card-text-p {
+  font-family: "Noto Sans TC", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.375;
+  letter-spacing: 0;
+}
+.card-text-p {
+  font-size: 16px;
+}
+@media screen and (min-width: 768px) {
+  .card-text-p {
+    font-size: calc(0vw + 16px);
+  }
+}
+@media screen and (min-width: 1536px) {
+  .card-text-p {
+    font-size: 16px;
+  }
+}
+
+.card-text-small {
+  font-family: "Noto Sans TC", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.66;
+  letter-spacing: 0;
+  color: rgba(255, 255, 255, 0.3490196078);
+}
+.card-text-small {
+  font-size: 12px;
+}
+@media screen and (min-width: 768px) {
+  .card-text-small {
+    font-size: calc(0vw + 12px);
+  }
+}
+@media screen and (min-width: 1536px) {
+  .card-text-small {
+    font-size: 12px;
   }
 }
 
 .clamp-1 {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
   overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .clamp-2 {
@@ -9006,20 +9111,28 @@ img {
   overflow: hidden;
 }
 
-.title-wrap {
-  gap: 24px;
-}
-
-.title-set {
-  display: flex;
-  align-items: center;
+.card .card-tag {
   font-family: "Noto Sans TC", sans-serif;
   font-style: normal;
-  font-weight: 700;
-  line-height: 1.22;
+  font-weight: 400;
+  line-height: 1.57;
   letter-spacing: 0;
-  color: #FFFFFF;
-  font-size: 32px;
+  padding: 2px 8px;
+  background-color: #4447E2;
+  border-radius: 4px;
+}
+.card .card-tag {
+  font-size: 14px;
+}
+@media screen and (min-width: 768px) {
+  .card .card-tag {
+    font-size: calc(0vw + 14px);
+  }
+}
+@media screen and (min-width: 1536px) {
+  .card .card-tag {
+    font-size: 14px;
+  }
 }
 
 /*///////////////////////////////////
@@ -9558,4 +9671,80 @@ img {
   .functional-list li:nth-of-type(2) {
     display: none;
   }
+}
+/*/////////////////////////
+===== component - btn =====
+/////////////////////////*/
+.btn {
+  border: none;
+  display: inline-block;
+  text-align: center;
+  padding: 4px 24px;
+  border-radius: 200px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.3490196078);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn:active,
+.btn.active {
+  background-image: linear-gradient(180deg, #8585FF 0%, #4A4AC4 100%);
+  color: #FFFFFF;
+}
+
+.btn-outline {
+  border: 2px solid #4447E2;
+}
+
+.btn-bold {
+  font-family: "Noto Sans TC", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+.btn-bold {
+  font-size: 16px;
+}
+@media screen and (min-width: 768px) {
+  .btn-bold {
+    font-size: calc(0vw + 16px);
+  }
+}
+@media screen and (min-width: 1536px) {
+  .btn-bold {
+    font-size: 16px;
+  }
+}
+
+.btn-light {
+  font-family: "Noto Sans TC", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+.btn-light {
+  font-size: 16px;
+}
+@media screen and (min-width: 768px) {
+  .btn-light {
+    font-size: calc(0vw + 16px);
+  }
+}
+@media screen and (min-width: 1536px) {
+  .btn-light {
+    font-size: 16px;
+  }
+}
+
+.btn-wrap {
+  display: flex;
+  gap: 16px;
+}
+
+.btn-mobile {
+  padding: 16px 24px;
 }/*# sourceMappingURL=all.css.map */

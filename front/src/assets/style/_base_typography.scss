@@ -23,11 +23,11 @@
   // 超級文字縮放公式 minWidth(px), maxWidth(px), minFont(px), maxFont(px)
   @include interpolate(font-size, 768px, 1536px, 22px, 28px);
 }
-/*----- 字體 - display-B-4 (20px)-----*/
+/*----- 字體 - display-B-4 (22px)-----*/
 @mixin display-B-4 {
   @include font-info ($font-Noto-TC,normal, null, 700, 1.4, 0);
   // 超級文字縮放公式 minWidth(px), maxWidth(px), minFont(px), maxFont(px)
-  @include interpolate(font-size, 768px, 1536px, 18px, 18px);
+  @include interpolate(font-size, 768px, 1536px, 20px, 22px);
 }
 /*----- 字體 - body-B-1 (16px)-----*/
 @mixin body-B-1 {

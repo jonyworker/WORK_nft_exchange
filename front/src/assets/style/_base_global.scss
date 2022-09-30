@@ -6,9 +6,67 @@ img {
 	vertical-align: middle;
 }
 
-.card-text {
-  @include body-L-1;
-  color: rgba(255,255,255,.3490196078);
+.section-title-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;  
+}
+.section-title-wrap .section-title {
+  @include display-B-2;
+}
+.title-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  height: 100%;
+}
+
+
+/*----- card-image-content -----*/
+.card-image-content {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  img{
+    object-fit:cover;
+  }
+}
+.card-image-content.ratio--1_1 {
+  aspect-ratio: 1/1;
+}
+.card-image-content.ratio--1-91_1 {
+  aspect-ratio: 1.91/1;
+}
+.card-image-content.ratio--3_2 {
+  aspect-ratio: 3/2;
+}
+.card-image-content.ratio--4_3 {
+  aspect-ratio: 4/3;
+}
+.card-image-content.ratio--16_9 {
+  aspect-ratio: 16/9;
+}
+.card-image-content.bdRadius-8 {
+  border-radius: 8px;
+}
+.card-image-content.bdRadius-16 {
+  border-radius: 8px;
+}
+
+/*----- card-body-content -----*/
+.card-body-content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  flex: 1;
 }
 .card-title-h3 {
   @include display-B-3;
@@ -16,11 +74,18 @@ img {
 .card-title-h4 {
   @include display-B-4;
 }
+.card-text-p {
+  @include body-L-1;
+}
+.card-text-small {
+  @include functional-L-1;
+  color: rgba(255,255,255,.3490196078);
+}
+
 .clamp-1 {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
   overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .clamp-2 {
   display: -webkit-box;
@@ -46,22 +111,11 @@ img {
   -webkit-line-clamp: 5;
   overflow: hidden;
 }
-.title-wrap {
-  gap: 24px;
-}
-.title-set {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-family: "Noto Sans TC", sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 1.22;
-  letter-spacing: 0;
-  color: #FFFFFF;
-  font-size: 32px;
-  
+
+
+.card .card-tag {
+  @include body-L-2;
+  padding: 2px 8px;
+  background-color: #4447E2;
+  border-radius: 4px;
 }
