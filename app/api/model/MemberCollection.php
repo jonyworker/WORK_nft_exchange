@@ -13,11 +13,11 @@ class MemberCollection extends Model
     {
         $list = self::where('member_id', $userId)->order('id', 'asc')->limit(500)->select();
         $collectionArr = Collection::getInfoByIds($list->column('collection_id'));
+
+        var_dump($collectionArr);
         $data = [];
         foreach ($list as $item) {
             $info = $collectionArr[$item->collection_id] ?? [];
-
-            var_dump($info);
             if(empty($info)) continue;
 
             $data[] = [
