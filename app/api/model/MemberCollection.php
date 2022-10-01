@@ -16,6 +16,8 @@ class MemberCollection extends Model
         $data = [];
         foreach ($list as $item) {
             $info = $collectionArr[$item->collection_id] ?? [];
+
+            var_dump($info);
             if(empty($info)) continue;
 
             $data[] = [
