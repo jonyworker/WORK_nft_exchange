@@ -20,7 +20,7 @@ class Collections extends BaseController
     {
         $collectionId = (int)$this->request->get('collectionId');
         if ($collectionId <= 0) {
-            throw new HttpException(400, '项目id不能为空');
+            return json(['code' => 400, 'message' => '项目id不能为空']);
         }
         $lan = (int)$this->request->get('lan', 1);
 

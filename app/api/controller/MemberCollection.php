@@ -28,21 +28,31 @@ class MemberCollection extends BaseController
     {
         $collectionId = (int)$this->request->post('collectionId');
         if($collectionId <= 0) {
-            throw new HttpException(400, '项目id不能为空');
+            return json(['code' => 400, 'message' => '项目id不能为空']);
         }
-        Collection::addMy($this->getUserId(), $collectionId);
+        try{
+            Collection::addMy($this->getUserId(), $collectionId);
+            return json(['status' => 'OK']);
 
-        return json(['status' => 'OK']);
+        }catch (\Throwable $exception) {
+            return json(['code' => 400, 'message' => $exception->getMessage()]);
+        }
+
     }
 
     public function remove(): Json
     {
         $collectionId = (int)$this->request->post('collectionId');
         if($collectionId <= 0) {
-            throw new HttpException(400, '项目id不能为空');
+            return json(['code' => 400, 'message' => '项目id不能为空']);
         }
-        Collection::removeMy($this->getUserId(), $collectionId);
 
-        return json(['status' => 'OK']);
+        try{
+            Collection::removeMy($this->getUserId(), $collectionId);
+            return json(['status' => 'OK']);
+        }catch (\Throwable $exception) {
+            return json(['code' => 400, 'message' => $exception->getMessage()]);
+        }
+
     }
 }

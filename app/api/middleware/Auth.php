@@ -16,13 +16,13 @@ class Auth
         $token = $request->header('Authorization');
         if(empty($token)) {
             return json(['code' => 401, 'message' => '需要登录授权']);
-            throw new HttpException(401, '需要登录授权');
+//            throw new HttpException(401, '需要登录授权');
         }
 
         $info = Member::findByToken($token);
         if(!$info) {
-            return json(['code' => 401, 'message' => '请重新登录']);
-            throw new HttpException(401, '请重新登录');
+            return json(['code' => 401, 'message' => '登录失效，请重新登录']);
+//            throw new HttpException(401, '请重新登录');
         }
 
        $request->withMiddleware(['userId' => $info['id']]);
