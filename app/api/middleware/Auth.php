@@ -14,14 +14,16 @@ class Auth
     {
         //登录验证，未登录跳转至登录界面
         $token = $request->header('Authorization');
+
+        var_dump($token);
         if(empty($token)) {
-            return json(['code' => 401, 'message' => '需要登录授权']);
+            return json(['code' => 401, 'message' => '需要登陸授權']);
 //            throw new HttpException(401, '需要登录授权');
         }
 
         $info = Member::findByToken($token);
         if(empty($info)) {
-            return json(['code' => 401, 'message' => '登录失效，请重新登录']);
+            return json(['code' => 401, 'message' => 'Token已過期，請重新登陸']);
 //            throw new HttpException(401, '请重新登录');
         }
 
