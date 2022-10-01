@@ -48,6 +48,6 @@ class Collection extends Model
     public static function getInfoByIds($ids): array
     {
         if (empty($ids)) return [];
-        return self::where('id', 'in', $ids)->select()->column('*', 'id');
+        return self::whereIn('id', implode(',', $ids))->select()->column('*', 'id');
     }
 }
