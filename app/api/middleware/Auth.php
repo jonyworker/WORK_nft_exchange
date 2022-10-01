@@ -15,7 +15,6 @@ class Auth
         //登录验证，未登录跳转至登录界面
         $token = $request->header('access-token');
 
-        var_dump($token);
         if(empty($token)) {
             return json(['code' => 401, 'message' => '需要登陸授權']);
 //            throw new HttpException(401, '需要登录授权');
