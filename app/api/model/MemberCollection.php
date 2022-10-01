@@ -12,9 +12,6 @@ class MemberCollection extends Model
     public static function getListByApi($userId)
     {
         $list = self::where('member_id', $userId)->order('id', 'asc')->limit(500)->select();
-
-        $cIds = $list->column('collection_id');
-
         $collectionArr = Collection::getInfoByIds($list->column('collection_id'));
         $data = [];
         foreach ($list as $item) {
