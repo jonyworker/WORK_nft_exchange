@@ -3,6 +3,11 @@
 use app\api\middleware\Auth;
 use think\facade\Route;
 
+//会员登录 Method:POST URL： api/login
+Route::post('login','Auth/login');
+//会员登录 Method:POST URL： api/logout
+Route::post('logout','Auth/logout')->middleware(Auth::class);
+
 //將項目從追蹤清單移除 Method:POST URL： api/member/collection/remove
 Route::post('member/collection/remove','MemberCollection/remove')->middleware(Auth::class);
 //將項目加入追蹤清單 Method:POST URL： api/member/collection/add
