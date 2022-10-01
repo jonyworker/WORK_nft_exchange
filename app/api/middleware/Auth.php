@@ -13,7 +13,7 @@ class Auth
     public function handle(Request $request, \Closure $next)
     {
         //登录验证，未登录跳转至登录界面
-        $token = $request->header('Authorization');
+        $token = $request->header('access-token');
 
         var_dump($token);
         if(empty($token)) {
