@@ -14,6 +14,12 @@ class Nft extends Model
     {
         if (empty($ids)) return [];
 
-        return self::where('id', 'in', $ids)->select()->column('*', 'id');
+        $list = self::where('id', 'in', $ids)->select()->toArray();
+
+        $data=  [];
+        foreach ($list as $item) {
+            $data[$item['id']] = $item;
+        }
+        return $data;
     }
 }
