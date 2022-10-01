@@ -20,7 +20,7 @@ class Auth
         }
 
         $info = Member::findByToken($token);
-        if(!$info) {
+        if(empty($info)) {
             return json(['code' => 401, 'message' => '登录失效，请重新登录']);
 //            throw new HttpException(401, '请重新登录');
         }
