@@ -8,7 +8,7 @@ Route::post('member/collection/remove','MemberCollection/remove')->middleware(Au
 //將項目加入追蹤清單 Method:POST URL： api/member/collection/add
 Route::post('member/collection/add','MemberCollection/add')->middleware(Auth::class);
 //取得會員追蹤項目清單 Method:POST URL：api/member/collection/index
-Route::post('member/collection/index','MemberCollection/index')->middleware(Auth::class);
+Route::get('member/collection/index','MemberCollection/index')->middleware(Auth::class);
 
 //取得項目主頁資訊 GET api/collection/index
 Route::get('collection/index','Collections/index');
