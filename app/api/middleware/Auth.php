@@ -13,7 +13,7 @@ class Auth
     public function handle(Request $request, \Closure $next)
     {
         //登录验证，未登录跳转至登录界面
-        $token = $request->header('authorization');
+        $token = $request->header('Authorization');
         if(empty($token)) {
             throw new HttpException(401, '需要登录授权');
         }
