@@ -16,7 +16,7 @@ class Auth extends BaseController
 
     public function login()
     {
-
+        return json(['code' => 400, 'message' => '接口暂未开发']);
     }
 
 
