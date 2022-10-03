@@ -15,18 +15,18 @@
 <!--              <span class='next-span'>{{item.address.slice(-6)}}</span>-->
             </div>
           </div>
-          <div class="profile-pic ml-6" @click="copyInfo('1')">
+          <!-- <div class="profile-pic ml-6" @click="copyInfo('1')">
             <img src="@/assets/images/icon_copy.png" alt="">
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="right-image">...</div>
     </div>
-    <div class="tabs">
+    <!-- <div class="tabs">
       <div v-for="(item,index) in textList" :key="index" :class="['tages',type===item.value?'active_tages':'']" @click="changeTag(item.value)">
         {{item.name}}
       </div>
-    </div>
+    </div> -->
     <div class="row" v-show="type === 1">
       <div class="col-12">
         <div class="table-responsive">
@@ -104,7 +104,7 @@
 </div>
 </template>
 
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import {onMounted, ref} from "vue";
 import {homeApi} from "@/api";
 import {copy} from "@utils/copy";
@@ -139,9 +139,9 @@ onMounted(() => {
   getAnalysis()
 })
 
-</script>
+</script> -->
 
-<style scoped lang="less">
+<!-- <style scoped lang="less">
 .container{
   position: relative;
 }
@@ -256,4 +256,4 @@ onMounted(() => {
   font-size: 32px;
   margin-top: 10px;
 }
-</style>
+</style> -->

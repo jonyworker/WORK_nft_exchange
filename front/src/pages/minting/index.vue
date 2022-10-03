@@ -13,65 +13,65 @@
       <!-- 觀測站卡片 -->
       <div class="row">
         <!-- 1st -->
-        <div class="col-12 col-sm-6 col-lg-3" v-for="(item,index) in dropsList" :key="index">
+        <!-- <div class="col-12 col-sm-6 col-lg-3" v-for="(item,index) in dropsList" :key="index"> -->
           <div class="card-item card-1" >
             <!-- 卡片圖片 -->
             <div class="card-image">
               <!--              <img :src="http + dropsOne?.background" alt="">-->
               <img src="@/assets/images/random_1.png" alt="">
-              <div class="card_icon">
+              <!-- <div class="card_icon">
                 <div class="icon_list"  @click="toDialog(1,item)"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
                 </div>
                 <div class="icon_list"  @click="toDialog(2,item)"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
-              </div>
-              <CountDown :count_down_date="item.date"/>
+              </div> -->
+              <!-- <CountDown :count_down_date="item.date"/> -->
             </div>
             <!-- 卡片內文 -->
             <div class="card-text">
               <!-- icon 圖片 -->
               <div class="card-text-icon-wrap">
                 <div class="card-icon-img">
-                  <img :src="item.collection_url" alt="">
+                  <!-- <img :src="item.collection_url" alt=""> -->
                 </div>
                 <p class="heading-B-4 text-white">{{ item.collection }}</p>
               </div>
               <!-- 內文 -->
               <div class="card-text-wrap">
                 <p class="card-title text-white">
-                  {{ item.introduction }}
+                  <!-- {{ item.introduction }} -->
                 </p>
-                <p class="card-text  text-white">{{$t('home.price')}}{{ item.price }}</p>
+                <!-- <p class="card-text  text-white">{{$t('home.price')}}{{ item.price }}</p>
                 <p class="card-text  text-white">{{$t('home.total')}}{{ item.total }}</p>
-                <p class="card-text text-white">{{$t('home.shortTime')}}{{ item.shortTime }}</p>
+                <p class="card-text text-white">{{$t('home.shortTime')}}{{ item.shortTime }}</p> -->
               </div>
               <!-- 卡片icon -->
               <div class="card-footer">
                 <!-- social-link -->
                 <ul class="social-link-wrap">
                   <!-- icon-group -->
-                  <li class="social-link-item">
+                  <!-- <li class="social-link-item">
                     <div class="social-link-icon" @click="toWebsite(item.website || '')">
                       <img src="@/assets/images/icon_world.png" alt="">
                     </div>
-                  </li>
+                  </li> -->
                   <!-- icon-map -->
-                  <li class="social-link-item">
+                  <!-- <li class="social-link-item">
                     <div class="social-link-icon" @click="toDiscord(item.discord || '')">
                       <img src="@/assets/images/icon_discord.png" alt="">
                     </div>
-                  </li>
+                  </li> -->
                   <!-- icon-homepage -->
-                  <li class="social-link-item">
+                  <!-- <li class="social-link-item">
                     <div class="social-link-icon" @click="toTwitter(item.twitter || '')">
                       <img src="@/assets/images/icon_twitter.png" alt="">
                     </div>
-                  </li>
+                  </li> -->
                   <!-- icon-discord -->
-                  <li class="social-link-item">
+                  <!-- <li class="social-link-item">
                     <div class="social-link-icon" @click="toSchedule(item.schedule || '')">
                       <img src="@/assets/images/icons.png" alt="">
                     </div>
-                  </li>
+                  </li> -->
                 </ul>
               </div>
             </div>
@@ -81,8 +81,8 @@
 
       </div>
     </div>
-    <el-dialog v-model="dialogFormVisible" width="85%">
-      <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
+    <!-- <el-dialog v-model="dialogFormVisible" width="85%"> -->
+      <!-- <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
         <div class="main">
           <div class="main-left">
             <div class="main-img">
@@ -99,9 +99,9 @@
           <div class="main-right" v-if="type === 1">{{dataList?.member}}</div>
           <div class="main-right" v-if="type === 2">{{dataList?.roadmap}}</div>
         </div>
-      </div>
+      </div> -->
       <!--      &lt;!&ndash; H5 || table&ndash;&gt;-->
-      <div v-else >
+      <!-- <div v-else >
         <div class="ipad-main">
           <div class="main-img">
             <img :src="dataList?.collection_url" alt="">
@@ -118,13 +118,13 @@
         </div>
         <div v-if="type === 1">{{dataList?.member}}</div>
         <div  v-if="type === 2">{{dataList?.roadmap}}</div>
-      </div>
+      </div> -->
 
-    </el-dialog>
+    <!-- </el-dialog> -->
   </div>
 </template>
 
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 
 import {computed, onMounted, ref} from "vue";
 import {useRouter} from 'vue-router';
@@ -220,9 +220,9 @@ onMounted(() => {
 })
 
 
-</script>
+</script> -->
 
-<style scoped lang="less">
+<!-- <style scoped lang="less">
 .ipad-main{
   display: flex;
   padding-bottom: 30px;
@@ -493,4 +493,4 @@ onMounted(() => {
   width: 32px;
 }
 
-</style>
+</style> -->
