@@ -125,7 +125,7 @@ a, a:link, a:visited, a:hover {
     }
 }
 
-.heading-B-1 {
+/* .heading-B-1 {
     font-family: "Noto Sans TC", sans-serif;
     font-style: normal;
     font-weight: 700;
@@ -3749,7 +3749,7 @@ a, a:link, a:visited, a:hover {
     .d-print-none {
         display: none !important
     }
-}
+} */
 
 #theme-toggle {
     display: none;

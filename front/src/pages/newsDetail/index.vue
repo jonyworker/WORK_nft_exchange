@@ -1,45 +1,28 @@
 <template>
   <div class="container ">
-    <div class="page ">
+    <div class="page-content mt-80">
       <!-- 卡片內文 -->
-<!-- <<<<<<< HEAD
-      <div class="card-text ">
-        <div class="center">
-          <div class="pt-1"></div>
-          <div class="card-tag mb-8 ">
-            <p>{{newList?.ind}}</p>
-          </div>
-          <div class="card-title text-white">
-            <h3 class="multiline-ellipsis text-black mb-8">{{newList?.title}}</h3>
-          </div>
-          <div class="text-black">{{newList?.start_date}}</div>
-        </div>
-        <div class="newImg col-12 col-8">
-          <img :src="newList?.photo_url" alt="">
-        </div>
-        <div class="card-paragraph text-white">
-          <div class=" text-black mb-12">
-======= -->
       <div class="card-text">
         <!-- 標題組 -->
-        <div class="row justify-content-center mb-5">
-          <div class="col-lg-8 col-12">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 col-12 mb-56">
             <!-- 標題組 - 新聞標籤 -->
-            <div class="card-tag mb-16">
+            <div class="card-tag mb-16 align-self-start">
               <p>{{newList?.ind}}</p>
             </div>
             <!-- 標題組 - 新聞標題 -->
-            <div class="">
-              <h3 class="heading-B-1 text-white mb-24 ">{{newList?.title}}</h3>
-            </div>
+            
+            <h3 class="heading-B-2 color-white mb-24 ">{{newList?.title}}</h3>
+            
             <!-- 標題組 - upload 時間 -->
-            <div class="body-B-2 text-white ">{{newList?.start_date}}</div>
+            <div class="body-L-2" style="color: #FFFFFF99;">{{newList?.start_date}}</div>
           </div>
         </div>
+
         <!-- 標題組 - 主圖 -->
         <div class="row justify-content-center bs-mb-32">
-          <div class="col-12">
-            <div class="blog-main-img-wrap">
+          <div class="col-11">
+            <div class="card-image-content ratio--1-91_1 bdRadius-8">
               <img class="blog-main-img" :src="newList?.photo_url" alt="">
             </div>
           </div>
@@ -47,7 +30,6 @@
         <!-- 新聞內容 -->  
         <div class="row justify-content-center">
           <div class="col-lg-8 col-12">
-<!-- >>>>>>> e707d4797dc4a6f610fefce3897823d5f8af0539 -->
             <div v-html="newList?.content" ></div>
           </div>
         </div>
@@ -84,40 +66,40 @@ onMounted(() => {
 </script>
 
 <style scoped lang="less">
-.container{
-  background-color: #fff;
-  color:#333;
-  padding-bottom: 10px;
-}
-.center{
-  width: 80%;
-  margin: auto;
-}
-.card-tag{
-  font-family: "Noto Sans TC", sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.4;
-  letter-spacing: 0;
-  padding: 2px 8px;
-  width:80px;
-  color: #fff;
-  text-align: center;
-  background-color: #4447E2;
-  border-radius: 4px;
-  margin-top:50px;
-}
-.newImg{
-  padding: 30px 0px;
-  //img{
-  //  height: 619px;
-  //}
+// .container{
+//   background-color: #fff;
+//   color:#333;
+//   padding-bottom: 10px;
+// }
+// .center{
+//   width: 80%;
+//   margin: auto;
+// }
+// .card-tag{
+//   font-family: "Noto Sans TC", sans-serif;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: 1.4;
+//   letter-spacing: 0;
+//   padding: 2px 8px;
+//   width:80px;
+//   color: #fff;
+//   text-align: center;
+//   background-color: #4447E2;
+//   border-radius: 4px;
+//   margin-top:50px;
+// }
+// .newImg{
+//   padding: 30px 0px;
+//   img{
+//    height: 619px;
+//   }
 
-}
-.card-paragraph{
-  width:80%;
-  margin: auto;
-}
+// }
+// .card-paragraph{
+//   width:80%;
+//   margin: auto;
+// }
 .blog-main-img-wrap {
   display: block;
   width: 100%;

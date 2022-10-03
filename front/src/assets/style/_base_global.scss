@@ -142,7 +142,8 @@ img {
 }
 
 
-.card .card-tag {
+.card-tag {
+  display: inline-block;
   @include body-L-2;
   padding: 2px 8px;
   background-color: #4447E2;
