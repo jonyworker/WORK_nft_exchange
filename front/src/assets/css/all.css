@@ -309,6 +309,10 @@ xxl => >=1400px */
   margin: 80px;
 }
 
+.m-160 {
+  margin: 160px;
+}
+
 .m-auto {
   margin: auto;
 }
@@ -520,6 +524,10 @@ xxl => >=1400px */
 
 .mt-80 {
   margin-top: 80px;
+}
+
+.mt-160 {
+  margin-top: 160px;
 }
 
 .mt-auto {
@@ -1354,6 +1362,9 @@ xxl => >=1400px */
   .mt-sm-80 {
     margin-top: 80px;
   }
+  .mt-sm-160 {
+    margin-top: 160px;
+  }
   .mt-sm-auto {
     margin-top: auto;
   }
@@ -2039,6 +2050,9 @@ xxl => >=1400px */
   }
   .mt-md-80 {
     margin-top: 80px;
+  }
+  .mt-md-160 {
+    margin-top: 160px;
   }
   .mt-md-auto {
     margin-top: auto;
@@ -2726,6 +2740,9 @@ xxl => >=1400px */
   .mt-lg-80 {
     margin-top: 80px;
   }
+  .mt-lg-160 {
+    margin-top: 160px;
+  }
   .mt-lg-auto {
     margin-top: auto;
   }
@@ -3412,6 +3429,9 @@ xxl => >=1400px */
   .mt-xl-80 {
     margin-top: 80px;
   }
+  .mt-xl-160 {
+    margin-top: 160px;
+  }
   .mt-xl-auto {
     margin-top: auto;
   }
@@ -4097,6 +4117,9 @@ xxl => >=1400px */
   }
   .mt-xxl-80 {
     margin-top: 80px;
+  }
+  .mt-xxl-160 {
+    margin-top: 160px;
   }
   .mt-xxl-auto {
     margin-top: auto;
@@ -4636,6 +4659,10 @@ xxl => >=1400px */
   margin: 80px;
 }
 
+.m-160 {
+  margin: 160px;
+}
+
 .m-auto {
   margin: auto;
 }
@@ -4847,6 +4874,10 @@ xxl => >=1400px */
 
 .mt-80 {
   margin-top: 80px;
+}
+
+.mt-160 {
+  margin-top: 160px;
 }
 
 .mt-auto {
@@ -5681,6 +5712,9 @@ xxl => >=1400px */
   .mt-sm-80 {
     margin-top: 80px;
   }
+  .mt-sm-160 {
+    margin-top: 160px;
+  }
   .mt-sm-auto {
     margin-top: auto;
   }
@@ -6366,6 +6400,9 @@ xxl => >=1400px */
   }
   .mt-md-80 {
     margin-top: 80px;
+  }
+  .mt-md-160 {
+    margin-top: 160px;
   }
   .mt-md-auto {
     margin-top: auto;
@@ -7053,6 +7090,9 @@ xxl => >=1400px */
   .mt-lg-80 {
     margin-top: 80px;
   }
+  .mt-lg-160 {
+    margin-top: 160px;
+  }
   .mt-lg-auto {
     margin-top: auto;
   }
@@ -7739,6 +7779,9 @@ xxl => >=1400px */
   .mt-xl-80 {
     margin-top: 80px;
   }
+  .mt-xl-160 {
+    margin-top: 160px;
+  }
   .mt-xl-auto {
     margin-top: auto;
   }
@@ -8424,6 +8467,9 @@ xxl => >=1400px */
   }
   .mt-xxl-80 {
     margin-top: 80px;
+  }
+  .mt-xxl-160 {
+    margin-top: 160px;
   }
   .mt-xxl-auto {
     margin-top: auto;
