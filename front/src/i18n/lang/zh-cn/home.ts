@@ -2,7 +2,7 @@
 
 export default {
     toggle: '切换',
-    search:'探索 NFT',
+    search:'NFT分析',
     searchWallet:'搜索NFT和钱包',
     mint:'Minting观测站',
     overview:'统计',
