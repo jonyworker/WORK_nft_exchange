@@ -1,0 +1,214 @@
+/*/////////////////////////
+===== layout - footer =====
+/////////////////////////*/
+
+.footer-section p {
+  @include body-L-1;
+  color: $color-text-main;
+}
+.footer-content {
+  padding: 32px 0;
+}
+
+/*----- footer logo -----*/
+.footer-logo {
+  display: block;
+  height: 38px;
+  // margin-bottom: 4px;
+}
+.footer-logo svg {
+  height: 100%;
+}
+
+
+/*----- footer 導覽列 -----*/
+.footer-nav-list {
+  display: flex;
+  justify-content: space-between;
+}
+.footer-nav-list .footer-nav-item nav {
+  display: flex;
+  flex-direction: column;
+}
+.footer-nav-list .footer-nav-item h4 {
+  @include display-B-4;
+  color: $color-white;
+  margin-bottom: 24px;
+}
+.footer-nav-list .footer-nav-item nav a {
+  @include button-B-1;
+  color: $color-text-main;
+  margin-bottom: 16px;
+}
+.footer-nav-list .footer-nav-item nav a:last-of-type {
+  margin-bottom: 0;
+}
+
+
+/*----- footer community-links -----*/
+.community-link-section {
+  display: none; //大畫面時消失
+}
+.community-link-section.col-12 h4 {
+  @include display-B-4;
+  color: $color-white;
+  margin-bottom: 24px;
+}
+
+.community-link-wrap {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+.community-link-wrap .community-link a {
+  display: block;
+  padding: 12px;
+  border-radius: 8px;
+  background-color: $color-elevation-1;
+}
+.community-link .community-link-icon {
+  width: 24px;
+  height: 24px;
+}
+.community-link .community-link-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: $color-text-main;
+}
+
+
+
+
+/*//////////////////////////////
+===== footer - cta section =====
+//////////////////////////////*/
+.cta-content {
+  padding: 36px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/*----- cta text -----*/
+.cta-text {
+  /* width: 65%; */
+  margin-right: 72px;
+}
+.cta-text h2 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+  margin-bottom: 8px;
+  color: #fff;
+}
+.cta-text p {
+  font-size: 14px;
+  line-height: 24px;
+  color: #fff;
+}
+
+/*----- cta email-subscribe -----*/
+.cta-section {
+  display: none;
+}
+.cta-section.col-12 h4 {
+  @include display-B-4;
+  color: $color-white;
+  margin-bottom: 24px;
+}
+.cta-email-subscribe {
+  width: 306px;
+}
+.cta-section.col-12 .cta-email-subscribe {
+  width: 100%;
+}
+.cta-email-submit-content {
+  display: flex;
+  background-color: $color-elevation-1;
+  border: 1px solid $color-alpha-white-20;
+  border-radius: 200px;
+}
+.cta-email-submit-content input {
+  flex: 1;
+  border: none;
+  background-color: transparent;
+  padding-left: 24px;
+  @include button-B-1;
+}
+.cta-email-submit-content button {
+  display: block;
+  width: 80px;
+  border-radius: 200px;
+  padding: 8px 24px;
+  border-style: none;
+  @include button-B-1;
+  color: $color-white;
+  background-image: $color-gradient-1;
+}
+
+/*////////////////////////////
+===== footer - copyright =====
+////////////////////////////*/
+/*----- footer copyright -----*/
+.footer-copyright-section {
+  border-top: 1px solid $color-border;
+  padding: 16px 0;
+}
+.footer-copyright-content,
+.footer-copyright-content a {
+  @include body-L-2;
+  color: $color-text-main;
+}
+.footer-copyright-content .privacy-link-wrap {
+  display: flex;
+  gap: 24px;
+  justify-content: end;
+}
+
+/*/////////////////////////////
+===== Desktop First START =====
+/////////////////////////////*/
+/*----- max-width 1536 -----*/
+@media screen and (max-width: 1536px) {}
+/*----- max-width 1200 -----*/
+@media screen and (max-width: 1200px) {
+  .footer-nav-list {
+    margin-top: 24px;
+  }
+}
+/*----- max-width 992 -----*/
+@media screen and (max-width: 992px) {
+  .footer-nav-item.community-link {
+    display: none;
+  }
+  .cta-section {
+    display: block;
+    margin-bottom: 32px;
+  }
+  .community-link-section {
+    display: block;
+    margin-bottom: 32px;
+  }
+  .community-link-wrap {
+    margin-bottom: 0;
+  }
+  
+}
+/*----- max-width 768 -----*/
+@media screen and (max-width: 768px) {
+  .footer-copyright-content .privacy-link-wrap {
+    justify-content: center;
+  }
+  .footer-copyright-content p {
+    text-align: center;
+  }
+  
+}
+/*----- max-width 576 -----*/
+@media screen and (max-width: 576px) {
+  .community-link-section .community-link-wrap {
+    gap: auto;
+    justify-content: space-around;
+  }
+}
+
