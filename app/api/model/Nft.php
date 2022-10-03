@@ -4,6 +4,7 @@
 namespace app\api\model;
 
 
+use think\facade\Db;
 use think\Model;
 
 class Nft extends Model
@@ -21,5 +22,10 @@ class Nft extends Model
             $data[$item['id']] = $item;
         }
         return $data;
+    }
+
+    public static function queryTID($address, $contract)
+    {
+        return self::where('contract', $contract)->where('holder', $address)->find();
     }
 }

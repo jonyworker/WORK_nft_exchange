@@ -20,7 +20,59 @@ class Member extends Model
         return self::where('id', $userId)->find();
     }
 
+    public static function findByAddress($address)
+    {
+        return self::where('username', $address)->find();
+    }
 
+    public static function createdNewAddress($address, $isHolder, $assets): array
+    {
+        $token = self::generateToken($address);
+        $data = [
+            'username' => $address,
+            'is_holder' => $isHolder,
+            'token' => $token,
+            'verify_time' => date('Y-m-d H:i:s'),
+            'verify_times' => 1
+        ];
+        if($assets) {
+            $data['asset'] = json_encode($assets, JSON_UNESCAPED_UNICODE);
+        }
+        self::create($data);
+        return [$token, true];
+    }
+
+    public static function updatedToken($member, $address, $isHolder, $assets): array
+    {
+        $needLogs = false;
+
+        $token = self::generateToken($address);
+        $member->is_holder = $isHolder;
+        $member->token = $token;
+        if($assets) {
+            $member->asset = json_encode($assets, JSON_UNESCAPED_UNICODE);
+        }
+
+        if(time() - strtotime($member['verify_time']) >= 3600) {
+            $member->verify_times += 1;
+            $needLogs = true;
+        }
+        $member->verify_time  = date('Y-m-d H:i:s');
+        $member->save();
+
+        return [$token, $needLogs];
+    }
+
+    public static function generateToken($address)
+    {
+        return  sha1($address . time());
+    }
+
+    /**
+     * @param $userId
+     * @return bool
+     * @throws Exception
+     */
     public static function clearToken($userId): bool
     {
         $info = self::findByUserId($userId);
@@ -31,8 +83,9 @@ class Member extends Model
 
         $info->token = NULL;
         $info->save();
-
         return true;
     }
+
+
 
 }

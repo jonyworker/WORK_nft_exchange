@@ -46,3 +46,10 @@ function success3($result = [])
 {
     return json($result);
 }
+
+
+function getIP()
+{
+    return $_SERVER['REMOTE_ADDR'] ?? null;
+}
+
