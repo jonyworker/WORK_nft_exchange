@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
 <div >
   <div class="analysis"></div>
   <div class="container">
@@ -11,22 +11,22 @@
         <div class="wrap-item">
           <div class="parent">
             <div class='parent-main'>
-<!--              <span class='prev-span'>{{item.address.slice(0, 9)}}</span>-->
-<!--              <span class='next-span'>{{item.address.slice(-6)}}</span>-->
+
+
             </div>
           </div>
-          <!-- <div class="profile-pic ml-6" @click="copyInfo('1')">
+          <div class="profile-pic ml-6" @click="copyInfo('1')">
             <img src="@/assets/images/icon_copy.png" alt="">
-          </div> -->
+          </div>
         </div>
       </div>
       <div class="right-image">...</div>
     </div>
-    <!-- <div class="tabs">
+    <div class="tabs">
       <div v-for="(item,index) in textList" :key="index" :class="['tages',type===item.value?'active_tages':'']" @click="changeTag(item.value)">
         {{item.name}}
       </div>
-    </div> -->
+    </div>
     <div class="row" v-show="type === 1">
       <div class="col-12">
         <div class="table-responsive">
@@ -47,7 +47,7 @@
               </tr>
               </thead>
               <tbody>
-              <!-- 1st -->
+
               <tr v-for="(item,index) in analysisList" :key="index">
                 <th scope="row">0{{index + 1}}</th>
                 <td class="td-wrap">
@@ -75,17 +75,17 @@
     </div>
     <div v-show="type === 2">
       <div class="minting-content mt-10">
-        <!-- 觀測站卡片 -->
+
         <div class="row">
-          <!-- 1st -->
+
           <div class="col-12 col-sm-6 col-lg-3" v-for="(item,index) in dropsList" :key="index">
             <div class="card-item card-1" >
-              <!-- 卡片圖片 -->
+
               <div class="card-image">
-                <!--              <img :src="http + dropsOne?.background" alt="">-->
+
                 <img src="@/assets/images/random_1.png" alt="">
               </div>
-                <!-- 內文 -->
+
                 <div class="card-text">
                   <div class="card-text-wrap">
                     <div class="text">動態項目方名稱動態項目方名...</div>
@@ -102,7 +102,7 @@
     </div>
   </div>
 </div>
-</template>
+</template> -->
 
 <!-- <script setup lang="ts">
 import {onMounted, ref} from "vue";
