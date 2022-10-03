@@ -23,7 +23,7 @@ class Specials extends AdminController
     use Curd;
 
     protected $sort = [
-        'id' => 'asc',
+        'id' => 'desc',
     ];
 
     public function __construct(App $app)

@@ -22,7 +22,7 @@ class Adverts extends AdminController
     use \app\admin\traits\Curd;
 
     protected $sort = [
-        'id' => 'asc',
+        'id' => 'desc',
     ];
 
     public function __construct(App $app)
