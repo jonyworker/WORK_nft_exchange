@@ -79,12 +79,24 @@ class Projects extends AdminController
             ];
             $this->validate($post, $rule);
 
+            //转化标签
+            if($post['category']) {
+                $post['category'] = implode(',', $post['category']);
+            }
+
+            //去掉没有的值
+            foreach ($post as $key => $item) {
+                if(empty($item)) {
+                    unset($post[$key]);
+                }
+            }
+
             try {
                 $post['createName'] = session('admin.username');
                 $save = $this->model->save($post);
             } catch (\Exception $e) {
-                var_dump($e->getMessage());
-                $this->error('保存失败');
+//                var_dump($e->getMessage());
+                $this->error('保存失败' . $e->getMessage());
             }
             if ($save) {
                 $this->success('保存成功');
@@ -128,6 +140,13 @@ class Projects extends AdminController
                 $this->error('保存失败');
             }
         }
+
+
+        if($row['category']) {
+            $row['category'] = explode(',' , $row['category']);
+        }
+
+
         $this->assign([
             'id' => $id,
             'row' => $row,

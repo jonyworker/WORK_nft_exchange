@@ -12,17 +12,6 @@ define(["jquery", "easy-admin"], function ($, ea) {
         export_url: 'business.projects/export',
     };
 
-    //鏈			blockchain		1:以太鏈
-    // 項目			name
-    // 圖			photo_url		取出為：圖片絕對路徑, 顯示50*50縮圖,
-    // 點了另開新窗看大圖片(400*400)
-    // 合約			contract         取出只顯示8碼, mouse over tip顯示完整字符
-    // 總數			item_qty
-    // 簡介			introduction		寬度固定為400px, 多出寬度給 項目、編輯
-    //                              最多顯示100個字, 超過後面加上 …
-    //                              Mouse hover上方就tipt出完整文字
-    // 修改時間		editTime
-
     var Controller = {
         index: function () {
             ea.table.render({
@@ -79,7 +68,7 @@ define(["jquery", "easy-admin"], function ($, ea) {
         },
         edit: function () {
             ea.listen();
-        },
+        }
     };
     return Controller;
 });

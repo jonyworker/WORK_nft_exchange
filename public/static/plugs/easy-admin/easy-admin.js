@@ -1072,6 +1072,12 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, ckeditor
                 }, 'data');
             });
 
+            $('body').on('click', '[data-custom-btn]', function () {
+
+                var title = $(this).attr('data-title');
+                console.log(title)
+            });
+
             // 监听请求
             $('body').on('click', '[data-request]', function () {
                 var title = $(this).attr('data-title'),
@@ -1134,6 +1140,8 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, ckeditor
                 });
             });
 
+
+
             // 数据表格多删除
             $('body').on('click', '[data-table-delete]', function () {
                 var tableId = $(this).attr('data-table-delete'),
@@ -1164,7 +1172,6 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, ckeditor
                 });
                 return false;
             });
-
         },
         api: {
             form: function (url, data, ok, no, ex, refreshTable) {
@@ -1509,7 +1516,8 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, ckeditor
                         laydate.render(options);
                     });
                 }
-            },
+            }
+
         },
     };
     return admin;

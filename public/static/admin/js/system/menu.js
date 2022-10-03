@@ -150,6 +150,7 @@ define(["jquery", "easy-admin", "treetable", "iconPickerFa", "autocomplete"], fu
             });
 
             ea.listen(function (data) {
+                console.log(data)
                 return data;
             }, function (res) {
                 ea.msg.success(res.msg, function () {

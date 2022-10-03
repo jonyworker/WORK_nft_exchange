@@ -3,7 +3,8 @@
         <div class="layui-form-item">
             <label class="layui-form-label">鏈</label>
             <div class="layui-input-block">
-                <input type="text" name="blockchain" class="layui-input" lay-verify="required" placeholder="請輸入鏈" value="">
+                <input type="text" name="blockchain" class="layui-input" lay-verify="required" placeholder="請輸入鏈"
+                       value="">
             </div>
         </div>
         <div class="layui-form-item">
@@ -16,9 +17,12 @@
         <div class="layui-form-item">
             <label class="layui-form-label required">圖片網址</label>
             <div class="layui-input-block layuimini-upload">
-                <input name="photo_url" class="layui-input layui-col-xs6" lay-verify="required" placeholder="請上傳圖片" value="">
+                <input name="photo_url" class="layui-input layui-col-xs6" lay-verify="required" placeholder="請上傳圖片"
+                       value="">
                 <div class="layuimini-upload-btn">
-                    <span><a class="layui-btn" data-upload="photo_url" data-upload-number="one" data-upload-exts="png|jpg|jpeg" data-upload-icon="image"><i class="fa fa-upload"></i> 上傳</a></span>
+                    <span><a class="layui-btn" data-upload="photo_url" data-upload-number="one"
+                             data-upload-exts="png|jpg|jpeg" data-upload-icon="image"><i
+                            class="fa fa-upload"></i> 上傳</a></span>
                 </div>
             </div>
         </div>
@@ -26,14 +30,16 @@
         <div class="layui-form-item">
             <label class="layui-form-label">合約</label>
             <div class="layui-input-block">
-                <input type="text" name="contract" class="layui-input" lay-verify="required" placeholder="請輸入合約" value="">
+                <input type="text" name="contract" class="layui-input" lay-verify="required" placeholder="請輸入合約"
+                       value="">
             </div>
         </div>
 
         <div class="layui-form-item">
             <label class="layui-form-label">總數</label>
             <div class="layui-input-block">
-                <input type="text" name="item_qty" class="layui-input" lay-verify="required" placeholder="請輸入總數" value="">
+                <input type="text" name="item_qty" class="layui-input" lay-verify="required" placeholder="請輸入總數"
+                       value="">
             </div>
         </div>
 
@@ -79,11 +85,39 @@
         <div class="layui-form-item">
             <label class="layui-form-label">標籤</label>
             <div class="layui-input-block">
-                <input type="text" name="category[]" class="layui-input" placeholder="請輸入標籤" value="">
-                <input type="text" name="category[]" class="layui-input" placeholder="請輸入標籤" value="">
-                <input type="text" name="category[]" class="layui-input" placeholder="請輸入標籤" value="">
-                <input type="text" name="category[]" class="layui-input" placeholder="請輸入標籤" value="">
-                <input type="text" name="category[]" class="layui-input" placeholder="請輸入標籤" value="">
+                <div class="layui-inline">
+                    <label>
+                        <input type="text" name="category[]" class="layui-input" placeholder="請輸入標籤1" value="">
+                    </label>
+                </div>
+                <div class="layui-inline">
+                    <label>
+                        <input type="text" name="category[]" class="layui-input" placeholder="請輸入標籤2" value="">
+                    </label>
+                </div>
+                <div class="layui-inline">
+                    <label>
+                        <input type="text" name="category[]" class="layui-input" placeholder="請輸入標籤3" value="">
+                    </label>
+                </div>
+                <div class="layui-inline">
+                    <label>
+                        <input type="text" name="category[]" class="layui-input" placeholder="請輸入標籤4" value="">
+                    </label>
+                </div>
+                <div class="layui-inline">
+                    <label>
+                        <input type="text" name="category[]" class="layui-input" placeholder="請輸入標籤5" value="">
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <a type="button" class="layui-btn" data-custom-btn="" data-title="是否確認從drops帶入資料？">從drops帶入資料</a>
+
+<!--                <button type="button" class="layui-btn" id="withDropsData">從drops帶入資料</button>-->
             </div>
         </div>
 
@@ -95,11 +129,11 @@
             </div>
         </div>
 
-<!--        introduction-->
+        <!--        簡介繁体 start-->
         <div class="layui-form-item">
             <label class="layui-form-label">簡介</label>
             <div class="layui-input-block">
-                <input type="text" name="introduction" class="layui-input" placeholder="請輸入簡介" value="">
+                <textarea name="introduction" rows="5" class="layui-textarea editor"></textarea>
             </div>
         </div>
 
@@ -109,25 +143,125 @@
                 <input type="text" name="member" class="layui-input" placeholder="請輸入成員介紹" value="">
             </div>
         </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">路線圖</label>
+            <div class="layui-input-block">
+                <input type="text" name="roadmap" class="layui-input" placeholder="請輸入路線圖" value="">
+            </div>
+        </div>
+        <!--        簡介繁体 end-->
+
+        <!--        簡介 中文简体 start-->
+        <div class="layui-form-item">
+            <label class="layui-form-label">簡介(簡)</label>
+            <div class="layui-input-block">
+                <textarea name="introduction_cn" rows="5" class="layui-textarea editor"></textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">成員介紹(簡)</label>
+            <div class="layui-input-block">
+                <input type="text" name="member_cn" class="layui-input" placeholder="請輸入成員介紹(簡)" value="">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">路線圖(簡)</label>
+            <div class="layui-input-block">
+                <input type="text" name="roadmap_cn" class="layui-input" placeholder="請輸入路線圖(簡)" value="">
+            </div>
+        </div>
+        <!--        簡介繁体 end-->
+
+
+        <!--        簡介 英文 start-->
+        <div class="layui-form-item">
+            <label class="layui-form-label">簡介(英)</label>
+            <div class="layui-input-block">
+                <textarea name="introduction_en" rows="5" class="layui-textarea editor"></textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">成員介紹(英)</label>
+            <div class="layui-input-block">
+                <input type="text" name="member_en" class="layui-input" placeholder="請輸入成員介紹(英)" value="">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">路線圖(英)</label>
+            <div class="layui-input-block">
+                <input type="text" name="roadmap_en" class="layui-input" placeholder="請輸入路線圖(英)" value="">
+            </div>
+        </div>
+        <!--        英文 end-->
+
+        <!--        簡介 日 start-->
+        <div class="layui-form-item">
+            <label class="layui-form-label">簡介(日)</label>
+            <div class="layui-input-block">
+                <textarea name="introduction_jp" rows="5" class="layui-textarea editor"></textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">成員介紹(日)</label>
+            <div class="layui-input-block">
+                <input type="text" name="member_jp" class="layui-input" placeholder="請輸入成員介紹(日)" value="">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">路線圖(日)</label>
+            <div class="layui-input-block">
+                <input type="text" name="roadmap_jp" class="layui-input" placeholder="請輸入路線圖(日)" value="">
+            </div>
+        </div>
+        <!--        日 end-->
+
+        <!--        韩 start-->
+        <div class="layui-form-item">
+            <label class="layui-form-label">簡介(韓)</label>
+            <div class="layui-input-block">
+                <textarea name="introduction_ko" rows="5" class="layui-textarea editor"></textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">成員介紹(韓)</label>
+            <div class="layui-input-block">
+                <input type="text" name="member_ko" class="layui-input" placeholder="請輸入成員介紹(韓)" value="">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">路線圖(韓)</label>
+            <div class="layui-input-block">
+                <input type="text" name="roadmap_ko" class="layui-input" placeholder="請輸入路線圖(韓)" value="">
+            </div>
+        </div>
+        <!--        韓 end-->
+
 
         <div class="layui-form-item">
             <label class="layui-form-label">更新順序</label>
             <div class="layui-input-block">
-                <input type="text" name="priority" class="layui-input" lay-verify="number" placeholder="請輸入更新順序" value="">
+                <input type="text" name="priority" class="layui-input" lay-verify="number" placeholder="請輸入更新順序"
+                       value="">
             </div>
         </div>
 
         <div class="layui-form-item">
             <label class="layui-form-label">廣告上架日</label>
             <div class="layui-input-block">
-                <input type="text" name="ad_start_date" data-date="" data-date-type="date" class="layui-input"  placeholder="" value="">
+                <input type="text" name="ad_start_date" data-date="" data-date-type="date" class="layui-input"
+                       placeholder="" value="">
             </div>
         </div>
 
         <div class="layui-form-item">
             <label class="layui-form-label">廣告下架日</label>
             <div class="layui-input-block">
-                <input type="text" name="ad_end_date"  data-date="" data-date-type="date" class="layui-input"  placeholder="" value="">
+                <input type="text" name="ad_end_date" data-date="" data-date-type="date" class="layui-input"
+                       placeholder="" value="">
             </div>
         </div>
         <div class="layui-form-item">
