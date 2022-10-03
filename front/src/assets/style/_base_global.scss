@@ -17,6 +17,10 @@ img {
 .section-title-wrap .section-title {
   @include display-B-2;
 }
+.section-title-wrap .section-subTitle {
+  @include display-B-5;
+  color: rgba(255,255,255,.6);
+}
 .section-title-wrap .title-icon {
   width: 50px;
   height: 50px;
