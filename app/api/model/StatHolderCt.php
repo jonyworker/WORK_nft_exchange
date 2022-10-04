@@ -4,6 +4,7 @@
 namespace app\api\model;
 
 
+use think\Db;
 use think\db\exception\DbException;
 use think\Model;
 
@@ -30,8 +31,6 @@ class StatHolderCt extends Model
             }
         }
 
-        var_dump($where);
-        die();
-        return self::where($where)->count();
+        return Db::table('stat_holder_ct')->where($where)->count();
     }
 }
