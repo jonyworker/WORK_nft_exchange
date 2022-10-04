@@ -75,7 +75,6 @@ class Projects extends AdminController
                 'contract|合約' => 'require',
                 'item_qty|總數' => 'require',
                 'valid|狀態' => 'require',
-                'process|審核' => 'require',
             ];
             $this->validate($post, $rule);
 
@@ -125,7 +124,6 @@ class Projects extends AdminController
                 'contract|合約' => 'require',
                 'item_qty|總數' => 'require',
                 'valid|狀態' => 'require',
-                'process|審核' => 'require',
             ];
             $this->validate($post, $rule);
             try {

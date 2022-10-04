@@ -227,13 +227,6 @@
         <!--        韓 end-->
 
         <div class="layui-form-item">
-            <label class="layui-form-label">更新順序</label>
-            <div class="layui-input-block">
-                <input type="text" name="priority" class="layui-input" lay-verify="number" placeholder="請輸入更新順序" value="{$row.priority|default=''}">
-            </div>
-        </div>
-
-        <div class="layui-form-item">
             <label class="layui-form-label">廣告上架日</label>
             <div class="layui-input-block">
                 <input type="text" name="ad_start_date" data-date="" data-date-type="date" class="layui-input"  placeholder="" value="{$row.ad_start_date|default=''}">
@@ -244,13 +237,6 @@
             <label class="layui-form-label">廣告下架日</label>
             <div class="layui-input-block">
                 <input type="text" name="ad_end_date"  data-date="" data-date-type="date" class="layui-input"  placeholder="" value="{$row.ad_end_date|default=''}">
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">審核</label>
-            <div class="layui-input-inline">
-                <input type="radio" name="process" value="1" title="未審核">
-                <input type="radio" name="process" value="2" title="已審核">
             </div>
         </div>
         <div class="layui-form-item">

@@ -71,20 +71,20 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, ckeditor
                 ok = ok || function (res) {
                 };
                 no = no || function (res) {
-                    var msg = res.msg == undefined ? '返回数据格式有误' : res.msg;
+                    var msg = res.msg == undefined ? '返回數據格式有誤' : res.msg;
                     admin.msg.error(msg);
                     return false;
                 };
                 ex = ex || function (res) {
                 };
                 if (option.url == '') {
-                    admin.msg.error('请求地址不能为空');
+                    admin.msg.error('請求地址不能為空');
                     return false;
                 }
                 if (option.prefix == true) {
                     option.url = admin.url(option.url);
                 }
-                var index = admin.msg.loading('加载中');
+                var index = admin.msg.loading('加載中');
                 $.ajax({
                     url: option.url,
                     type: type,
@@ -102,7 +102,7 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, ckeditor
                         }
                     },
                     error: function (xhr, textstatus, thrown) {
-                        admin.msg.error('Status:' + xhr.status + '，' + xhr.statusText + '，请稍后再试！', function () {
+                        admin.msg.error('Status:' + xhr.status + '，' + xhr.statusText + '，請稍後再試！', function () {
                             ex(this);
                         });
                         return false;
@@ -164,7 +164,7 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, ckeditor
             },
             // 对话框
             confirm: function (msg, ok, no) {
-                var index = layer.confirm(msg, {title: '操作确认', btn: ['确认', '取消']}, function () {
+                var index = layer.confirm(msg, {title: '操作確認', btn: ['確認', '取消']}, function () {
                     typeof ok === 'function' && ok.call(this);
                 }, function () {
                     typeof no === 'function' && no.call(this);
@@ -203,7 +203,7 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, ckeditor
                 options.limits = options.limits || [10, 15, 20, 25, 50, 100];
                 options.cols = options.cols || [];
                 options.defaultToolbar = (options.defaultToolbar === undefined && !options.search) ? ['filter', 'print', 'exports'] : ['filter', 'print', 'exports', {
-                    title: '搜索',
+                    title: '搜尋',
                     layEvent: 'TABLE_SEARCH',
                     icon: 'layui-icon-search',
                     extend: 'data-table-id="' + options.id + '"'
@@ -212,7 +212,7 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, ckeditor
                 // 判断是否为移动端
                 if (admin.checkMobile()) {
                     options.defaultToolbar = !options.search ? ['filter'] : ['filter', {
-                        title: '搜索',
+                        title: '搜尋',
                         layEvent: 'TABLE_SEARCH',
                         icon: 'layui-icon-search',
                         extend: 'data-table-id="' + options.id + '"'
@@ -263,11 +263,11 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, ckeditor
                         }
                     } else if (v === 'delete') {
                         if (admin.checkAuth('delete', elem)) {
-                            toolbarHtml += '<button class="layui-btn layui-btn-sm layui-btn-danger" data-url="' + init.delete_url + '" data-table-delete="' + tableId + '"><i class="fa fa-trash-o"></i> 删除</button>\n';
+                            toolbarHtml += '<button class="layui-btn layui-btn-sm layui-btn-danger" data-url="' + init.delete_url + '" data-table-delete="' + tableId + '"><i class="fa fa-trash-o"></i> 刪除</button>\n';
                         }
                     } else if (v === 'export') {
                         if (admin.checkAuth('export', elem)) {
-                            toolbarHtml += '<button class="layui-btn layui-btn-sm layui-btn-success easyadmin-export-btn" data-url="' + init.export_url + '" data-table-export="' + tableId + '"><i class="fa fa-file-excel-o"></i> 导出</button>\n';
+                            toolbarHtml += '<button class="layui-btn layui-btn-sm layui-btn-success easyadmin-export-btn" data-url="' + init.export_url + '" data-table-export="' + tableId + '"><i class="fa fa-file-excel-o"></i> 匯出</button>\n';
                         }
                     } else if (typeof v === "object") {
                         $.each(v, function (ii, vv) {
@@ -299,7 +299,7 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, ckeditor
                     d.title = d.title || d.field || '';
                     d.selectList = d.selectList || {};
                     d.search = admin.parame(d.search, true);
-                    d.searchTip = d.searchTip || '请输入' + d.title || '';
+                    d.searchTip = d.searchTip || '請輸入' + d.title || '';
                     d.searchValue = d.searchValue || '';
                     d.searchOp = d.searchOp || '%*%';
                     d.timeType = d.timeType || 'datetime';
@@ -358,11 +358,11 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, ckeditor
                 if (formHtml !== '') {
 
                     $(elem).before('<fieldset id="searchFieldset_' + tableId + '" class="table-search-fieldset layui-hide">\n' +
-                        '<legend>条件搜索</legend>\n' +
+                        '<legend>條件搜尋</legend>\n' +
                         '<form class="layui-form layui-form-pane form-search">\n' +
                         formHtml +
                         '<div class="layui-form-item layui-inline" style="margin-left: 115px">\n' +
-                        '<button type="submit" class="layui-btn layui-btn-normal" data-type="tableSearch" data-table="' + tableId + '" lay-submit lay-filter="' + tableId + '_filter"> 搜 索</button>\n' +
+                        '<button type="submit" class="layui-btn layui-btn-normal" data-type="tableSearch" data-table="' + tableId + '" lay-submit lay-filter="' + tableId + '_filter"> 搜 尋</button>\n' +
                         '<button type="reset" class="layui-btn layui-btn-primary" data-table-reset="' + tableId + '"> 重 置 </button>\n' +
                         ' </div>' +
                         '</form>' +
@@ -556,8 +556,8 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, ckeditor
                                     method: 'open',
                                     field: 'id',
                                     icon: '',
-                                    text: '编辑',
-                                    title: '编辑信息',
+                                    text: '編輯',
+                                    title: '編輯信息',
                                     auth: 'edit',
                                     url: option.init.edit_url,
                                     extend: ""
@@ -573,8 +573,8 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, ckeditor
                                     method: 'get',
                                     field: 'id',
                                     icon: '',
-                                    text: '删除',
-                                    title: '确定删除？',
+                                    text: '刪除',
+                                    title: '確定刪除？',
                                     auth: 'delete',
                                     url: option.init.delete_url,
                                     extend: ""
@@ -665,7 +665,7 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, ckeditor
                 var field = option.field;
                 option.filter = option.filter || option.field || null;
                 option.checked = option.checked || 1;
-                option.tips = option.tips || '开|关';
+                option.tips = option.tips || '開|關';
                 try {
                     var value = eval("data." + field);
                 } catch (e) {
@@ -923,7 +923,7 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, ckeditor
 
             // 表格修改
             $("body").on("mouseenter", ".table-edit-tips", function () {
-                var openTips = layer.tips('点击行内容可以进行修改', $(this), {tips: [2, '#e74c3c'], time: 4000});
+                var openTips = layer.tips('點擊行內容可以進行修改', $(this), {tips: [2, '#e74c3c'], time: 4000});
             });
 
             // 监听弹出层的打开
@@ -942,7 +942,7 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, ckeditor
                     var checkStatus = table.checkStatus(tableId),
                         data = checkStatus.data;
                     if (data.length <= 0) {
-                        admin.msg.error('请勾选需要操作的数据');
+                        admin.msg.error('請勾選需要操作的數據');
                         return false;
                     }
                     var ids = [];
@@ -1088,7 +1088,7 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, ckeditor
                     direct = $(this).attr('data-direct'),
                     field = $(this).attr('data-field') || 'id';
 
-                title = title || '确定进行该操作？';
+                title = title || '確認進行該操作？';
 
                 if (direct === 'true') {
                     admin.msg.confirm(title, function () {
@@ -1103,7 +1103,7 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, ckeditor
                     var checkStatus = table.checkStatus(tableId),
                         data = checkStatus.data;
                     if (data.length <= 0) {
-                        admin.msg.error('请勾选需要操作的数据');
+                        admin.msg.error('請勾選你需要操作的數據');
                         return false;
                     }
                     var ids = [];
@@ -1134,7 +1134,7 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, ckeditor
             $('body').on('click', '[data-table-export]', function () {
                 var tableId = $(this).attr('data-table-export'),
                     url = $(this).attr('data-url');
-                var index = admin.msg.confirm('根据查询进行导出，确定导出？', function () {
+                var index = admin.msg.confirm('根據搜尋進行匯出，確認匯出？', function () {
                     window.location = admin.url(url);
                     layer.close(index);
                 });
@@ -1151,14 +1151,14 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, ckeditor
                 var checkStatus = table.checkStatus(tableId),
                     data = checkStatus.data;
                 if (data.length <= 0) {
-                    admin.msg.error('请勾选需要删除的数据');
+                    admin.msg.error('請勾選需要刪除的數據');
                     return false;
                 }
                 var ids = [];
                 $.each(data, function (i, v) {
                     ids.push(v.id);
                 });
-                admin.msg.confirm('确定删除？', function () {
+                admin.msg.confirm('確認刪除？', function () {
                     admin.request.post({
                         url: url,
                         data: {
@@ -1369,7 +1369,7 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, ckeditor
                         var uploadName = $(this).attr('data-upload-delete'),
                             deleteUrl = $(this).attr('data-upload-url'),
                             sign = $(this).attr('data-upload-sign');
-                        var confirm = admin.msg.confirm('确定删除？', function () {
+                        var confirm = admin.msg.confirm('確認刪除？', function () {
                             var elem = "input[name='" + uploadName + "']";
                             var currentUrl = $(elem).val();
                             var url = '';
@@ -1402,17 +1402,17 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, ckeditor
                             checkedKey: 'id',
                             searchType: 'more',
                             searchList: [
-                                {searchKey: 'title', searchPlaceholder: '请输入文件名'},
+                                {searchKey: 'title', searchPlaceholder: '請輸入文件名'},
                             ],
                             table: {
                                 url: admin.url('ajax/getUploadFiles'),
                                 cols: [[
                                     {type: selectCheck},
                                     {field: 'id', title: 'ID'},
-                                    {field: 'url', minWidth: 80, search: false, title: '图片信息', imageHeight: 40, align: "center", templet: admin.table.image},
+                                    {field: 'url', minWidth: 80, search: false, title: '圖片信息', imageHeight: 40, align: "center", templet: admin.table.image},
                                     {field: 'original_name', width: 150, title: '文件原名', align: "center"},
-                                    {field: 'mime_type', width: 120, title: 'mime类型', align: "center"},
-                                    {field: 'create_time', width: 200, title: '创建时间', align: "center", search: 'range'},
+                                    {field: 'mime_type', width: 120, title: 'mime類型', align: "center"},
+                                    {field: 'create_time', width: 200, title: '創建時間', align: "center", search: 'range'},
                                 ]]
                             },
                             done: function (e, data) {
@@ -1421,7 +1421,7 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, ckeditor
                                     urlArray.push(val.url)
                                 });
                                 var url = urlArray.join(uploadSign);
-                                admin.msg.success('选择成功', function () {
+                                admin.msg.success('選擇成功', function () {
                                     $(elem).val(url);
                                     $(elem).trigger("input");
                                 });
@@ -1466,7 +1466,7 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, ckeditor
                         html = '<option value=""></option>';
                     var fields = selectFields.replace(/\s/g, "").split(',');
                     if (fields.length !== 2) {
-                        return admin.msg.error('下拉选择字段有误');
+                        return admin.msg.error('下拉選擇字段有誤');
                     }
                     admin.request.get(
                         {

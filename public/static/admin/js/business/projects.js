@@ -22,11 +22,14 @@ define(["jquery", "easy-admin"], function ($, ea) {
                     {field: 'blockchain', minWidth: 80, title: '鏈'},
                     {field: 'name', minWidth: 80, title: '項目', searchOp:'%*%'},
                     {field: 'photo_url', minWidth: 80, title: '圖', search: false, templet: ea.table.image},
-                    {field: 'contract', minWidth: 80, title: '合約'},
-                    {field: 'item_qty', minWidth: 80, title: '總數'},
-                    {field: 'introduction', minWidth: 80, title: '簡介'},
+                    {field: 'contract', minWidth: 80, title: '合約', search:false},
+                    {field: 'item_qty', minWidth: 80, title: '總數', search:false},
+                    {field: 'introduction', minWidth: 80, title: '簡介', search:false},
+
+                    {field: 'update_ind', minWidth: 130, title: '24h交易前300項目', search: 'select', selectList: {2: '否', 1: '是'}, hide:true},
+                    {field: 'level_ind', minWidth: 80, title: '重點項目', search: 'select', selectList: {2: '否', 1: '是'}, hide:true},
+
                     {field: 'valid', title: '狀態', width: 85, search: 'select', selectList: {2: '作廢', 1: '正常'}, templet: ea.table.switch},
-                    {field: 'process', title: '審核', width: 85, search: 'select', selectList: {2: '已審核 ', 1: '未審核'}, templet: ea.table.switch},
                     {field: 'create_time', minWidth: 120, title: '新增時間', search:false},
                     {field: 'update_time', minWidth: 120, title: '修改時間', search:false},
                     {
