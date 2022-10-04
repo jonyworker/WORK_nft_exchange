@@ -31,6 +31,6 @@ class StatHolderCt extends Model
             }
         }
 
-        return Db::table('stat_holder_ct')->where($where)->count();
+        return self::where($where)->count();
     }
 }

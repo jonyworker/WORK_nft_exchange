@@ -42,7 +42,7 @@ class Collections extends BaseController
             '4-10' => StatHolderCt::countHolderByCt($collectionId, [4,10]),
             '11-50' => StatHolderCt::countHolderByCt($collectionId, [11,50]),
             '50-100' => StatHolderCt::countHolderByCt($collectionId, [50,100]),
-            '>100' => StatHolderCt::countHolderByCt($collectionId, [101, ]),
+            '>100' => StatHolderCt::countHolderByCt($collectionId, [101, 0]),
         ];
         return json($data);
     }
