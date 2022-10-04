@@ -4,8 +4,11 @@
 namespace app\api\controller;
 
 use app\api\model\Collection;
+use app\api\model\StatCollectionDay;
+use app\api\model\StatHolderCt;
 use app\BaseController;
 use think\App;
+use think\db\exception\DbException;
 use think\exception\HttpException;
 use think\response\Json;
 
@@ -16,6 +19,9 @@ class Collections extends BaseController
         parent::__construct($app);
     }
 
+    /**
+     * @throws DbException
+     */
     public function index(): Json
     {
         $collectionId = (int)$this->request->get('collectionId');
@@ -26,6 +32,18 @@ class Collections extends BaseController
 
         $data['state'] = 'OK';
         $data['data'] = Collection::queryByCollectionId($collectionId, $lan);
+        $data['price_3d'] = StatCollectionDay::getPriceByDate(date('Y-m-d H:i:s', strtotime('-3 days')));
+        $data['price_30d'] = StatCollectionDay::getPriceByDate(date('Y-m-d H:i:s', strtotime('-30 days')));
+        $data['price_3m'] = StatCollectionDay::getPriceByDate(date('Y-m-d H:i:s', strtotime('-3 months')));
+
+        $data['holder_stat'] = [
+            '1' => StatHolderCt::countHolderByCt($collectionId, 1),
+            '2-3' => StatHolderCt::countHolderByCt($collectionId, [2,3]),
+            '4-10' => StatHolderCt::countHolderByCt($collectionId, [4,10]),
+            '11-50' => StatHolderCt::countHolderByCt($collectionId, [11,50]),
+            '50-100' => StatHolderCt::countHolderByCt($collectionId, [50,100]),
+            '>100' => StatHolderCt::countHolderByCt($collectionId, [101, ]),
+        ];
         return json($data);
     }
 }
