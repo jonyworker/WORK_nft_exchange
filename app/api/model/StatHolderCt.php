@@ -4,7 +4,7 @@
 namespace app\api\model;
 
 
-use think\Db;
+use think\facade\Db;
 use think\db\exception\DbException;
 use think\Model;
 
