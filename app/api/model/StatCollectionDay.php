@@ -11,9 +11,9 @@ class StatCollectionDay extends Model
     protected $name = 'stat_collection_day';
 
 
-    public static function getPriceByDate($date)
+    public static function getPriceByDate($date, $limit)
     {
-        $list = self::where('date', '>=', $date)->select();
+        $list = self::where('date', '>=', $date)->order('date', 'desc')->limit($limit)->select();
         $data = [];
         foreach ($list as $item) {
             $data[] = [

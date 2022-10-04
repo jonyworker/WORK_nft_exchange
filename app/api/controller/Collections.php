@@ -32,9 +32,9 @@ class Collections extends BaseController
 
         $data['state'] = 'OK';
         $data['data'] = Collection::queryByCollectionId($collectionId, $lan);
-        $data['price_3d'] = StatCollectionDay::getPriceByDate(date('Y-m-d H:i:s', strtotime('-3 days')));
-        $data['price_30d'] = StatCollectionDay::getPriceByDate(date('Y-m-d H:i:s', strtotime('-30 days')));
-        $data['price_3m'] = StatCollectionDay::getPriceByDate(date('Y-m-d H:i:s', strtotime('-3 months')));
+        $data['price_3d'] = StatCollectionDay::getPriceByDate(date('Y-m-d H:i:s', strtotime('-3 days')),3);
+        $data['price_30d'] = StatCollectionDay::getPriceByDate(date('Y-m-d H:i:s', strtotime('-30 days')), 30);
+        $data['price_3m'] = StatCollectionDay::getPriceByDate(date('Y-m-d H:i:s', strtotime('-3 months')), 90);
 
         $data['holder_stat'] = [
             '1' => StatHolderCt::countHolderByCt($collectionId, 1),
