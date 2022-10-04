@@ -29,6 +29,9 @@ class StatHolderCt extends Model
                 $where[] = ['ct', '<=', $max];
             }
         }
+
+        var_dump($where);
+        die();
         return self::where($where)->count();
     }
 }
