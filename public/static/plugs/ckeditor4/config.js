@@ -3,6 +3,13 @@ CKEDITOR.editorConfig = function (config) {
     config.image_previewText = ' ';
     config.height = 500;
     config.width = 'auto';
+
+	config.extraPlugins = 'image2';
+
+	config.extraPlugins =  'simage';  //to enable to plugin
+	config.imageUploadURL = "/admin/ajax/uploadEditor";
+	config.dataParser = func(data);
+
     // config.toolbarGroups = [
     //     {name: 'document', groups: ['mode', 'document', 'doctools']},
     //     {name: 'styles', groups: ['Font', 'FontSize']},
@@ -32,7 +39,10 @@ CKEDITOR.editorConfig = function (config) {
 		{ name: 'colors', groups: [ 'colors' ] },
 		{ name: 'tools', groups: [ 'tools' ] },
 		{ name: 'others', groups: [ 'others' ] },
-		{ name: 'about', groups: [ 'about' ] }
+		{ name: 'about', groups: [ 'about' ] },
+
+		{ name: 'image2', groups: [ 'image2' ] },
+		{ name: 'simage', groups: [ 'simage' ] }
 	];
     config.filebrowserImageUploadUrl = config.filebrowserImageUploadUrl || "/admin/ajax/uploadEditor";
 
