@@ -42,7 +42,7 @@ class MenuService
         $data = Db::name('admin_menu')
             ->field('title,icon,href')
             ->where("delete_time is null")
-            ->where('pid', MenuConstant::HOME_PID)
+            ->where('pid', '=', MenuConstant::HOME_PID)
             ->find();
         !empty($data) && $data['href'] = __url($data['href']);
         return $data;

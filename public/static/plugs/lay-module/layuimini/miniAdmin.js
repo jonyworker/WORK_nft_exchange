@@ -93,7 +93,6 @@ define(["jquery", "miniMenu", "miniTheme", "miniTab"], function ($, miniMenu, mi
          * @param data
          */
         renderHome: function (data) {
-            console.log(data)
             sessionStorage.setItem('layuiminiHomeHref', data.href);
             $('#layuiminiHomeTabId').html('<span class="layuimini-tab-active"></span><span class="disable-close">' + data.title + '</span><i class="layui-icon layui-unselect layui-tab-close">ဆ</i>');
             $('#layuiminiHomeTabId').attr('lay-id', data.href);
