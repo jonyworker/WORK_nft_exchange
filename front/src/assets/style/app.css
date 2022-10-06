@@ -1,6 +1,6 @@
 
 @import "./index.less";
-@import "../dist/all.min.css";
+@import "../css/all.css";
 /* @import "./spacing_utilities.less" */
 :root {
     --primary-color: red;
