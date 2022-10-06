@@ -88,6 +88,11 @@ class Mint extends AdminController
             ];
             $this->validate($post, $rule);
 
+            //转化标签
+            if($post['category']) {
+                $post['category'] = implode(',', $post['category']);
+            }
+
             try {
                 $post['createName'] = session('admin.username');
                 $save = $this->model->save($post);
@@ -150,6 +155,11 @@ class Mint extends AdminController
         for ($i = -12; $i <= 12; $i++) {
             $utc[] = $i;
         }
+
+        if($row['category']) {
+            $row['category'] = explode(',' , $row['category']);
+        }
+
         $this->assign([
             'id' => $id,
             'row' => $row,
