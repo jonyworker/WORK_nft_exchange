@@ -103,11 +103,31 @@
         <div class="layui-form-item">
             <label class="layui-form-label">標籤</label>
             <div class="layui-input-block">
-                <input type="text" name="category[]" class="layui-input" placeholder="請輸入標籤" value="">
-                <input type="text" name="category[]" class="layui-input" placeholder="請輸入標籤" value="">
-                <input type="text" name="category[]" class="layui-input" placeholder="請輸入標籤" value="">
-                <input type="text" name="category[]" class="layui-input" placeholder="請輸入標籤" value="">
-                <input type="text" name="category[]" class="layui-input" placeholder="請輸入標籤" value="">
+                <div class="layui-inline">
+                    <label>
+                        <input type="text" name="category[]" class="layui-input" placeholder="請輸入標籤1" value="{$row.category[0]|default=''}">
+                    </label>
+                </div>
+                <div class="layui-inline">
+                    <label>
+                        <input type="text" name="category[]" class="layui-input" placeholder="請輸入標籤2" value="{$row.category[1]|default=''}">
+                    </label>
+                </div>
+                <div class="layui-inline">
+                    <label>
+                        <input type="text" name="category[]" class="layui-input" placeholder="請輸入標籤3" value="{$row.category[2]|default=''}">
+                    </label>
+                </div>
+                <div class="layui-inline">
+                    <label>
+                        <input type="text" name="category[]" class="layui-input" placeholder="請輸入標籤4" value="{$row.category[3]|default=''}">
+                    </label>
+                </div>
+                <div class="layui-inline">
+                    <label>
+                        <input type="text" name="category[]" class="layui-input" placeholder="請輸入標籤5" value="{$row.category[4]|default=''}">
+                    </label>
+                </div>
             </div>
         </div>
 

@@ -25,6 +25,7 @@
             <div class="card-image-content ratio--1-91_1 bdRadius-8">
               <img class="blog-main-img" :src="newList?.photo_url" alt="">
             </div>
+            <p>{{newList?.source}}</p>
           </div>
         </div>
         <!-- 新聞內容 -->  
@@ -40,6 +41,7 @@
 </template>
 
 <script setup lang="ts">
+import { StringLiteral } from "@babel/types";
 import {onMounted, ref} from "vue";
 import { useRouter } from 'vue-router';
 import {homeApi} from '../../api';
@@ -51,6 +53,7 @@ interface INewListFor{
   title:string;
   content:string;
   start_date:string;
+  source:String;
 }
 
 const newList = ref<INewListFor|null>(null);
