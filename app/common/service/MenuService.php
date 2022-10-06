@@ -44,6 +44,10 @@ class MenuService
             ->where("delete_time is null")
             ->where('pid', '=', MenuConstant::HOME_PID)
             ->find();
+
+        var_dump($data);
+        die();
+
         !empty($data) && $data['href'] = __url($data['href']);
         return $data;
     }
