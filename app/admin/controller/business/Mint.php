@@ -145,9 +145,15 @@ class Mint extends AdminController
                 $this->error('保存失败');
             }
         }
+
+        $utc = [];
+        for ($i = -12; $i <= 12; $i++) {
+            $utc[] = $i;
+        }
         $this->assign([
             'id' => $id,
             'row' => $row,
+            'utcList' => $utc,
         ]);
         return $this->fetch();
     }
