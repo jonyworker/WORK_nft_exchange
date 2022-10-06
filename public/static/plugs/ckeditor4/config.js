@@ -38,7 +38,7 @@ CKEDITOR.editorConfig = function (config) {
 
     config.removeButtons = 'Underline,Subscript,Superscript';
 
-    config.format_tags = 'p;h2;h3;div';
+    config.format_tags = 'p;h1;h2;h3;pre';
 
     // config.removeDialogTabs = 'image:advanced;link:advanced';
     config.removeButtons = 'Save,NewPage,Preview,Print,Templates,Cut,Copy,Paste,PasteText,PasteFromWord,Find,Replace,SelectAll,Scayt,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Subscript,Superscript,RemoveFormat,Outdent,Indent,CreateDiv,BidiLtr,BidiRtl,Language,JustifyLeft,JustifyCenter,JustifyRight,JustifyBlock,Table,HorizontalRule,Smiley,SpecialChar,PageBreak,Iframe,Flash,FontSize,Font,TextColor,BGColor,Maximize,ShowBlocks,About,Styles,Anchor';
