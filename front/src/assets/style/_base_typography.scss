@@ -164,11 +164,11 @@
   
 }
 .button-B-1 {
-  @include functional-B-1;
+  @include button-B-1;
   
 }
 .caption-B-1 {
-  @include button-B-1;
+  @include functional-B-1;
   
 }
 
@@ -194,11 +194,11 @@
   
 }
 .button-L-1 {
-  @include functional-L-1;
+  @include button-L-1;
   
 }
 .caption-L-1 {
-  @include button-L-1;
+  @include functional-L-1;
   
 }
 
