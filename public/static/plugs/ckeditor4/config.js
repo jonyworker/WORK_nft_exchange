@@ -4,11 +4,11 @@ CKEDITOR.editorConfig = function (config) {
     config.height = 500;
     config.width = 'auto';
 
-	config.extraPlugins = 'image2';
+	// config.extraPlugins = 'image2';
 
-	config.extraPlugins =  'simage';  //to enable to plugin
-	config.imageUploadURL = "/admin/ajax/uploadEditor";
-	config.dataParser = func(data);
+	// config.extraPlugins =  'simage';  //to enable to plugin
+	// config.imageUploadURL = "/admin/ajax/uploadEditor";
+	// config.dataParser = func(data);
 
     // config.toolbarGroups = [
     //     {name: 'document', groups: ['mode', 'document', 'doctools']},
@@ -41,8 +41,8 @@ CKEDITOR.editorConfig = function (config) {
 		{ name: 'others', groups: [ 'others' ] },
 		{ name: 'about', groups: [ 'about' ] },
 
-		{ name: 'image2', groups: [ 'image2' ] },
-		{ name: 'simage', groups: [ 'simage' ] }
+		// { name: 'image2', groups: [ 'image2' ] },
+		// { name: 'simage', groups: [ 'simage' ] }
 	];
     config.filebrowserImageUploadUrl = config.filebrowserImageUploadUrl || "/admin/ajax/uploadEditor";
 
