@@ -20,18 +20,20 @@
         </div>
 
         <!-- 標題組 - 主圖 -->
-        <div class="row justify-content-center bs-mb-32">
+        <div class="row justify-content-center mb-56">
           <div class="col-11">
-            <div class="card-image-content ratio--1-91_1 bdRadius-8">
+            <div class="card-image-content ratio--1-91_1 bdRadius-8 mb-12">
               <img class="blog-main-img" :src="newList?.photo_url" alt="">
             </div>
-            <p>{{newList?.source}}</p>
+            <p class="blog-caption">{{newList?.source}}</p>
           </div>
         </div>
+
+
         <!-- 新聞內容 -->  
         <div class="row justify-content-center">
           <div class="col-lg-8 col-12">
-            <div v-html="newList?.content" ></div>
+            <div class="ck-content" v-html="newList?.content" ></div>
           </div>
         </div>
       </div>
@@ -53,7 +55,7 @@ interface INewListFor{
   title:string;
   content:string;
   start_date:string;
-  source:String;
+  source:string;
 }
 
 const newList = ref<INewListFor|null>(null);
@@ -69,49 +71,7 @@ onMounted(() => {
 </script>
 
 <style scoped lang="less">
-// .container{
-//   background-color: #fff;
-//   color:#333;
-//   padding-bottom: 10px;
-// }
-// .center{
-//   width: 80%;
-//   margin: auto;
-// }
-// .card-tag{
-//   font-family: "Noto Sans TC", sans-serif;
-//   font-style: normal;
-//   font-weight: 400;
-//   line-height: 1.4;
-//   letter-spacing: 0;
-//   padding: 2px 8px;
-//   width:80px;
-//   color: #fff;
-//   text-align: center;
-//   background-color: #4447E2;
-//   border-radius: 4px;
-//   margin-top:50px;
-// }
-// .newImg{
-//   padding: 30px 0px;
-//   img{
-//    height: 619px;
-//   }
 
-// }
-// .card-paragraph{
-//   width:80%;
-//   margin: auto;
-// }
-.blog-main-img-wrap {
-  display: block;
-  width: 100%;
-  aspect-ratio: 7/4;
-}
-.blog-main-img {
-  vertical-align: middle;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
+  
+
 </style>

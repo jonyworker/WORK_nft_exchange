@@ -12603,6 +12603,9 @@ img {
   font-weight: 400;
   line-height: 1.66;
   letter-spacing: 0;
+  margin-top: 8px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.3490196078);
 }
 .blog-caption {
   font-size: 12px;
@@ -12614,6 +12617,129 @@ img {
 }
 @media screen and (min-width: 1536px) {
   .blog-caption {
+    font-size: 12px;
+  }
+}
+
+.ck-content h2 {
+  font-family: "Noto Sans TC", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.125;
+  letter-spacing: 0;
+  margin-bottom: 40px;
+}
+.ck-content h2 {
+  font-size: 26px;
+}
+@media screen and (min-width: 768px) {
+  .ck-content h2 {
+    font-size: calc(1.3020833333vw + 16px);
+  }
+}
+@media screen and (min-width: 1536px) {
+  .ck-content h2 {
+    font-size: 36px;
+  }
+}
+
+.ck-content h3 {
+  font-family: "Noto Sans TC", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.33;
+  letter-spacing: 0;
+  margin-bottom: 40px;
+}
+.ck-content h3 {
+  font-size: 22px;
+}
+@media screen and (min-width: 768px) {
+  .ck-content h3 {
+    font-size: calc(0.78125vw + 16px);
+  }
+}
+@media screen and (min-width: 1536px) {
+  .ck-content h3 {
+    font-size: 28px;
+  }
+}
+
+.ck-content > p {
+  font-family: "Noto Sans TC", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.375;
+  letter-spacing: 0;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+.ck-content > p {
+  font-size: 16px;
+}
+@media screen and (min-width: 768px) {
+  .ck-content > p {
+    font-size: calc(0vw + 16px);
+  }
+}
+@media screen and (min-width: 1536px) {
+  .ck-content > p {
+    font-size: 16px;
+  }
+}
+
+.ck-content > blockquote {
+  overflow: hidden;
+  padding-right: 1.5em;
+  padding-left: 1.5em;
+  margin-left: 0;
+  margin-right: 0;
+  font-family: "Noto Sans TC", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.375;
+  letter-spacing: 0;
+  font-style: italic;
+  margin-bottom: 32px;
+  border-left: solid 5px hsl(0deg, 0%, 80%);
+}
+.ck-content > blockquote {
+  font-size: 16px;
+}
+@media screen and (min-width: 768px) {
+  .ck-content > blockquote {
+    font-size: calc(0vw + 16px);
+  }
+}
+@media screen and (min-width: 1536px) {
+  .ck-content > blockquote {
+    font-size: 16px;
+  }
+}
+
+.ck-content .image {
+  margin-bottom: 36px;
+}
+
+.ck-content figcaption {
+  font-family: "Noto Sans TC", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.66;
+  letter-spacing: 0;
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.3490196078);
+}
+.ck-content figcaption {
+  font-size: 12px;
+}
+@media screen and (min-width: 768px) {
+  .ck-content figcaption {
+    font-size: calc(0vw + 12px);
+  }
+}
+@media screen and (min-width: 1536px) {
+  .ck-content figcaption {
     font-size: 12px;
   }
 }/*# sourceMappingURL=all.css.map */
