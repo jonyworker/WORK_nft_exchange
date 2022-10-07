@@ -173,6 +173,36 @@
 }
 
 
+.heading-L-1 {
+  @include display-L-1;
+  
+}
+.heading-L-2 {
+  @include display-L-2;
+  
+}
+.heading-L-3 {
+  @include display-L-3;
+  
+}
+.heading-L-4 {
+  @include display-L-4;
+  
+}
+.body-L-1 {
+  @include body-L-1;
+  
+}
+.button-L-1 {
+  @include functional-L-1;
+  
+}
+.caption-L-1 {
+  @include button-L-1;
+  
+}
+
+
 .body-text {
   @include body-B-1;
   color: $color-black;
