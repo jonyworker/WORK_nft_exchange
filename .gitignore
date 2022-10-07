@@ -3,6 +3,7 @@
 /vendor
 /front/dist
 /public/dist
+/publicorage
 *.log
 .env
 # Logs
