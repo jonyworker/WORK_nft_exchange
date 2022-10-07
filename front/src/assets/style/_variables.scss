@@ -56,14 +56,14 @@ $text-color-primary: #1C2B36;
 $text-color-secondary: #3E5463;
 $text-color-tertiary: #9FB1BD;
 
-// @property --rotate-angle {
-//   syntax: "<angle>";
-//   initial-value: 101.97deg;
-//   inherits: false;
-// }
+@property --rotate-angle {
+  syntax: "<angle>";
+  initial-value: 101.97deg;
+  inherits: false;
+}
 
-// @property --sub-rotate-angle {
-//   syntax: "<angle>";
-//   initial-value: 101.97deg;
-//   inherits: false;
-// }
+@property --sub-rotate-angle {
+  syntax: "<angle>";
+  initial-value: 101.97deg;
+  inherits: false;
+}

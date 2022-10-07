@@ -9,6 +9,16 @@
 /*----- 文字 變數 -----*/
 /*----- 顏料 -----*/
 /*----- 調色盤 -----*/
+@property --rotate-angle {
+  syntax: "<angle>";
+  initial-value: 101.97deg;
+  inherits: false;
+}
+@property --sub-rotate-angle {
+  syntax: "<angle>";
+  initial-value: 101.97deg;
+  inherits: false;
+}
 /*----- Single property -----*/
 /*----- Multiple properties with same values -----*/
 /*//////////////////////////////

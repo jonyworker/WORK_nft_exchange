@@ -106,6 +106,7 @@ onMounted(() => {
   border: 4px solid transparent;
   border-radius: 20px;
   background: -webkit-gradient(linear, left top, left bottom, from(#1C1C24), to(#1C1C24)) padding-box, -webkit-gradient(linear, left top, left bottom, from(var(--rotate-angle)), color-stop(-16.15%, #CB12F2), color-stop(49.76%, #121212), color-stop(112.97%, #7512F2)) border-box;
+  
   background: linear-gradient(#1C1C24, #1C1C24) padding-box, linear-gradient(var(--rotate-angle), #CB12F2 -16.15%, #121212 49.76%, #7512F2 112.97%) border-box;
   position: relative;
 }
