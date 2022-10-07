@@ -120,6 +120,10 @@ var CKBUILDER_CONFIG = {
 		'wysiwygarea' : 1
 	},
 	languages : {
-		'en' : 1
+		'en' : 1,
+		'ja' : 1,
+		'ko' : 1,
+		'zh' : 1,
+		'zh-cn' : 1
 	}
 };
