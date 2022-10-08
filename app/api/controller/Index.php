@@ -104,6 +104,10 @@ class Index extends BaseController
                 } else {
                     $data[$k]['unit_photo'] = '';
                 }
+
+                foreach (array('floor_price','volume_24','volume_24_p','volume_7d','volume_7d_p','volume_30d','volume_30d_p',) as $k_f => $v_f) {
+                    $data[$k][$v_f] = round($data[$k][$v_f],2);
+                }
             }
 
             return success2('hot_collections',$data);
