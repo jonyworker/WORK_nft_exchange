@@ -39,7 +39,7 @@
                 <p class="card-title clamp-3 text-white pt-4 pl-16 " >
                   {{ item.introduction }}
                 </p>
-                <p class="card-text  text-white">{{$t('home.price')}}{{ item.price }}</p>
+                <p class="card-text  text-white clamp-1">{{$t('home.price')}}{{ item.price }}</p>
                 <p class="card-text  text-white">{{$t('home.total')}}{{ item.total }}</p>
                 <p class="card-text text-white">{{$t('home.shortTime')}}{{ item.shortTime }}</p>
               </div>
@@ -285,9 +285,10 @@ onMounted(() => {
   width: 38px;
   height: 38px;
   img{
-    width: 100%;
-    height: 100%;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
+    overflow: hidden;
   }
 }
 .card_icon{
