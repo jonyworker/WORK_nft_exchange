@@ -17,7 +17,7 @@
 
             <div class="card-image">
 
-              <img src="@/assets/images/random_1.png" alt="">
+              <img :src="http + item.background" alt="">
               <div class="card_icon">
                 <div class="icon_list"  @click="toDialog(1,item)"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
                 </div>
