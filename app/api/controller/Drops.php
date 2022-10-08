@@ -82,6 +82,7 @@ class Drops extends BaseController
                 ->toArray();
 
             foreach ($data as $k => $v) {
+                $data[$k]['background'] = $background[shuffle($background)];
                 $ymd = date('Ymd',$v['ori_date']);
                 $his = date('His',$v['ori_date']);
                 $data[$k]['schedule'] = 'https://calendar.google.com/calendar/u/0/r/eventedit?dates='.$ymd.'T'.$his.'-8/'.$ymd.
