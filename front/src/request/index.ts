@@ -10,7 +10,12 @@ const service = axios.create({
 service.interceptors.request.use(function (config) {
     // 在发送请求之前做些什么
     const lan =sessionStorage.getItem('localeLangEnum')??1
-    config.params ={...config.params,lan:Number(lan)}
+    if(config.method==='post')  {
+        config.data ={...config.data,lan:Number(lan)}
+    }else {
+        config.params ={...config.params,lan:Number(lan)}
+    }
+    console.log("-> config", config);
     return config;
 }, function (error) {
     // 对请求错误做些什么

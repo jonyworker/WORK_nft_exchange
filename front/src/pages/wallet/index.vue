@@ -4,8 +4,8 @@
     <div class="wrap-subTitle">所有文章都通過 Mirror 發佈在區塊鏈上。 NFTotal 擁有文章的版權。NFTotal 擁有文章的版權。</div>
     <div class="wrap-tabs">
       <div v-for="(item,index) in walletList" :key="index" :class="['tags',type===item.id?'active_tags':'']" @click="chageTag(item.id)">
-        <div> </div>
-        <div>{{item.name}}</div>
+        <div class="image"><img :src="item.image" alt=""> </div>
+        <div class="name">{{item.name}}</div>
       </div>
     </div>
   </div>
@@ -14,19 +14,28 @@
 <script lang="ts" setup>
 
 import {homeApi} from "@/api";
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
 const type = ref(4);
+const getImage = (url:any) =>{
+  return new URL(url,import.meta.url).href;
+}
 const walletList = ref([
-    {id:1,name:'MetaMask',image:''},
-  {id:2,name:'imToken',image:''},
-  {id:3,name:'SafePal',image:''},
-  {id:4,name:'Wallet Connect',image:''},
-  {id:5,name:'Coinbase Wallet',image:''},
+    {id:1,name:'MetaMask',image:getImage("../../assets/images/metamask.png")},
+  {id:2,name:'imToken',image:getImage("../../assets/images/minting_1.png")},
+  {id:3,name:'SafePal',image:getImage("../../assets/images/minting_2.png")},
+  {id:4,name:'Wallet Connect',image:getImage("../../assets/images/minting_3.png")},
+  {id:5,name:'Coinbase Wallet',image:getImage("../../assets/images/minting_4.png")},
 ])
 const chageTag = async (value: number) => {
   type.value = value
 
 }
+const getWallet = async () =>{
+  const res =  await homeApi.postLogin('0x78aa39849c1280cfcadd65c585acae297789084a');
+}
+onMounted(() => {
+  getWallet()
+})
 </script>
 
 <style scoped lang="less">
@@ -37,6 +46,16 @@ const chageTag = async (value: number) => {
   }
   .tags{
     font-size: 30px !important;
+    display: flex;
+    justify-content: space-between;
+    .image{
+      padding-left: 20px;
+      img{
+        width:40px;
+        height:40px;
+        margin-top:-12px;
+      }
+    }
   }
   .wrap-subTitle{
     font-size: 16px !important;
@@ -50,6 +69,16 @@ const chageTag = async (value: number) => {
   }
   .tags{
     font-size: 28px !important;
+    display: flex;
+    justify-content: space-between;
+    .image{
+      padding-left: 20px;
+      img{
+        width:30px;
+        height:30px;
+        margin-top:-12px;
+      }
+    }
   }
   .wrap-subTitle{
     font-size: 14px !important;
@@ -57,8 +86,9 @@ const chageTag = async (value: number) => {
   }
 }
 .wrap-title{
-  padding-top: 20px;
-  text-align: center;
+  padding-top: 50px;
+  text-align: center !important;
+  padding-bottom: 10px;
   //width: 1200px;
   //margin: auto;
   font-size: 32px;
