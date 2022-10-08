@@ -54,14 +54,14 @@
                             <span>Floor price:
                               <span>
                                 <span><img :src="item.unit_photo" alt="" class="unitImg">{{item.floor_price}}</span>
-                                <span>ETH</span>
+<!--                                <span>ETH</span>-->
                               </span>
                             </span>
                           </span>
                       <span class="now-price">
                         <span>
                           <span><img :src="item.unit_photo" alt="" class="unitImg">{{ item.volume_24}}</span>
-                          <span>ETH</span>
+<!--                          <span>ETH</span>-->
                         </span>
                       </span>
                     </div>
