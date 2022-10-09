@@ -56,7 +56,7 @@
                             <div class="profile-pic mr-8">
                               <img :src="item.photo_url" alt="">
                             </div>
-                            <p class="single-ellipsis">{{item.name}}</p>
+                            <p class="single-ellipsis" @click="toIndex(item.id)">{{item.name}}</p>
                           </div>
                         </td>
                         <td class="" v-if="date === 1">{{ item.volume_24_p }}</td>
@@ -231,6 +231,9 @@ const getHomeHot = async () => {
   }
   const res = await homeApi.getHotLists(params);
   hotList.value = res.hot_collections;
+}
+const toIndex = (id:any) =>{
+  router.push({name: 'HomePage',query:{id:id}})
 }
 const getProfig = async () =>{
   const params ={
