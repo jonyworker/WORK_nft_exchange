@@ -1,5 +1,5 @@
 <template>
-  <div class="wallet-section section mb-80">
+  <div class="wallet-section section mb-80 mt-20">
     <div class="container">
       <div class="content">
         <!-- 標題組 -->
@@ -42,7 +42,7 @@
                   </div>
                   <div class="ranking-text">
                     <div class="ranking-top">
-                    <span class="title-wrap">
+                    <span class="title-wrap"  @click="toIndex(item.id)">
                             <span class="ranking-title">{{item.name}}</span>
                       </span>
                       <span class="ranking-value">
@@ -81,7 +81,7 @@
                 </div>
                 <div class="ranking-text">
                   <div class="ranking-top">
-                    <span class="title-wrap">
+                    <span class="title-wrap" @click="toIndex(item.id)">
                             <span class="ranking-title">{{item.name}}</span>
                       </span>
                     <span class="ranking-value">
@@ -93,14 +93,14 @@
                             <span>Floor price:
                               <span>
                                 <span><img :src="item.unit_photo" alt="" class="unitImg">{{item.floor_price}}</span>
-                                <span>ETH</span>
+<!--                                <span>ETH</span>-->
                               </span>
                             </span>
                           </span>
                     <span class="now-price">
                         <span>
                           <span><img :src="item.unit_photo" alt="" class="unitImg">{{ item.volume_24}}</span>
-                          <span>ETH</span>
+<!--                          <span>ETH</span>-->
                         </span>
                       </span>
                   </div>
@@ -120,7 +120,7 @@
                   </div>
                   <div class="ranking-text">
                     <div class="ranking-top">
-                    <span class="title-wrap">
+                    <span class="title-wrap"  @click="toIndex(item.id)">
                             <span class="ranking-title">{{item.name}}</span>
                       </span>
                       <span class="ranking-value">
@@ -132,14 +132,14 @@
                             <span>Floor price:
                               <span>
                                 <span><img :src="item.unit_photo" alt="" class="unitImg">{{item.floor_price}}</span>
-                                <span>ETH</span>
+<!--                                <span>ETH</span>-->
                               </span>
                             </span>
                           </span>
                       <span class="now-price">
                         <span>
                           <span><img :src="item.unit_photo" alt="" class="unitImg">{{ item.volume_24}}</span>
-                          <span>ETH</span>
+<!--                          <span>ETH</span>-->
                         </span>
                       </span>
                     </div>
@@ -176,6 +176,7 @@ const props = defineProps({
 })
 
 interface IHotListFree{
+  id:string;
   photo_url: string;
   name: string;
   volume_24_p: string;
@@ -199,6 +200,9 @@ const chageTag = async (value: number) => {
 const hotRanking = () => {
   router.push({name: 'HotRanking',query:{type:2}})
 }
+const toIndex = (id:any) =>{
+  router.push({name: 'HomePage',query:{id:id}})
+}
 const getHomeHot = async () => {
   const res = await homeApi.getHotCollections(type.value);
    hotList.value = res.hot_collections.slice(0,5);
@@ -212,6 +216,7 @@ onMounted(() => {
 </script>
 
 <style scoped lang="less">
+
 .special_box{
   display: flex;
   justify-content:space-between;
