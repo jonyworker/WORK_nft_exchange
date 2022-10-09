@@ -62,7 +62,6 @@
             <!-- 小卡片 -->
             <div 
               class="col-12 col-sm-6 col-lg-4 mb-24"
-              v-infinite-scroll="load" 
               v-for="(item,index) in newList"
               :key="index"
             >
@@ -103,71 +102,103 @@
 </template>
 
 <script setup lang="ts">
-import {onMounted, ref} from "vue";
-import { useRouter } from 'vue-router';
+import {onMounted, ref, watchEffect} from "vue";
+import {useRouter} from 'vue-router';
 import {homeApi} from '../../api';
+import {useScrollHeight}from '@/hooks/useScrollHeight'
 const router = useRouter();
 
 const ps = router.currentRoute.value.query.type;
-const type = ref (1)
+const type = ref(1)
+const {scrollBtmHeight} =useScrollHeight()
+const newList = ref<INewListFor[] | null>(null);
+const newListTwo = ref<INewListFor | null>(null);
+const count = ref(0);
+const isFinish = ref<boolean>(false);
+const isLoading = ref<boolean>(false);
+const page = ref(1)
 interface IText {
   name: string
   value: number
 }
+
 const tabs = ref<IText[]>()
-const getTextList = async() =>{
+const getTextList = async () => {
   const res = await homeApi.getText();
   tabs.value = res.newstab
+  tabs.value&&chageTag(tabs.value[0].value)
 }
-const toDetails = (id:number) =>{
-  router.push({ name: 'NewsDetail',query:{id}})
+const toDetails = (id: number) => {
+  router.push({name: 'NewsDetail', query: {id}})
 }
-const chageTag = async(value:number) =>{
+const chageTag = async (value: number) => {
   type.value = value
+  newList.value = []
+  page.value = 1
+  isFinish.value = false
   const params = {
     // count:5,
     // page:1,
-    ind:type.value,
+    ind: type.value,
   }
   const res = await homeApi.getNews(params);
+  if (!res) {
+    return
+  }
   newListTwo.value = res.data[0];
   newList.value = res.data.splice(1);
 
 }
-interface INewListFor{
-  id:any;
-  photo_url:string;
-  ind:string;
-  title:string;
-  content:string;
+
+interface INewListFor {
+  id: any;
+  photo_url: string;
+  ind: string;
+  title: string;
+  content: string;
 }
-const newList = ref<INewListFor|null>(null);
-const newListTwo = ref<INewListFor|null>(null);
-const count = ref(0);
-const page = ref(1)
+
 //请求数据
-const getNews =async()=>{
+const getNews = async () => {
   const params = {
     // count:5,
     // page:1,
-    ind:type.value,
+    ind: type.value,
   }
   const res = await homeApi.getNews(params);
-  newList.value = res.data.slice(0,1);
+  if (!res) {
+    return
+  }
+  newList.value = res.data.slice(0, 1);
   newListTwo.value = res.data[0];
   newList.value = res.data.splice(1);
-
-
 }
-const load = async() =>{
-  const params = {
-    count:30,
-    page:page.value + 1,
-    ind:type.value,
+const load = async () => {
+  if (isFinish.value||isLoading.value||scrollBtmHeight.value>400) {
+    return;
   }
+  const params = {
+    count: 30,
+    page:page.value,
+    ind: type.value,
+  }
+  isLoading.value =true
   const res = await homeApi.getNews(params);
-  newList.value = res.data;
+  isLoading.value =false
+  if (!res) {
+    return
+  }
+  page.value =page.value + 1
+  newList.value = [...(newList.value??[]),...res.data] ;
+  if (res.data.length < 30) {
+    isFinish.value = true
+  }
+
 }
+watchEffect(()=>{
+  console.log("-> scrollBtmHeight.value", scrollBtmHeight.value);
+  load()
+})
 onMounted(() => {
   getNews()
   getTextList()
