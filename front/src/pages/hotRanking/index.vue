@@ -176,7 +176,7 @@ const getTextList = async() =>{
 }
 const ps = router.currentRoute.value.query.type;
 const type = ref ( 2);
-const date = ref(3);
+const date = ref(1);
 const row = ref(1)
 const toArrow = async(val:number) =>{
   row.value = val;
@@ -210,8 +210,8 @@ const changeDate = async(value:number) =>{
     const params ={
       count :30,    //每頁多少筆紀錄  // 用途:讓前端進行下滑分頁使用, 每次分頁撈取30條
       page:1,      // 返回第幾頁的數據
-      ind : date.value,  // 週期, 默認4   // 1: 24h  2:7d   3:30d  4:60d
-      orderby:  date.value , //排序, 默認1   // 1: win_p  2: win_ct   3: txn_ct
+      ind :date.value,  // 週期, 默認4   // 1: 24h  2:7d   3:30d  4:60d
+      orderby: date.value , //排序, 默認1   // 1: win_p  2: win_ct   3: txn_ct
       orderby_ind: 1 ,// 排序方向 , 默認1  //1:desc   2:asc
     }
     const res = await homeApi.getProfitList(params);

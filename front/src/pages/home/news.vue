@@ -122,7 +122,7 @@ import {homeApi} from '../../api';
 
 const router = useRouter();
 const newsList = () =>{
-  router.push({ name: 'News' })
+  router.push({ name: 'News'})
 }
 const toDetails = (id:number) =>{
   router.push({ name: 'NewsDetail',query:{id} })
@@ -139,20 +139,21 @@ const newListTwo = ref<INewListFor|null>(null);
 const newListFree = ref<INewListFor|null>(null);
 const newListFor = ref<INewListFor|null>(null);
 //请求数据
-const getHomeNews =async()=>{
+const getHomeNew = async() =>{
   const params = {
     count:5,
     page:1
   }
   const res = await homeApi.getNews(params);
-  newList.value = res?.data[0];
-  newListTwo.value = res?.data[1];
-  newListFree.value = res?.data[2];
-  newListFor.value = res?.data[3];
+  console.log("-> res=====", res);
+  newList.value = res.data[0];
+  newListTwo.value = res.data[1];
+  newListFree.value = res.data[2];
+  newListFor.value = res.data[3];
 
 }
 onMounted(() => {
-  getHomeNews()
+  getHomeNew()
 })
 </script>
 
