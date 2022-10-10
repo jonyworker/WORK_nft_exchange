@@ -25,6 +25,7 @@ class Collection extends Model
             'volume_24_p' => $info['volume_24_p'],
             'sales_24' => $info['sales_24'],
             'holders' => $info['holders'],
+            'holders_p' => $info['holders_p'],
             'website' => $info['website'],
 
             'twitter' => $info['twitter'],
@@ -32,6 +33,8 @@ class Collection extends Model
             'instagram' => $info['instagram'],
             'category' => $info['category'],
             'floor_price' => $info['floor_price'],
+            'floor_price_p' => $info['floor_price_p'],
+            'health_score' => $info['health_score'],
 
             'introduction' => $info['introduction' . $fieldLan],
             'member' => $info['member' . $fieldLan],
