@@ -9,7 +9,6 @@ use app\api\model\StatHolderCt;
 use app\BaseController;
 use think\App;
 use think\db\exception\DbException;
-use think\exception\HttpException;
 use think\response\Json;
 
 class Collections extends BaseController
@@ -48,5 +47,21 @@ class Collections extends BaseController
             '>100' => StatHolderCt::countHolderByCt($collectionId, [101, 0]),
         ];
         return json($data);
+    }
+
+
+    public function ntf() :Json
+    {
+        $collectionId = (int)$this->request->post('collectionId');
+        if ($collectionId <= 0) {
+            return json(['code' => 400, 'message' => '项目id不能为空']);
+        }
+        $filterInd = (int)$this->request->get('filterInd', 1);
+        $orderBy = (int)$this->request->get('orderBy', 1);
+        $count = (int)$this->request->get('count', 20);
+        $page = (int)$this->request->get('page', 1);
+
+        $data = \app\api\model\Nft::getListByApi($collectionId, $filterInd, $orderBy, $page, $count);
+        return json(['status' => 'OK', 'data' => $data]);
     }
 }

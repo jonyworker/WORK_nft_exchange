@@ -18,6 +18,8 @@ class Nft extends BaseController
         parent::__construct($app);
     }
 
+
+
     // NFT分析-熱門排行
     public function hotcollections()
     {
