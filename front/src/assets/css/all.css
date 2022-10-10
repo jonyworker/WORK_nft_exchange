@@ -119,6 +119,7 @@
 }
 .heading-B-4 {
   font-size: 20px;
+  color: #fff;
 }
 @media screen and (min-width: 768px) {
   .heading-B-4 {
@@ -151,7 +152,9 @@
     font-size: 16px;
   }
 }
-
+.mb-10{
+  margin-bottom: 2rem;
+}
 .button-B-1 {
   font-family: "Noto Sans TC", sans-serif;
   font-style: normal;
@@ -12117,9 +12120,9 @@ img {
   }
 }
 
-.cta-email-subscribe {
-  width: 306px;
-}
+/*.cta-email-subscribe {*/
+/*  width: 306px;*/
+/*}*/
 
 .cta-section.col-12 .cta-email-subscribe {
   width: 100%;

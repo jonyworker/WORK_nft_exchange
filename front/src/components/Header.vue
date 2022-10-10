@@ -7,7 +7,7 @@
           mode="horizontal"
           :ellipsis="false"
           @select="handleSelect"
-        > 
+        >
           <!-- Header - Logo商標  -->
           <li class="header-logo" index="0" @click="toHome()">
             <svg width="113" height="19" viewBox="0 0 113 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -35,7 +35,7 @@
 
           <!-- Header - 新聞＆專欄 -->
           <el-menu-item index="5" @click="toNews(1)">{{$t('home.news')}}</el-menu-item>
-          
+
           <!-- 需刪除 - 專欄 -->
           <!-- <el-menu-item index="6" @click="toNews(2)">{{$t('home.blog')}}</el-menu-item> -->
           <div class="flex-grow"/>
@@ -50,7 +50,7 @@
               Connect Wallet
             </div>
 
-          <!-- Header - 語言選擇 -->  
+          <!-- Header - 語言選擇 -->
           <el-sub-menu index="8">
             <template #title>语言 - {{ langType[language] }}</template>
             <el-menu-item index="zhCn" @click="handleCommand('zhCn')">简体中文</el-menu-item>
@@ -212,7 +212,7 @@ line-height: 40px;
   height: 32px;
   line-height:12px;
   padding: 8px 24px;
-  margin-top: 17px;
+  margin-top: 12px;
   margin-right: 15px;
 }
 .menu_icon{

@@ -22,7 +22,7 @@
             </div>
             <!-- 熱門排行 -->
             <div class="row" v-show="type === 2">
-              <div class="tabs">
+              <div class="tabs mt-10">
                 <div v-for="(item,index) in textList" :key="index" :class="['tag',date===item.value?'active_tag':'']" @click="changeDate(item.value)" v-show="index < 3">
                   {{item.name}}
                 </div>
@@ -56,7 +56,7 @@
                             <div class="profile-pic mr-8">
                               <img :src="item.photo_url" alt="">
                             </div>
-                            <p class="single-ellipsis">{{item.name}}</p>
+                            <p class="single-ellipsis" @click="toIndex(item.id)">{{item.name}}</p>
                           </div>
                         </td>
                         <td class="" v-if="date === 1">{{ item.volume_24_p }}</td>
@@ -107,7 +107,7 @@
                                 <span class='next-span'>{{item.address.slice(-6)}}</span>
                               </div>
                             </div>
-                            <div class="profile-pic ml-6" @click="copyInfo(item.address)">
+                            <div class="profile" @click="copyInfo(item.address)">
                               <img src="@/assets/images/icon_copy.png" alt="">
                             </div>
                           </div>
@@ -116,7 +116,7 @@
                         <td class="">{{item.txn_ct}}</td>
                         <td class="">{{item.win_ct}}</td>
                         <td>{{item.lost_ct}}ETH</td>
-                        <td><div class="profile-pic mr-8" @click="toLink(item.other_txns)"> <img src="@/assets/images/link.png" alt=""></div></td>
+                        <td><div class="profile-pic" @click="toLink(item.other_txns)"> <img src="@/assets/images/link.png" alt=""></div></td>
                       </tr>
                       </tbody>
                     </table>
@@ -232,6 +232,9 @@ const getHomeHot = async () => {
   const res = await homeApi.getHotLists(params);
   hotList.value = res.hot_collections;
 }
+const toIndex = (id:any) =>{
+  router.push({name: 'HomePage',query:{id:id}})
+}
 const getProfig = async () =>{
   const params ={
       count :30,    //每頁多少筆紀錄  // 用途:讓前端進行下滑分頁使用, 每次分頁撈取30條
@@ -255,7 +258,9 @@ onMounted(() => {
 </script>
 
 <style scoped lang="less">
-
+.tabs{
+  margin-top: 10px;
+}
 .title-wrap .subtile {
   font-family: "Noto Sans TC", sans-serif;
   font-style: normal;
@@ -298,5 +303,14 @@ onMounted(() => {
       white-space: nowrap;
     }
   }
+}
+.profile-pic img{
+  margin-left:10px;
+  height: 30px;
+  width: 35px;
+}
+.profile img{
+  position: relative;
+  left:10px;
 }
 </style>

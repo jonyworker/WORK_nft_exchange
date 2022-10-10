@@ -59,8 +59,8 @@
                       </div>
                     </div>
 <!--                      <p class="single-ellipsis">{{item.address}}</p>-->
-                    <div class="profile-pic ml-6" @click="copyInfo(item.address)">
-                      <img src="@/assets/images/icon_copy.png" alt="">
+                    <div class="profile" @click="copyInfo(item.address)">
+                      <img width="20px" height="20px" src="@/assets/images/icon_copy.png" alt="">
                     </div>
                   </div>
                 </td>
@@ -69,7 +69,7 @@
                 <td>{{item.win_ct}}</td>
                 <td>{{item.lost_ct}}</td>
                 <td>
-                  <div class="profile-pic mr-8"> <img src="@/assets/images/link.png" alt="" @click="toLink(item.other_txns)"></div>
+                  <div class="profile-pic"> <img src="@/assets/images/link.png" alt="" @click="toLink(item.other_txns)"></div>
                 </td>
               </tr>
               </tbody>
@@ -157,5 +157,14 @@ onMounted(() => {
       white-space: nowrap;
     }
   }
+}
+.profile-pic img{
+  margin-left:10px;
+  height: 30px;
+  width: 35px;
+}
+.profile img{
+  position: relative;
+  left:10px;
 }
 </style>

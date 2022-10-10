@@ -1,4 +1,4 @@
-<!-- <template>
+ <template>
   <div class="container">
 
     <div class="minting_box">
@@ -10,7 +10,6 @@
       </div>
     </div>
     <div class="minting-content mt-10">
-
       <div class="row">
 
         <div class="col-12 col-sm-6 col-lg-3" v-for="(item,index) in dropsList" :key="index">
@@ -18,7 +17,7 @@
 
             <div class="card-image">
 
-              <img src="@/assets/images/random_1.png" alt="">
+              <img :src="http + item.background" alt="">
               <div class="card_icon">
                 <div class="icon_list"  @click="toDialog(1,item)"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
                 </div>
@@ -33,14 +32,14 @@
                 <div class="card-icon-img">
                   <img :src="item.collection_url" alt="">
                 </div>
-                <p class="heading-B-4 text-white">{{ item.collection }}</p>
+                <p class="heading-B-4 text-white clamp-1">{{ item.collection }}</p>
               </div>
 
               <div class="card-text-wrap">
-                <p class="card-title text-white">
+                <p class="card-title clamp-3 text-white pt-4 pl-16 " >
                   {{ item.introduction }}
                 </p>
-                <p class="card-text  text-white">{{$t('home.price')}}{{ item.price }}</p>
+                <p class="card-text  text-white clamp-1">{{$t('home.price')}}{{ item.price }}</p>
                 <p class="card-text  text-white">{{$t('home.total')}}{{ item.total }}</p>
                 <p class="card-text text-white">{{$t('home.shortTime')}}{{ item.shortTime }}</p>
               </div>
@@ -122,9 +121,9 @@
 
     </el-dialog>
   </div>
-</template> -->
+</template>
 
-<!-- <script setup lang="ts">
+ <script setup lang="ts">
 
 import {computed, onMounted, ref} from "vue";
 import {useRouter} from 'vue-router';
@@ -153,7 +152,7 @@ type IInfo = {
 
 const router = useRouter();
 const type = ref(1);
-const dataList = ref<IInfo[] | null>(null);
+const dataList = ref<Object>();
 const List = ref([{name:'成員介紹',value:1},{name:'路線圖',value:2}]);
 const changeList = (value:number) =>{
   type.value = value
@@ -220,9 +219,9 @@ onMounted(() => {
 })
 
 
-</script> -->
+</script>
 
-<!-- <style scoped lang="less">
+ <style scoped lang="less">
 .ipad-main{
   display: flex;
   padding-bottom: 30px;
@@ -286,9 +285,10 @@ onMounted(() => {
   width: 38px;
   height: 38px;
   img{
-    width: 100%;
-    height: 100%;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
+    overflow: hidden;
   }
 }
 .card_icon{
@@ -493,4 +493,4 @@ onMounted(() => {
   width: 32px;
 }
 
-</style> -->
+</style>

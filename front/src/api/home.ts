@@ -20,6 +20,7 @@ const homeApi = {
     },
     //新闻
     async getNews (params: any){
+        if(isNaN(params.ind)){return }
         return await request.get(`api/news/list`,{params})
     },
     //新闻详情
@@ -37,7 +38,10 @@ const homeApi = {
     //
     async getText ():Promise<{period:any ,tab:any ,newstab:any,tabTime:any}>{
         return await request.get(`api/index/text`)
-    }
-
+    },
+    //链接钱包
+    async postLogin (address: any){
+        return await request.post(`api/login`,{address})
+    },
 }
 export default homeApi

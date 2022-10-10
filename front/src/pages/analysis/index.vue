@@ -1,4 +1,4 @@
-<!-- <template>
+ <template>
 <div >
   <div class="analysis"></div>
   <div class="container">
@@ -102,9 +102,9 @@
     </div>
   </div>
 </div>
-</template> -->
+</template>
 
-<!-- <script setup lang="ts">
+ <script setup lang="ts">
 import {onMounted, ref} from "vue";
 import {homeApi} from "@/api";
 import {copy} from "@utils/copy";
@@ -117,6 +117,7 @@ type IInfo = {
   ori_date: string;
 }
 const type = ref(1);
+let http = 'http://v2admin.nftotal.io/';
 const analysisList = ref({})
 const dropsList = ref<IInfo[] | null>(null);
 const textList = ref([{name:'追蹤項目',value:1,},{name:'追蹤NFT',value:2}]);
@@ -139,22 +140,24 @@ onMounted(() => {
   getAnalysis()
 })
 
-</script> -->
+</script>
 
-<!-- <style scoped lang="less">
+ <style scoped lang="less">
 .container{
   position: relative;
 }
 .analysis{
   height: 364px;
   background: #D9D9D9;
+  position: relative;
+  top:30px;
 }
 .top-image{
   position: absolute;
-  top: -155px;
+  top: -59px;
   img{
-    width: 190px;
-    height: 190px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
   }
 }
@@ -256,4 +259,4 @@ onMounted(() => {
   font-size: 32px;
   margin-top: 10px;
 }
-</style> -->
+</style>
