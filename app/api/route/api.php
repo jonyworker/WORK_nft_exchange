@@ -24,3 +24,5 @@ Route::post('member/nft/add','MemberNFT/add')->middleware(Auth::class);
 
 //取得項目主頁資訊 GET api/collection/index
 Route::get('collection/index','Collections/index');
+//取得項目主頁NFT卡片 POST api/collection/nft
+Route::get('collection/nft','Collections/nft');
