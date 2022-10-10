@@ -1,4 +1,7 @@
 <template>
+    <div class="title">
+      持有數量分佈
+    </div>
   <div id="pieChart" class="pieChart"></div>
 </template>
 
@@ -14,7 +17,7 @@ const initChart = (data: { value: number, name: string }[]) => {
   // 绘制图表
   myPieChart.value.setOption({
     title: {
-      text: '持有數量分佈',
+     // text: '持有數量分佈',
 
       textStyle:{
         color:'#fff',
@@ -23,7 +26,7 @@ const initChart = (data: { value: number, name: string }[]) => {
       }
     },
     legend: {
-      bottom: '2%',
+      bottom: '0',
       textStyle:{
         // fontSize:0.8,
         color:'#FFF',
@@ -84,37 +87,14 @@ onMounted(() => {
 </script>
 
 <style scoped lang="less">
+.title{
+  font-weight: 700;
+  font-size: 28px;
+  height:30px;
+  margin-bottom: 15px;
+}
 .pieChart {
-  width: 600px;
   height: 427px;
 }
 
-.tabs {
-  display: flex;
-  font-weight: 700;
-  font-size: 18px;
-  color: #fff;
-
-  .active {
-    background: linear-gradient(180deg, #8585FF 0%, #4A4AC4 100%);
-  }
-
-  div {
-    border-radius: 15px;
-    text-align: center;
-    border: 1px solid;
-    padding: 4px 16px;
-    box-sizing: border-box;
-    width: 58px;
-    line-height: 22px;
-    height: 30px;
-    background: rgba(255, 255, 255, 0.1);
-  }
-}
-@media screen and (max-width: 450px) {
-  .pieChart {
-    width: 356px !important;
-    height: 427px;
-  }
-}
 </style>

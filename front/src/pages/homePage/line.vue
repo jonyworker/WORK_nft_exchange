@@ -169,7 +169,6 @@ onMounted(() => {
 
 <style scoped lang="less">
 .pieChart {
-  width: 636px;
   height: 427px;
 }
 
@@ -179,6 +178,7 @@ onMounted(() => {
   font-weight: 700;
   font-size: 18px;
   color: #fff;
+  margin-bottom: 15px;
   .active{
     background: linear-gradient(180deg, #8585FF 0%, #4A4AC4 100%);
   }
@@ -194,10 +194,5 @@ onMounted(() => {
     background: rgba(255, 255, 255, 0.1);
   }
 }
-@media screen and (max-width: 450px) {
-  .pieChart {
-    width: 356px !important;
-    height: 427px;
-  }
-}
+
 </style>

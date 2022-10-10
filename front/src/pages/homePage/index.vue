@@ -16,7 +16,7 @@
               </div>
             </div>
           </div>
-          <div class="text-list">
+          <div class="text-list clamp-3">
             {{ panel.data.introduction }}
           </div>
         </div>
@@ -39,7 +39,7 @@
             <div>${{ panel.data.market_cap }}</div>
             <div>
               <span class="time">24h</span>
-              <span>{{ panel.data.market_cap_p * 100 }}%</span>
+              <span>{{ (panel.data.market_cap_p * 100).toFixed(1) }}%</span>
             </div>
           </div>
           <div class="card">
@@ -47,7 +47,7 @@
             <div>{{ panel.data.holders }}</div>
             <div>
               <span class="time">24h</span>
-              <span>{{ panel.data.holders_p * 100 }}%</span>
+              <span>{{ (panel.data.holders_p * 100 ).toFixed(1)}}%</span>
             </div>
           </div>
           <div class="card">
@@ -55,7 +55,7 @@
             <div>${{ panel.data.volume_24 }}</div>
             <div>
               <span class="time">24h</span>
-              <span>{{ panel.data.volume_24_p * 100 }}%</span>
+              <span>{{ (panel.data.volume_24_p * 100).toFixed(1) }}%</span>
             </div>
           </div>
           <div class="card">
@@ -63,30 +63,35 @@
             <div>${{ panel.data.floor_price }}</div>
             <div>
               <span class="time">24h</span>
-              <span>{{ panel.data.floor_price_p * 100 }}%</span>
+              <span>{{ (panel.data.floor_price_p * 100).toFixed(1) }}%</span>
             </div>
           </div>
         </div>
         <div class="demo-flex">
           <div>項目健康指數</div>
-          <div>${{panel.data.health_score}}</div>
+          <div>${{panel.data.holders}}</div>
           <div>
             <span class="time">24h</span>
-            <span>{{ panel.data.health_score * 100 }}%</span>
+            <span>{{ (panel.data.holders /   panel.data.item_qty  * 100).toFixed(1) }}%</span>
           </div>
         </div>
       </div>
     </div>
     <!--   图表 -->
-    <div class="flex-wrap">
-      <div class="line">
-        <Line :panel="panel"/>
-      </div>
+ <el-row  :gutter="12" style="margin: 12px 0">
+   <el-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
+     <div class="line">
+     <Line :panel="panel"/>
+     </div>
+   </el-col>
+   <el-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
       <div class="pie">
-        <Pie :panel="panel"/>
+     <Pie :panel="panel"/>
       </div>
+   </el-col>
+ </el-row>
 
-    </div>
+
     <!--    -->
     <div class="dialog-wrap ">
       <div class="left">
@@ -136,9 +141,9 @@
 </template>
 
 <script setup lang="ts">
-
-import {onMounted, reactive, ref} from "vue";
-import {homePageApi} from "@/api";
+import {useScrollHeight}from '@/hooks/useScrollHeight'
+import {onMounted, reactive, ref, watchEffect} from "vue";
+import {homeApi, homePageApi} from "@/api";
 import {useRoute} from "vue-router"
 import {panelData} from "@/pages/homePage/homePageTypes";
 import Line from "@/pages/homePage/line.vue";
@@ -146,6 +151,11 @@ import Pie from "@/pages/homePage/pie.vue";
 
 const route = useRoute()
 const price = ref()
+const isFinish = ref<boolean>(false);
+const isLoading = ref<boolean>(false);
+const count = ref(0);
+const page = ref(1)
+const {scrollBtmHeight} =useScrollHeight()
 const panel = reactive<panelData>({} as panelData)
 type IInfo = {
   id: string,
@@ -177,8 +187,31 @@ const getCard = async()=>{
   }
   const res = await homePageApi.postHomeCard({...params});
   dropsList.value = res.data
-  console.log("-> res", res);
 }
+const load = async () => {
+  if (isFinish.value||isLoading.value||scrollBtmHeight.value>400) {
+    return;
+  }
+  const params = {
+     count: 30,
+    page:page.value,
+  }
+  isLoading.value =true
+  const res = await homeApi.getNews(params);
+  isLoading.value =false
+  if (!res) {
+    return
+  }
+  page.value =page.value + 1
+  dropsList.value = [...(dropsList.value??[]),...res.data] ;
+  if (res.data.length < 30) {
+    isFinish.value = true
+  }
+
+}
+watchEffect(()=>{
+  load()
+})
 onMounted(() => {
   getHomePage()
   getCard()
@@ -205,19 +238,19 @@ onMounted(() => {
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 16px;
   }
-  .pie{
-    background: #1C1C24;
-    width: 48% ;
-    /* bgWh/20 */
-    padding: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
-  }
+
+}
+.pie,.line{
+  margin: 12px 0;
+  background: #1C1C24;
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
 }
 @media screen and (max-width: 450px) {
   .wrap-containers {
     display: block !important;
-    height: 1100px !important;
+    height: 1050px !important;
     margin-top: 40px !important;
   }
 
@@ -238,7 +271,7 @@ onMounted(() => {
   .text-list {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: 2;
     overflow: hidden;
   }
 
@@ -286,14 +319,32 @@ onMounted(() => {
   .flex-wrap .pie{
     width: 100% !important;
   }
+  .container-right {
+    width: 100% !important;
+  }
+  //.demo-flex {
+  //  width: 606px !important;
+  //  margin-left: 0px !important;
+  //}
+  .container-flex {
+    width: 100% !important;
+  }
 }
 @media screen and (min-width: 768px) {
-
+  .flex-wrap .line{
+    width: 100% !important;
+    margin-bottom:15px !important;
+  }
+  .flex-wrap .pie{
+    width: 100% !important;
+  }
   .wrap-containers {
     display: block !important;
     height: 740px !important;
   }
-
+  .container-right {
+    width: 100% !important;
+  }
   .container-flex {
     width: 100% !important;
   }
@@ -302,9 +353,7 @@ onMounted(() => {
     height: 280px !important;
   }
 
-  .container-right {
-    width: 100% !important;
-  }
+
 
   .right-flex {
     display: flex !important;
@@ -318,10 +367,6 @@ onMounted(() => {
     }
   }
 
-  .demo-flex {
-    width: 656px !important;
-    margin-left: 0px !important;
-  }
 }
 
 @media screen and (min-width: 900px) {
@@ -343,12 +388,11 @@ onMounted(() => {
 }
 
 .demo-flex {
-  width: 568px;
+  //width: 604px;
   height: 114px;
   background: #121212;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
-  margin-left: 16px;
   padding: 20px;
   line-height: 26px;
 }
@@ -358,7 +402,7 @@ onMounted(() => {
   justify-content: space-between;
   flex-wrap: wrap;
 
-  padding: 16px 16px 0px 16px;
+  padding: 16px 16px 0px 0px;
 
   .card {
     width: 275px;
@@ -495,6 +539,8 @@ onMounted(() => {
 
 .card-image {
   img {
+    //width:261px ;
+    //height:261px;
     border-radius: 16px 16px 0px 0px;
   }
 }

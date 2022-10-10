@@ -114,9 +114,9 @@ const {scrollBtmHeight} =useScrollHeight()
 const newList = ref<INewListFor[] | null>(null);
 const newListTwo = ref<INewListFor | null>(null);
 const count = ref(0);
+const page = ref(1)
 const isFinish = ref<boolean>(false);
 const isLoading = ref<boolean>(false);
-const page = ref(1)
 interface IText {
   name: string
   value: number
@@ -196,7 +196,6 @@ const load = async () => {
 
 }
 watchEffect(()=>{
-  console.log("-> scrollBtmHeight.value", scrollBtmHeight.value);
   load()
 })
 onMounted(() => {
