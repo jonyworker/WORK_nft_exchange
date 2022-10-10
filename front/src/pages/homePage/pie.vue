@@ -64,9 +64,8 @@ const initChart = (data: { value: number, name: string }[]) => {
 watch(() => props?.panel, () => {
   if (props?.panel?.holder_stat) {
     const total = Object.values(props?.panel?.holder_stat).reduce((a,b)=>a+b)
-    console.log("-> total", total);
     const data = Object.keys(props?.panel?.holder_stat).map((key: string) => {
-      const value = props?.panel?.holder_stat[key]
+      const value = props?.panel?.holder_stat[key as never]
       const percent = (value/total * 100).toFixed(2)
       return {name: `${key} -- ${percent}%` , value}
     })

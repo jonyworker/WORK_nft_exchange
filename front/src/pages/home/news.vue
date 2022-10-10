@@ -145,10 +145,10 @@ const getHomeNews =async()=>{
     page:1
   }
   const res = await homeApi.getNews(params);
-  newList.value = res.data[0];
-  newListTwo.value = res.data[1];
-  newListFree.value = res.data[2];
-  newListFor.value = res.data[3];
+  newList.value = res?.data[0];
+  newListTwo.value = res?.data[1];
+  newListFree.value = res?.data[2];
+  newListFor.value = res?.data[3];
 
 }
 onMounted(() => {

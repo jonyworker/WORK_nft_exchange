@@ -24,9 +24,9 @@ const myChart = ref();
  * 切换数据
  * @param type
  */
-const changeData = (type: never) => {
+const changeData = (type: string) => {
   current.value = type
-  const data = props.panel?.[type]
+  const data = props.panel?.[type as never]
   const {
     date_list,
     floor_price,
@@ -161,7 +161,8 @@ watch(() => props?.panel, () => {
 })
 
 onMounted(() => {
-  myChart.value = echarts.init(document.getElementById('lineChart'))
+  const chartDom = document.getElementById('lineChart');
+  myChart.value =  chartDom && echarts.init(chartDom);
 })
 
 </script>

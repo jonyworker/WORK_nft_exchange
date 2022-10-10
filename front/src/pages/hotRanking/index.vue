@@ -149,6 +149,7 @@ interface IHotListFree{
   holders:string;
   volume_7d_p:string;
   item_qty:string;
+  id: string;
 }
 interface  IProfit{
   id: string; //profit_stat.id
