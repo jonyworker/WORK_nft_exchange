@@ -14,13 +14,20 @@ const initChart = (data: { value: number, name: string }[]) => {
   // 绘制图表
   myPieChart.value.setOption({
     title: {
-      text: '持有數量分佈'
+      text: '持有數量分佈',
+
+      textStyle:{
+        color:'#fff',
+        fontWeight:'400',
+        fontSize:'16'
+      }
     },
     legend: {
-      orient: 'vertical',
-      right: 10,
-      top: 20,
-      bottom: 20,
+      bottom: '2%',
+      textStyle:{
+        // fontSize:0.8,
+        color:'#FFF',
+      }
     },
     series: [
       {
@@ -29,13 +36,18 @@ const initChart = (data: { value: number, name: string }[]) => {
         radius: ['50%', '70%'],
         avoidLabelOverlap: false,
         label: {
-          show: false,
-          position: 'center'
+          show:false,
+          position: 'center',
+          color:'#fff'
         },
         emphasis: {
+          itemStyle: {
+            shadowBlur: 10,
+            shadowOffsetX: 0,
+          },
           label: {
             show: true,
-            fontSize: '40',
+            fontSize: '18',
             fontWeight: 'bold'
           }
         },
@@ -74,7 +86,7 @@ onMounted(() => {
 
 <style scoped lang="less">
 .pieChart {
-  width: 636px;
+  width: 600px;
   height: 427px;
 }
 
@@ -100,5 +112,10 @@ onMounted(() => {
     background: rgba(255, 255, 255, 0.1);
   }
 }
-
+@media screen and (max-width: 450px) {
+  .pieChart {
+    width: 356px !important;
+    height: 427px;
+  }
+}
 </style>
