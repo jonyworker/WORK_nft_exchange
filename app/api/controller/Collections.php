@@ -50,7 +50,7 @@ class Collections extends BaseController
     }
 
 
-    public function ntf() :Json
+    public function nft()
     {
         $collectionId = (int)$this->request->post('collectionId');
         if ($collectionId <= 0) {
