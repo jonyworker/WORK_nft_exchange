@@ -120,7 +120,7 @@
             <!-- 內文 -->
             <div class="card-text">
               <div class="card-text-wrap">
-                <div class="text"> ex: {{item.price}}  {{item.unit}}</div>
+                <div class="text"> {{item.price}}  {{item.unit}}</div>
 <!--                <div class="text">{{item.permalink}}</div>-->
                 <div class="image"><img src="@/assets/images/icon_favorite.png" alt=""></div>
               </div>
