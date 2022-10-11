@@ -20,7 +20,7 @@ const homeApi = {
     },
     //新闻
     async getNews (params: any){
-        if(isNaN(params.ind)){return }
+        // if(isNaN(params.ind)){return }
         return await request.get(`api/news/list`,{params})
     },
     //新闻详情

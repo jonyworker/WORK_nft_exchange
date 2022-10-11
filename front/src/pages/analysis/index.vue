@@ -48,25 +48,25 @@
               </thead>
               <tbody>
 
-              <tr v-for="(item,index) in analysisList" :key="index">
-                <th scope="row">0{{index + 1}}</th>
-                <td class="td-wrap">
-                  <div class="td-wrap-content">
-                    <div class="profile-pic mr-8">
-                      <img :src="item.photo_url" alt="">
-                    </div>
-                    <p class="single-ellipsis">{{item.name}}</p>
-                  </div>
-                </td>
-                <td class="" v-if="date === 1">{{ item.volume_24_p }}</td>
-                <td class="" v-if="date === 2">{{ item.volume_7d }}</td>
-                <td class="" v-if="date === 3">{{ item.volume_30d}}</td>
-                <td class="go-down">{{item.volume_24_p}}</td>
-                <td class="go-up">{{item.volume_7d_p}}</td>
-                <td>{{item.holders}}</td>
-                <td>{{item.floor_price}}</td>
-                <td>{{item.item_qty}}</td>
-              </tr>
+<!--              <tr v-for="(item,index) in analysisList" :key="index">-->
+<!--                <th scope="row">0{{index + 1}}</th>-->
+<!--                <td class="td-wrap">-->
+<!--                  <div class="td-wrap-content">-->
+<!--                    <div class="profile-pic mr-8">-->
+<!--                      <img :src="item.photo_url" alt="">-->
+<!--                    </div>-->
+<!--                    <p class="single-ellipsis">{{item.name}}</p>-->
+<!--                  </div>-->
+<!--                </td>-->
+<!--                <td class="" v-if="date === 1">{{ item.volume_24_p }}</td>-->
+<!--                <td class="" v-if="date === 2">{{ item.volume_7d }}</td>-->
+<!--                <td class="" v-if="date === 3">{{ item.volume_30d}}</td>-->
+<!--                <td class="go-down">{{item.volume_24_p}}</td>-->
+<!--                <td class="go-up">{{item.volume_7d_p}}</td>-->
+<!--                <td>{{item.holders}}</td>-->
+<!--                <td>{{item.floor_price}}</td>-->
+<!--                <td>{{item.item_qty}}</td>-->
+<!--              </tr>-->
               </tbody>
             </table>
           </div>

@@ -24,9 +24,9 @@ const myChart = ref();
  * 切换数据
  * @param type
  */
-const changeData = (type: never) => {
+const changeData = (type: string) => {
   current.value = type
-  const data = props.panel?.[type]
+  const data = props.panel?.[type as never]
   const {
     date_list,
     floor_price,
@@ -40,12 +40,31 @@ const changeData = (type: never) => {
   // 绘制图表
   myChart.value.setOption({
     title: {
-      text: '周期尺度'
+      text: '周期尺度',
+      color:'#fff',
+      top:'2%',
+      bottom:'2%',
+      textStyle: {
+        color: '#fff',
+      }
+
     },
-    legend: {},
+    legend: {
+      textStyle:{
+        fontSize: 16,//字体大小
+        color: '#ffffff'//字体颜色
+      }
+    },
     tooltip: {},
     xAxis: {
-      data: dateRange.value
+      data: dateRange.value,
+      axisLine: {
+        lineStyle: {
+          color: '#fff', // 颜色
+          width: 1 // 粗细
+        }
+      }
+
     },
     yAxis: [
       {
@@ -54,8 +73,15 @@ const changeData = (type: never) => {
         min: 0,
         //max: 250,
         position: 'right',
+
         axisLabel: {
           // formatter: '{value} ml'
+        },
+        axisLine: {
+          lineStyle: {
+            color: '#fff', // 颜色
+            width: 1 // 粗细
+          }
         }
       },
       {
@@ -66,26 +92,34 @@ const changeData = (type: never) => {
         position: 'left',
         axisLabel: {
           // formatter: '{value} °C'
+        },
+        axisLine: {
+          lineStyle: {
+            color: '#fff', // 颜色
+            width: 1 // 粗细
+          }
         }
       }
     ],
     series: [
+
       {
         name: '地板价',
         type: 'bar',
         data: lowPrice.value,
+
       },
       {
         name: '平均价',
         data: avgPrice.value,
         type: 'line',
-        stack: 'x'
+        stack: 'x',
       },
       {
         name: 'Volume',
         data: volumes.value,
         type: 'line',
-        stack: 'x'
+        stack: 'x',
       }
     ]
   });
@@ -127,22 +161,24 @@ watch(() => props?.panel, () => {
 })
 
 onMounted(() => {
-  myChart.value = echarts.init(document.getElementById('lineChart'))
+  const chartDom = document.getElementById('lineChart');
+  myChart.value =  chartDom && echarts.init(chartDom);
 })
 
 </script>
 
 <style scoped lang="less">
 .pieChart {
-  width: 636px;
   height: 427px;
 }
 
 .tabs {
   display: flex;
+  justify-content: flex-end;
   font-weight: 700;
   font-size: 18px;
   color: #fff;
+  margin-bottom: 15px;
   .active{
     background: linear-gradient(180deg, #8585FF 0%, #4A4AC4 100%);
   }

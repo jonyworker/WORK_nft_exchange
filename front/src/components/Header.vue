@@ -22,7 +22,7 @@
           <el-menu-item index="1" @click="toAnalysis()">{{$t('home.search')}}</el-menu-item>
 
           <!-- Header - 熱門排行 -->
-          <el-menu-item index="" click="">熱門排行</el-menu-item>
+          <el-menu-item index="" @click="toHot()">熱門排行</el-menu-item>
 
           <!-- Header - Minting觀測站 -->
           <el-menu-item index="2" @click="toMinting()">{{$t('home.mint')}}</el-menu-item>
@@ -123,12 +123,16 @@ const language = computed<languageType>(() => store.state.language);
 const {locale} = useI18n();
 const handleSelect = (value: string) => {
 }
+const toHot = () =>{
+  router.push({name: 'HotRanking',query:{type:2}})
+}
 const handleCommand = (value: string) => {
   store.commit('CHANGE_LANGUAGE', value);
   router.go(0);
 };
 const toAnalysis = () =>{
-  router.push({name: 'Analysis'})
+  /*router.push({name: 'Analysis'})*/
+  router.push({name: 'HotRanking',query:{type:2}})
 }
 const toWallet = () =>{
   router.push({name: 'Wallet'})

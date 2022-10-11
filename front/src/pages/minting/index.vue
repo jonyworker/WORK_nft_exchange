@@ -152,7 +152,7 @@ type IInfo = {
 
 const router = useRouter();
 const type = ref(1);
-const dataList = ref<Object>();
+const dataList = ref<IInfo>();
 const List = ref([{name:'成員介紹',value:1},{name:'路線圖',value:2}]);
 const changeList = (value:number) =>{
   type.value = value
@@ -189,7 +189,7 @@ const dropsList = ref<IInfo[] | null>(null);
 const Lists = ref([])
 
 //弹窗
-const toDialog = (val:number,item:Object) =>{
+const toDialog = (val:number,item:any) =>{
   dialogFormVisible.value = true;
   dataList.value = item;
   type.value = val

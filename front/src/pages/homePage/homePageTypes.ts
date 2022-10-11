@@ -5,9 +5,9 @@ export interface IPanel {
     contract: string;
     item_qty: number;
     market_cap: string;
-    market_cap_p: string;
+    market_cap_p: number;
     volume_24: string;
-    volume_24_p: string;
+    volume_24_p: number;
     sales_24?: any;
     holders: number;
     website: string;
@@ -19,6 +19,10 @@ export interface IPanel {
     introduction: string;
     member: string;
     roadmap: string;
+    floor_price_p:number;
+    health_score:any;
+    holders_p:number;
+    unit:string;
 }
 
 export interface ITrend {
@@ -29,7 +33,7 @@ export interface ITrend {
 }
 
 export interface IPie {
-   [key: string]: number;
+   [key: number]: number;
 }
 
 export interface panelData {
