@@ -59,7 +59,7 @@
                       </div>
                     </div>
 <!--                      <p class="single-ellipsis">{{item.address}}</p>-->
-                    <div class="profile" @click="copyInfo(item.address)">
+                    <div class="profile ml-8" @click="copyInfo(item.address)">
                       <img width="20px" height="20px" src="@/assets/images/icon_copy.png" alt="">
                     </div>
                   </div>
@@ -136,35 +136,32 @@ onMounted(() => {
 </script>
 
 <style scoped lang="less">
-.parent{
-  width: 128px;
-  height: 36px;
-  line-height: 36px;
-  text-align: left;
-  .parent-main{
-    width: 100%;
+  .parent{
+    width: 128px;
     height: 36px;
-    display: flex;
-    overflow: hidden;
-    .prev-span{
-      display: block;
+    line-height: 36px;
+    text-align: left;
+    .parent-main{
+      width: 100%;
+      height: 36px;
+      display: flex;
       overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-    .next-span{
-      display: block;
-      white-space: nowrap;
+      .prev-span{
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .next-span{
+        display: block;
+        white-space: nowrap;
+      }
     }
   }
-}
-.profile-pic img{
-  margin-left:10px;
-  height: 30px;
-  width: 35px;
-}
-.profile img{
-  position: relative;
-  left:10px;
-}
+  .profile-pic img{
+    width: 28px;
+  }
+  .profile {
+    width: 16px;
+  }
 </style>
