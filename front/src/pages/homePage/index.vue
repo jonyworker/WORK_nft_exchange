@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="wrap-containers" v-if="panel.data">
+    <div v-if="panel.data" class="wrap-containers">
       <div class="container-flex">
         <div class="flex">
           <div class="top-flex">
@@ -22,12 +22,12 @@
         </div>
         <div class="bottom-flexs">
           <div class="left">
-            <div class="img"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px"></div>
-            <div class="img"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
-            <div class="img"><img src="@/assets/images/icon_world.png" alt=""></div>
-            <div class="img"><img src="@/assets/images/icon_discord.png" alt=""></div>
-            <div class="img"><img src="@/assets/images/icon_twitter.png" alt=""></div>
-            <div class="img"><img src="@/assets/images/icons.png" alt=""></div>
+            <div class="img"><img alt="" height="17px" src="@/assets/images/icon_group.png" width="24px"></div>
+            <div class="img"><img alt="" height="17px" src="@/assets/images/icon_map.png" width="24px"></div>
+            <div class="img"><img alt="" src="@/assets/images/icon_world.png"></div>
+            <div class="img"><img alt="" src="@/assets/images/icon_discord.png"></div>
+            <div class="img"><img alt="" src="@/assets/images/icon_twitter.png"></div>
+            <div class="img"><img alt="" src="@/assets/images/icons.png"></div>
           </div>
           <div class="right">立即購買</div>
         </div>
@@ -47,7 +47,7 @@
             <div>{{ panel.data.holders }}</div>
             <div>
               <span class="time">24h</span>
-              <span>{{ (panel.data.holders_p * 100 ).toFixed(1)}}%</span>
+              <span>{{ (panel.data.holders_p * 100).toFixed(1) }}%</span>
             </div>
           </div>
           <div class="card">
@@ -69,85 +69,82 @@
         </div>
         <div class="demo-flex">
           <div>項目健康指數</div>
-          <div>${{panel.data.holders}}</div>
+          <div>${{ panel.data.holders }}</div>
           <div>
             <span class="time">24h</span>
-            <span>{{ (panel.data.holders /   panel.data.item_qty  * 100).toFixed(1) }}%</span>
+            <span>{{ (panel.data.holders / panel.data.item_qty * 100).toFixed(1) }}%</span>
           </div>
         </div>
       </div>
     </div>
     <!--   图表 -->
- <el-row  :gutter="12" style="margin: 12px 0">
-   <el-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
-     <div class="line">
-     <Line :panel="panel"/>
-     </div>
-   </el-col>
-   <el-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
-      <div class="pie">
-     <Pie :panel="panel"/>
-      </div>
-   </el-col>
- </el-row>
+    <el-row :gutter="12" style="margin: 12px 0">
+      <el-col :lg="12" :md="24" :sm="24" :xl="12" :xs="24">
+        <div class="line">
+          <Line :panel="panel"/>
+        </div>
+      </el-col>
+      <el-col :lg="12" :md="24" :sm="24" :xl="12" :xs="24">
+        <div class="pie">
+          <Pie :panel="panel"/>
+        </div>
+      </el-col>
+    </el-row>
 
 
     <!--    -->
     <div class="dialog-wrap ">
-     <div class="left">
-          <el-switch v-model="form.filter_ind"
-                     active-value="1"
-                     inactive-value="2"/>
-          過濾售出價格
-        </div>
-      <!--
-        <div class="center">
-          售出價格區間 &nbsp&nbsp&nbsp&nbsp
-          <el-icon>
-            <ArrowDownBold/>
-          </el-icon>
-        </div>
-        <div class="right">
-          售出價格：低至高 &nbsp&nbsp&nbsp&nbsp
-          <el-icon>
-            <ArrowDownBold/>
-          </el-icon>
-        </div> -->
-      <el-popover
-          :visible="visible"
-          placement="bottom"
-          :width="300"
-      >
-        <template #reference>
-          <el-button  size="large"  @click="visible = !visible" style="width: 230px">
-            <div class="d-flex flex-row  justify-content-around" style="width: 230px;padding: 0 15px;box-sizing: border-box">
-              <div class="flex-grow-1" style="text-align: left">售出價格區間</div>
-              <el-icon ><ArrowDown /></el-icon>
-            </div></el-button>
-        </template>
-        <div class="d-flex flex-row align-items-center justify-content-around">
-          <el-input v-model="form.min" placeholder="Min" style="width: 110px;"/>
-          到
-          <el-input v-model="form.max" placeholder="Max" style="width: 110px;"/>
-        </div>
-        <div class="mt-16 d-flex flex-row align-items-center justify-content-center" >
-        <el-button type="primary" round @click="visible=!visible">确认</el-button>
-        </div>
-      </el-popover>
-      <el-select v-model="form.orderby" class="ml-16" placeholder="Select" size="large">
-        <el-option
-            v-for="item in saleFilter"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-        />
-      </el-select>
+      <el-row >
+        <el-col :md="8" :sm="8" :xs="24">
+          <div class="left">
+            <el-switch v-model="form.filter_ind"
+                       active-value="1"
+                       inactive-value="2"/>
+            過濾售出價格
+          </div>
+        </el-col>
+        <el-col :md="8" :sm="8" :xs="12">
+          <el-popover
+              :visible="visible"
+              :width="300"
+              placement="bottom"
+          >
+            <template #reference>
+              <el-button class="special-btn" size="large" style="width: 100%;justify-content: space-around" @click="visible = !visible">
+                <div style="flex: 1;text-align: left">售出價格區間</div>
+                  <el-icon>
+                    <ArrowDown/>
+                  </el-icon>
+              </el-button>
+            </template>
+            <div class="d-flex flex-row align-items-center justify-content-around">
+              <el-input v-model="form.min" placeholder="Min" style="width: 110px;"/>
+              到
+              <el-input v-model="form.max" placeholder="Max" style="width: 110px;"/>
+            </div>
+            <div class="mt-16 d-flex flex-row align-items-center justify-content-center">
+              <el-button round type="primary" @click="visible=!visible">确认</el-button>
+            </div>
+          </el-popover>
+        </el-col>
+        <el-col :md="8" :sm="8" :xs="12">
+          <el-select v-model="form.orderby" class="ml-16" placeholder="Select" size="large">
+            <el-option
+                v-for="item in saleFilter"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+            />
+          </el-select>
+        </el-col>
+      </el-row>
+
     </div>
     <div class="minting-content mt-5">
       <!-- 觀測站卡片 -->
       <div class="row">
         <!-- 1st -->
-        <div class="col-12 col-sm-6 col-lg-3" v-for="(item,index) in dropsList" :key="index">
+        <div v-for="(item,index) in dropsList" :key="index" class="col-12 col-sm-6 col-lg-3">
           <div class="card-item card-1">
             <!-- 卡片圖片 -->
             <div class="card-image">
@@ -157,9 +154,9 @@
             <!-- 內文 -->
             <div class="card-text">
               <div class="card-text-wrap">
-                <div class="text"> {{item.price}}  {{item.unit}}</div>
-<!--                <div class="text">{{item.permalink}}</div>-->
-                <div class="image"><img src="@/assets/images/icon_favorite.png" alt=""></div>
+                <div class="text"> {{ item.price }} {{ item.unit }}</div>
+                <!--                <div class="text">{{item.permalink}}</div>-->
+                <div class="image"><img alt="" src="@/assets/images/icon_favorite.png"></div>
               </div>
               <div>
                 #1234
@@ -172,41 +169,43 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import {useScrollHeight}from '@/hooks/useScrollHeight'
+<script lang="ts" setup>
+import {useScrollHeight} from '@/hooks/useScrollHeight'
 import {onMounted, reactive, ref, watch} from "vue";
 import {homeApi, homePageApi} from "@/api";
 import {useRoute} from "vue-router"
 import {panelData} from "@/pages/homePage/homePageTypes";
 import Line from "@/pages/homePage/line.vue";
 import Pie from "@/pages/homePage/pie.vue";
+
+import { ArrowDown } from '@element-plus/icons-vue'
 const visible = ref(false)
 const route = useRoute()
 const filter_ind = ref()
 const saleFilter = reactive<any>([
-{label: "售出價格：高至低", value: '2'},
-{label: "售出價格：低至高", value: '1'},
-{label: "賣出時間：新至舊", value: '3'},
+  {label: "售出價格：高至低", value: '2'},
+  {label: "售出價格：低至高", value: '1'},
+  {label: "賣出時間：新至舊", value: '3'},
 ]);
 const form = reactive<Record<string, any>>({
-  filter_ind:1,
-  min:'',
-  max:'',
-  orderby:'1',
+  filter_ind: 1,
+  min: '',
+  max: '',
+  orderby: '1',
 });
 const isFinish = ref<boolean>(false);
 const isLoading = ref<boolean>(false);
 const count = ref(0);
 const page = ref(1)
-const {scrollBtmHeight} =useScrollHeight()
+const {scrollBtmHeight} = useScrollHeight()
 const panel = reactive<panelData>({} as panelData)
 type IInfo = {
   id: string,
   permalink: string,
-  photo_url:string,
+  photo_url: string,
   price: string,
-  unit:string,
-  usd_price:string,
+  unit: string,
+  usd_price: string,
 }
 const dropsList = ref<IInfo[] | null>(null);
 const getHomePage = async () => {
@@ -224,25 +223,25 @@ const getHomePage = async () => {
  * 请求接口
  */
 const load = async () => {
-  if (isFinish.value||isLoading.value||scrollBtmHeight.value>400) {
+  if (isFinish.value || isLoading.value || scrollBtmHeight.value > 800) {
     return;
   }
   const {id} = route.query
   const params = {
-    collectionId:id as string,    //項目id
-    count:30,     //每頁多少筆紀錄
-    page:page.value,
+    collectionId: id as string,    //項目id
+    count: 30,     //每頁多少筆紀錄
+    page: page.value,
     ...form,
   }
 
-  isLoading.value =true
+  isLoading.value = true
   const res = await homePageApi.postHomeCard(params);
-  isLoading.value =false
+  isLoading.value = false
   if (!res) {
     return
   }
-  page.value =page.value + 1
-  dropsList.value = [...(dropsList.value??[]),...res.data] ;
+  page.value = page.value + 1
+  dropsList.value = [...(dropsList.value ?? []), ...res.data];
   if (res.data.length < 30) {
     isFinish.value = true
   }
@@ -251,39 +250,46 @@ const load = async () => {
 /**
  * 监听滚动
  */
-watch([()=>scrollBtmHeight.value,],()=>{
+watch([() => scrollBtmHeight.value,], () => {
   load()
-},{deep:true})
+}, {deep: true})
 /**
  * 监听参数
  */
-watch([()=>form],()=>{
-  isFinish.value=false;
-  page.value=1;
-  dropsList.value =[];
-  isLoading.value =false;
+watch([() => form], () => {
+  isFinish.value = false;
+  page.value = 1;
+  dropsList.value = [];
+  isLoading.value = false;
   load()
-},{deep:true})
+}, {deep: true})
 onMounted(() => {
   getHomePage()
   load()
 })
 </script>
 
-<style scoped lang="less">
-.time{
+<style lang="less" scoped>
+:deep .special-btn{
+  span{
+    width: 100% !important;
+  }
+}
+.time {
   padding: 4px 9px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 50px;
   margin-right: 15px;
 }
-.flex-wrap{
+
+.flex-wrap {
   display: flex;
   justify-content: space-between;
-  margin-bottom:20px;
+  margin-bottom: 20px;
   flex-direction: row !important;
-  .line{
-    width: 50% ;
+
+  .line {
+    width: 50%;
     background: #1C1C24;
     /* bgWh/20 */
     padding: 15px;
@@ -292,13 +298,15 @@ onMounted(() => {
   }
 
 }
-.pie,.line{
+
+.pie, .line {
   margin: 12px 0;
   background: #1C1C24;
   padding: 15px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 16px;
 }
+
 @media screen and (max-width: 450px) {
   .wrap-containers {
     display: block !important;
@@ -355,25 +363,31 @@ onMounted(() => {
     width: 100% !important;
     margin-left: 0px !important;
   }
-  .flex-wrap .line{
+
+  .flex-wrap .line {
     width: 100% !important;
-    margin-bottom:15px !important;
+    margin-bottom: 15px !important;
   }
-  .flex-wrap .pie{
+
+  .flex-wrap .pie {
     width: 100% !important;
   }
 }
-@media screen and (max-width: 768px){
-  .flex-wrap .line{
+
+@media screen and (max-width: 768px) {
+  .flex-wrap .line {
     width: 100% !important;
-    margin-bottom:15px !important;
+    margin-bottom: 15px !important;
   }
-  .flex-wrap .pie{
+
+  .flex-wrap .pie {
     width: 100% !important;
   }
+
   .container-right {
     width: 100% !important;
   }
+
   //.demo-flex {
   //  width: 606px !important;
   //  margin-left: 0px !important;
@@ -382,21 +396,26 @@ onMounted(() => {
     width: 100% !important;
   }
 }
+
 @media screen and (min-width: 768px) {
-  .flex-wrap .line{
+  .flex-wrap .line {
     width: 100% !important;
-    margin-bottom:15px !important;
+    margin-bottom: 15px !important;
   }
-  .flex-wrap .pie{
+
+  .flex-wrap .pie {
     width: 100% !important;
   }
+
   .wrap-containers {
     display: block !important;
     height: 740px !important;
   }
+
   .container-right {
     width: 100% !important;
   }
+
   .container-flex {
     width: 100% !important;
   }
@@ -404,7 +423,6 @@ onMounted(() => {
   .flex {
     height: 280px !important;
   }
-
 
 
   .right-flex {
@@ -432,7 +450,8 @@ onMounted(() => {
     flex-direction: row !important;
     height: 422px !important;
   }
-  .flex-wrap{
+
+  .flex-wrap {
     display: flex !important;
     flex-direction: row !important;
   }
@@ -602,7 +621,7 @@ onMounted(() => {
   background: #1C1C24;
   border-color: rgba(255, 255, 255, 0.1);
   padding: 10px;
-  margin-bottom:15px;
+  margin-bottom: 15px;
 }
 
 .card-text-wrap {
