@@ -2,9 +2,10 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import './assets/style/app.css'
 import ElementPlus from 'element-plus';
-
-import 'element-plus/dist/index.css';
-import 'element-plus/theme-chalk/dark/css-vars.css';
+import "element-plus/dist/index.css"; // element默认主题色
+import "element-plus/theme-chalk/dark/css-vars.css"; // 暗黑模式主题色
+import "./assets/style/theme/dark/css-vars.css"; // 暗黑模式主题色
+import "./assets/style/theme/light/css-vars.css"; // 暗黑模式主题色
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import store from "./store";
 import router from "./router";

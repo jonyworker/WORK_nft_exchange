@@ -94,22 +94,54 @@
 
     <!--    -->
     <div class="dialog-wrap ">
-      <div class="left">
-        <el-switch v-model="price"/>
-        過濾售出價格
-      </div>
-      <div class="center">
-        售出價格區間 &nbsp&nbsp&nbsp&nbsp
-        <el-icon>
-          <ArrowDownBold/>
-        </el-icon>
-      </div>
-      <div class="right">
-        售出價格：低至高 &nbsp&nbsp&nbsp&nbsp
-        <el-icon>
-          <ArrowDownBold/>
-        </el-icon>
-      </div>
+     <div class="left">
+          <el-switch v-model="form.filter_ind"
+                     active-value="1"
+                     inactive-value="2"/>
+          過濾售出價格
+        </div>
+      <!--
+        <div class="center">
+          售出價格區間 &nbsp&nbsp&nbsp&nbsp
+          <el-icon>
+            <ArrowDownBold/>
+          </el-icon>
+        </div>
+        <div class="right">
+          售出價格：低至高 &nbsp&nbsp&nbsp&nbsp
+          <el-icon>
+            <ArrowDownBold/>
+          </el-icon>
+        </div> -->
+      <el-popover
+          :visible="visible"
+          placement="bottom"
+          :width="300"
+      >
+        <template #reference>
+          <el-button  size="large"  @click="visible = !visible" style="width: 230px">
+            <div class="d-flex flex-row  justify-content-around" style="width: 230px;padding: 0 15px;box-sizing: border-box">
+              <div class="flex-grow-1" style="text-align: left">售出價格區間</div>
+              <el-icon ><ArrowDown /></el-icon>
+            </div></el-button>
+        </template>
+        <div class="d-flex flex-row align-items-center justify-content-around">
+          <el-input v-model="form.min" placeholder="Min" style="width: 110px;"/>
+          到
+          <el-input v-model="form.max" placeholder="Max" style="width: 110px;"/>
+        </div>
+        <div class="mt-16 d-flex flex-row align-items-center justify-content-center" >
+        <el-button type="primary" round @click="visible=!visible">确认</el-button>
+        </div>
+      </el-popover>
+      <el-select v-model="form.orderby" class="ml-16" placeholder="Select" size="large">
+        <el-option
+            v-for="item in saleFilter"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+        />
+      </el-select>
     </div>
     <div class="minting-content mt-5">
       <!-- 觀測站卡片 -->
@@ -142,15 +174,26 @@
 
 <script setup lang="ts">
 import {useScrollHeight}from '@/hooks/useScrollHeight'
-import {onMounted, reactive, ref, watchEffect} from "vue";
+import {onMounted, reactive, ref, watch} from "vue";
 import {homeApi, homePageApi} from "@/api";
 import {useRoute} from "vue-router"
 import {panelData} from "@/pages/homePage/homePageTypes";
 import Line from "@/pages/homePage/line.vue";
 import Pie from "@/pages/homePage/pie.vue";
-
+const visible = ref(false)
 const route = useRoute()
-const price = ref()
+const filter_ind = ref()
+const saleFilter = reactive<any>([
+{label: "售出價格：高至低", value: '2'},
+{label: "售出價格：低至高", value: '1'},
+{label: "賣出時間：新至舊", value: '3'},
+]);
+const form = reactive<Record<string, any>>({
+  filter_ind:1,
+  min:'',
+  max:'',
+  orderby:'1',
+});
 const isFinish = ref<boolean>(false);
 const isLoading = ref<boolean>(false);
 const count = ref(0);
@@ -176,28 +219,24 @@ const getHomePage = async () => {
   panel.holder_stat = res.holder_stat
 
 }
-const getCard = async()=>{
-  const {id} = route.query
-  const params = {
-    collectionId:id as string,    //項目id
-    filter_ind: 2,    // 過濾無價格   1:過濾無價格  2:不過濾
-    orderby: 1,      //排序         1:價格低到高  2:價格高到低
-    count:30,     //每頁多少筆紀錄
-    page:1,
-  }
-  const res = await homePageApi.postHomeCard({...params});
-  dropsList.value = res.data
-}
+
+/**
+ * 请求接口
+ */
 const load = async () => {
   if (isFinish.value||isLoading.value||scrollBtmHeight.value>400) {
     return;
   }
+  const {id} = route.query
   const params = {
-     count: 30,
+    collectionId:id as string,    //項目id
+    count:30,     //每頁多少筆紀錄
     page:page.value,
+    ...form,
   }
+
   isLoading.value =true
-  const res = await homeApi.getNews(params);
+  const res = await homePageApi.postHomeCard(params);
   isLoading.value =false
   if (!res) {
     return
@@ -207,14 +246,27 @@ const load = async () => {
   if (res.data.length < 30) {
     isFinish.value = true
   }
-
 }
-watchEffect(()=>{
+
+/**
+ * 监听滚动
+ */
+watch([()=>scrollBtmHeight.value,],()=>{
   load()
-})
+},{deep:true})
+/**
+ * 监听参数
+ */
+watch([()=>form],()=>{
+  isFinish.value=false;
+  page.value=1;
+  dropsList.value =[];
+  isLoading.value =false;
+  load()
+},{deep:true})
 onMounted(() => {
   getHomePage()
-  getCard()
+  load()
 })
 </script>
 

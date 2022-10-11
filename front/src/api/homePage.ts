@@ -7,7 +7,7 @@ const homePageApi = {
         return await request.get('/api/collection/index',{params})
     },
     async postHomeCard(params:any){
-        return await request.post('api/collection/nft ',params)
+        return await request.post('/api/collection/nft ',params)
     }
 }
 export default homePageApi

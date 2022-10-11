@@ -43,5 +43,13 @@ const homeApi = {
     async postLogin (address: any){
         return await request.post(`api/login`,{address})
     },
+    //api/member/collection/add.將項目加入追蹤清單
+    async addCollection (params: any){
+        return await request.post(`api/member/collection/add`,{params})
+    },
+    //api/member/collection/index追从项目
+    async getCollection (params: any){
+        return await request.get(`api/member/collection/index`,{params})
+    },
 }
 export default homeApi

@@ -8,11 +8,11 @@
           <div class="col-12 d-flex justify-content-between align-items-center">
             <div class="title-wrap d-flex flex-column flex-md-row align-items-md-center ">
               <!-- 標題  -->
-              <div class="section-title-wrap mr-24">
+              <div class="section-title-wrap mr-24" @click="toAnalysis()">
                 <div class="title-icon">
                   <img src="@/assets/images/icon_title_wallet.png" alt="logo">
                 </div>
-                <h2 class="section-title color-white">{{$t('home.highWinningWallet')}}</h2>
+                <h2 class="section-title color-white" >{{$t('home.highWinningWallet')}}</h2>
               </div>
 
               <!-- 子選項 -->
@@ -117,6 +117,10 @@ const changeTag = async (value: number) => {
   type.value = value
   const res = await homeApi.getWallet(type.value);
   walletList.value = res.high_profit
+}
+const toAnalysis = () =>{
+  console.log("-> ssss", );
+  router.push({name: 'Analysis',})
 }
 const hotRanking = () => {
   router.push({name: 'HotRanking',query:{type:3}})
