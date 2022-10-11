@@ -112,12 +112,17 @@ class News extends AdminController
             ];
             $this->validate($post, $rule);
             try {
-                $post['valid'] = $post['valid'] == 'on' ? 1 : 2;
+                if(!empty($post['valid'])) {
+                    $post['valid'] = $post['valid'] == 'on' ? 1 : 2;
+                } else {
+                    $post['valid'] = 2;
+                }
+
                 $post['ind'] = $this->model::Types['news'];
                 $post['editName'] = session('admin.username');
                 $save = $row->save($post);
             } catch (\Exception $e) {
-                $this->error('保存失败');
+                $this->error('保存失败' . $e->getMessage());
             }
             if ($save) {
                 $this->success('保存成功');
@@ -151,5 +156,35 @@ class News extends AdminController
         } else {
             $this->error('删除失败');
         }
+    }
+
+    /**
+     * @NodeAnotation(title="属性修改")
+     */
+    public function modify()
+    {
+        $this->checkPostRequest();
+        $post = $this->request->post();
+        $rule = [
+            'id|ID'    => 'require',
+            'field|字段' => 'require',
+            'value|值'  => 'require',
+        ];
+        $this->validate($post, $rule);
+        $row = $this->model->find($post['id']);
+        if (!$row) {
+            $this->error('数据不存在');
+        }
+        if (!in_array($post['field'], $this->allowModifyFields)) {
+            $this->error('该字段不允许修改：' . $post['field']);
+        }
+        try {
+            $row->save([
+                $post['field'] => $post['value'],
+            ]);
+        } catch (\Exception $e) {
+            $this->error($e->getMessage());
+        }
+        $this->success('保存成功');
     }
 }

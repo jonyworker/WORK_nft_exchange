@@ -6,6 +6,7 @@ define(["jquery", "easy-admin"], function ($, ea) {
         index_url: 'business.specials/index',
         add_url: 'business.specials/add',
         edit_url: 'business.specials/edit',
+        modify_url: 'business.news/modify',
         delete_url: 'business.specials/delete',
         export_url: 'business.specials/export',
     };
@@ -52,7 +53,8 @@ define(["jquery", "easy-admin"], function ($, ea) {
                     }
                 ]],
             });
-
+            ea.table.listenSwitch({filter: 'valid', url: init.modify_url});
+            ea.table.listenEdit(init, 'currentTable', init.table_render_id, true);
             ea.listen();
         },
         add: function () {

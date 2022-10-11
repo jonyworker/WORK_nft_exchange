@@ -27,6 +27,7 @@ class Collection extends Model
             'holders' => $info['holders'],
             'holders_p' => $info['holders_p'],
             'website' => $info['website'],
+            'unit' => $info['unit'],
 
             'twitter' => $info['twitter'],
             'discord' => $info['discord'],

@@ -6,6 +6,7 @@ define(["jquery", "easy-admin"], function ($, ea) {
         index_url: 'business.projects/index',
         add_url: 'business.projects/add',
         edit_url: 'business.projects/edit',
+        modify_url: 'business.projects/modify',
         delete_url: 'business.projects/delete',
         update_nft_url: 'business.projects/updateNft',
         ad_url: 'business.adverts/index',
@@ -64,6 +65,8 @@ define(["jquery", "easy-admin"], function ($, ea) {
                 ]],
             });
 
+            ea.table.listenSwitch({filter: 'valid', url: init.modify_url});
+            ea.table.listenEdit(init, 'currentTable', init.table_render_id, true);
             ea.listen();
         },
         add: function () {

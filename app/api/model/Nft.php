@@ -56,6 +56,7 @@ class Nft extends Model
                 'unit' => $item['unit'],
                 'usd_price' => $item['usd_price'],
                 'permalink' => $item['permalink'],
+                'tokenid' => $item['tokenid'],
             ];
 
         }

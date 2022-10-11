@@ -191,5 +191,36 @@ class Projects extends AdminController
     }
 
 
+    /**
+     * @NodeAnotation(title="属性修改")
+     */
+    public function modify()
+    {
+        $this->checkPostRequest();
+        $post = $this->request->post();
+        $rule = [
+            'id|ID'    => 'require',
+            'field|字段' => 'require',
+            'value|值'  => 'require',
+        ];
+        $this->validate($post, $rule);
+        $row = $this->model->find($post['id']);
+        if (!$row) {
+            $this->error('数据不存在');
+        }
+        if (!in_array($post['field'], $this->allowModifyFields)) {
+            $this->error('该字段不允许修改：' . $post['field']);
+        }
+        try {
+            $row->save([
+                $post['field'] => $post['value'],
+            ]);
+        } catch (\Exception $e) {
+            $this->error($e->getMessage());
+        }
+        $this->success('保存成功');
+    }
+
+
 
 }
