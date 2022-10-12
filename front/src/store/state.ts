@@ -8,5 +8,6 @@ export type State = {
         isPc: boolean
     };
     language: string;
+    token:string;
     languageEnum: LANG_TYPE_ENUM;
 };

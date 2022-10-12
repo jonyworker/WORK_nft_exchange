@@ -15,7 +15,6 @@ service.interceptors.request.use(function (config) {
     }else {
         config.params ={...config.params,lan:Number(lan)}
     }
-    console.log("-> config", config);
     return config;
 }, function (error) {
     // 对请求错误做些什么

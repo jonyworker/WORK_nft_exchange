@@ -8,11 +8,11 @@
           <div class="col-12 d-flex justify-content-between align-items-center">
             <div class="title-wrap d-flex flex-column flex-md-row align-items-md-center ">
               <!-- 標題  -->
-              <div class="section-title-wrap mr-24">
+              <div class="section-title-wrap mr-24" @click="toAnalysis()">
                 <div class="title-icon">
                   <img src="@/assets/images/icon_title_wallet.png" alt="logo">
                 </div>
-                <h2 class="section-title color-white">{{$t('home.highWinningWallet')}}</h2>
+                <h2 class="section-title color-white" >{{$t('home.highWinningWallet')}}</h2>
               </div>
 
               <!-- 子選項 -->
@@ -59,7 +59,7 @@
                       </div>
                     </div>
 <!--                      <p class="single-ellipsis">{{item.address}}</p>-->
-                    <div class="profile" @click="copyInfo(item.address)">
+                    <div class="profile ml-8" @click="copyInfo(item.address)">
                       <img width="20px" height="20px" src="@/assets/images/icon_copy.png" alt="">
                     </div>
                   </div>
@@ -118,6 +118,10 @@ const changeTag = async (value: number) => {
   const res = await homeApi.getWallet(type.value);
   walletList.value = res.high_profit
 }
+const toAnalysis = () =>{
+  console.log("-> ssss", );
+  router.push({name: 'Analysis',})
+}
 const hotRanking = () => {
   router.push({name: 'HotRanking',query:{type:3}})
 }
@@ -136,35 +140,32 @@ onMounted(() => {
 </script>
 
 <style scoped lang="less">
-.parent{
-  width: 128px;
-  height: 36px;
-  line-height: 36px;
-  text-align: left;
-  .parent-main{
-    width: 100%;
+  .parent{
+    width: 128px;
     height: 36px;
-    display: flex;
-    overflow: hidden;
-    .prev-span{
-      display: block;
+    line-height: 36px;
+    text-align: left;
+    .parent-main{
+      width: 100%;
+      height: 36px;
+      display: flex;
       overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-    .next-span{
-      display: block;
-      white-space: nowrap;
+      .prev-span{
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .next-span{
+        display: block;
+        white-space: nowrap;
+      }
     }
   }
-}
-.profile-pic img{
-  margin-left:10px;
-  height: 30px;
-  width: 35px;
-}
-.profile img{
-  position: relative;
-  left:10px;
-}
+  .profile-pic img{
+    width: 28px;
+  }
+  .profile {
+    width: 16px;
+  }
 </style>

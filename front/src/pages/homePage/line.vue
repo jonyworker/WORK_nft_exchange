@@ -1,8 +1,9 @@
 <template>
   <div class="tabs">
-    <div :class="[current==='price_3d'&&'active']" @click="changeData('price_3d')">3d</div>
-    <div :class="[current==='price_30d'&&'active']" @click="changeData('price_30d')">30d</div>
-    <div :class="[current==='price_3m'&&'active']" @click="changeData('price_3m')">3m</div>
+    <div class="tabs-title">周期尺度</div>
+    <div :class="['tabs-item ',current==='price_3d'&&'active']" @click="changeData('price_3d')">3d</div>
+    <div :class="['tabs-item ',current==='price_30d'&&'active']" @click="changeData('price_30d')">30d</div>
+    <div :class="['tabs-item ',current==='price_3m'&&'active']" @click="changeData('price_3m')">3m</div>
   </div>
   <div id="lineChart" class="pieChart"></div>
 </template>
@@ -26,29 +27,22 @@ const myChart = ref();
  */
 const changeData = (type: string) => {
   current.value = type
-  const data = props.panel?.[type as never]
+  const data:any[] = props.panel?.[type as never]
+  const newData =data.sort((a:any,b:any)=>{
+    return (new Date(a.date).getTime()-new Date(b.date).getTime())
+  })
   const {
     date_list,
     floor_price,
     avg_price,
     volume,
-  } = formatData(data)
+  } = formatData(newData)
   dateRange.value = date_list;
   lowPrice.value = floor_price
   avgPrice.value = avg_price
   volumes.value = volume
   // 绘制图表
   myChart.value.setOption({
-    title: {
-      text: '周期尺度',
-      color:'#fff',
-      top:'2%',
-      bottom:'2%',
-      textStyle: {
-        color: '#fff',
-      }
-
-    },
     legend: {
       textStyle:{
         fontSize: 16,//字体大小
@@ -179,10 +173,13 @@ onMounted(() => {
   font-size: 18px;
   color: #fff;
   margin-bottom: 15px;
-  .active{
-    background: linear-gradient(180deg, #8585FF 0%, #4A4AC4 100%);
+  .tabs-title {
+    flex: 1;
+    font-weight: 700;
+    font-size: 28px;
+    height:30px;
   }
-  div {
+  .tabs-item {
     border-radius: 15px;
     text-align: center;
     border: 1px solid;
@@ -192,6 +189,9 @@ onMounted(() => {
     line-height: 22px;
     height: 30px;
     background: rgba(255, 255, 255, 0.1);
+  }
+  .active{
+    background: linear-gradient(180deg, #8585FF 0%, #4A4AC4 100%);
   }
 }
 

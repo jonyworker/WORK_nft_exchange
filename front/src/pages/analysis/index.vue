@@ -48,25 +48,25 @@
               </thead>
               <tbody>
 
-<!--              <tr v-for="(item,index) in analysisList" :key="index">-->
-<!--                <th scope="row">0{{index + 1}}</th>-->
-<!--                <td class="td-wrap">-->
-<!--                  <div class="td-wrap-content">-->
-<!--                    <div class="profile-pic mr-8">-->
-<!--                      <img :src="item.photo_url" alt="">-->
-<!--                    </div>-->
-<!--                    <p class="single-ellipsis">{{item.name}}</p>-->
-<!--                  </div>-->
-<!--                </td>-->
-<!--                <td class="" v-if="date === 1">{{ item.volume_24_p }}</td>-->
-<!--                <td class="" v-if="date === 2">{{ item.volume_7d }}</td>-->
-<!--                <td class="" v-if="date === 3">{{ item.volume_30d}}</td>-->
-<!--                <td class="go-down">{{item.volume_24_p}}</td>-->
-<!--                <td class="go-up">{{item.volume_7d_p}}</td>-->
-<!--                <td>{{item.holders}}</td>-->
-<!--                <td>{{item.floor_price}}</td>-->
-<!--                <td>{{item.item_qty}}</td>-->
-<!--              </tr>-->
+              <tr v-for="(item,index) in analysisList" :key="index">
+                <th scope="row">0{{index + 1}}</th>
+                <td class="td-wrap">
+                  <div class="td-wrap-content">
+                    <div class="profile-pic mr-8">
+                      <img :src="item.photo_url" alt="">
+                    </div>
+                    <p class="single-ellipsis">{{item.name}}</p>
+                  </div>
+                </td>
+                <td class="" v-if="date === 1">{{ item.volume_24_p }}</td>
+                <td class="" v-if="date === 2">{{ item.volume_7d }}</td>
+                <td class="" v-if="date === 3">{{ item.volume_30d}}</td>
+                <td class="go-down">{{item.volume_24_p}}</td>
+                <td class="go-up">{{item.volume_7d_p}}</td>
+                <td>{{item.holders}}</td>
+                <td>{{item.floor_price}}</td>
+                <td>{{item.item_qty}}</td>
+              </tr>
               </tbody>
             </table>
           </div>
@@ -108,17 +108,12 @@
 import {onMounted, ref} from "vue";
 import {homeApi} from "@/api";
 import {copy} from "@utils/copy";
-type IInfo = {
-  background:string;
-  collection_url: string;
-  collection: string;
-  introduction: string;
-  price: string;
-  ori_date: string;
-}
+import {IInfo,IPanelList} from "./analysisType";
+
 const type = ref(1);
 let http = 'http://v2admin.nftotal.io/';
-const analysisList = ref({})
+
+const analysisList = ref<IPanelList | null>(null)
 const dropsList = ref<IInfo[] | null>(null);
 const textList = ref([{name:'追蹤項目',value:1,},{name:'追蹤NFT',value:2}]);
 const changeTag = async (value: number) => {
@@ -126,6 +121,12 @@ const changeTag = async (value: number) => {
 }
 const copyInfo=(info:string)=>{
   copy(info)
+}
+const collection = async ()=>{
+  const res = await homeApi.getCollection({})
+}
+const Login = async()=>{
+  const res =  await homeApi.postLogin('0x78aa39849c1280cfcadd65c585acae297789084a');
 }
 const getAnalysis = async () => {
   const res = await homeApi.getDrops({});
@@ -138,6 +139,8 @@ const getAnalysis = async () => {
 
 onMounted(() => {
   getAnalysis()
+  collection()
+  Login()
 })
 
 </script>
