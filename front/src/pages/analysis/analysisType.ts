@@ -23,3 +23,10 @@ export interface IInfo  {
     price: string;
     ori_date: string;
 }
+export interface Login{
+    holding_atl_nft: string;
+    is_holder: number;
+    status:string;
+    token: string;
+    username: string;
+}

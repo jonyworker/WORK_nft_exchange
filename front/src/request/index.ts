@@ -10,7 +10,12 @@ const service = axios.create({
 service.interceptors.request.use(function (config) {
     // 在发送请求之前做些什么
     const lan =sessionStorage.getItem('localeLangEnum')??1
+    console.log("-> config", config);
+    config.headers = {...config.headers,
+       'access-token':localStorage.getItem('token')??'',
+    }
     if(config.method==='post')  {
+
         config.data ={...config.data,lan:Number(lan)}
     }else {
         config.params ={...config.params,lan:Number(lan)}
@@ -31,7 +36,9 @@ service.interceptors.response.use(
             } else {
                 return Promise.reject(response);
             }
-        } else {
+        } else if(response.status === 401){
+
+        }else{
             return Promise.reject(response);
         }
     },

@@ -3,24 +3,25 @@
   <div class="analysis"></div>
   <div class="container">
     <div class="top-image">
-      <img src="@/assets/images/nft_profile_3.png" alt="">
+<!--      <img src="@/assets/images/nft_profile_3.png" alt="">-->
     </div>
     <div class="head-wrap">
       <div class="wrap">
-        <div class="tit">使用者自訂名稱</div>
-        <div class="wrap-item">
-          <div class="parent">
-            <div class='parent-main'>
-
-
-            </div>
-          </div>
-          <div class="profile-pic ml-6" @click="copyInfo('1')">
-            <img src="@/assets/images/icon_copy.png" alt="">
-          </div>
-        </div>
+        <div class="tit">{{toLogin.username}}</div>
+<!--        <div class="wrap-item">-->
+<!--          <div class="parent">-->
+<!--            <div class='parent-main'>-->
+<!--              {{toLogin.username}}-->
+<!--&lt;!&ndash;              <span class='prev-span'>{{toLogin.username.slice(0,6)}}</span>-->
+<!--              <span class='next-span'>{{toLogin.username.slice(-3)}}</span>&ndash;&gt;-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="profile-pic ml-6" @click="copyInfo(toLogin.username)">-->
+<!--            <img src="@/assets/images/icon_copy.png" alt="">-->
+<!--          </div>-->
+<!--        </div>-->
       </div>
-      <div class="right-image">...</div>
+      <div class="right-image"></div>
     </div>
     <div class="tabs">
       <div v-for="(item,index) in textList" :key="index" :class="['tages',type===item.value?'active_tages':'']" @click="changeTag(item.value)">
@@ -116,18 +117,26 @@ let http = 'http://v2admin.nftotal.io/';
 const analysisList = ref<IPanelList | null>(null)
 const dropsList = ref<IInfo[] | null>(null);
 const textList = ref([{name:'追蹤項目',value:1,},{name:'追蹤NFT',value:2}]);
+const toLogin = ref({});
 const changeTag = async (value: number) => {
   type.value = value
 }
 const copyInfo=(info:string)=>{
   copy(info)
 }
-const collection = async ()=>{
-  const res = await homeApi.getCollection({})
-}
 const Login = async()=>{
-  const res =  await homeApi.postLogin('0x78aa39849c1280cfcadd65c585acae297789084a');
+  const params = {
+    address:'0x78aa39849c1280cfcadd65c585acae297789084a'
+  }
+  const res =  await homeApi.postLogin(params);
+  toLogin.value = res
+  console.log(res,'===')
 }
+const collection = async ()=>{
+  const res = await homeApi.getCollection('e39c0e1e7c476c5f20ac27c91cc535a970e03254e39c0e1e7c476c5f20ac27c91cc535a970e03254')
+  analysisList.value  = res
+}
+
 const getAnalysis = async () => {
   const res = await homeApi.getDrops({});
   const list = res.data.map((item: { shortTime: any; date: string; }) => {
@@ -138,9 +147,10 @@ const getAnalysis = async () => {
 }
 
 onMounted(() => {
+  Login()
   getAnalysis()
   collection()
-  Login()
+
 })
 
 </script>
@@ -223,6 +233,7 @@ onMounted(() => {
 }
 .wrap-item{
   display: flex;
+  margin-left: 20px;
 }
 .parent{
   width: 128px;
@@ -252,7 +263,8 @@ onMounted(() => {
   img{
     width: 19px;
     height: 22px;
-    margin-top: 20px;
+    margin-top: 6px;
+    margin-left: 10px;
   }
 }
 .right-image{
