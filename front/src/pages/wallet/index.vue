@@ -36,6 +36,7 @@ const getWallet = async () =>{
   }
   const res =  await homeApi.postLogin(params);
   localStorage.setItem('token', res.token);
+  localStorage.setItem('username', res.username);
 }
 onMounted(() => {
   getWallet()

@@ -1,6 +1,8 @@
 import axios from "axios";
 import config from './config'
 import {useStore} from "vuex";
+import {homeApi} from "@/api";
+import {onMounted} from "vue";
 const store = useStore();
 
 const service = axios.create({
@@ -13,6 +15,7 @@ service.interceptors.request.use(function (config) {
     console.log("-> config", config);
     config.headers = {...config.headers,
        'access-token':localStorage.getItem('token')??'',
+        'Authorization':'bearer ' + localStorage.getItem('token')??'',
     }
     if(config.method==='post')  {
 
@@ -37,7 +40,14 @@ service.interceptors.response.use(
                 return Promise.reject(response);
             }
         } else if(response.status === 401){
-
+            const getWallet = async () =>{
+                const params = {
+                    address:'0x78aa39849c1280cfcadd65c585acae297789084a'
+                }
+                const res =  await homeApi.postLogin(params);
+                localStorage.setItem('token', res.token);
+            }
+            getWallet()
         }else{
             return Promise.reject(response);
         }

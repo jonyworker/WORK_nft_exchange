@@ -40,7 +40,7 @@ const homeApi = {
         return await request.get(`api/index/text`)
     },
     //链接钱包
-    async postLogin (data: any):Promise<{token:any}>{
+    async postLogin (data: any):Promise<{token:any,username:string,}>{
         return await request.post(`api/login`,data)
     },
     //api/member/collection/add.將項目加入追蹤清單
@@ -51,5 +51,9 @@ const homeApi = {
     async getCollection (){
         return await request.get(`api/member/collection/index`,)
     },
+    //会员追从Nft清单
+    async postMember(){
+        return await request.post(`api/member/nft/index`)
+    }
 }
 export default homeApi

@@ -7,7 +7,7 @@
     </div>
     <div class="head-wrap">
       <div class="wrap">
-        <div class="tit">{{toLogin.username}}</div>
+        <div class="tit">{{username}}</div>
 <!--        <div class="wrap-item">-->
 <!--          <div class="parent">-->
 <!--            <div class='parent-main'>-->
@@ -59,11 +59,9 @@
                     <p class="single-ellipsis">{{item.name}}</p>
                   </div>
                 </td>
-                <td class="" v-if="date === 1">{{ item.volume_24_p }}</td>
-                <td class="" v-if="date === 2">{{ item.volume_7d }}</td>
-                <td class="" v-if="date === 3">{{ item.volume_30d}}</td>
+                <td class="">{{ item.volume_24_p }}</td>
                 <td class="go-down">{{item.volume_24_p}}</td>
-                <td class="go-up">{{item.volume_7d_p}}</td>
+                <td class="go-up">{{item.sales_24}}</td>
                 <td>{{item.holders}}</td>
                 <td>{{item.floor_price}}</td>
                 <td>{{item.item_qty}}</td>
@@ -118,36 +116,25 @@ const analysisList = ref<IPanelList | null>(null)
 const dropsList = ref<IInfo[] | null>(null);
 const textList = ref([{name:'追蹤項目',value:1,},{name:'追蹤NFT',value:2}]);
 const toLogin = ref({});
+const username = localStorage.getItem('username')
 const changeTag = async (value: number) => {
   type.value = value
 }
 const copyInfo=(info:string)=>{
   copy(info)
 }
-const Login = async()=>{
-  const params = {
-    address:'0x78aa39849c1280cfcadd65c585acae297789084a'
-  }
-  const res =  await homeApi.postLogin(params);
-  toLogin.value = res
-  console.log(res,'===')
-}
 const collection = async ()=>{
-  const res = await homeApi.getCollection('e39c0e1e7c476c5f20ac27c91cc535a970e03254e39c0e1e7c476c5f20ac27c91cc535a970e03254')
-  analysisList.value  = res
+  const res = await homeApi.getCollection()
+  analysisList.value  = res.data
+
 }
 
 const getAnalysis = async () => {
-  const res = await homeApi.getDrops({});
-  const list = res.data.map((item: { shortTime: any; date: string; }) => {
-    item.shortTime = item.date.split(' ')[1]
-    return item
-  })
-  dropsList.value = list
+  const res = await homeApi.postMember();
+  dropsList.value = res
 }
 
 onMounted(() => {
-  Login()
   getAnalysis()
   collection()
 
@@ -263,8 +250,9 @@ onMounted(() => {
   img{
     width: 19px;
     height: 22px;
-    margin-top: 6px;
+    margin-top: 16px;
     margin-left: 10px;
+    border-radius:50%;
   }
 }
 .right-image{
