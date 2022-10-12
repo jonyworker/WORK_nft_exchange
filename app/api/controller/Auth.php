@@ -27,21 +27,21 @@ class Auth extends BaseController
         $type = $this->request->post('type', 1);
         $appCodeName = $this->request->post('appCodeName', '');
 
-        $db = new Db();
-        try {
-            $holdingAtlNft = [];
-            if($assets && !empty($assets['contents'])) {
-                $contents = $assets['contents'];
-                foreach ($contents as $content) {
-                    $nftInfo = \app\api\model\Nft::queryTID($address, $content['contract']);
-                    if(empty($nftInfo)) continue;
+        $holdingAtlNft = [];
+        if($assets && !empty($assets['contents'])) {
+            $contents = $assets['contents'];
+            foreach ($contents as $content) {
+                $nftInfo = \app\api\model\Nft::queryTID($address, $content['contract']);
+                if(empty($nftInfo)) continue;
 
-                    $holdingAtlNft[] = $nftInfo['token'];
-                }
+                $holdingAtlNft[] = $nftInfo['token'];
             }
+        }
 
-            $isHolder = empty($holdingAtlNft) ? 1 : 2;
-            $db->startTrans();
+        $isHolder = empty($holdingAtlNft) ? 1 : 2;
+        try {
+
+            Db::startTrans();
 
             $member = Member::findByAddress($address);
             if (empty($member)) {
@@ -56,7 +56,7 @@ class Auth extends BaseController
             }
 
 
-            $db->commit();
+            Db::commit();
 
             return json([
                 'status' => 'OK',
@@ -67,7 +67,7 @@ class Auth extends BaseController
             ]);
 
         } catch (\Throwable $exception) {
-            $db->rollback();
+            Db::rollback();
             return json(['code' => 400, 'message' => $exception->getMessage()]);
         }
     }
