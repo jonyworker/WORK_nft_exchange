@@ -39,7 +39,7 @@
                 <th>{{$t('home.demo')}}</th>
                 <th>{{$t('home.floorPrice')}}</th>
                 <th>
-                  {{$t('home.tradingVolume')}}
+                  7d值
                 </th>
                 <th>24H%</th>
                 <th>7D%</th>
@@ -59,11 +59,11 @@
                     <p class="single-ellipsis">{{item.name}}</p>
                   </div>
                 </td>
-                <td class="">{{ item.volume_24_p }}</td>
-                <td class="go-down">{{item.volume_24_p}}</td>
-                <td class="go-up">{{item.sales_24}}</td>
+                <td class="">{{ item.floor_price }}</td>
+                <td :class="item.volume_7d > 0 ? 'go-down' : 'red'">{{item.volume_7d}}</td>
+                <td :class="item.volume_24_p > 0 ?'go-up': 'red'">{{item.volume_24_p}}</td>
+                <td>{{item. volume_7d_p}}</td>
                 <td>{{item.holders}}</td>
-                <td>{{item.floor_price}}</td>
                 <td>{{item.item_qty}}</td>
               </tr>
               </tbody>
@@ -143,6 +143,9 @@ onMounted(() => {
 </script>
 
  <style scoped lang="less">
+ .red{
+   color:red;
+ }
 .container{
   position: relative;
 }

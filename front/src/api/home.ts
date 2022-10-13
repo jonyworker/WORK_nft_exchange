@@ -53,7 +53,7 @@ const homeApi = {
     },
     //会员追从Nft清单
     async postMember(){
-        return await request.post(`api/member/nft/index`)
+        return await request.get(`api/member/nft/index`)
     }
 }
 export default homeApi
