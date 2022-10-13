@@ -78,20 +78,26 @@
         <div class="row">
 
           <div class="col-12 col-sm-6 col-lg-3" v-for="(item,index) in dropsList" :key="index">
-            <div class="card-item card-1" >
+            <div class="card-item card-1 mb-10" >
 
               <div class="card-image">
 
-                <img src="@/assets/images/random_1.png" alt="">
+                <img :src="item.photo_url" alt="">
               </div>
 
                 <div class="card-text">
                   <div class="card-text-wrap">
-                    <div class="text">動態項目方名稱動態項目方名...</div>
-                    <div class="image"><img src="@/assets/images/icon_favorite.png" alt=""></div>
+                    <div class="text">{{item.collection_name}}</div>
+<!--                    <div class="image"><img src="@/assets/images/icon_favorite.png" alt=""></div>-->
+                    <div class="image" @click="toNftRemove(item.id)">
+                      <svg xmlns="http://www.w3.org/2000/svg" height="38" width="38"><path d="m21.95 40.2-2.65-2.45Q13.1 32 8.55 26.775T4 15.85q0-4.5 3.025-7.525Q10.05 5.3 14.5 5.3q2.55 0 5.05 1.225T24 10.55q2.2-2.8 4.55-4.025Q30.9 5.3 33.5 5.3q4.45 0 7.475 3.025Q44 11.35 44 15.85q0 5.7-4.55 10.925Q34.9 32 28.7 37.75l-2.65 2.45q-.85.8-2.05.8-1.2 0-2.05-.8Z"/></svg>
+                    </div>
+                    <!--                <div class="image" @click="toNft(item.id)">-->
+                    <!--                  <svg xmlns="http://www.w3.org/2000/svg" height="38" width="38"><path d="m21.95 40.2-2.65-2.45Q13.1 32 8.55 26.775T4 15.85q0-4.5 3.025-7.525Q10.05 5.3 14.5 5.3q2.55 0 5.05 1.225T24 10.55q2.2-2.8 4.55-4.025Q30.9 5.3 33.5 5.3q4.45 0 7.475 3.025Q44 11.35 44 15.85q0 5.7-4.55 10.925Q34.9 32 28.7 37.75l-2.65 2.45q-.85.8-2.05.8-1.2 0-2.05-.8Zm.75-26.35q-1.35-2.45-3.55-4-2.2-1.55-4.65-1.55-3.3 0-5.4 2.125Q7 12.55 7 15.85q0 2.9 1.95 6.075Q10.9 25.1 13.6 28.1t5.6 5.575Q22.1 36.25 24 38q1.9-1.7 4.8-4.3 2.9-2.6 5.6-5.625 2.7-3.025 4.65-6.2Q41 18.7 41 15.85q0-3.3-2.125-5.425T33.5 8.3q-2.5 0-4.675 1.525T25.2 13.85q-.25.4-.55.575-.3.175-.7.175-.4 0-.725-.175-.325-.175-.525-.575Zm1.3 9.3Z"/></svg>-->
+                    <!--                </div>-->
                   </div>
                   <div>
-                    #1234
+<!--                    #1234-->
                   </div>
                 </div>
               </div>
@@ -105,7 +111,7 @@
 
  <script setup lang="ts">
 import {onMounted, ref} from "vue";
-import {homeApi} from "@/api";
+import {homeApi, homePageApi} from "@/api";
 import {copy} from "@utils/copy";
 import {IInfo,IPanelList} from "./analysisType";
 
@@ -123,6 +129,22 @@ const changeTag = async (value: number) => {
 const copyInfo=(info:string)=>{
   copy(info)
 }
+//收藏
+const toNft = async(id:string) =>{
+  const params ={
+    nftId:id,
+  }
+  const res = await  homePageApi.addNft(params);
+  getAnalysis()
+}
+//移除收藏
+const toNftRemove = async(id:string) =>{
+  const params ={
+    nftId:id,
+  }
+  const res = await  homePageApi.removeNft(params);
+  getAnalysis()
+}
 const collection = async ()=>{
   const res = await homeApi.getCollection()
   analysisList.value  = res.data
@@ -131,7 +153,7 @@ const collection = async ()=>{
 
 const getAnalysis = async () => {
   const res = await homeApi.postMember();
-  dropsList.value = res
+  dropsList.value = res.data
 }
 
 onMounted(() => {
@@ -143,6 +165,13 @@ onMounted(() => {
 </script>
 
  <style scoped lang="less">
+ svg { fill: #fff;width: 30px;
+   height: 30px;
+   font-size: 30px;
+   overflow: inherit;padding-right:10px }
+ .minting-content{
+   margin-top: 30px;
+ }
  .red{
    color:red;
  }
@@ -197,12 +226,12 @@ onMounted(() => {
   border-radius: 0px 0px 16px 16px;
   background: #1C1C24;
   border-color: rgba(255, 255, 255, 0.2);
-  padding: 10px;
+  padding:20px 10px;
 }
 .card-text-wrap{
   display: flex;
   .text{
-    width: 95%;
+    width: 85%;
     overflow: hidden;
     white-space: nowrap;
     text-overflow:ellipsis;

@@ -16,12 +16,11 @@ export interface IPanelList{
     unit: string,
 }
 export interface IInfo  {
-    background:string;
-    collection_url: string;
-    collection: string;
-    introduction: string;
-    price: string;
-    ori_date: string;
+    collection_name:string,
+    contract: string,
+    id: string,
+    photo_url: string,
+    token_id: string,
 }
 export interface Login{
     holding_atl_nft: string;

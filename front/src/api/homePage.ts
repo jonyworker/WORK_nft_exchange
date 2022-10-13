@@ -8,6 +8,22 @@ const homePageApi = {
     },
     async postHomeCard(params:any){
         return await request.post('/api/collection/nft ',params)
-    }
+    },
+    //將NFT加入追蹤清單
+    async addNft(params:any){
+        return await request.post('/api/member/nft/add ',params)
+    },
+    //將NFT從追蹤清單移除
+    async removeNft(params:any){
+        return await request.post(`api/member/nft/remove`,params)
+    },
+    //会员清單
+    async addColl(params:any){
+        return await request.post('/api/member/collection/add ',params)
+    },
+    //会员移除
+    async removeColl(params:any){
+        return await request.post('/api/member/collection/remove',params)
+    },
 }
 export default homePageApi

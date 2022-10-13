@@ -1,5 +1,5 @@
 export interface IPanel {
-    id: number;
+    id: string;
     name: string;
     photo_url: string;
     contract: string;
