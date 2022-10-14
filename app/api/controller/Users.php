@@ -39,9 +39,9 @@ class Users extends BaseController
             return json(['status' => 'FAIL', 'message' => 'Name不能为空']);
         }
 
-        if($email && validateEmail($email))  {
-            return json(['status' => 'FAIL', 'message' => '邮箱格式错误']);
-        }
+//        if($email && validateEmail($email))  {
+//            return json(['status' => 'FAIL', 'message' => '邮箱格式错误']);
+//        }
 
         \app\api\model\Member::modifyProfile($this->getUserId(), $name, $email, $img);
 
