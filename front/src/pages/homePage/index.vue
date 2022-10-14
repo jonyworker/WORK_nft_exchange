@@ -11,8 +11,19 @@
               <div class="title-flex">{{ panel.data.name }}</div>
               <div class="bottom-flex">
                 <div>{{ panel.data.unit }}</div>
-                <div>{{ panel.data.contract.slice(0, 7) }}</div>
+                <div>{{ panel.data.contract.slice(0, 7) }}
+<!--                  <span><img width="20px" height="20px" src="@/assets/images/icon_copy.png" alt="" @click="copyInfo(panel.data.contract)"></span>-->
+                </div>
                 <div>{{ panel.data.item_qty }} NFTs</div>
+
+              </div>
+              <div class="coll">
+                <div class="image" @click="toCollRemove(panel.data.id)">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="38" width="38"><path d="m21.95 40.2-2.65-2.45Q13.1 32 8.55 26.775T4 15.85q0-4.5 3.025-7.525Q10.05 5.3 14.5 5.3q2.55 0 5.05 1.225T24 10.55q2.2-2.8 4.55-4.025Q30.9 5.3 33.5 5.3q4.45 0 7.475 3.025Q44 11.35 44 15.85q0 5.7-4.55 10.925Q34.9 32 28.7 37.75l-2.65 2.45q-.85.8-2.05.8-1.2 0-2.05-.8Z"/></svg>
+                </div>
+                <div class="image" @click="toColl(panel.data.id)">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="38" width="38"><path d="m21.95 40.2-2.65-2.45Q13.1 32 8.55 26.775T4 15.85q0-4.5 3.025-7.525Q10.05 5.3 14.5 5.3q2.55 0 5.05 1.225T24 10.55q2.2-2.8 4.55-4.025Q30.9 5.3 33.5 5.3q4.45 0 7.475 3.025Q44 11.35 44 15.85q0 5.7-4.55 10.925Q34.9 32 28.7 37.75l-2.65 2.45q-.85.8-2.05.8-1.2 0-2.05-.8Zm.75-26.35q-1.35-2.45-3.55-4-2.2-1.55-4.65-1.55-3.3 0-5.4 2.125Q7 12.55 7 15.85q0 2.9 1.95 6.075Q10.9 25.1 13.6 28.1t5.6 5.575Q22.1 36.25 24 38q1.9-1.7 4.8-4.3 2.9-2.6 5.6-5.625 2.7-3.025 4.65-6.2Q41 18.7 41 15.85q0-3.3-2.125-5.425T33.5 8.3q-2.5 0-4.675 1.525T25.2 13.85q-.25.4-.55.575-.3.175-.7.175-.4 0-.725-.175-.325-.175-.525-.575Zm1.3 9.3Z"/></svg>
+                </div>
               </div>
             </div>
           </div>
@@ -156,7 +167,13 @@
               <div class="card-text-wrap">
                 <div class="text"> {{ item.price }} {{ item.unit }}</div>
                 <!--                <div class="text">{{item.permalink}}</div>-->
-                <div class="image"><img alt="" src="@/assets/images/icon_favorite.png"></div>
+<!--                <div class="image"><img alt="" src="@/assets/images/icon_favorite.png"></div>-->
+                <div class="image" @click="toNftRemove(item.id)">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="38" width="38"><path d="m21.95 40.2-2.65-2.45Q13.1 32 8.55 26.775T4 15.85q0-4.5 3.025-7.525Q10.05 5.3 14.5 5.3q2.55 0 5.05 1.225T24 10.55q2.2-2.8 4.55-4.025Q30.9 5.3 33.5 5.3q4.45 0 7.475 3.025Q44 11.35 44 15.85q0 5.7-4.55 10.925Q34.9 32 28.7 37.75l-2.65 2.45q-.85.8-2.05.8-1.2 0-2.05-.8Z"/></svg>
+                </div>
+<!--                <div class="image" @click="toNft(item.id)">-->
+<!--                  <svg xmlns="http://www.w3.org/2000/svg" height="38" width="38"><path d="m21.95 40.2-2.65-2.45Q13.1 32 8.55 26.775T4 15.85q0-4.5 3.025-7.525Q10.05 5.3 14.5 5.3q2.55 0 5.05 1.225T24 10.55q2.2-2.8 4.55-4.025Q30.9 5.3 33.5 5.3q4.45 0 7.475 3.025Q44 11.35 44 15.85q0 5.7-4.55 10.925Q34.9 32 28.7 37.75l-2.65 2.45q-.85.8-2.05.8-1.2 0-2.05-.8Zm.75-26.35q-1.35-2.45-3.55-4-2.2-1.55-4.65-1.55-3.3 0-5.4 2.125Q7 12.55 7 15.85q0 2.9 1.95 6.075Q10.9 25.1 13.6 28.1t5.6 5.575Q22.1 36.25 24 38q1.9-1.7 4.8-4.3 2.9-2.6 5.6-5.625 2.7-3.025 4.65-6.2Q41 18.7 41 15.85q0-3.3-2.125-5.425T33.5 8.3q-2.5 0-4.675 1.525T25.2 13.85q-.25.4-.55.575-.3.175-.7.175-.4 0-.725-.175-.325-.175-.525-.575Zm1.3 9.3Z"/></svg>-->
+<!--                </div>-->
               </div>
               <div>
                 #1234
@@ -179,6 +196,7 @@ import Line from "@/pages/homePage/line.vue";
 import Pie from "@/pages/homePage/pie.vue";
 
 import { ArrowDown } from '@element-plus/icons-vue'
+import {copy} from "@utils/copy";
 const visible = ref(false)
 const route = useRoute()
 const filter_ind = ref()
@@ -208,6 +226,10 @@ type IInfo = {
   usd_price: string,
 }
 const dropsList = ref<IInfo[] | null>(null);
+//复制
+const copyInfo=(info:string)=>{
+  copy(info)
+}
 const getHomePage = async () => {
   const {id} = route.query
   const res: panelData = await homePageApi.getHomePoster({collectionId: id as string});
@@ -218,7 +240,38 @@ const getHomePage = async () => {
   panel.holder_stat = res.holder_stat
 
 }
+//会员收藏
 
+const toCollRemove = async(id:string) =>{
+  const params ={
+    collectionId:id,
+  }
+  const res = await  homePageApi.removeColl(params);
+  getHomePage()
+}
+const toColl = async(id:string) =>{
+  const params ={
+    collectionId:id,
+  }
+  const res = await  homePageApi.addColl(params);
+  getHomePage()
+}
+//收藏
+const toNft = async(id:string) =>{
+  const params ={
+    nftId:id,
+  }
+  const res = await  homePageApi.addNft(params);
+  load()
+}
+//移除收藏
+const toNftRemove = async(id:string) =>{
+  const params ={
+    nftId:id,
+  }
+  const res = await  homePageApi.removeNft(params);
+  load()
+}
 /**
  * 请求接口
  */
@@ -270,6 +323,15 @@ onMounted(() => {
 </script>
 
 <style lang="less" scoped>
+.coll{
+  position: relative;
+  left: 310px;
+  display: flex;
+  top: -36px;
+  .image{
+    margin-right:30px;
+  }
+}
 :deep .special-btn{
   span{
     width: 100% !important;
@@ -628,10 +690,14 @@ onMounted(() => {
   display: flex;
 
   .text {
-    width: 95%;
+    width: 85%;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
   }
 }
+svg { fill: #fff;width: 30px;
+  height: 30px;
+  font-size: 30px;
+  overflow: inherit;padding-right:10px }
 </style>

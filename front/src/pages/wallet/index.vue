@@ -31,7 +31,12 @@ const chageTag = async (value: number) => {
 
 }
 const getWallet = async () =>{
-  const res =  await homeApi.postLogin('0x78aa39849c1280cfcadd65c585acae297789084a');
+  const params = {
+    address:'0x78aa39849c1280cfcadd65c585acae297789084a'
+  }
+  const res =  await homeApi.postLogin(params);
+  localStorage.setItem('token', res.token);
+  localStorage.setItem('username', res.username);
 }
 onMounted(() => {
   getWallet()

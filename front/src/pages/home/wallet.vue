@@ -60,7 +60,7 @@
                     </div>
 <!--                      <p class="single-ellipsis">{{item.address}}</p>-->
                     <div class="profile ml-8" @click="copyInfo(item.address)">
-                      <img width="20px" height="20px" src="@/assets/images/icon_copy.png" alt="">
+                      <img width="20px" height="20px" src="@/assets/images/icon_copy.png" alt="" >
                     </div>
                   </div>
                 </td>

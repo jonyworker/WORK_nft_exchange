@@ -56,12 +56,12 @@ export default defineConfig(() => {
         host: 'localhost',
         hmr: { overlay: true },
         proxy: {
-            '^/api/login': {
-                target: 'http://www.nftotal.io/',
-                //  target: 'http://www.farm01.com/',
-                ws: true, // 代理的WebSockets
-                changeOrigin: true, // 允许websockets跨域
-            },
+            // '^/api/login': {
+            //     target: 'http://www.nftotal.io/',
+            //     //  target: 'http://www.farm01.com/',
+            //     ws: true, // 代理的WebSockets
+            //     changeOrigin: true, // 允许websockets跨域
+            // },
             '^/api': {
                 target: 'http://v2admin.nftotal.io/',
                 //  target: 'http://www.farm01.com/',
