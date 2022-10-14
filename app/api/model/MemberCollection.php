@@ -76,4 +76,14 @@ class MemberCollection extends Model
         ]);
     }
 
+    public static function isCollection($userId, $collectionId) : int
+    {
+        if($userId <= 0 || !$collectionId) return 2;
+
+        if(self::findByCollectionId($userId, $collectionId)) {
+            return 1;
+        }
+        return 2;
+    }
+
 }

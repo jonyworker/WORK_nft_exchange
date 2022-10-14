@@ -67,4 +67,15 @@ class MemberNft extends Model
     }
 
 
+    public static function isCollection($userId, $nftId) : int
+    {
+        if($userId <= 0 || !$nftId) return 2;
+
+        if(self::findByNftId($userId, $nftId)) {
+            return 1;
+        }
+        return 2;
+    }
+
+
 }

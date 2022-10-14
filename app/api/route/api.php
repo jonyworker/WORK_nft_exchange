@@ -1,6 +1,7 @@
 <?php
 
 use app\api\middleware\Auth;
+use app\api\middleware\OptionalAuth;
 use think\facade\Route;
 
 //会员登录 Method:POST URL： api/login
@@ -23,6 +24,6 @@ Route::post('member/nft/remove','MemberNFT/remove')->middleware(Auth::class);
 Route::post('member/nft/add','MemberNFT/add')->middleware(Auth::class);
 
 //取得項目主頁資訊 GET api/collection/index
-Route::get('collection/index','Collections/index');
+Route::get('collection/index','Collections/index')->middleware(OptionalAuth::class);
 //取得項目主頁NFT卡片 POST api/collection/nft
 Route::post('collection/nft','Collections/nft');

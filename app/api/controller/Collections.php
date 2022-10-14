@@ -23,6 +23,8 @@ class Collections extends BaseController
      */
     public function index(): Json
     {
+        $userId = $this->getUserId();
+
         $collectionId = (int)$this->request->get('collectionId');
         if ($collectionId <= 0) {
             return json(['code' => 400, 'message' => '项目id不能为空']);
@@ -32,25 +34,28 @@ class Collections extends BaseController
         $data['state'] = 'OK';
         $data['data'] = Collection::queryByCollectionId($collectionId, $lan);
 
+        $data['data']['is_collected'] = \app\api\model\MemberCollection::isCollection($userId, $collectionId);
+
+
         $contract = $data['data']['contract'];
 
-        $data['price_3d'] = StatCollectionDay::getPriceByDate(date('Y-m-d H:i:s', strtotime('-3 days')),$contract,3);
-        $data['price_30d'] = StatCollectionDay::getPriceByDate(date('Y-m-d H:i:s', strtotime('-30 days')), $contract,30);
-        $data['price_3m'] = StatCollectionDay::getPriceByDate(date('Y-m-d H:i:s', strtotime('-3 months')), $contract,90);
+        $data['price_3d'] = StatCollectionDay::getPriceByDate(date('Y-m-d H:i:s', strtotime('-3 days')), $contract, 3);
+        $data['price_30d'] = StatCollectionDay::getPriceByDate(date('Y-m-d H:i:s', strtotime('-30 days')), $contract, 30);
+        $data['price_3m'] = StatCollectionDay::getPriceByDate(date('Y-m-d H:i:s', strtotime('-3 months')), $contract, 90);
 
         $data['holder_stat'] = [
             '1' => StatHolderCt::countHolderByCt($collectionId, 1),
-            '2-3' => StatHolderCt::countHolderByCt($collectionId, [2,3]),
-            '4-10' => StatHolderCt::countHolderByCt($collectionId, [4,10]),
-            '11-50' => StatHolderCt::countHolderByCt($collectionId, [11,50]),
-            '50-100' => StatHolderCt::countHolderByCt($collectionId, [50,100]),
+            '2-3' => StatHolderCt::countHolderByCt($collectionId, [2, 3]),
+            '4-10' => StatHolderCt::countHolderByCt($collectionId, [4, 10]),
+            '11-50' => StatHolderCt::countHolderByCt($collectionId, [11, 50]),
+            '50-100' => StatHolderCt::countHolderByCt($collectionId, [50, 100]),
             '>100' => StatHolderCt::countHolderByCt($collectionId, [101, 0]),
         ];
         return json($data);
     }
 
 
-    public function nft() :Json
+    public function nft(): Json
     {
         $collectionId = (int)$this->request->post('collectionId');
         if ($collectionId <= 0) {
@@ -61,7 +66,7 @@ class Collections extends BaseController
         $count = (int)$this->request->get('count', 20);
         $page = (int)$this->request->get('page', 1);
 
-        $data = \app\api\model\Nft::getListByApi($collectionId, $filterInd, $orderBy, $page, $count);
+        $data = \app\api\model\Nft::getListByApi($this->getUserId(), $collectionId, $filterInd, $orderBy, $page, $count);
         return json(['status' => 'OK', 'data' => $data]);
     }
 }

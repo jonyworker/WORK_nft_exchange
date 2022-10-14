@@ -29,7 +29,7 @@ class Nft extends Model
         return self::where('contract', $contract)->where('holder', $address)->find();
     }
 
-    public static function getListByApi($collectionId, $filterInd, $orderBy, $page = 1, $perPage = 20)
+    public static function getListByApi($userId, $collectionId, $filterInd, $orderBy, $page = 1, $perPage = 20)
     {
         $contract = Collection::queryByCollectionId($collectionId, 1);
         $contract = $contract['contract'];
@@ -57,6 +57,8 @@ class Nft extends Model
                 'usd_price' => $item['usd_price'],
                 'permalink' => $item['permalink'],
                 'tokenid' => $item['tokenid'],
+                'is_collected' => \app\api\model\MemberNft::isCollection($userId, $item['id'])
+
             ];
 
         }
