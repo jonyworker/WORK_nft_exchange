@@ -27,3 +27,11 @@ Route::post('member/nft/add','MemberNFT/add')->middleware(Auth::class);
 Route::get('collection/index','Collections/index')->middleware(OptionalAuth::class);
 //取得項目主頁NFT卡片 POST api/collection/nft
 Route::post('collection/nft','Collections/nft');
+
+//图片上传 POST /api/upload/image 字段file
+Route::post('upload/image','Upload/image')->middleware(Auth::class);
+
+//20. 更新用戶基本資料 POST /api/member/profile/update
+Route::post('member/profile/update','Users/updatedProfile')->middleware(Auth::class);
+//21. 取得會員基本資料 GET /api/member/profile/index
+Route::get('member/profile/index','Users/profile')->middleware(Auth::class);

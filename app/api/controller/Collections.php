@@ -61,10 +61,10 @@ class Collections extends BaseController
         if ($collectionId <= 0) {
             return json(['code' => 400, 'message' => '项目id不能为空']);
         }
-        $filterInd = (int)$this->request->get('filterInd', 1);
-        $orderBy = (int)$this->request->get('orderBy', 1);
-        $count = (int)$this->request->get('count', 20);
-        $page = (int)$this->request->get('page', 1);
+        $filterInd = (int)$this->request->post('filterInd', 1);
+        $orderBy = (int)$this->request->post('orderBy', 1);
+        $count = (int)$this->request->post('count', 20);
+        $page = (int)$this->request->post('page', 1);
 
         $data = \app\api\model\Nft::getListByApi($this->getUserId(), $collectionId, $filterInd, $orderBy, $page, $count);
         return json(['status' => 'OK', 'data' => $data]);

@@ -53,3 +53,10 @@ function getIP()
     return $_SERVER['REMOTE_ADDR'] ?? null;
 }
 
+function validateEmail($email)
+{
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        return false;
+    }
+    return true;
+}

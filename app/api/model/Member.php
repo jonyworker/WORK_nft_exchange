@@ -87,5 +87,21 @@ class Member extends Model
     }
 
 
+    public static function modifyProfile($userId, $name, $email, $img)
+    {
+        $info = self::findByUserId($userId);
+
+        if(empty($info)) {
+            throw new Exception('會員信息不存在');
+        }
+
+        $info->name = $name;
+        $info->email = $email;
+        $info->photo_url = $img;
+        $info->save();
+        return true;
+    }
+
+
 
 }
