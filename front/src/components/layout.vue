@@ -1,15 +1,16 @@
 <template>
   <div class="common-layout">
     <el-container>
-      <el-header>
+      <div>
         <Header/>
-      </el-header>
+      </div>
       <div class="page-body">
         <router-view/>
       </div>
-      <el-footer>
-        <Footer/>
-      </el-footer>
+      <!-- <el-footer>
+        
+      </el-footer> -->
+      <Footer/>
     </el-container>
   </div>
 </template>

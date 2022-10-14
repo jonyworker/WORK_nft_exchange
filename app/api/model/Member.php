@@ -95,9 +95,9 @@ class Member extends Model
             throw new Exception('會員信息不存在');
         }
 
-        $info->name = $name;
-        $info->email = $email;
-        $info->photo_url = $img;
+        $info['name'] = $name;
+        $info['email'] = $email;
+        $info['photo_url'] = $img;
         $info->save();
         return true;
     }

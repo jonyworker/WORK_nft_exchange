@@ -152,7 +152,7 @@
         </div>
     
         <!-- 前往查看按鈕 (手機顯示) -->
-        <div class="mt-10">
+        <div class="mt-40">
           <div class="btn btn-read-more btn-mobile btn-outline d-block d-sm-none"  @click="hotRanking()" >{{$t('home.toView')}}</div>
         </div>
       </div>
