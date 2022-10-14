@@ -47,20 +47,17 @@
             {{ $t(isDark ? 'global.dark' : 'global.light') }}
           </el-menu-item> -->
 
-<<<<<<< HEAD
           <!-- Header - 連結錢包 v-if="status !== 'OK'"-->
             <div class="top_center" @click="toWallet()" >
               Connect Wallet
             </div>
             <div class="login" v-if="status === 'OK'" @click="logout()"></div>
-=======
           <!-- Header - 連結錢包 -->
           <li class="connectWallet ml-auto" @click="toWallet()" v-if="status !== 'OK'">
             Connect Wallet
           </li>
           <div class="login ml-auto" v-if="status === 'OK'" @click="logout()">1</div>
 
->>>>>>> 23b70746c8337fc2d63b0647a78e99e9d64eba40
           <!-- Header - 語言選擇 -->
           <el-sub-menu  style="margin-right: -20px;" index="8">
             <template #title >{{ langType[language] }}</template>
@@ -147,7 +144,6 @@
         Connect Wallet
       </div>
     </el-drawer>
-<<<<<<< HEAD
       <el-drawer v-model="visible" :show-close="false" >
         <div class="login" v-if="status === 'OK'" @click="visibleLogout === true"></div>
         <div class="drawer">
@@ -164,12 +160,6 @@
         </div>
       </el-drawer>
     </div>
-=======
-
-    
-  </div>
->>>>>>> 23b70746c8337fc2d63b0647a78e99e9d64eba40
-
 
 </template>
 
