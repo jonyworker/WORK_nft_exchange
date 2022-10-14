@@ -7,10 +7,10 @@
       <div class="page-body">
         <router-view/>
       </div>
-      <!-- <el-footer>
-        
-      </el-footer> -->
-      <Footer/>
+      <el-footer>
+        <Footer/>
+      </el-footer>
+      
     </el-container>
   </div>
 </template>
