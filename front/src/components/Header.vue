@@ -29,7 +29,7 @@
               <input v-model="input" type="search" placeholder="搜索NFT和錢包">
             </div>
           </li>
-          
+
           <!-- Header - NFT分析 -->
           <el-menu-item style="padding: 0 16px" index="1" @click="toAnalysis()">{{$t('home.search')}}</el-menu-item>
 
@@ -48,15 +48,12 @@
           </el-menu-item> -->
 
           <!-- Header - 連結錢包 v-if="status !== 'OK'"-->
-            <div class="top_center" @click="toWallet()" >
-              Connect Wallet
-            </div>
-            <div class="login" v-if="status === 'OK'" @click="logout()"></div>
-          <!-- Header - 連結錢包 -->
-          <li class="connectWallet ml-auto" @click="toWallet()" v-if="status !== 'OK'">
-            Connect Wallet
-          </li>
-          <div class="login ml-auto" v-if="status === 'OK'" @click="logout()">1</div>
+
+          <div>
+            <div class="connectWallet ml-auto" @click="toWallet()" v-if="!isLogin">Connect Wallet</div>
+            <div class="login ml-auto" v-else @click="logout()"></div>
+          </div>
+
 
           <!-- Header - 語言選擇 -->
           <el-sub-menu  style="margin-right: -20px;" index="8">
@@ -91,9 +88,10 @@
             </div>
           </div>
           <!-- Header - Minting觀測站 -->
-          <div class="connectWallet ml-auto mr-20" @click="toWallet()">
+          <div class="connectWallet ml-auto mr-20" @click="toWallet()" v-if="!isLogin">
             middle
           </div>
+          <div class="login ml-auto" v-else @click="logout()"></div>
           <div class="burger-toggle" @click="visible = true">
             <div class="icon icon-burger">
               <svg t="1661333269863" class="icon" viewBox="0 0 1032 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5593" width="36px" height="36px"><path d="M85.825737 214.431767l864.571964 0c44.777833 0 81.055061-36.291554 81.055061-81.054037 0-44.76146-36.277228-81.053014-81.055061-81.053014L85.825737 52.324716c-44.773739 0-81.054037 36.291554-81.054037 81.053014C4.7717 178.140213 41.051998 214.431767 85.825737 214.431767zM950.397702 430.575526 85.825737 430.575526c-44.773739 0-81.054037 36.278251-81.054037 81.053014 0 44.774763 36.279275 81.053014 81.054037 81.053014l864.571964 0c44.777833 0 81.055061-36.277228 81.055061-81.053014C1031.452762 466.853777 995.175534 430.575526 950.397702 430.575526zM950.397702 808.826336 85.825737 808.826336c-44.773739 0-81.054037 36.279275-81.054037 81.051991 0 44.776809 36.279275 81.055061 81.054037 81.055061l864.571964 0c44.777833 0 81.055061-36.278251 81.055061-81.055061C1031.452762 845.10561 995.175534 808.826336 950.397702 808.826336z" p-id="5594" fill="#ffffff"></path></svg>
@@ -113,9 +111,10 @@
             </svg>
           </div>
           <!-- Header - Minting觀測站 -->
-          <div class="connectWallet ml-auto mr-20" @click="toWallet()">
+          <div class="connectWallet ml-auto mr-20" @click="toWallet()" v-if="!isLogin">
             small
           </div>
+          <div class="login ml-auto" v-else @click="logout()"></div>
           <div class="burger-toggle" @click="visible = true">
             <div class="icon icon-burger">
               <svg t="1661333269863" class="icon" viewBox="0 0 1032 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5593" width="36px" height="36px"><path d="M85.825737 214.431767l864.571964 0c44.777833 0 81.055061-36.291554 81.055061-81.054037 0-44.76146-36.277228-81.053014-81.055061-81.053014L85.825737 52.324716c-44.773739 0-81.054037 36.291554-81.054037 81.053014C4.7717 178.140213 41.051998 214.431767 85.825737 214.431767zM950.397702 430.575526 85.825737 430.575526c-44.773739 0-81.054037 36.278251-81.054037 81.053014 0 44.774763 36.279275 81.053014 81.054037 81.053014l864.571964 0c44.777833 0 81.055061-36.277228 81.055061-81.053014C1031.452762 466.853777 995.175534 430.575526 950.397702 430.575526zM950.397702 808.826336 85.825737 808.826336c-44.773739 0-81.054037 36.279275-81.054037 81.051991 0 44.776809 36.279275 81.055061 81.054037 81.055061l864.571964 0c44.777833 0 81.055061-36.278251 81.055061-81.055061C1031.452762 845.10561 995.175534 808.826336 950.397702 808.826336z" p-id="5594" fill="#ffffff"></path></svg>
@@ -125,29 +124,22 @@
       </div>
     </div>
 
-
-
-
     <!-- 彈出選單 -->
-    <el-drawer v-model="visible" :show-close="false" >
+    <el-drawer v-model="visibleLogout" :show-close="false" >
 
       <div class="drawer">
-        <div @click="toAnalysis()">{{$t('home.analysis')}}</div>
-        <div @click="toHotItem()">{{$t('home.hot_item')}}</div>
-        <div @click="toMinting()">{{$t('home.mint')}}</div>
-        <div @click="toNews(1)">{{$t('home.newsBlog')}}</div>
+        <div @click="toAnalysis(1)">追蹤項目</div>
+        <div @click="toAnalysis(2)">追蹤 NFT</div>
+        <div @click="goto('Personal')">個人資料編輯</div>
       </div>
-      <div index="zhCn" @click="handleCommand('zhCn')">简体中文</div>
-      <div index="zh-tw" @click="handleCommand('zh-tw')">繁體中文</div>
-      <div index="en" @click="handleCommand('en')">English</div>
-      <div class="to-wallet" @click="toWallet()"  >
-        Connect Wallet
+      <div class="to-wallet" @click="toLogout()"  >
+        登出
       </div>
     </el-drawer>
       <el-drawer v-model="visible" :show-close="false" >
-        <div class="login" v-if="status === 'OK'" @click="visibleLogout === true"></div>
+        <div class="login" v-if="!isLogin" @click="visibleLogout === true"></div>
         <div class="drawer">
-          <div @click="toAnalysis()">{{$t('home.analysis')}}</div>
+          <div @click="toHotRanking()">{{$t('home.analysis')}}</div>
           <div @click="toHotItem()">{{$t('home.hot_item')}}</div>
           <div @click="toMinting()">{{$t('home.mint')}}</div>
           <div @click="toNews(1)">{{$t('home.newsBlog')}}</div>
@@ -155,7 +147,7 @@
         <div index="zhCn" @click="handleCommand('zhCn')">简体中文</div>
         <div index="zh-tw" @click="handleCommand('zh-tw')">繁體中文</div>
         <div index="en" @click="handleCommand('en')">English</div>
-        <div class="to-wallet" @click="toWallet()"  v-if="status !== 'OK'">
+        <div class="to-wallet" @click="toWallet()"  v-if="!isLogin">
           Connect Wallet
         </div>
       </el-drawer>
@@ -182,8 +174,13 @@ const isDark = useDark();
 const toggleDark = useToggle(isDark);
 const router = useRouter();
 const store = useStore();
+const isLogin = computed<languageType>(() => store.state.isLogin);
 // 改变语言
-
+const goto =(pathName:string,query?:Record<string, any>)=>{
+  const pushParams ={name: pathName,...(query??{})}
+  visibleLogout.value=false
+  router.push(pushParams)
+}
 type languageType ='zhCn'| 'en'|'zh-tw';
 const language = computed<languageType>(() => store.state.language);
 
@@ -193,11 +190,13 @@ const handleSelect = (value: string) => {
 const toHot = () =>{
   router.push({name: 'HotRanking',query:{type:2}})
 }
-const status =  localStorage.getItem('status',);
+
 const handleCommand = (value: string) => {
   store.commit('CHANGE_LANGUAGE', value);
   router.go(0);
 };
+const toAnalysis = () =>{}
+
 const logout = () =>{
   visibleLogout.value = true
   visible.value = false
@@ -205,10 +204,14 @@ const logout = () =>{
 //退出登录
 const toLogout = async() =>{
   const res = await homeApi.postLogout({})
+  if(res.status){
+    store.commit('changeLoginStatus',false)
+    localStorage.removeItem('token');
+  }
   visibleLogout.value = false
   visible.value = false
 }
-const toAnalysis = () =>{
+const toHotRanking = () =>{
   /*router.push({name: 'Analysis'})*/
   router.push({name: 'HotRanking',query:{type:2}})
 }

@@ -248,6 +248,8 @@ onMounted(() => {
   .tit{
     font-size: 32px;
     font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 .wrap-item{
