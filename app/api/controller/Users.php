@@ -35,7 +35,7 @@ class Users extends BaseController
         $email = trim($this->request->post('email', ''));
         $img = trim($this->request->post('img', ''));
 
-        if($name)  {
+        if(empty($name))  {
             return json(['status' => 'FAIL', 'message' => 'Name不能为空']);
         }
 
