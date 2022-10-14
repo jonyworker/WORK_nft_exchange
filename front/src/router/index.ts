@@ -36,9 +36,9 @@ const routes = [
         component: () => import('@/pages/newsDetail/index.vue')
     },
     {
-        path:'/wallet',
-        name:'Wallet',
-        component: () => import('@/pages/wallet/index.vue')
+        path:'/login',
+        name:'Login',
+        component: () => import('@/pages/login/index.vue')
     },
     {
         path:'/analysis',

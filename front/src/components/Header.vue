@@ -46,10 +46,10 @@
           </el-menu-item>
 
           <!-- Header - 連結錢包 -->
-            <div class="top_center" @click="toWallet()">
+            <div class="top_center" @click="toWallet()" v-if="status !== 'OK'">
               Connect Wallet
             </div>
-
+            <div class="login" v-if="status === 'OK'" @click="logout()">1</div>
           <!-- Header - 語言選擇 -->
           <el-sub-menu index="8">
             <template #title>语言 - {{ langType[language] }}</template>
@@ -67,7 +67,7 @@
               <div class="header-logo" @click="toHome()">
                 NFTotal
               </div>
-              <div class="top_center" @click="toWallet()">
+              <div class="top_center" @click="toWallet()" v-if="status !== 'OK'">
                 Connect Wallet
               </div>
               <div class="menu_icon" @click="visible = true">
@@ -76,9 +76,20 @@
             </div>
           </div>
     </div>
+    <el-drawer v-model="visibleLogout" :show-close="false" >
 
+      <div class="drawer">
+        <div></div>
+        <div @click="toAnalysis()">追蹤項目</div>
+        <div @click="toHotItem()">追蹤 NFT</div>
+        <div @click="toMinting()">個人資料編輯</div>
+      </div>
+      <div class="to-wallet" @click="toLogout()" >
+        登出
+      </div>
+    </el-drawer>
       <el-drawer v-model="visible" :show-close="false" >
-
+        <div class="login" v-if="status === 'OK'" @click="visibleLogout === true">1</div>
         <div class="drawer">
           <div @click="toAnalysis()">{{$t('home.analysis')}}</div>
           <div @click="toHotItem()">{{$t('home.hot_item')}}</div>
@@ -88,7 +99,7 @@
         <div index="zhCn" @click="handleCommand('zhCn')">简体中文</div>
         <div index="zh-tw" @click="handleCommand('zh-tw')">繁體中文</div>
         <div index="en" @click="handleCommand('en')">English</div>
-        <div class="to-wallet" @click="toWallet()"  >
+        <div class="to-wallet" @click="toWallet()"  v-if="status !== 'OK'">
           Connect Wallet
         </div>
       </el-drawer>
@@ -110,7 +121,8 @@ import {useRouter} from 'vue-router';
 import {computed} from 'vue';
 import {useStore} from "vuex";
 const input = ref('')
-const visible = ref(false)
+const visible = ref(false);
+const visibleLogout = ref(false);
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
 const router = useRouter();
@@ -126,16 +138,21 @@ const handleSelect = (value: string) => {
 const toHot = () =>{
   router.push({name: 'HotRanking',query:{type:2}})
 }
+const status =  localStorage.getItem('status',);
 const handleCommand = (value: string) => {
   store.commit('CHANGE_LANGUAGE', value);
   router.go(0);
 };
+const logout = () =>{
+  visibleLogout.value = true
+  visible.value = false
+}
 const toAnalysis = () =>{
   /*router.push({name: 'Analysis'})*/
   router.push({name: 'HotRanking',query:{type:2}})
 }
 const toWallet = () =>{
-  router.push({name: 'Wallet'})
+  router.push({name: 'Login'})
 }
 
 const toHome = () =>{
@@ -155,6 +172,13 @@ const toMinting = () =>{
 }
 </script>
 <style lang="less" scoped>
+.login{
+  width:40px;
+  height:40px;
+  border-radius: 50%;
+  background: #D9D9D9;
+  margin-top:10px;
+}
 .drawer{
 line-height: 40px;
   font-weight: 700;
@@ -174,7 +198,7 @@ line-height: 40px;
   overflow: auto;
 }
 :deep  .el-drawer {
-  width: 45% !important;
+  width: 327px !important;
   position: absolute;
   box-sizing: border-box;
   right: 20px !important;
