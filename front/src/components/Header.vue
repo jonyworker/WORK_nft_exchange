@@ -31,7 +31,7 @@
           </li>
 
           <!-- Header - NFT分析 -->
-          <el-menu-item style="padding: 0 16px" index="1" @click="toAnalysis()">{{$t('home.search')}}</el-menu-item>
+          <el-menu-item style="padding: 0 16px" index="1" @click="toHotRanking()">{{$t('home.search')}}</el-menu-item>
 
           <!-- Header - 熱門排行 -->
           <el-menu-item style="padding: 0 16px" index="" @click="toHot()">熱門排行</el-menu-item>
@@ -91,7 +91,7 @@
           <div class="connectWallet ml-auto mr-20" @click="toWallet()" v-if="!isLogin">
             middle
           </div>
-          <div class="login ml-auto" v-else @click="logout()"></div>
+          <div class="login ml-auto" v-else @click="logout()" style="margin-right:10px;"></div>
           <div class="burger-toggle" @click="visible = true">
             <div class="icon icon-burger">
               <svg t="1661333269863" class="icon" viewBox="0 0 1032 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5593" width="36px" height="36px"><path d="M85.825737 214.431767l864.571964 0c44.777833 0 81.055061-36.291554 81.055061-81.054037 0-44.76146-36.277228-81.053014-81.055061-81.053014L85.825737 52.324716c-44.773739 0-81.054037 36.291554-81.054037 81.053014C4.7717 178.140213 41.051998 214.431767 85.825737 214.431767zM950.397702 430.575526 85.825737 430.575526c-44.773739 0-81.054037 36.278251-81.054037 81.053014 0 44.774763 36.279275 81.053014 81.054037 81.053014l864.571964 0c44.777833 0 81.055061-36.277228 81.055061-81.053014C1031.452762 466.853777 995.175534 430.575526 950.397702 430.575526zM950.397702 808.826336 85.825737 808.826336c-44.773739 0-81.054037 36.279275-81.054037 81.051991 0 44.776809 36.279275 81.055061 81.054037 81.055061l864.571964 0c44.777833 0 81.055061-36.278251 81.055061-81.055061C1031.452762 845.10561 995.175534 808.826336 950.397702 808.826336z" p-id="5594" fill="#ffffff"></path></svg>
@@ -114,7 +114,7 @@
           <div class="connectWallet ml-auto mr-20" @click="toWallet()" v-if="!isLogin">
             small
           </div>
-          <div class="login ml-auto" v-else @click="logout()"></div>
+          <div class="login ml-auto" v-else @click="logout()" style="margin-right:10px;"></div>
           <div class="burger-toggle" @click="visible = true">
             <div class="icon icon-burger">
               <svg t="1661333269863" class="icon" viewBox="0 0 1032 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5593" width="36px" height="36px"><path d="M85.825737 214.431767l864.571964 0c44.777833 0 81.055061-36.291554 81.055061-81.054037 0-44.76146-36.277228-81.053014-81.055061-81.053014L85.825737 52.324716c-44.773739 0-81.054037 36.291554-81.054037 81.053014C4.7717 178.140213 41.051998 214.431767 85.825737 214.431767zM950.397702 430.575526 85.825737 430.575526c-44.773739 0-81.054037 36.278251-81.054037 81.053014 0 44.774763 36.279275 81.053014 81.054037 81.053014l864.571964 0c44.777833 0 81.055061-36.277228 81.055061-81.053014C1031.452762 466.853777 995.175534 430.575526 950.397702 430.575526zM950.397702 808.826336 85.825737 808.826336c-44.773739 0-81.054037 36.279275-81.054037 81.051991 0 44.776809 36.279275 81.055061 81.054037 81.055061l864.571964 0c44.777833 0 81.055061-36.278251 81.055061-81.055061C1031.452762 845.10561 995.175534 808.826336 950.397702 808.826336z" p-id="5594" fill="#ffffff"></path></svg>
@@ -195,7 +195,11 @@ const handleCommand = (value: string) => {
   store.commit('CHANGE_LANGUAGE', value);
   router.go(0);
 };
-const toAnalysis = () =>{}
+const toAnalysis = (type:number) =>{
+  router.push({name: 'Analysis',query:{type:type}});
+  visibleLogout.value = false
+  visible.value = false
+}
 
 const logout = () =>{
   visibleLogout.value = true

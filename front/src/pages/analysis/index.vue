@@ -114,15 +114,17 @@ import {onMounted, ref} from "vue";
 import {homeApi, homePageApi} from "@/api";
 import {copy} from "@utils/copy";
 import {IInfo,IPanelList} from "./analysisType";
+import {useRouter} from "vue-router";
 
 const type = ref(1);
 let http = 'http://v2admin.nftotal.io/';
-
+const router = useRouter();
 const analysisList = ref<IPanelList | null>(null)
 const dropsList = ref<IInfo[] | null>(null);
 const textList = ref([{name:'追蹤項目',value:1,},{name:'追蹤NFT',value:2}]);
 const toLogin = ref({});
-const username = localStorage.getItem('username')
+const username = localStorage.getItem('username');
+const ps = router.currentRoute.value.query.type;
 const changeTag = async (value: number) => {
   type.value = value
 }
@@ -159,7 +161,7 @@ const getAnalysis = async () => {
 onMounted(() => {
   getAnalysis()
   collection()
-
+  changeTag(Number(ps))
 })
 
 </script>

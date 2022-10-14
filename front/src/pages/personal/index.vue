@@ -1,61 +1,66 @@
 <template>
-  <div class="personal-page">
-    <div class="personal-bg">
-    </div>
-    <div class="personal-page-title">
-      <div class="avatar">
+  <div class="">
+    <div class="personal-page">
+      <div class="personal-bg">
+      </div>
+      <div class="personal-page-title">
+        <div class="personal-page-content">
+          <div class="avatar">
+            <img-upload
+                ref="uploadRef"
+                :show-icon="false"
+                v-model:imageUrl="avatar"
+                :can-clip="false"
+                accept=".png"
+            >
+            </img-upload>
+          </div>
+          <div class="text">使用者自訂名稱</div>
+          <el-icon>
+            <Setting/>
+          </el-icon>
+        </div>
+      </div>
+      <div class="form-wrapper">
+        <el-form
+            ref="ruleFormRef"
+            :model="formModel"
+            :rules="rules"
+            label-width="120px"
+            label-position="top"
+        >
+          <el-form-item label="使用者名稱" prop="name">
+            <el-input v-model="formModel.name" placeholder="請輸入使用者名稱" autocomplete="off" size="large"/>
+          </el-form-item>
+          <el-form-item label="E-mail" prop="email" class="mt-24">
+            <el-input v-model="formModel.email" placeholder="請輸入電子信箱" autocomplete="off" size="large"/>
+          </el-form-item>
+          <el-form-item label="錢包地址" class="mt-48">
+            <div class="wallet-address">
+              <div>0x2d775455skkcoa54d7ad5fwok454cd</div>
+              <el-icon>
+                <CopyDocument/>
+              </el-icon>
+            </div>
+
+          </el-form-item>
+
+          <el-form-item class="mt-72">
+            <el-button style="width: 100%" type="primary" @click="submitForm()">儲存</el-button>
+          </el-form-item>
+        </el-form>
+      </div>
+      <el-dialog v-model="showDialog">
         <img-upload
             ref="uploadRef"
-            :show-icon="false"
-            v-model:imageUrl="avatar"
+            v-model:imageUrl="fileList"
             :can-clip="false"
             accept=".png"
-        >
-        </img-upload>
-      </div>
-      <div class="text">使用者自訂名稱</div>
-      <el-icon>
-        <Setting/>
-      </el-icon>
+        ></img-upload>
+      </el-dialog>
     </div>
-    <div class="form-wrapper">
-      <el-form
-          ref="ruleFormRef"
-          :model="formModel"
-          :rules="rules"
-          label-width="120px"
-          label-position="top"
-      >
-        <el-form-item label="使用者名稱" prop="name">
-          <el-input v-model="formModel.name" placeholder="請輸入使用者名稱" autocomplete="off" size="large"/>
-        </el-form-item>
-        <el-form-item label="E-mail" prop="email" class="mt-24">
-          <el-input v-model="formModel.email" placeholder="請輸入電子信箱" autocomplete="off" size="large"/>
-        </el-form-item>
-        <el-form-item label="錢包地址" class="mt-48">
-          <div class="wallet-address">
-            <div>0x2d775455skkcoa54d7ad5fwok454cd</div>
-            <el-icon>
-              <CopyDocument/>
-            </el-icon>
-          </div>
-
-        </el-form-item>
-
-        <el-form-item class="mt-72">
-          <el-button style="width: 100%" type="primary" @click="submitForm()">儲存</el-button>
-        </el-form-item>
-      </el-form>
-    </div>
-    <el-dialog v-model="showDialog">
-      <img-upload
-          ref="uploadRef"
-          v-model:imageUrl="fileList"
-          :can-clip="false"
-          accept=".png"
-      ></img-upload>
-    </el-dialog>
   </div>
+
 </template>
 
 <script lang="ts" setup>
@@ -131,18 +136,22 @@ const submitForm = async () => {
 }
 
 .personal-page-title {
-  padding-top: 63px;
-  margin-bottom: 63px;
-  height: 143px;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-  width: 1290px;
-  color: rgba(255, 255, 255, 0.9);
-  font-weight: 700;
-  font-size: 36px;
-  position: relative;
-  display: flex;
-  align-items: center;
 
+  width: 100%;
+  max-width: 1290px;
+  .personal-page-content {
+    padding-top: 63px;
+    margin: 0 40px 63px 40px;
+
+    height: 143px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 700;
+    font-size: 36px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  }
   .text {
     flex: 1;
   }
@@ -176,6 +185,8 @@ const submitForm = async () => {
 }
 
 .form-wrapper {
-  width: 640px;
+  padding: 0 40px;
+  width: 100%;
+  max-width: 640px;
 }
 </style>
