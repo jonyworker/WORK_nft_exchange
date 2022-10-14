@@ -39,9 +39,13 @@ const homeApi = {
     async getText ():Promise<{period:any ,tab:any ,newstab:any,tabTime:any}>{
         return await request.get(`api/index/text`)
     },
-    //链接钱包
-    async postLogin (data: any):Promise<{token:any,username:string,}>{
+    //链接钱包登录
+    async postLogin (data: any):Promise<{token:any,username:string,status:string}>{
         return await request.post(`api/login`,data)
+    },
+    //退出
+    async postLogout (data: any){
+        return await request.post(`api/logout`,data)
     },
     //api/member/collection/add.將項目加入追蹤清單
     async addCollection (params: any){
