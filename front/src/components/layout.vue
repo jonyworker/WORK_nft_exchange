@@ -1,9 +1,9 @@
 <template>
   <div class="common-layout">
     <el-container>
-      <el-header>
+      <div>
         <Header/>
-      </el-header>
+      </div>
       <div class="page-body">
         <router-view/>
       </div>

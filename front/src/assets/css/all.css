@@ -119,7 +119,6 @@
 }
 .heading-B-4 {
   font-size: 20px;
-  color: #fff;
 }
 @media screen and (min-width: 768px) {
   .heading-B-4 {
@@ -152,9 +151,7 @@
     font-size: 16px;
   }
 }
-.mb-10{
-  margin-bottom: 2rem;
-}
+
 .button-B-1 {
   font-family: "Noto Sans TC", sans-serif;
   font-style: normal;
@@ -11377,16 +11374,6 @@ img {
 ===== layout - top-bar (header) =====
 ///////////////////////////////////*/
 /*----- header 主題控制裝置 -----*/
-#theme-toggle {
-  display: none;
-  z-index: -1000;
-}
-
-#language-toggle {
-  display: none;
-  z-index: -1000;
-}
-
 /*----- header 容器設定 -----*/
 .top-bar-section {
   width: 100%;
@@ -11419,7 +11406,7 @@ img {
 /*----- header 搜尋列 -----*/
 .top-bar-section .header-search.main {
   width: 320px;
-  margin-right: 32px;
+  margin-right: 16px;
 }
 
 .top-bar-section .header-search-wrap {
@@ -11438,7 +11425,6 @@ img {
   background-color: transparent;
   cursor: pointer;
   margin-left: 8px;
-  flex: 1;
 }
 
 .top-bar-section .header-search input::-moz-placeholder {
@@ -11517,110 +11503,14 @@ img {
 ===== header - 導覽列 =====
 ////////////////////////*/
 /*----- header 導覽列 -----*/
-.top-bar-section .header-nav-list {
-  display: flex;
-  gap: 24px;
-}
-
-.header-nav-item:hover > a {
-  color: #5a66f9;
-}
-
-.top-bar-section .header-nav-item a {
-  display: block;
-  padding: 12px 0;
-  font-family: "Noto Sans TC", sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 1.5;
-  letter-spacing: 0;
-  color: rgba(255, 255, 255, 0.3490196078);
-}
-.top-bar-section .header-nav-item a {
-  font-size: 16px;
-}
-@media screen and (min-width: 768px) {
-  .top-bar-section .header-nav-item a {
-    font-size: calc(0vw + 16px);
-  }
-}
-@media screen and (min-width: 1536px) {
-  .top-bar-section .header-nav-item a {
-    font-size: 16px;
-  }
-}
-
 /*//////////////////////////////
 ===== header - 右側 功能選單 =====
 //////////////////////////////*/
 /*----- header 右側 functional-list -----*/
-.functional-list {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-}
-
-.functional-list > li:not(li:last-of-type) {
-  margin-right: 16px;
-}
-
 /*///////////////////////////
 ===== header - 場景選擇器 =====
 ///////////////////////////*/
 /*----- header - theme-toggle -----*/
-#theme-toggle {
-  display: none;
-  z-index: -1000;
-}
-
-.theme-toggle-label {
-  display: block;
-  position: relative;
-  width: 40px;
-  height: 40px;
-  border-radius: 100px;
-  background-color: #1C1C24;
-  border: 1px solid rgba(255, 255, 255, 0.1019607843);
-}
-
-.theme-toggle-label::before {
-  content: "";
-  position: absolute;
-  background-image: url(../image/icon/icon_moon-stars-fill.svg);
-  background-size: contain;
-  width: 26px;
-  height: 26px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 1;
-  transition: 0.2s;
-}
-
-.theme-toggle-label::after {
-  content: "";
-  position: absolute;
-  background-image: url(../image/icon/icon_sun-dim-fill.svg);
-  background-size: contain;
-  width: 26px;
-  height: 26px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: 0.2s;
-}
-
-#theme-toggle:checked ~ .functional-list .theme-toggle-label::before {
-  opacity: 0;
-  transition: 0.3s;
-}
-
-#theme-toggle:checked ~ .functional-list .theme-toggle-label::after {
-  opacity: 1;
-  transition: 0.3s;
-}
-
 /*/////////////////////////
 ===== header - 錢包連結 =====
 /////////////////////////*/
@@ -11636,6 +11526,7 @@ img {
   line-height: 1.5;
   letter-spacing: 0;
   color: #FFFFFF;
+  align-self: center;
 }
 .connectWallet {
   font-size: 16px;
@@ -11662,98 +11553,7 @@ img {
   color: #FFFFFF;
 }
 
-/*///////////////////////////
-===== header - 語言選擇器 =====
-///////////////////////////*/
-/*----- header - language-toggle -----*/
-#language-toggle {
-  display: none;
-  z-index: -1000;
-}
-
-.language-select {
-  position: relative;
-}
-
-.label {
-  font-family: "Noto Sans TC", sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 1.5;
-  letter-spacing: 0;
-  cursor: pointer;
-}
-.label {
-  font-size: 16px;
-}
-@media screen and (min-width: 768px) {
-  .label {
-    font-size: calc(0vw + 16px);
-  }
-}
-@media screen and (min-width: 1536px) {
-  .label {
-    font-size: 16px;
-  }
-}
-
-.language-label {
-  width: 72px;
-  color: rgba(255, 255, 255, 0.3490196078);
-  display: flex;
-  justify-content: space-between;
-  padding: 12px 0 12px 12px;
-  position: relative;
-}
-
-.language-label .expand-icon {
-  width: 12px;
-  height: 12px;
-}
-
-.language-label .expand-icon img {
-  width: 100%;
-  height: 100%;
-}
-
-.language-select .language-list {
-  display: none;
-  position: absolute;
-}
-
-#language-toggle:checked ~ .functional-list .language-list {
-  display: block;
-}
-
 /*----- header 語言選擇器 - 下拉選單 -----*/
-.language-list {
-  margin-top: 4px;
-  position: absolute;
-  right: 0;
-  border-radius: 12px;
-  background-color: #1C1C24;
-  color: rgba(255, 255, 255, 0.3490196078);
-  display: none;
-}
-
-.language-list .language-item {
-  width: 136px;
-  height: 40px;
-  padding: 0 24px;
-  display: flex;
-  justify-content: space-between;
-  border-radius: 11px;
-}
-
-.language-list:hover > .language-item:hover {
-  background-color: #f00;
-}
-
-.language-list .language-item span {
-  font-size: 14px;
-  line-height: 40px;
-}
-
 /*///////////////////////////////
 ===== header - 漢堡 按鈕&選單 =====
 ///////////////////////////////*/
@@ -11768,133 +11568,32 @@ img {
 }
 
 .burger-toggle .icon-burger {
-  width: 40px;
-  height: 40px;
+  width: 26px;
+  height: 26px;
   display: flex;
-  color: rgba(255, 255, 255, 0.3490196078);
 }
 
-.burger-toggle .icon-burger span {
-  margin: auto;
-  font-size: 36px;
-}
-
-/*----- 漢堡 選單 -----*/
-.berger-nav {
-  display: none;
-  position: absolute;
-  top: 81px;
-  left: 0;
-  right: 0;
-  background-color: #1C1C24;
-}
-
-.berger-nav .berger-nav-item:hover {
-  background-color: rgba(0, 0, 0, 0.2588235294);
-}
-
-.berger-nav .berger-nav-item a {
-  font-family: "Noto Sans TC", sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 1.57;
-  letter-spacing: 0;
-  padding: 16px 24px;
-  color: rgba(255, 255, 255, 0.3490196078);
-}
-.berger-nav .berger-nav-item a {
-  font-size: 16px;
-}
-@media screen and (min-width: 768px) {
-  .berger-nav .berger-nav-item a {
-    font-size: calc(0vw + 16px);
-  }
-}
-@media screen and (min-width: 1536px) {
-  .berger-nav .berger-nav-item a {
-    font-size: 16px;
-  }
-}
-
-.berger-nav .berger-nav-item.search-bar {
-  display: none;
-}
-
-/*----- header nav - 下拉選單 -----*/
-.header-nav-item {
-  position: relative;
-}
-
-.header-nav-item > .language-item-list {
-  position: absolute;
-  border-radius: 12px;
-  background-color: #fff;
-  display: flex;
-  flex-direction: column;
-  padding: 4px;
-  display: none;
-}
-
-.header-nav-item:hover > .language-item-list {
-  display: block;
-}
-
-.language-item-list .language-item {
-  width: 136px;
-  height: 40px;
-  padding: 0px 16px;
-  border-radius: 11px;
-  font-size: 14px;
-  line-height: 20px;
-  color: #f00;
-  display: flex;
-  align-items: center;
-}
-
-.language-item-list .language-item:hover,
-.language-item-list .language-item:hover > a {
-  background-color: #f3f4fe;
-  color: #5a66f9;
-}
-
-/*----- header 登入 icon -----*/
-.avatar .icon-avatar {
-  width: 48px;
-  height: 48px;
-}
-
-.avatar .icon-avatar svg {
+.burger-toggle .icon-burger svg {
   width: 100%;
   height: 100%;
 }
 
+/*----- 漢堡 選單 -----*/
+/*----- header nav - 下拉選單 -----*/
+/*----- header 登入 icon -----*/
 /*/////////////////////////////
 ===== Desktop First START =====
 /////////////////////////////*/
 /*----- max-width 1536 -----*/
-@media screen and (max-width: 1536px) {
-  .header-nav,
-.functional-list .language-select,
-.functional-list .functional-item {
-    display: none;
-  }
-  .header-search.main {
-    flex: 1;
-  }
+/*----- max-width 1200 -----*/
+@media screen and (max-width: 1200px) {
   .burger-toggle {
     display: block;
   }
-  #burger-toggle:checked ~ .berger-nav {
-    display: block;
-  }
 }
-/*----- max-width 1200 -----*/
 /*----- max-width 992 -----*/
 /*----- max-width 768 -----*/
 @media screen and (max-width: 768px) {
-  .header-search.main {
-    display: none;
-  }
   .berger-nav .berger-nav-item.search-bar {
     display: block;
   }
@@ -12120,9 +11819,9 @@ img {
   }
 }
 
-/*.cta-email-subscribe {*/
-/*  width: 306px;*/
-/*}*/
+.cta-email-subscribe {
+  width: 306px;
+}
 
 .cta-section.col-12 .cta-email-subscribe {
   width: 100%;

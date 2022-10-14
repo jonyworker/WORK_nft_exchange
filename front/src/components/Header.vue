@@ -1,9 +1,12 @@
 <template>
   <div class="page">
+
+    <!-- 裝置大於1530px以上時顯示 -->
     <div class="pc_header top-bar-section">
       <div class="container">
         <el-menu
-          class="el-menu-demo"
+          style="border-bottom: none;"
+          class="el-menu-demo align-items-center"
           mode="horizontal"
           :ellipsis="false"
           @select="handleSelect"
@@ -14,45 +17,51 @@
             <path d="M13.856 1.2V11.208L6.224 1.2H0.2V18H5.888V8.016L13.52 18H19.544V1.2H13.856ZM39.014 5.088V1.2H22.43V18H28.142V11.784H38.342V7.896H28.142V5.088H39.014ZM59.3536 1.2H40.9456V5.088H47.3056V18H52.9936V5.088H59.3536V1.2ZM67.4913 4.872C63.5313 4.872 59.1153 6.672 59.1153 11.616C59.1153 16.56 63.5313 18.36 67.4913 18.36C71.4273 18.36 75.8433 16.56 75.8433 11.616C75.8433 6.672 71.4273 4.872 67.4913 4.872ZM67.4913 14.952C65.0433 14.952 64.1313 13.344 64.1313 11.616C64.1313 9.888 65.0433 8.28 67.4913 8.28C69.9153 8.28 70.8273 9.888 70.8273 11.616C70.8273 13.344 69.9153 14.952 67.4913 14.952ZM88.1739 8.16V5.208H84.4299V1.896H79.1979V5.208H76.8219V8.16H79.1979V12.888C79.1979 16.704 80.3499 18.216 85.1739 18.216C86.1579 18.216 87.2859 18.144 88.1739 18.024V14.472C85.6059 14.688 84.4299 14.688 84.4299 12.888V8.16H88.1739ZM97.43 4.872C93.278 4.872 90.71 5.976 90.254 9.096H95.03C95.198 8.304 95.582 7.824 97.43 7.824C99.662 7.824 99.878 8.592 99.878 9.816V9.984C91.166 9.504 89.63 11.664 89.63 14.544C89.63 17.064 91.67 18.36 95.294 18.36C97.478 18.36 99.11 17.472 99.878 16.632V18H105.11V9.816C105.11 5.52 101.558 4.872 97.43 4.872ZM99.878 14.352C99.182 15.168 97.958 15.72 96.614 15.72C95.438 15.72 94.718 15.384 94.718 14.424C94.718 12.888 96.686 12.744 99.878 12.888V14.352ZM107.512 0.287999V18H112.744V0.287999H107.512Z" fill="white"/>
             </svg>
           </li>
+
           <!-- Header - 搜尋列 -->
-          <el-menu-item index="9" class="!h-[58px]">
-            <el-input class="border-circle" v-model="input" placeholder="搜索NFT和錢包" />
-          </el-menu-item>
+          <li class="header-search main" index="9">
+            <div class="header-search-wrap">
+              <!-- search - icon -->
+              <div class="icon icon-search">
+                <svg id="zoom-in-alt" data-name="Line color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon line-color" width="48" height="48"><path id="primary" d="M19,11a8,8,0,1,1-8-8A8,8,0,0,1,19,11Zm2,10-4.34-4.34" style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path><path id="secondary" d="M11,14V8M8,11h6" style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path></svg>
+              </div>
+              <!-- search - input -->
+              <input v-model="input" type="search" placeholder="搜索NFT和錢包">
+            </div>
+          </li>
+          
           <!-- Header - NFT分析 -->
-          <el-menu-item index="1" @click="toAnalysis()">{{$t('home.search')}}</el-menu-item>
+          <el-menu-item style="padding: 0 16px" index="1" @click="toAnalysis()">{{$t('home.search')}}</el-menu-item>
 
           <!-- Header - 熱門排行 -->
-          <el-menu-item index="" @click="toHot()">熱門排行</el-menu-item>
+          <el-menu-item style="padding: 0 16px" index="" @click="toHot()">熱門排行</el-menu-item>
 
           <!-- Header - Minting觀測站 -->
-          <el-menu-item index="2" @click="toMinting()">{{$t('home.mint')}}</el-menu-item>
-
-          <!-- 需刪除 - 統計 -->
-          <!-- <el-menu-item index="3" @click="toIndex()">{{$t('home.overview')}}</el-menu-item> -->
-
-          <!-- 需刪除 - 工具 -->
-          <!-- <el-menu-item index="4">{{$t('home.tool')}}</el-menu-item> -->
+          <el-menu-item style="padding: 0 16px" index="2" @click="toMinting()">{{$t('home.mint')}}</el-menu-item>
 
           <!-- Header - 新聞＆專欄 -->
-          <el-menu-item index="5" @click="toNews(1)">{{$t('home.news')}}</el-menu-item>
-
-          <!-- 需刪除 - 專欄 -->
-          <!-- <el-menu-item index="6" @click="toNews(2)">{{$t('home.blog')}}</el-menu-item> -->
-          <div class="flex-grow"/>
+          <el-menu-item style="padding: 0 16px" index="5" @click="toNews(1)">{{$t('home.news')}}</el-menu-item>
 
           <!-- Header - 背景調整 -->
-          <el-menu-item index="7" @click="toggleDark(!isDark)">
+          <!-- <el-menu-item index="7" @click="toggleDark(!isDark)">
             {{ $t(isDark ? 'global.dark' : 'global.light') }}
-          </el-menu-item>
+          </el-menu-item> -->
 
           <!-- Header - 連結錢包 -->
+<<<<<<< Updated upstream
             <div class="top_center" @click="toWallet()" v-if="status !== 'OK'">
               Connect Wallet
             </div>
             <div class="login" v-if="status === 'OK'" @click="logout()">1</div>
+=======
+          <li class="connectWallet ml-auto" @click="toWallet()">
+            Connect Wallet
+          </li>
+
+>>>>>>> Stashed changes
           <!-- Header - 語言選擇 -->
-          <el-sub-menu index="8">
-            <template #title>语言 - {{ langType[language] }}</template>
+          <el-sub-menu  style="margin-right: -20px;" index="8">
+            <template #title >{{ langType[language] }}</template>
             <el-menu-item index="zhCn" @click="handleCommand('zhCn')">简体中文</el-menu-item>
             <el-menu-item index="zh-tw" @click="handleCommand('zh-tw')">繁體中文</el-menu-item>
             <el-menu-item index="en" @click="handleCommand('en')">English</el-menu-item>
@@ -61,48 +70,53 @@
         </el-menu>
       </div>
     </div>
-    <div class="middle_header">
-          <div class="container">
-            <div class="top-bar-content">
-              <div class="header-logo" @click="toHome()">
-                NFTotal
-              </div>
-              <div class="top_center" @click="toWallet()" v-if="status !== 'OK'">
-                Connect Wallet
-              </div>
-              <div class="menu_icon" @click="visible = true">
-                <svg t="1661333269863" class="icon" viewBox="0 0 1032 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5593" width="200" height="200"><path d="M85.825737 214.431767l864.571964 0c44.777833 0 81.055061-36.291554 81.055061-81.054037 0-44.76146-36.277228-81.053014-81.055061-81.053014L85.825737 52.324716c-44.773739 0-81.054037 36.291554-81.054037 81.053014C4.7717 178.140213 41.051998 214.431767 85.825737 214.431767zM950.397702 430.575526 85.825737 430.575526c-44.773739 0-81.054037 36.278251-81.054037 81.053014 0 44.774763 36.279275 81.053014 81.054037 81.053014l864.571964 0c44.777833 0 81.055061-36.277228 81.055061-81.053014C1031.452762 466.853777 995.175534 430.575526 950.397702 430.575526zM950.397702 808.826336 85.825737 808.826336c-44.773739 0-81.054037 36.279275-81.054037 81.051991 0 44.776809 36.279275 81.055061 81.054037 81.055061l864.571964 0c44.777833 0 81.055061-36.278251 81.055061-81.055061C1031.452762 845.10561 995.175534 808.826336 950.397702 808.826336z" p-id="5594" fill="#ffffff"></path></svg>
-              </div>
+
+
+
+    <!-- 裝置介於 768px 以下時顯示 -->
+    <div class="small_header top-bar-section">
+      <div class="container">
+        <div class="top-bar-content">
+          <div class="header-logo" @click="toHome()">
+            <svg width="113" height="19" viewBox="0 0 113 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13.856 1.2V11.208L6.224 1.2H0.2V18H5.888V8.016L13.52 18H19.544V1.2H13.856ZM39.014 5.088V1.2H22.43V18H28.142V11.784H38.342V7.896H28.142V5.088H39.014ZM59.3536 1.2H40.9456V5.088H47.3056V18H52.9936V5.088H59.3536V1.2ZM67.4913 4.872C63.5313 4.872 59.1153 6.672 59.1153 11.616C59.1153 16.56 63.5313 18.36 67.4913 18.36C71.4273 18.36 75.8433 16.56 75.8433 11.616C75.8433 6.672 71.4273 4.872 67.4913 4.872ZM67.4913 14.952C65.0433 14.952 64.1313 13.344 64.1313 11.616C64.1313 9.888 65.0433 8.28 67.4913 8.28C69.9153 8.28 70.8273 9.888 70.8273 11.616C70.8273 13.344 69.9153 14.952 67.4913 14.952ZM88.1739 8.16V5.208H84.4299V1.896H79.1979V5.208H76.8219V8.16H79.1979V12.888C79.1979 16.704 80.3499 18.216 85.1739 18.216C86.1579 18.216 87.2859 18.144 88.1739 18.024V14.472C85.6059 14.688 84.4299 14.688 84.4299 12.888V8.16H88.1739ZM97.43 4.872C93.278 4.872 90.71 5.976 90.254 9.096H95.03C95.198 8.304 95.582 7.824 97.43 7.824C99.662 7.824 99.878 8.592 99.878 9.816V9.984C91.166 9.504 89.63 11.664 89.63 14.544C89.63 17.064 91.67 18.36 95.294 18.36C97.478 18.36 99.11 17.472 99.878 16.632V18H105.11V9.816C105.11 5.52 101.558 4.872 97.43 4.872ZM99.878 14.352C99.182 15.168 97.958 15.72 96.614 15.72C95.438 15.72 94.718 15.384 94.718 14.424C94.718 12.888 96.686 12.744 99.878 12.888V14.352ZM107.512 0.287999V18H112.744V0.287999H107.512Z" fill="white"/>
+            </svg>
+          </div>
+          <!-- Header - Minting觀測站 -->
+          <div class="connectWallet ml-auto mr-20" @click="toWallet()">
+            small
+          </div>
+          <div class="burger-toggle" @click="visible = true">
+            <div class="icon icon-burger">
+              <svg t="1661333269863" class="icon" viewBox="0 0 1032 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5593" width="36px" height="36px"><path d="M85.825737 214.431767l864.571964 0c44.777833 0 81.055061-36.291554 81.055061-81.054037 0-44.76146-36.277228-81.053014-81.055061-81.053014L85.825737 52.324716c-44.773739 0-81.054037 36.291554-81.054037 81.053014C4.7717 178.140213 41.051998 214.431767 85.825737 214.431767zM950.397702 430.575526 85.825737 430.575526c-44.773739 0-81.054037 36.278251-81.054037 81.053014 0 44.774763 36.279275 81.053014 81.054037 81.053014l864.571964 0c44.777833 0 81.055061-36.277228 81.055061-81.053014C1031.452762 466.853777 995.175534 430.575526 950.397702 430.575526zM950.397702 808.826336 85.825737 808.826336c-44.773739 0-81.054037 36.279275-81.054037 81.051991 0 44.776809 36.279275 81.055061 81.054037 81.055061l864.571964 0c44.777833 0 81.055061-36.278251 81.055061-81.055061C1031.452762 845.10561 995.175534 808.826336 950.397702 808.826336z" p-id="5594" fill="#ffffff"></path></svg>
             </div>
           </div>
+        </div>
+      </div>
     </div>
-    <el-drawer v-model="visibleLogout" :show-close="false" >
+
+
+
+
+
+
+
+    <!-- 彈出選單 -->
+    <el-drawer v-model="visible" :show-close="false" >
 
       <div class="drawer">
-        <div></div>
-        <div @click="toAnalysis()">追蹤項目</div>
-        <div @click="toHotItem()">追蹤 NFT</div>
-        <div @click="toMinting()">個人資料編輯</div>
+        <div @click="toAnalysis()">{{$t('home.analysis')}}</div>
+        <div @click="toHotItem()">{{$t('home.hot_item')}}</div>
+        <div @click="toMinting()">{{$t('home.mint')}}</div>
+        <div @click="toNews(1)">{{$t('home.newsBlog')}}</div>
       </div>
-      <div class="to-wallet" @click="toLogout()" >
-        登出
+      <div index="zhCn" @click="handleCommand('zhCn')">简体中文</div>
+      <div index="zh-tw" @click="handleCommand('zh-tw')">繁體中文</div>
+      <div index="en" @click="handleCommand('en')">English</div>
+      <div class="to-wallet" @click="toWallet()"  >
+        Connect Wallet
       </div>
     </el-drawer>
-      <el-drawer v-model="visible" :show-close="false" >
-        <div class="login" v-if="status === 'OK'" @click="visibleLogout === true">1</div>
-        <div class="drawer">
-          <div @click="toAnalysis()">{{$t('home.analysis')}}</div>
-          <div @click="toHotItem()">{{$t('home.hot_item')}}</div>
-          <div @click="toMinting()">{{$t('home.mint')}}</div>
-          <div @click="toNews(1)">{{$t('home.newsBlog')}}</div>
-        </div>
-        <div index="zhCn" @click="handleCommand('zhCn')">简体中文</div>
-        <div index="zh-tw" @click="handleCommand('zh-tw')">繁體中文</div>
-        <div index="en" @click="handleCommand('en')">English</div>
-        <div class="to-wallet" @click="toWallet()"  v-if="status !== 'OK'">
-          Connect Wallet
-        </div>
-      </el-drawer>
     </div>
 
 
@@ -218,11 +232,11 @@ line-height: 40px;
   margin-bottom: 50px;
   border-radius: 10px;
 }
-.header-logo{
-  font-size:32px;
-  font-weight: 700;
-  width:72%;
-}
+// .header-logo{
+//   font-size:32px;
+//   font-weight: 700;
+//   width:72%;
+// }
 .to-wallet{
   background: linear-gradient(180deg, #8585FF 0%, #4A4AC4 100%);
   border-radius: 24px;

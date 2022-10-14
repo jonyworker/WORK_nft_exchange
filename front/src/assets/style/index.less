@@ -60,55 +60,43 @@ img{
     border-radius: 24px;
     color: #fff;
 }
-@media screen and (max-width: 450px) {
-    .pc_header{
-        display: none;
-    }
-    .title{
-        display: block;
-    }
-    .tit{
-        font-size:26px !important;
-    }
-    .subtitle{
-        display: none;
-    }
-    .card-item{
-        width: 90% !important;
-        margin: auto;
-    }
-    .header-logo{
-        width: 96% !important;
-    }
-    .top_center{
-        display: none;
-
-    }
-    .top-bar-content{
-        display: flex;
-        height:78px;
-        line-height:78px;
-    }
+.pc_header{
+    display: none !important;
 }
+.middle_header {
+    display: none;
+}
+
+
+@media screen and (max-width: 576px) {
+
+}
+
 @media screen and (min-width: 768px){
-    .top-bar-content{
-        display: flex;
-        height:78px;
-        line-height:78px;
+    .small_header {
+        display: none;
     }
-
-    .pc_header{
-        display: none !important;
+    .middle_header{
+        display: block !important;
     }
 }
-@media screen and (min-width: 1536px){
-    .top-bar-content{
+@media screen and (min-width: 992px){}
+@media screen and (min-width: 1200px){
+    .middle_header{
         display: none !important;
     }
     .pc_header{
         display: block !important;
     }
 }
+@media screen and (min-width: 1536px){}
+
+
+
+
+
+
+
 /* 錢包 */
 .wallet_box{
     display: flex;
