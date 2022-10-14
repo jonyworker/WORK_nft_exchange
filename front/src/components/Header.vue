@@ -45,11 +45,11 @@
             {{ $t(isDark ? 'global.dark' : 'global.light') }}
           </el-menu-item>
 
-          <!-- Header - 連結錢包 -->
-            <div class="top_center" @click="toWallet()" v-if="status !== 'OK'">
+          <!-- Header - 連結錢包 v-if="status !== 'OK'"-->
+            <div class="top_center" @click="toWallet()" >
               Connect Wallet
             </div>
-            <div class="login" v-if="status === 'OK'" @click="logout()">1</div>
+            <div class="login" v-if="status === 'OK'" @click="logout()"></div>
           <!-- Header - 語言選擇 -->
           <el-sub-menu index="8">
             <template #title>语言 - {{ langType[language] }}</template>
@@ -89,7 +89,7 @@
       </div>
     </el-drawer>
       <el-drawer v-model="visible" :show-close="false" >
-        <div class="login" v-if="status === 'OK'" @click="visibleLogout === true">1</div>
+        <div class="login" v-if="status === 'OK'" @click="visibleLogout === true"></div>
         <div class="drawer">
           <div @click="toAnalysis()">{{$t('home.analysis')}}</div>
           <div @click="toHotItem()">{{$t('home.hot_item')}}</div>
@@ -112,7 +112,7 @@
 import {langType} from '../enum/lanuage';
 import { ElButton, ElDrawer } from 'element-plus'
 import { CircleCloseFilled } from '@element-plus/icons-vue'
-
+import {homeApi} from "@/api";
 
 import { ref } from 'vue'
 import {useI18n} from 'vue-i18n';
@@ -145,6 +145,12 @@ const handleCommand = (value: string) => {
 };
 const logout = () =>{
   visibleLogout.value = true
+  visible.value = false
+}
+//退出登录
+const toLogout = async() =>{
+  const res = await homeApi.postLogout({})
+  visibleLogout.value = false
   visible.value = false
 }
 const toAnalysis = () =>{

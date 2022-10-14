@@ -40,10 +40,6 @@ const getWallet = async () =>{
   localStorage.setItem('token', res.token);
   localStorage.setItem('username', res.username);
   localStorage.setItem('status', res.status);
-  if(res.status === 'OK') {
-    login()
-  }
-
 }
 const login = ()=>{
   router.push({name: 'Home',})
