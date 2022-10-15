@@ -141,7 +141,7 @@ const newListFor = ref<INewListFor|null>(null);
 //请求数据
 const getHomeNew = async() =>{
   const params = {
-    count:5,
+    count:8,
     page:1
   }
   const res = await homeApi.getNews(params);

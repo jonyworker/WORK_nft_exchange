@@ -23,6 +23,7 @@ export interface IPanel {
     health_score:any;
     holders_p:number;
     unit:string;
+    is_collected:number;
 }
 
 export interface ITrend {
