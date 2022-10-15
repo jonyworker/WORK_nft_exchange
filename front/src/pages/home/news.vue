@@ -24,20 +24,20 @@
         <!-- 卡片 -->
         <div class="row">
             <!-- 1st -->
-            <div class="col-12 col-sm-6 col-lg-4">
-              <div class="card" @click="toDetails(newList?.id)">
+            <div class="col-12 col-sm-6 col-lg-4" v-for="(item,index) in newList" :key="index">
+              <div class="card" @click="toDetails(item.id)">
                 <!-- card-img -->
                 <div class="card-image-content ratio--1-91_1 bdRadius-8 mb-16">
-                  <img :src="newList?.photo_url" alt="">
+                  <img :src="item.photo_url" alt="">
                 </div>
                 <!-- card-body -->
                 <div class="card-body-content">
     
                   <div class="card-tag mb-8">
-                    <p>{{newList?.ind}}</p>
+                    <p>{{item.ind}}</p>
                   </div>
     
-                  <h3 class="card-title-h4 clamp-2 mb-16">{{newList?.title}}
+                  <h3 class="card-title-h4 clamp-2 mb-16">{{item.title}}
                   </h3>
                   <!-- <div class="card-paragraph">
                     <div class="multiline-ellipsis mb-12" >
@@ -45,64 +45,64 @@
                     </div>
                   </div> -->
                   <small class="card-text-small">
-                    <time datetime="">2022-03-30</time>
+<!--                    <time datetime="">2022-03-30</time>-->
                   </small>
                 </div>
               </div>
             </div>
             <!-- 2nd -->
-            <div class="d-none d-sm-block col-sm-6 col-lg-4">
-              <div class="card" @click="toDetails(newListTwo?.id)">
-                <!-- card-img -->
-                <div class="card-image-content ratio--1-91_1 bdRadius-8 mb-16">
-                  <img :src="newListTwo?.photo_url" alt="">
-                </div>
-                <!-- card-body -->
-                <div class="card-body-content">
-    
-                  <div class="card-tag mb-8">
-                    <p>{{newListTwo?.ind}}</p>
-                  </div>
-    
-                  <h3 class="card-title-h4 clamp-2 mb-16">{{newListTwo?.title}}
-                  </h3>
-                  <!-- <div class="card-paragraph">
-                    <div class="multiline-ellipsis mb-12" >
-                      <div v-html="newListTwo?.content"></div>
-                    </div>
-                  </div> -->
-                  <small class="card-text-small">
-                    <time datetime="">2022-03-30</time>
-                  </small>
-                </div>
-              </div>
-            </div>
-            <!-- 3rd -->
-            <div class="d-none d-lg-block col-lg-4">
-              <div class="card" @click="toDetails(newListFree?.id)">
-                <!-- card-img -->
-                <div class="card-image-content ratio--1-91_1 bdRadius-8 mb-16">
-                  <img :src="newListFree?.photo_url" alt="">
-                </div>
-                <!-- card-body -->
-                <div class="card-body-content">
-    
-                  <div class="card-tag mb-8">
-                    <p>{{newListFree?.ind}}</p>
-                  </div>
-    
-                  <h3 class="card-title-h4 clamp-2 mb-16">{{newListFree?.title}}</h3>
-                  <!-- <div class="card-paragraph">
-                    <div class="multiline-ellipsis mb-12" >
-                      <div v-html="newListFree?.content"></div>
-                    </div>
-                  </div> -->
-                  <small class="card-text-small">
-                    <time datetime="">2022-03-30</time>
-                  </small>
-                </div>
-              </div>
-            </div>
+<!--            <div class="d-none d-sm-block col-sm-6 col-lg-4">-->
+<!--              <div class="card" @click="toDetails(newListTwo?.id)">-->
+<!--                &lt;!&ndash; card-img &ndash;&gt;-->
+<!--                <div class="card-image-content ratio&#45;&#45;1-91_1 bdRadius-8 mb-16">-->
+<!--                  <img :src="newListTwo?.photo_url" alt="">-->
+<!--                </div>-->
+<!--                &lt;!&ndash; card-body &ndash;&gt;-->
+<!--                <div class="card-body-content">-->
+<!--    -->
+<!--                  <div class="card-tag mb-8">-->
+<!--                    <p>{{newListTwo?.ind}}</p>-->
+<!--                  </div>-->
+<!--    -->
+<!--                  <h3 class="card-title-h4 clamp-2 mb-16">{{newListTwo?.title}}-->
+<!--                  </h3>-->
+<!--                  &lt;!&ndash; <div class="card-paragraph">-->
+<!--                    <div class="multiline-ellipsis mb-12" >-->
+<!--                      <div v-html="newListTwo?.content"></div>-->
+<!--                    </div>-->
+<!--                  </div> &ndash;&gt;-->
+<!--                  <small class="card-text-small">-->
+<!--                    <time datetime="">2022-03-30</time>-->
+<!--                  </small>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            &lt;!&ndash; 3rd &ndash;&gt;-->
+<!--            <div class="d-none d-lg-block col-lg-4">-->
+<!--              <div class="card" @click="toDetails(newListFree?.id)">-->
+<!--                &lt;!&ndash; card-img &ndash;&gt;-->
+<!--                <div class="card-image-content ratio&#45;&#45;1-91_1 bdRadius-8 mb-16">-->
+<!--                  <img :src="newListFree?.photo_url" alt="">-->
+<!--                </div>-->
+<!--                &lt;!&ndash; card-body &ndash;&gt;-->
+<!--                <div class="card-body-content">-->
+<!--    -->
+<!--                  <div class="card-tag mb-8">-->
+<!--                    <p>{{newListFree?.ind}}</p>-->
+<!--                  </div>-->
+<!--    -->
+<!--                  <h3 class="card-title-h4 clamp-2 mb-16">{{newListFree?.title}}</h3>-->
+<!--                  &lt;!&ndash; <div class="card-paragraph">-->
+<!--                    <div class="multiline-ellipsis mb-12" >-->
+<!--                      <div v-html="newListFree?.content"></div>-->
+<!--                    </div>-->
+<!--                  </div> &ndash;&gt;-->
+<!--                  <small class="card-text-small">-->
+<!--                    <time datetime="">2022-03-30</time>-->
+<!--                  </small>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
             
         </div>
     
@@ -141,15 +141,15 @@ const newListFor = ref<INewListFor|null>(null);
 //请求数据
 const getHomeNew = async() =>{
   const params = {
-    count:8,
+    count:9,
     page:1
   }
   const res = await homeApi.getNews(params);
   console.log("-> res=====", res);
-  newList.value = res.data[0];
-  newListTwo.value = res.data[1];
-  newListFree.value = res.data[2];
-  newListFor.value = res.data[3];
+  newList.value = res.data;
+  // newListTwo.value = res.data[1];
+  // newListFree.value = res.data[2];
+  // newListFor.value = res.data[3];
 
 }
 onMounted(() => {

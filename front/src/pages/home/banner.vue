@@ -6,7 +6,7 @@
           <!-- banner-pic-5 -->
           <div class="col-12 mb-24 col-lg-6 mb-lg-0">
             <a href="#" style="height: 100%;padding-bottom: 15px;">
-              <div class="pic banner-5">
+              <div class="pic banner-5" @click="toLink(bannerImg4?.ext_url)">
                 <img :src="bannerImg4?.banner_url" alt="">
               </div>
             </a>
@@ -18,7 +18,7 @@
                 <!-- banner-pic-1 -->
                 <a href="#">
                   <div class="banner-1">
-                    <div class="pic">
+                    <div class="pic" @click="toLink(bannerList?.ext_url)">
                       <img :src="bannerList?.banner_url" alt="">
                     </div>
                     <div class="text-area">
@@ -35,7 +35,7 @@
               <!-- banner-pic-2 -->
               <div class="col-6 col-sm-4">
                 <a href="#">
-                  <div class="banner-2">
+                  <div class="banner-2" @click="toLink(bannerImg1?.ext_url)">
                     <img :src="bannerImg1?.banner_url" alt="">
                   </div>
                 </a>
@@ -43,7 +43,7 @@
               <!-- banner-pic-3 -->
               <div class="d-none d-sm-block col-sm-4">
                 <a href="#">
-                  <div class="banner-3">
+                  <div class="banner-3" @click="toLink(bannerImg2?.ext_url)">
                     <img :src="bannerImg2?.banner_url" alt="">
                   </div>
                 </a>
@@ -52,7 +52,7 @@
               <div class="col-6 col-sm-4">
                 <a href="#">
                   <div class="banner-4">
-                    <div class="banner-4-pic">
+                    <div class="banner-4-pic" @click="toLink(bannerImg3?.ext_url)">
                       <img :src="bannerImg3?.banner_url" alt="">
                     </div>
                   </div>
@@ -71,14 +71,22 @@ import {onMounted } from 'vue'
 import {homeApi} from '../../api';
 import {  ref } from 'vue';
 interface IBanner {
-  banner_url:string
-  description?:string
+  banner_url:string;
+  description?:string;
+  ext_url:string;
 }
 const bannerImg4 = ref<IBanner|null>(null)
 const bannerImg3 = ref<IBanner|null>(null)
 const bannerImg2 = ref<IBanner|null>(null)
 const bannerImg1 = ref<IBanner|null>(null)
 const bannerList = ref<IBanner|null>(null)
+//跳转窗口
+const toLink = (url:string) =>{
+  if (url === '') {
+    return
+  }
+  window.open(url)
+}
 const getHomeBanner=async()=>{
   const res = await homeApi.getHomeBanner({})
   bannerList.value = res.banners[0]

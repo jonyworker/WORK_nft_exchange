@@ -27,18 +27,18 @@
               </div>
             </div>
           </div>
-          <div class="text-list clamp-3">
+          <div class="text-list ">
             {{ panel.data.introduction }}
           </div>
         </div>
         <div class="bottom-flexs">
           <div class="left">
-            <div class="img"><img alt="" height="17px" src="@/assets/images/icon_group.png" width="24px"></div>
+            <div class="img" ><img alt="" height="17px" src="@/assets/images/icon_group.png" width="24px"></div>
             <div class="img"><img alt="" height="17px" src="@/assets/images/icon_map.png" width="24px"></div>
-            <div class="img"><img alt="" src="@/assets/images/icon_world.png"></div>
-            <div class="img"><img alt="" src="@/assets/images/icon_discord.png"></div>
-            <div class="img"><img alt="" src="@/assets/images/icon_twitter.png"></div>
-            <div class="img"><img alt="" src="@/assets/images/icons.png"></div>
+            <div class="img" @click="toLink(panel.data.website)"><img alt="" src="@/assets/images/icon_world.png"></div>
+            <div class="img" @click="toLink(panel.data.discord)"><img alt="" src="@/assets/images/icon_discord.png"></div>
+            <div class="img" @click="toLink(panel.data.twitter)"><img alt="" src="@/assets/images/icon_twitter.png"></div>
+            <div class="img" @click="toLink(panel.data.instagram)"><img alt="" src="@/assets/images/icons.png"></div>
           </div>
           <div class="right">立即購買</div>
         </div>
@@ -231,6 +231,13 @@ const dropsList = ref<IInfo[] | null>(null);
 const copyInfo=(info:string)=>{
   copy(info)
 }
+//跳转窗口
+const toLink = (url:string) =>{
+  if (url === '') {
+    return
+  }
+  window.open(url)
+}
 const getHomePage = async () => {
   const {id} = route.query
   const res: panelData = await homePageApi.getHomePoster({collectionId: id as string});
@@ -401,10 +408,11 @@ onMounted(() => {
   }
 
   .text-list {
-    display: -webkit-box;
+    display: -webkit-box ;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 2 !important;
     overflow: hidden;
+    margin-bottom:20px;
   }
 
   .bottom-flexs {
@@ -595,6 +603,10 @@ onMounted(() => {
   line-height: 22px;
   font-size: 16px;
   flex: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  overflow: hidden;
 }
 
 .container-flex {
