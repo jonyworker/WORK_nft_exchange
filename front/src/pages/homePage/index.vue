@@ -14,7 +14,7 @@
                 <div>{{ panel.data.contract.slice(0, 7) }}
 <!--                  <span><img width="20px" height="20px" src="@/assets/images/icon_copy.png" alt="" @click="copyInfo(panel.data.contract)"></span>-->
                 </div>
-                <div>{{ panel.data.item_qty }} NFTs</div>
+                <div>{{ panel.data.item_qty }}</div>
 
               </div>
               <div class="coll">
@@ -33,14 +33,14 @@
         </div>
         <div class="bottom-flexs">
           <div class="left">
-            <div class="img" ><img alt="" height="17px" src="@/assets/images/icon_group.png" width="24px"></div>
-            <div class="img"><img alt="" height="17px" src="@/assets/images/icon_map.png" width="24px"></div>
+            <div class="img" @click="toDailog(1)"><img alt="" height="17px" src="@/assets/images/icon_group.png" width="24px"></div>
+            <div class="img" @click="toDailog(2)"><img alt="" height="17px" src="@/assets/images/icon_map.png" width="24px"></div>
             <div class="img" @click="toLink(panel.data.website)"><img alt="" src="@/assets/images/icon_world.png"></div>
             <div class="img" @click="toLink(panel.data.discord)"><img alt="" src="@/assets/images/icon_discord.png"></div>
             <div class="img" @click="toLink(panel.data.twitter)"><img alt="" src="@/assets/images/icon_twitter.png"></div>
             <div class="img" @click="toLink(panel.data.instagram)"><img alt="" src="@/assets/images/icons.png"></div>
           </div>
-          <div class="right">立即購買</div>
+          <div class="right" @click="toLink(panel.data.platform_url)">立即購買</div>
         </div>
       </div>
       <div class="container-right">
@@ -183,6 +183,48 @@
         </div>
       </div>
     </div>
+    <el-dialog v-model="dialogFormVisible" width="85%">
+
+      <!-- PC     -->
+      <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
+        <div class="main">
+          <div class="main-left">
+            <div class="main-img">
+              <img :src="panel.data.photo_url" alt="">
+            </div>
+<!--            <div class="main-name">{{ dropsFour?.collection }}</div>-->
+
+            <div class="tab-list">
+              <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
+                {{item.name}}
+              </div>
+            </div>
+          </div>
+          <div class="main-right" v-if="type === 1">{{panel.data.member}}</div>
+          <div class="main-right" v-if="type === 2">{{panel.data.roadmap}}</div>
+        </div>
+      </div>
+      <!-- H5 || table-->
+      <div v-else >
+        <div class="ipad-main">
+          <div class="main-img">
+            <img :src="panel.data.photo_url" alt="">
+          </div>
+          <div class="right">
+<!--            <div class="main-name">{{ dropsFour?.collection }}</div>-->
+            <div class="tags">
+              <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
+                {{item.name}}
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div v-if="type === 1">{{panel.data.member}}</div>
+        <div  v-if="type === 2">{{panel.data.roadmap}}</div>
+      </div>
+
+    </el-dialog>
   </div>
 </template>
 
@@ -190,7 +232,8 @@
 import {useScrollHeight} from '@/hooks/useScrollHeight'
 import {onMounted, reactive, ref, watch} from "vue";
 import {homeApi, homePageApi} from "@/api";
-import {useRoute} from "vue-router"
+import {useRoute} from "vue-router";
+import {useStore} from "vuex";
 import {panelData} from "@/pages/homePage/homePageTypes";
 import Line from "@/pages/homePage/line.vue";
 import Pie from "@/pages/homePage/pie.vue";
@@ -199,7 +242,9 @@ import { ArrowDown } from '@element-plus/icons-vue'
 import {copy} from "@utils/copy";
 const visible = ref(false)
 const route = useRoute()
+const store = useStore()
 const filter_ind = ref()
+const List = ref([{name:'成員介紹',value:1},{name:'路線圖',value:2}]);
 const saleFilter = reactive<any>([
   {label: "售出價格：高至低", value: '2'},
   {label: "售出價格：低至高", value: '1'},
@@ -211,8 +256,10 @@ const form = reactive<Record<string, any>>({
   max: '',
   orderby: '1',
 });
+const dialogFormVisible = ref(false);
 const isFinish = ref<boolean>(false);
 const isLoading = ref<boolean>(false);
+
 const count = ref(30);
 const page = ref(1)
 const {scrollBtmHeight} = useScrollHeight()
@@ -227,6 +274,14 @@ type IInfo = {
   is_collected:number,
 }
 const dropsList = ref<IInfo[] | null>(null);
+const type = ref(1)
+const toDailog = (val:number) =>{
+  dialogFormVisible.value = true;
+  type.value = val
+}
+const changeList = (value:number) =>{
+  type.value = value
+}
 //复制
 const copyInfo=(info:string)=>{
   copy(info)
@@ -340,10 +395,68 @@ onMounted(() => {
 </script>
 
 <style lang="less" scoped>
+.ipad-main{
+  display: flex;
+  padding-bottom: 30px;
+  .tags{
+    display: flex;
+    padding-top:20px;
+  }
+  .right{
+    width: 75%;
+    padding-left:10px;
+  }
+  .main-img{
+    width:25%;
+  }
+  img{
+    width: 132px;
+    /* height:132px;*/
+    border-radius:50%;
+  }
+}
+.tag{
+  margin-top: 10px;
+}
+.tab-list{
+  width: 65%;
+  margin: auto;
+}
+:deep  .el-dialog{
+  background: rgba(47, 47, 47, 1);
+}
+.main{
+  display: flex;
+  height: 50vh;
+}
+.main-left{
+  width:30%;
+  text-align: center;
+  .main-img{
+
+    width: 196px;
+    margin: auto;
+    height: 196px;
+    img{
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+  }
+  .main-name{
+    padding: 30px 0px;
+  }
+}
+.main-right{
+  overflow-y: scroll;
+  text-indent: 2em;
+  width: 68%;
+  line-height: 24px;
+}
 .coll{
   position: relative;
-  left: 310px;
-  display: flex;
+  left: 340px;
+  display: inline-block;
   top: -36px;
   .image{
     margin-right:30px;
@@ -387,6 +500,15 @@ onMounted(() => {
 }
 
 @media screen and (max-width: 450px) {
+  .coll{
+    position: relative;
+    left: 298px !important;
+    display: inline-block;
+    top: 1px !important;
+    .image{
+      margin-right:30px;
+    }
+  }
   .wrap-containers {
     display: block !important;
     height: 1050px !important;

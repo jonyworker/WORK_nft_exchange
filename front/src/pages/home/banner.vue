@@ -5,8 +5,8 @@
         <div class="row flex-lg-row-reverse">
           <!-- banner-pic-5 -->
           <div class="col-12 mb-24 col-lg-6 mb-lg-0">
-            <a href="#" style="height: 100%;padding-bottom: 15px;">
-              <div class="pic banner-5" @click="toLink(bannerImg4?.ext_url)">
+            <a href="#" style="height: 100%;padding-bottom: 15px;" >
+              <div class="pic banner-5" @click="toLink(bannerImg4.ext_url)" >
                 <img :src="bannerImg4?.banner_url" alt="">
               </div>
             </a>
@@ -18,7 +18,7 @@
                 <!-- banner-pic-1 -->
                 <a href="#">
                   <div class="banner-1">
-                    <div class="pic" @click="toLink(bannerList?.ext_url)">
+                    <div class="pic" @click="toLink(bannerList.ext_url)">
                       <img :src="bannerList?.banner_url" alt="">
                     </div>
                     <div class="text-area">
@@ -35,7 +35,7 @@
               <!-- banner-pic-2 -->
               <div class="col-6 col-sm-4">
                 <a href="#">
-                  <div class="banner-2" @click="toLink(bannerImg1?.ext_url)">
+                  <div class="banner-2" @click="toLink(bannerImg1.ext_url)">
                     <img :src="bannerImg1?.banner_url" alt="">
                   </div>
                 </a>
@@ -43,7 +43,7 @@
               <!-- banner-pic-3 -->
               <div class="d-none d-sm-block col-sm-4">
                 <a href="#">
-                  <div class="banner-3" @click="toLink(bannerImg2?.ext_url)">
+                  <div class="banner-3" @click="toLink(bannerImg2.ext_url)">
                     <img :src="bannerImg2?.banner_url" alt="">
                   </div>
                 </a>
@@ -52,7 +52,7 @@
               <div class="col-6 col-sm-4">
                 <a href="#">
                   <div class="banner-4">
-                    <div class="banner-4-pic" @click="toLink(bannerImg3?.ext_url)">
+                    <div class="banner-4-pic" @click="toLink(bannerImg3.ext_url)">
                       <img :src="bannerImg3?.banner_url" alt="">
                     </div>
                   </div>

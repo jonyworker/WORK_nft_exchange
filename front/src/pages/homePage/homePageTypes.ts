@@ -24,6 +24,7 @@ export interface IPanel {
     holders_p:number;
     unit:string;
     is_collected:number;
+    platform_url:string;
 }
 
 export interface ITrend {

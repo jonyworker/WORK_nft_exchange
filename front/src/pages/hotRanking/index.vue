@@ -62,8 +62,8 @@
                         <td class="" v-if="date === 1">{{ item.volume_24_p }}</td>
                         <td class="" v-if="date === 2">{{ item.volume_7d }}</td>
                         <td class="" v-if="date === 3">{{ item.volume_30d}}</td>
-                        <td :class="item.volume_24_p < 0 ?'go-down' :'go-up'" >{{item.volume_24_p}}</td>
-                        <td :class="item.volume_7d_p < 0 ?'go-down' :'go-up'" >{{item.volume_7d_p}}</td>
+                        <td :class="Number(item.volume_24_p) < 0 ?'go-down' :'go-up'" >{{item.volume_24_p}}</td>
+                        <td :class="Number(item.volume_7d_p) < 0 ?'go-down' :'go-up'" >{{item.volume_7d_p}}</td>
                         <td>{{item.holders}}</td>
                         <td>{{item.floor_price}}</td>
                         <td>{{item.item_qty}}</td>

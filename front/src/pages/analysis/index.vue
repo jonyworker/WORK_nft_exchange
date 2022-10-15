@@ -60,8 +60,8 @@
                   </div>
                 </td>
                 <td class="">{{ item.floor_price }}</td>
-                <td :class="item.volume_7d > 0 ? 'go-down' : 'red'">{{item.volume_7d}}</td>
-                <td :class="item.volume_24_p > 0 ?'go-up': 'red'">{{item.volume_24_p}}</td>
+                <td :class="Number(item.volume_7d) > 0 ? 'go-down' : 'red'">{{item.volume_7d}}</td>
+                <td :class="Number(item.volume_24_p) > 0 ?'go-up': 'red'">{{item.volume_24_p}}</td>
                 <td>{{item. volume_7d_p}}</td>
                 <td>{{item.holders}}</td>
                 <td>{{item.item_qty}}</td>
