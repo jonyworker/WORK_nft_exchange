@@ -119,7 +119,7 @@ import {useRouter} from "vue-router";
 const type = ref(1);
 let http = 'http://v2admin.nftotal.io/';
 const router = useRouter();
-const analysisList = ref<IPanelList | null>(null)
+const analysisList = ref<IPanelList[] >([])
 const dropsList = ref<IInfo[] | null>(null);
 const textList = ref([{name:'追蹤項目',value:1,},{name:'追蹤NFT',value:2}]);
 const toLogin = ref({});

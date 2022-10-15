@@ -68,14 +68,13 @@ import {reactive, ref} from 'vue'
 import type {FormInstance} from 'element-plus'
 import {ImgUpload} from '@components/upload/index'
 import userApi from '@/api/user'
+import defaultAvatar from './man.png'
+import {ElMessage} from "element-plus";
 
 const ruleFormRef = ref<FormInstance>()
 const uploadRef = ref<any>()
 const fileList = ref<''>('')
 const showDialog = ref<boolean>(false)
-import defaultAvatar from './man.png'
-import {ElMessage} from "element-plus";
-
 const formModel = reactive({
   email: '',
   name: '',

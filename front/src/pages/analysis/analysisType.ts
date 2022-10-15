@@ -7,12 +7,14 @@ export interface IPanelList{
     market_cap:string,
     market_cap_p:string,
     volume_24:string,
-    volume_24_p:string,
+    volume_24_p:number,
     sales_24:string,
     holders: string,
     holders_p: string,
     floor_price: string,
     floor_price_p:string,
+    volume_7d:number,
+    volume_7d_p:string,
     unit: string,
 }
 export interface IInfo  {
