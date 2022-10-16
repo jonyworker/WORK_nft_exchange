@@ -8,7 +8,7 @@
           <div class="col-12 d-flex justify-content-between align-items-center">
             <div class="title-wrap d-flex flex-column flex-md-row align-items-md-center ">
               <!-- 標題  -->
-              <div class="section-title-wrap mr-24" @click="toAnalysis()">
+              <div class="section-title-wrap mr-24">
                 <div class="title-icon">
                   <img src="@/assets/images/icon_title_wallet.png" alt="logo">
                 </div>
@@ -78,7 +78,7 @@
         </div>
       </div>
       <!-- 前往查看按鈕 (手機顯示) -->
-      <div class="mt-10">
+      <div class="mt-40">
         <div class="btn btn-read-more btn-mobile btn-outline d-block d-sm-none" @click="hotRanking()">{{$t('home.toView')}}</div>
       </div>
     </div>
@@ -117,10 +117,6 @@ const changeTag = async (value: number) => {
   type.value = value
   const res = await homeApi.getWallet(type.value);
   walletList.value = res.high_profit
-}
-const toAnalysis = () =>{
-  console.log("-> ssss", );
-  router.push({name: 'Analysis',})
 }
 const hotRanking = () => {
   router.push({name: 'HotRanking',query:{type:3}})

@@ -306,7 +306,7 @@
 
 
           <!-- 前往查看按鈕 (手機顯示) -->
-          <div class="mt-10">
+          <div class="mt-40">
             <div class="btn btn-read-more btn-mobile btn-outline d-block d-sm-none" @click="toView()">{{$t('home.toView')}}</div>
           </div>
         </div>
@@ -668,6 +668,7 @@ onMounted(() => {
   overflow-y: scroll;
   text-indent: 2em;
 width: 68%;
+  line-height: 24px;
 }
 /* 设置滚动条的样式 */
 

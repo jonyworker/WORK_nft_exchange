@@ -16,6 +16,9 @@
 import {homeApi} from "@/api";
 import {onMounted, ref} from "vue";
 import {useRouter} from 'vue-router';
+import {useStore} from "vuex";
+
+const store = useStore();
 const type = ref(0);
 const router = useRouter();
 const getImage = (url:any) =>{
@@ -38,12 +41,10 @@ const getWallet = async () =>{
   }
   const res =  await homeApi.postLogin(params);
   localStorage.setItem('token', res.token);
+
+  store.commit('changeLoginStatus',true)
   localStorage.setItem('username', res.username);
   localStorage.setItem('status', res.status);
-  if(res.status === 'OK') {
-    login()
-  }
-
 }
 const login = ()=>{
   router.push({name: 'Home',})

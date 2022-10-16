@@ -10,4 +10,5 @@ export type State = {
     language: string;
     token:string;
     languageEnum: LANG_TYPE_ENUM;
+    isLogin:boolean
 };

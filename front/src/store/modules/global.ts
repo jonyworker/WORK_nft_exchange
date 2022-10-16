@@ -4,8 +4,10 @@ import {LANG_TYPE_ENUM} from '@enum/lanuage'
 import osInfo from '@utils/judjeOS'
 export const state: State = {
     os: osInfo,
+    token: '',
     language: sessionStorage.getItem('localeLang') || 'zh-tw',
     languageEnum: LANG_TYPE_ENUM['zh-tw'],
+    isLogin:false,
 };
 
 
@@ -17,6 +19,10 @@ export const mutations: MutationTree<State> = {
         sessionStorage.setItem('localeLang', value);
         sessionStorage.setItem('localeLangEnum', `${state.languageEnum}`);
     },
+    changeLoginStatus(state, value: boolean){
+        console.log("-> 登录", value);
+        state.isLogin =value;
+    }
 };
 
 // 全局

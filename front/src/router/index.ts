@@ -45,6 +45,11 @@ const routes = [
         name:'Analysis',
         component: () => import('@/pages/analysis/index.vue')
     },
+    {
+        path:'/personal',
+        name:'Personal',
+        component: () => import('@/pages/personal/index.vue')
+    },
 ]
 
 const router = createRouter({

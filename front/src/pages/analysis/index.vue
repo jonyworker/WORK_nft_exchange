@@ -60,8 +60,8 @@
                   </div>
                 </td>
                 <td class="">{{ item.floor_price }}</td>
-                <td :class="item.volume_7d > 0 ? 'go-down' : 'red'">{{item.volume_7d}}</td>
-                <td :class="item.volume_24_p > 0 ?'go-up': 'red'">{{item.volume_24_p}}</td>
+                <td :class="Number(item.volume_7d) > 0 ? 'go-down' : 'red'">{{item.volume_7d}}</td>
+                <td :class="Number(item.volume_24_p) > 0 ?'go-up': 'red'">{{item.volume_24_p}}</td>
                 <td>{{item. volume_7d_p}}</td>
                 <td>{{item.holders}}</td>
                 <td>{{item.item_qty}}</td>
@@ -114,15 +114,17 @@ import {onMounted, ref} from "vue";
 import {homeApi, homePageApi} from "@/api";
 import {copy} from "@utils/copy";
 import {IInfo,IPanelList} from "./analysisType";
+import {useRouter} from "vue-router";
 
 const type = ref(1);
 let http = 'http://v2admin.nftotal.io/';
-
-const analysisList = ref<IPanelList | null>(null)
+const router = useRouter();
+const analysisList = ref<IPanelList[] >([])
 const dropsList = ref<IInfo[] | null>(null);
 const textList = ref([{name:'追蹤項目',value:1,},{name:'追蹤NFT',value:2}]);
 const toLogin = ref({});
-const username = localStorage.getItem('username')
+const username = localStorage.getItem('username');
+const ps = router.currentRoute.value.query.type;
 const changeTag = async (value: number) => {
   type.value = value
 }
@@ -159,7 +161,7 @@ const getAnalysis = async () => {
 onMounted(() => {
   getAnalysis()
   collection()
-
+  changeTag(Number(ps))
 })
 
 </script>
@@ -248,6 +250,8 @@ onMounted(() => {
   .tit{
     font-size: 32px;
     font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 .wrap-item{

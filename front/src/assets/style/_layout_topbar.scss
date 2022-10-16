@@ -2,16 +2,16 @@
 ===== layout - top-bar (header) =====
 ///////////////////////////////////*/
 /*----- header 主題控制裝置 -----*/
-#theme-toggle {
-  display: none;
-  // position: absolute;
-  z-index: -1000;
-}
-#language-toggle {
-  display: none;
-  // position: absolute;
-  z-index: -1000;
-}
+// #theme-toggle {
+//   display: none;
+//   // position: absolute;
+//   z-index: -1000;
+// }
+// #language-toggle {
+//   display: none;
+//   // position: absolute;
+//   z-index: -1000;
+// }
 
 /*----- header 容器設定 -----*/
 .top-bar-section {
@@ -36,6 +36,7 @@
 .top-bar-section .header-logo {
   flex: 0 0 115px;
   margin-right: 32px;
+  // border: 1px solid red;
 }
 .top-bar-section .header-logo svg {
   width: 100%;
@@ -48,7 +49,7 @@
 /*----- header 搜尋列 -----*/
 .top-bar-section .header-search.main {
   width: 320px;
-  margin-right: 32px;
+  margin-right: 16px;
 }
 .top-bar-section .header-search-wrap {
   width: 100%;
@@ -65,7 +66,7 @@
   background-color: transparent;
   cursor: pointer;
   margin-left: 8px;
-  flex: 1;
+  // flex: 1;
 }
 .top-bar-section .header-search input::placeholder {
   @include button-B-1;
@@ -87,86 +88,86 @@
 ===== header - 導覽列 =====
 ////////////////////////*/
 /*----- header 導覽列 -----*/
-.top-bar-section .header-nav-list {
-  display: flex;
-  gap: 24px;
-}
-.header-nav-item:hover > a {
-  color: #5a66f9;
-}
-.top-bar-section .header-nav-item a {
-  display: block;
-  padding: 12px 0;
-  @include button-B-1;
-  color: $color-text-main;
-}
+// .top-bar-section .header-nav-list {
+//   display: flex;
+//   gap: 24px;
+// }
+// .header-nav-item:hover > a {
+//   color: #5a66f9;
+// }
+// .top-bar-section .header-nav-item a {
+//   display: block;
+//   padding: 12px 0;
+//   @include button-B-1;
+//   color: $color-text-main;
+// }
 
 /*//////////////////////////////
 ===== header - 右側 功能選單 =====
 //////////////////////////////*/
 /*----- header 右側 functional-list -----*/
-.functional-list {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-}
-.functional-list > li:not(li:last-of-type) {
-  margin-right: 16px;
-}
+// .functional-list {
+//   display: flex;
+//   align-items: center;
+//   margin-left: auto;
+// }
+// .functional-list > li:not(li:last-of-type) {
+//   margin-right: 16px;
+// }
 
 
 /*///////////////////////////
 ===== header - 場景選擇器 =====
 ///////////////////////////*/
 /*----- header - theme-toggle -----*/
-#theme-toggle {
-  display: none;
-  // position: absolute;
-  z-index: -1000;
-}
-.theme-toggle-label {
-  display: block;
-  position: relative;
-  width: 40px;
-  height: 40px; 
-  border-radius: 100px;
-  background-color: $color-elevation-1;
-  border: 1px solid $color-alpha-white-10;
-}
-.theme-toggle-label::before {
-  content: "";
-  position: absolute;
-  background-image: url(../image/icon/icon_moon-stars-fill.svg);
-  background-size: contain;
-  width: 26px;
-  height: 26px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 1;
-  transition: .2s;
-}
-.theme-toggle-label::after {
-  content: "";
-  position: absolute;
-  background-image: url(../image/icon/icon_sun-dim-fill.svg);
-  background-size: contain;
-  width: 26px;
-  height: 26px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: .2s;
-}
-#theme-toggle:checked ~ .functional-list .theme-toggle-label::before {
-  opacity: 0;
-  transition: .3s;
-}
-#theme-toggle:checked ~ .functional-list .theme-toggle-label::after {
-  opacity: 1;  
-  transition: .3s;
-}
+// #theme-toggle {
+//   display: none;
+//   // position: absolute;
+//   z-index: -1000;
+// }
+// .theme-toggle-label {
+//   display: block;
+//   position: relative;
+//   width: 40px;
+//   height: 40px; 
+//   border-radius: 100px;
+//   background-color: $color-elevation-1;
+//   border: 1px solid $color-alpha-white-10;
+// }
+// .theme-toggle-label::before {
+//   content: "";
+//   position: absolute;
+//   background-image: url(../image/icon/icon_moon-stars-fill.svg);
+//   background-size: contain;
+//   width: 26px;
+//   height: 26px;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   opacity: 1;
+//   transition: .2s;
+// }
+// .theme-toggle-label::after {
+//   content: "";
+//   position: absolute;
+//   background-image: url(../image/icon/icon_sun-dim-fill.svg);
+//   background-size: contain;
+//   width: 26px;
+//   height: 26px;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   opacity: 0;
+//   transition: .2s;
+// }
+// #theme-toggle:checked ~ .functional-list .theme-toggle-label::before {
+//   opacity: 0;
+//   transition: .3s;
+// }
+// #theme-toggle:checked ~ .functional-list .theme-toggle-label::after {
+//   opacity: 1;  
+//   transition: .3s;
+// }
 
 /*/////////////////////////
 ===== header - 錢包連結 =====
@@ -179,6 +180,7 @@
   background-image: $color-gradient-1;
   @include button-B-1;
   color: $color-white;
+  align-self: center;
 }
 /*----- berger-nav - Connect Wallet -----*/
 .berger-nav-item .connectWallet {
@@ -190,73 +192,69 @@
   color: $color-white;
 }
 
-/*///////////////////////////
-===== header - 語言選擇器 =====
-///////////////////////////*/
-/*----- header - language-toggle -----*/
-#language-toggle {
-  display: none;
-  // position: absolute;
-  z-index: -1000;
-}
-.language-select {
-  position: relative;
-}
-.label {
-  @include button-B-1;
-  // color:$color-text-main;
-  cursor: pointer;
-}
-.language-label {
-  width: 72px;
-  // background-color: #f00;
-  color: $color-text-main;
-  display: flex;
-  justify-content: space-between;
-  padding: 12px 0 12px 12px;
-  position: relative;
-}
-.language-label .expand-icon {
-  width: 12px;
-  height: 12px;
-  // margin-left: 8px;
-}
-.language-label .expand-icon img {
-  width: 100%;
-  height: 100%;
-}
-.language-select .language-list {
-  display: none;
-  position: absolute;
-}
-#language-toggle:checked ~ .functional-list .language-list {
-  display: block;
-}
+// /*///////////////////////////
+// ===== header - 語言選擇器 =====
+// ///////////////////////////*/
+// /*----- header - language-toggle -----*/
+// #language-toggle {
+//   display: none;
+//   z-index: -1000;
+// }
+// .language-select {
+//   position: relative;
+// }
+// .label {
+//   @include button-B-1;
+//   cursor: pointer;
+// }
+// .language-label {
+//   width: 72px;
+//   color: $color-text-main;
+//   display: flex;
+//   justify-content: space-between;
+//   padding: 12px 0 12px 12px;
+//   position: relative;
+// }
+// .language-label .expand-icon {
+//   width: 12px;
+//   height: 12px;
+// }
+// .language-label .expand-icon img {
+//   width: 100%;
+//   height: 100%;
+// }
+// .language-select .language-list {
+//   display: none;
+//   position: absolute;
+// }
+// #language-toggle:checked ~ .functional-list .language-list {
+//   display: block;
+// }
 /*----- header 語言選擇器 - 下拉選單 -----*/
-.language-list {
-  margin-top: 4px;
-  position: absolute;
-  right: 0;
-  border-radius: 12px;
-  background-color: $color-elevation-1;
-  color: $color-text-main;
-  display: none;
-}
-.language-list .language-item {
-  width: 136px;
-  height: 40px;
-  padding: 0 24px;
-  display: flex;
-  justify-content: space-between;
-  border-radius: 11px;
-}
-.language-list:hover > .language-item:hover {
-  background-color: #f00;
-}
-.language-list .language-item span {
-  font-size: 14px;
-  line-height: 40px;
-}
+// .language-list {
+//   margin-top: 4px;
+//   position: absolute;
+//   right: 0;
+//   border-radius: 12px;
+//   background-color: $color-elevation-1;
+//   color: $color-text-main;
+//   display: none;
+// }
+// .language-list .language-item {
+//   width: 136px;
+//   height: 40px;
+//   padding: 0 24px;
+//   display: flex;
+//   justify-content: space-between;
+//   border-radius: 11px;
+// }
+// .language-list:hover > .language-item:hover {
+//   background-color: #f00;
+// }
+// .language-list .language-item span {
+//   font-size: 14px;
+//   line-height: 40px;
+// }
 
 /*///////////////////////////////
 ===== header - 漢堡 按鈕&選單 =====
@@ -271,80 +269,83 @@
   display: none;
 }
 .burger-toggle .icon-burger {
-  width: 40px;
-  height: 40px;
+  width: 26px;
+  height: 26px;
+  // padding: 8px;
   display: flex;
-  color: $color-text-main;
+  // color: $color-text-main;
 }
-.burger-toggle .icon-burger span {
-  margin: auto;
-  font-size: 36px;
+.burger-toggle .icon-burger svg {
+  // margin: auto;
+  width: 100%;
+  height: 100%;
+  
 }
 /*----- 漢堡 選單 -----*/
-.berger-nav {
-  display: none;
-  position: absolute;
-  top: 81px;
-  left: 0;
-  right: 0;
-  background-color: $color-elevation-1;
-}
-.berger-nav .berger-nav-item:hover {
-  background-color: $color-alpha-black-26;
-}
-.berger-nav .berger-nav-item a {
-  @include body-B-1;
-  padding: 16px 24px;
-  color: $color-text-main;
-}
-.berger-nav .berger-nav-item.search-bar {
-  display: none;
-}
+// .berger-nav {
+//   display: none;
+//   position: absolute;
+//   top: 81px;
+//   left: 0;
+//   right: 0;
+//   background-color: $color-elevation-1;
+// }
+// .berger-nav .berger-nav-item:hover {
+//   background-color: $color-alpha-black-26;
+// }
+// .berger-nav .berger-nav-item a {
+//   @include body-B-1;
+//   padding: 16px 24px;
+//   color: $color-text-main;
+// }
+// .berger-nav .berger-nav-item.search-bar {
+//   display: none;
+// }
 
 
 
 /*----- header nav - 下拉選單 -----*/
-.header-nav-item {
-  position: relative;
-}
-.header-nav-item > .language-item-list {
-  position: absolute;
-  border-radius: 12px;
-  background-color: #fff;
-  display: flex;
-  flex-direction: column;
-  padding: 4px;
-  display: none;
-}
-.header-nav-item:hover > .language-item-list {
-  display: block;
-}
-.language-item-list .language-item {
-  width: 136px;
-  height: 40px;
-  padding: 0px 16px;
-  border-radius: 11px;
-  font-size: 14px;
-  line-height: 20px;
-  color: #f00;
-  display: flex;
-  align-items: center;
-}
-.language-item-list .language-item:hover,
-.language-item-list .language-item:hover > a {
-  background-color: #f3f4fe;
-  color: #5a66f9;
-}
+// .header-nav-item {
+//   position: relative;
+// }
+// .header-nav-item > .language-item-list {
+//   position: absolute;
+//   border-radius: 12px;
+//   background-color: #fff;
+//   display: flex;
+//   flex-direction: column;
+//   padding: 4px;
+//   display: none;
+// }
+// .header-nav-item:hover > .language-item-list {
+//   display: block;
+// }
+// .language-item-list .language-item {
+//   width: 136px;
+//   height: 40px;
+//   padding: 0px 16px;
+//   border-radius: 11px;
+//   font-size: 14px;
+//   line-height: 20px;
+//   color: #f00;
+//   display: flex;
+//   align-items: center;
+// }
+// .language-item-list .language-item:hover,
+// .language-item-list .language-item:hover > a {
+//   background-color: #f3f4fe;
+//   color: #5a66f9;
+// }
 
 /*----- header 登入 icon -----*/
-.avatar .icon-avatar {
-  width: 48px;
-  height: 48px;
-}
-.avatar .icon-avatar svg {
-  width: 100%;
-  height: 100%;
-}
+// .avatar .icon-avatar {
+//   width: 48px;
+//   height: 48px;
+// }
+// .avatar .icon-avatar svg {
+//   width: 100%;
+//   height: 100%;
+// }
 
 
 /*/////////////////////////////
@@ -352,31 +353,35 @@
 /////////////////////////////*/
 /*----- max-width 1536 -----*/
 @media screen and (max-width: 1536px) {
-  .header-nav,
-  .functional-list .language-select,
-  .functional-list .functional-item {
-    display: none;
-  }
-  .header-search.main {
-    flex: 1;
-  }
+  // .header-nav,
+  // .functional-list .language-select,
+  // .functional-list .functional-item {
+  //   display: none;
+  // }
+  // .header-search.main {
+  //   flex: 1;
+  // }
   // 出現漢堡選單並可以點擊
+  // .burger-toggle {
+  //   display: block;
+  // }
+  // #burger-toggle:checked ~ .berger-nav {
+  //   display: block;
+  // }
+}
+/*----- max-width 1200 -----*/
+@media screen and (max-width: 1200px) {
   .burger-toggle {
     display: block;
   }
-  #burger-toggle:checked ~ .berger-nav {
-    display: block;
-  }
 }
-/*----- max-width 1200 -----*/
-@media screen and (max-width: 1200px) {}
 /*----- max-width 992 -----*/
 @media screen and (max-width: 992px) {}
 /*----- max-width 768 -----*/
 @media screen and (max-width: 768px) {
-  .header-search.main {
-    display: none;
-  }
+  // .header-search.main {
+  //   display: none;
+  // }
   .berger-nav .berger-nav-item.search-bar {
     display: block;
   }

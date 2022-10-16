@@ -1,4 +1,5 @@
 import homeApi from './home'
 import homePageApi from './homePage'
+import userApi from './user'
 
-export {homeApi,homePageApi}
+export {homeApi,homePageApi,userApi}

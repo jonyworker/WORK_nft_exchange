@@ -14,33 +14,33 @@
                 <div>{{ panel.data.contract.slice(0, 7) }}
 <!--                  <span><img width="20px" height="20px" src="@/assets/images/icon_copy.png" alt="" @click="copyInfo(panel.data.contract)"></span>-->
                 </div>
-                <div>{{ panel.data.item_qty }} NFTs</div>
+                <div>{{ panel.data.item_qty }}</div>
 
               </div>
               <div class="coll">
-                <div class="image" @click="toCollRemove(panel.data.id)">
+                <div class="image" @click="toCollRemove(panel.data.id)" v-if="panel.data.is_collected === 1">
                   <svg xmlns="http://www.w3.org/2000/svg" height="38" width="38"><path d="m21.95 40.2-2.65-2.45Q13.1 32 8.55 26.775T4 15.85q0-4.5 3.025-7.525Q10.05 5.3 14.5 5.3q2.55 0 5.05 1.225T24 10.55q2.2-2.8 4.55-4.025Q30.9 5.3 33.5 5.3q4.45 0 7.475 3.025Q44 11.35 44 15.85q0 5.7-4.55 10.925Q34.9 32 28.7 37.75l-2.65 2.45q-.85.8-2.05.8-1.2 0-2.05-.8Z"/></svg>
                 </div>
-                <div class="image" @click="toColl(panel.data.id)">
+                <div class="image" @click="toColl(panel.data.id)" v-else>
                   <svg xmlns="http://www.w3.org/2000/svg" height="38" width="38"><path d="m21.95 40.2-2.65-2.45Q13.1 32 8.55 26.775T4 15.85q0-4.5 3.025-7.525Q10.05 5.3 14.5 5.3q2.55 0 5.05 1.225T24 10.55q2.2-2.8 4.55-4.025Q30.9 5.3 33.5 5.3q4.45 0 7.475 3.025Q44 11.35 44 15.85q0 5.7-4.55 10.925Q34.9 32 28.7 37.75l-2.65 2.45q-.85.8-2.05.8-1.2 0-2.05-.8Zm.75-26.35q-1.35-2.45-3.55-4-2.2-1.55-4.65-1.55-3.3 0-5.4 2.125Q7 12.55 7 15.85q0 2.9 1.95 6.075Q10.9 25.1 13.6 28.1t5.6 5.575Q22.1 36.25 24 38q1.9-1.7 4.8-4.3 2.9-2.6 5.6-5.625 2.7-3.025 4.65-6.2Q41 18.7 41 15.85q0-3.3-2.125-5.425T33.5 8.3q-2.5 0-4.675 1.525T25.2 13.85q-.25.4-.55.575-.3.175-.7.175-.4 0-.725-.175-.325-.175-.525-.575Zm1.3 9.3Z"/></svg>
                 </div>
               </div>
             </div>
           </div>
-          <div class="text-list clamp-3">
+          <div class="text-list ">
             {{ panel.data.introduction }}
           </div>
         </div>
         <div class="bottom-flexs">
           <div class="left">
-            <div class="img"><img alt="" height="17px" src="@/assets/images/icon_group.png" width="24px"></div>
-            <div class="img"><img alt="" height="17px" src="@/assets/images/icon_map.png" width="24px"></div>
-            <div class="img"><img alt="" src="@/assets/images/icon_world.png"></div>
-            <div class="img"><img alt="" src="@/assets/images/icon_discord.png"></div>
-            <div class="img"><img alt="" src="@/assets/images/icon_twitter.png"></div>
-            <div class="img"><img alt="" src="@/assets/images/icons.png"></div>
+            <div class="img" @click="toDailog(1)"><img alt="" height="17px" src="@/assets/images/icon_group.png" width="24px"></div>
+            <div class="img" @click="toDailog(2)"><img alt="" height="17px" src="@/assets/images/icon_map.png" width="24px"></div>
+            <div class="img" @click="toLink(panel.data.website)"><img alt="" src="@/assets/images/icon_world.png"></div>
+            <div class="img" @click="toLink(panel.data.discord)"><img alt="" src="@/assets/images/icon_discord.png"></div>
+            <div class="img" @click="toLink(panel.data.twitter)"><img alt="" src="@/assets/images/icon_twitter.png"></div>
+            <div class="img" @click="toLink(panel.data.instagram)"><img alt="" src="@/assets/images/icons.png"></div>
           </div>
-          <div class="right">立即購買</div>
+          <div class="right" @click="toLink(panel.data.platform_url)">立即購買</div>
         </div>
       </div>
       <div class="container-right">
@@ -168,10 +168,10 @@
                 <div class="text"> {{ item.price }} {{ item.unit }}</div>
                 <!--                <div class="text">{{item.permalink}}</div>-->
 <!--                <div class="image"><img alt="" src="@/assets/images/icon_favorite.png"></div>-->
-<!--                <div class="image" @click="toNftRemove(item.id)">-->
-<!--                  <svg xmlns="http://www.w3.org/2000/svg" height="38" width="38"><path d="m21.95 40.2-2.65-2.45Q13.1 32 8.55 26.775T4 15.85q0-4.5 3.025-7.525Q10.05 5.3 14.5 5.3q2.55 0 5.05 1.225T24 10.55q2.2-2.8 4.55-4.025Q30.9 5.3 33.5 5.3q4.45 0 7.475 3.025Q44 11.35 44 15.85q0 5.7-4.55 10.925Q34.9 32 28.7 37.75l-2.65 2.45q-.85.8-2.05.8-1.2 0-2.05-.8Z"/></svg>-->
-<!--                </div>-->
-                <div class="image" @click="toNft(item.id)">
+                <div class="image" @click="toNftRemove(item.id)" v-if="item.is_collected === 1">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="38" width="38"><path d="m21.95 40.2-2.65-2.45Q13.1 32 8.55 26.775T4 15.85q0-4.5 3.025-7.525Q10.05 5.3 14.5 5.3q2.55 0 5.05 1.225T24 10.55q2.2-2.8 4.55-4.025Q30.9 5.3 33.5 5.3q4.45 0 7.475 3.025Q44 11.35 44 15.85q0 5.7-4.55 10.925Q34.9 32 28.7 37.75l-2.65 2.45q-.85.8-2.05.8-1.2 0-2.05-.8Z"/></svg>
+                </div>
+                <div class="image" @click="toNft(item.id)" v-else>
                   <svg xmlns="http://www.w3.org/2000/svg" height="38" width="38"><path d="m21.95 40.2-2.65-2.45Q13.1 32 8.55 26.775T4 15.85q0-4.5 3.025-7.525Q10.05 5.3 14.5 5.3q2.55 0 5.05 1.225T24 10.55q2.2-2.8 4.55-4.025Q30.9 5.3 33.5 5.3q4.45 0 7.475 3.025Q44 11.35 44 15.85q0 5.7-4.55 10.925Q34.9 32 28.7 37.75l-2.65 2.45q-.85.8-2.05.8-1.2 0-2.05-.8Zm.75-26.35q-1.35-2.45-3.55-4-2.2-1.55-4.65-1.55-3.3 0-5.4 2.125Q7 12.55 7 15.85q0 2.9 1.95 6.075Q10.9 25.1 13.6 28.1t5.6 5.575Q22.1 36.25 24 38q1.9-1.7 4.8-4.3 2.9-2.6 5.6-5.625 2.7-3.025 4.65-6.2Q41 18.7 41 15.85q0-3.3-2.125-5.425T33.5 8.3q-2.5 0-4.675 1.525T25.2 13.85q-.25.4-.55.575-.3.175-.7.175-.4 0-.725-.175-.325-.175-.525-.575Zm1.3 9.3Z"/></svg>
                 </div>
               </div>
@@ -183,6 +183,48 @@
         </div>
       </div>
     </div>
+    <el-dialog v-model="dialogFormVisible" width="85%">
+
+      <!-- PC     -->
+      <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
+        <div class="main">
+          <div class="main-left">
+            <div class="main-img">
+              <img :src="panel.data.photo_url" alt="">
+            </div>
+<!--            <div class="main-name">{{ dropsFour?.collection }}</div>-->
+
+            <div class="tab-list">
+              <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
+                {{item.name}}
+              </div>
+            </div>
+          </div>
+          <div class="main-right" v-if="type === 1">{{panel.data.member}}</div>
+          <div class="main-right" v-if="type === 2">{{panel.data.roadmap}}</div>
+        </div>
+      </div>
+      <!-- H5 || table-->
+      <div v-else >
+        <div class="ipad-main">
+          <div class="main-img">
+            <img :src="panel.data.photo_url" alt="">
+          </div>
+          <div class="right">
+<!--            <div class="main-name">{{ dropsFour?.collection }}</div>-->
+            <div class="tags">
+              <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
+                {{item.name}}
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div v-if="type === 1">{{panel.data.member}}</div>
+        <div  v-if="type === 2">{{panel.data.roadmap}}</div>
+      </div>
+
+    </el-dialog>
   </div>
 </template>
 
@@ -190,7 +232,8 @@
 import {useScrollHeight} from '@/hooks/useScrollHeight'
 import {onMounted, reactive, ref, watch} from "vue";
 import {homeApi, homePageApi} from "@/api";
-import {useRoute} from "vue-router"
+import {useRoute} from "vue-router";
+import {useStore} from "vuex";
 import {panelData} from "@/pages/homePage/homePageTypes";
 import Line from "@/pages/homePage/line.vue";
 import Pie from "@/pages/homePage/pie.vue";
@@ -199,7 +242,9 @@ import { ArrowDown } from '@element-plus/icons-vue'
 import {copy} from "@utils/copy";
 const visible = ref(false)
 const route = useRoute()
+const store = useStore()
 const filter_ind = ref()
+const List = ref([{name:'成員介紹',value:1},{name:'路線圖',value:2}]);
 const saleFilter = reactive<any>([
   {label: "售出價格：高至低", value: '2'},
   {label: "售出價格：低至高", value: '1'},
@@ -211,9 +256,11 @@ const form = reactive<Record<string, any>>({
   max: '',
   orderby: '1',
 });
+const dialogFormVisible = ref(false);
 const isFinish = ref<boolean>(false);
 const isLoading = ref<boolean>(false);
-const count = ref(0);
+
+const count = ref(30);
 const page = ref(1)
 const {scrollBtmHeight} = useScrollHeight()
 const panel = reactive<panelData>({} as panelData)
@@ -224,11 +271,27 @@ type IInfo = {
   price: string,
   unit: string,
   usd_price: string,
+  is_collected:number,
 }
 const dropsList = ref<IInfo[] | null>(null);
+const type = ref(1)
+const toDailog = (val:number) =>{
+  dialogFormVisible.value = true;
+  type.value = val
+}
+const changeList = (value:number) =>{
+  type.value = value
+}
 //复制
 const copyInfo=(info:string)=>{
   copy(info)
+}
+//跳转窗口
+const toLink = (url:string) =>{
+  if (url === '') {
+    return
+  }
+  window.open(url)
 }
 const getHomePage = async () => {
   const {id} = route.query
@@ -256,13 +319,18 @@ const toColl = async(id:string) =>{
   const res = await  homePageApi.addColl(params);
   getHomePage()
 }
+
 //收藏
 const toNft = async(id:string) =>{
   const params ={
     nftId:id,
   }
   const res = await  homePageApi.addNft(params);
-  load()
+  page.value=1;
+  isFinish.value = false;
+  dropsList.value = [];
+  isLoading.value = false;
+  await load()
 }
 //移除收藏
 const toNftRemove = async(id:string) =>{
@@ -270,7 +338,11 @@ const toNftRemove = async(id:string) =>{
     nftId:id,
   }
   const res = await  homePageApi.removeNft(params);
-  load()
+  page.value=1;
+  isFinish.value = false;
+  dropsList.value = [];
+  isLoading.value = false;
+  await load()
 }
 /**
  * 请求接口
@@ -282,7 +354,7 @@ const load = async () => {
   const {id} = route.query
   const params = {
     collectionId: id as string,    //項目id
-    count: 30,     //每頁多少筆紀錄
+    count: count.value,     //每頁多少筆紀錄
     page: page.value,
     ...form,
   }
@@ -323,10 +395,68 @@ onMounted(() => {
 </script>
 
 <style lang="less" scoped>
+.ipad-main{
+  display: flex;
+  padding-bottom: 30px;
+  .tags{
+    display: flex;
+    padding-top:20px;
+  }
+  .right{
+    width: 75%;
+    padding-left:10px;
+  }
+  .main-img{
+    width:25%;
+  }
+  img{
+    width: 132px;
+    /* height:132px;*/
+    border-radius:50%;
+  }
+}
+.tag{
+  margin-top: 10px;
+}
+.tab-list{
+  width: 65%;
+  margin: auto;
+}
+:deep  .el-dialog{
+  background: rgba(47, 47, 47, 1);
+}
+.main{
+  display: flex;
+  height: 50vh;
+}
+.main-left{
+  width:30%;
+  text-align: center;
+  .main-img{
+
+    width: 196px;
+    margin: auto;
+    height: 196px;
+    img{
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+  }
+  .main-name{
+    padding: 30px 0px;
+  }
+}
+.main-right{
+  overflow-y: scroll;
+  text-indent: 2em;
+  width: 68%;
+  line-height: 24px;
+}
 .coll{
   position: relative;
-  left: 310px;
-  display: flex;
+  left: 340px;
+  display: inline-block;
   top: -36px;
   .image{
     margin-right:30px;
@@ -370,6 +500,15 @@ onMounted(() => {
 }
 
 @media screen and (max-width: 450px) {
+  .coll{
+    position: relative;
+    left: 298px !important;
+    display: inline-block;
+    top: 1px !important;
+    .image{
+      margin-right:30px;
+    }
+  }
   .wrap-containers {
     display: block !important;
     height: 1050px !important;
@@ -391,10 +530,11 @@ onMounted(() => {
   }
 
   .text-list {
-    display: -webkit-box;
+    display: -webkit-box ;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 2 !important;
     overflow: hidden;
+    margin-bottom:20px;
   }
 
   .bottom-flexs {
@@ -585,6 +725,10 @@ onMounted(() => {
   line-height: 22px;
   font-size: 16px;
   flex: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  overflow: hidden;
 }
 
 .container-flex {

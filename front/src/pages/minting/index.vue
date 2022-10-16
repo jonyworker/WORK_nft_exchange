@@ -278,6 +278,7 @@ onMounted(() => {
   overflow-y: scroll;
   text-indent: 2em;
   width: 68%;
+  line-height: 24px;
 }
 /* 设置滚动条的样式 */
 
