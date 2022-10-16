@@ -44,6 +44,7 @@ class Index extends BaseController
                     'description' => array()
                 ];
                 foreach ($data as $k => $v) {
+                    $data[$k]['ind'] = $k + 1;
                     foreach ($translate as $k_t => $v_t) {
                         if ($v[$k_t]) {
                             $translate[$k_t][$k] = $v[$k_t];
