@@ -31,7 +31,7 @@ Ex: 若時間為+0, 當地時間為 2022-03-29 01:30:00
                 <select name="utc" lay-verify="required" >
                     <option value="">請選擇時區（UTC）</option>
                     {volist name='utcList' id='utc'}
-                    <option value="{utc}"> {$utc}</option>
+                    <option value="{$utc}"> {$utc}</option>
                     {/volist}
                 </select>
             </div>

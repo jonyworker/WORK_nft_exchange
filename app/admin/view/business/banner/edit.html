@@ -17,6 +17,12 @@
             <div class="layui-input-block">
                 <input type="text" name="banner_url" class="layui-input" lay-verify="required" placeholder="請輸入廣告圖" value="{$row.banner_url|default=''}">
             </div>
+            <div class="layui-input-block layuimini-upload">
+                <input name="banner_url" class="layui-input layui-col-xs6"placeholder="請上傳圖片" value="{$row.banner_url|default=''}">
+                <div class="layuimini-upload-btn">
+                    <span><a class="layui-btn" data-upload="banner_url" data-upload-number="one" data-upload-exts="png|jpg|jpeg" data-upload-icon="image"><i class="fa fa-upload"></i> 上傳</a></span>
+                </div>
+            </div>
         </div>
 
         <div class="layui-form-item">
@@ -30,6 +36,7 @@
                     {else /}
                     <option value="{$k}">{$vo}</option>
                     {/if}
+                    {/volist}
                 </select>
             </div>
         </div>
