@@ -18,10 +18,12 @@ class OptionalAuth
         if($token) {
             $info = Member::findByToken($token);
             if(empty($info)) {
-                return json(['code' => 401, 'message' => 'Token已過期，請重新登陸']);
+                $userId =0;
+            } else {
+                $userId = $info['id'];
+
             }
 
-            $userId = $info['id'];
         }
 
         $request->withMiddleware(['userId' => $userId]);
