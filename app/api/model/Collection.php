@@ -35,7 +35,7 @@ class Collection extends Model
             'category' => $info['category'],
             'floor_price' => $info['floor_price'],
             'floor_price_p' => $info['floor_price_p'],
-            'health_score' => $info['health_score'],
+            'health_score' => $info['item_qty'] ? round($info['health_score'] / $info['item_qty'], 3) * 100 : '0',
 
             'introduction' => $info['introduction' . $fieldLan],
             'member' => $info['member' . $fieldLan],
