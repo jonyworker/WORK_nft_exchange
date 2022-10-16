@@ -1,0 +1,64 @@
+<!--
+ID         id                            只讀
+開始日      start_date              必須填寫
+結束日      end_date        必須填寫
+廣告圖      banner_url              必須填寫  取出為：顯示縮圖,點了另開新窗看大圖片
+廣告位置    ind             對應配置banner_ind , 參考底下 說明1
+廣告文字    description       允許空
+廣告連結    ext_url                  允許空
+-->
+
+<div class="layuimini-container">
+    <form id="app-form" class="layui-form layuimini-form">
+        <div class="layui-form-item">
+            <label class="layui-form-label">開始日</label>
+            <div class="layui-input-block">
+                <input type="date" name="start_date" class="layui-input" lay-verify="required" placeholder="請輸入開始日" value="">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">結束日</label>
+            <div class="layui-input-block">
+                <input type="date" name="end_date" class="layui-input" lay-verify="required" placeholder="請輸入結束日" value="">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">廣告圖</label>
+            <div class="layui-input-block">
+                <input type="text" name="banner_url" class="layui-input" lay-verify="required" placeholder="請輸入廣告圖" value="">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">廣告位置</label>
+            <div class="layui-input-block">
+                <select name="ind" lay-verify="required" >
+                    <option value="">請選擇</option>
+                    {volist name='bannerInd' id='vo' key='k'}
+                    <option value="{$k}">{$vo}</option>
+                    {/volist}
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">廣告文字</label>
+            <div class="layui-input-block">
+                <input type="text" name="description" class="layui-input" placeholder="請輸入廣告文字" value="">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">廣告連結</label>
+            <div class="layui-input-block">
+                <input type="text" name="ext_url" class="layui-input" placeholder="請輸入廣告連結" value="">
+            </div>
+        </div>
+
+        <div class="hr-line"></div>
+        <div class="layui-form-item text-center">
+            <button type="submit" class="layui-btn layui-btn-normal layui-btn-sm" lay-submit>確認</button>
+            <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">重置</button>
+        </div>
+    </form>
+</div>
