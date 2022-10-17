@@ -1,12 +1,20 @@
 <template>
   <div class="container">
     <div class="wrap-title">連結你的錢包</div>
-    <div class="wrap-subTitle">所有文章都通過 Mirror 發佈在區塊鏈上。 NFTotal 擁有文章的版權。NFTotal 擁有文章的版權。</div>
+    <!-- <div class="wrap-subTitle">所有文章都通過 Mirror 發佈在區塊鏈上。 NFTotal 擁有文章的版權。NFTotal 擁有文章的版權。</div> -->
     <div class="wrap-tabs">
-      <div v-for="(item,index) in walletList" :key="index" :class="['tags',type===item.id?'active_tags':'']" @click="chageTag(item.id)">
+      <!-- <div v-for="(item,index) in walletList" :key="index" :class="['tags',type===item.id?'active_tags':'']" @click="chageTag(item.id)">
         <div class="image"><img :src="item.image" alt=""> </div>
         <div class="name">{{item.name}}</div>
-      </div>
+      </div> -->
+	  <div class="tags" @click="chageTag(1)">
+	    <div class="image"><img src="@/assets/images/metamask.png" alt=""> </div>
+	    <div class="name">MetaMask</div>
+	  </div>
+	  <div class="tags" @click="chageTag(4)">
+	    <div class="image"><img src="@/assets/images/walletconnect.png" alt=""> </div>
+	    <div class="name">Wallet Connect</div>
+	  </div>
     </div>
   </div>
 </template>
@@ -43,7 +51,7 @@ const walletList = ref([
     {id:1,name:'MetaMask',image:getImage("../../assets/images/metamask.png")},
   // {id:2,name:'imToken',image:getImage("../../assets/images/minting_1.png")},
   // {id:3,name:'SafePal',image:getImage("../../assets/images/minting_2.png")},
-  // {id:4,name:'Wallet Connect',image:getImage("../../assets/images/minting_3.png")},
+  {id:4,name:'Wallet Connect',image:getImage("../../assets/images/walletconnect.png")},
   // {id:5,name:'Coinbase Wallet',image:getImage("../../assets/images/minting_4.png")},
 ])
 const chageTag = async (value: number) => {
@@ -52,6 +60,9 @@ const chageTag = async (value: number) => {
   {
 	case 1:
 		metamask().connect()
+		break;
+	case 4:
+		walletconnect().connect()
 		break;
 	default:
 		break;
