@@ -50,7 +50,7 @@
                     <div class="icon mr-16">
                       <img :src="dropsOne?.collection_url" alt="">
                     </div>
-                    <p class="title card-title-h5 text-white">{{ dropsOne?.collection }}</p>
+                    <p class="title card-title-h5 text-white clamp-1">{{ dropsOne?.collection }}</p>
                   </div>
                   <!-- 卡片 - 文字 -->
                   <p class="card-text-p clamp-3 mb-8">{{ dropsOne?.introduction }}</p>
@@ -118,7 +118,7 @@
                     <div class="icon mr-16">
                       <img :src="dropsTwo?.collection_url" alt="">
                     </div>
-                    <p class="title card-title-h5 text-white">{{ dropsTwo?.collection }}</p>
+                    <p class="title card-title-h5 text-white clamp-1">{{ dropsTwo?.collection }}</p>
                   </div>
 
                   <!-- 卡片 - 文字 -->
@@ -189,7 +189,7 @@
                     <div class="icon mr-16">
                       <img :src="dropsThree?.collection_url" alt="">
                     </div>
-                    <p class="title card-title-h5 text-white">{{ dropsThree?.collection }}</p>
+                    <p class="title card-title-h5 text-white clamp-1">{{ dropsThree?.collection }}</p>
                   </div>
 
                   <!-- 卡片 - 文字 -->
@@ -259,7 +259,7 @@
                     <div class="icon mr-16">
                       <img :src="dropsFour?.collection_url" alt="">
                     </div>
-                    <p class="title card-title-h5 text-white">{{ dropsFour?.collection }}</p>
+                    <p class="title card-title-h5 text-white clamp-1">{{ dropsFour?.collection }}</p>
                   </div>
 
                   <!-- 卡片 - 文字 -->
@@ -304,14 +304,21 @@
     
           </div>
 
-
           <!-- 前往查看按鈕 (手機顯示) -->
           <div class="mt-40">
             <div class="btn btn-read-more btn-mobile btn-outline d-block d-sm-none" @click="toView()">{{$t('home.toView')}}</div>
           </div>
+
         </div>
+
+
+
+
+
+
+        <!-- 路線圖 & 成員介紹 -->
+
         <el-dialog v-model="dialogFormVisible" width="85%">
-    
           <!-- PC     -->
           <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
               <div class="main">
@@ -350,11 +357,10 @@
             <div v-if="type === 1">{{dropsOne?.member}}</div>
             <div  v-if="type === 2">{{dropsOne?.roadmap}}</div>
           </div>
-    
         </el-dialog>
+
         <el-dialog v-model="dialogFormTwo" width="85%">
-    
-          <!-- PC     -->
+          <!-- PC -->
           <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
             <div class="main">
               <div class="main-left">
@@ -392,10 +398,9 @@
             <div v-if="type === 1">{{dropsTwo?.member}}</div>
             <div  v-if="type === 2">{{dropsTwo?.roadmap}}</div>
           </div>
-    
         </el-dialog>
+
         <el-dialog v-model="dialogFormThree" width="85%">
-    
           <!-- PC     -->
           <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
             <div class="main">
@@ -434,10 +439,9 @@
             <div v-if="type === 1">{{dropsThree?.member}}</div>
             <div  v-if="type === 2">{{dropsThree?.roadmap}}</div>
           </div>
-    
         </el-dialog>
+
         <el-dialog v-model="dialogFormFour" width="85%">
-    
           <!-- PC     -->
           <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
             <div class="main">
@@ -476,8 +480,8 @@
             <div v-if="type === 1">{{dropsFour?.member}}</div>
             <div  v-if="type === 2">{{dropsFour?.roadmap}}</div>
           </div>
-    
         </el-dialog>
+        
       </div>
     </div>
   </div>
@@ -610,6 +614,11 @@ onMounted(() => {
 
 
 </script>
+
+
+
+
+
 
 <style scoped lang="less">
 .ipad-main{
