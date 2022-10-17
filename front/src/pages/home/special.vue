@@ -37,7 +37,7 @@
                 <!-- 1st -->
                 <li class="ranking-item">
                   <small class="ranking-sort">0{{index+1}}</small>
-                  <div class="ranking-picture">
+                  <div class="ranking-picture" @click="toIndex(item.id)">
                     <img :src="item.photo_url" alt="">
                   </div>
                   <div class="ranking-text">
@@ -76,7 +76,7 @@
               <!-- 1st -->
               <li class="ranking-item">
                 <small class="ranking-sort">{{index+6}}</small>
-                <div class="ranking-picture">
+                <div class="ranking-picture" @click="toIndex(item.id)">
                   <img :src="item.photo_url" alt="">
                 </div>
                 <div class="ranking-text">
@@ -115,7 +115,7 @@
                 <!-- 1st -->
                 <li class="ranking-item">
                   <small class="ranking-sort">{{index+11}}</small>
-                  <div class="ranking-picture">
+                  <div class="ranking-picture" @click="toIndex(item.id)">
                     <img :src="item.photo_url" alt="">
                   </div>
                   <div class="ranking-text">
