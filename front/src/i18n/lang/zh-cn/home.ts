@@ -3,7 +3,7 @@
 export default {
     toggle: '切换',
     search:'NFT分析',
-    searchWallet:'搜索NFT和钱包',
+    searchWallet:'搜索項目地址',
     mint:'Minting观测站',
     overview:'统计',
     tool:'工具',

@@ -4,7 +4,7 @@ export default {
     toggle: 'トグル',
     search:'NFTを調べる',
     mint:'鋳造観測所',
-    searchWallet:'NFTとウォレットを検索',
+    searchWallet:'プロジェクトアドレスを検索',
     overview:'統計学',
     tool:'道具',
     news:'ニュース',

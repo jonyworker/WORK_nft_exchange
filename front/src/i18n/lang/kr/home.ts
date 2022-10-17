@@ -4,7 +4,7 @@ export default {
     toggle: '다른언어',
     search:'NFT검색',
     mint:'민팅',
-    searchWallet:'NFT조회 & 지갑조회',
+    searchWallet:'프로젝트 주소 검색',
     overview:'통계',
     tool:'도구',
     news:'뉴스',

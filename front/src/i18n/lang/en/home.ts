@@ -4,7 +4,7 @@ export default   {
     toggle: 'Toggle',
     search:'Search',
     mint:'Mint',
-    searchWallet:'Search Wallet',
+    searchWallet:'Search Project Address',
     overview:'Overview',
     tool:'Tool',
     news:'News',
