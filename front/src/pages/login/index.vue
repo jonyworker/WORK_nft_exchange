@@ -18,6 +18,7 @@ import {onMounted, ref} from "vue";
 import {useRouter} from 'vue-router';
 import {useStore} from "vuex";
 
+var account = null;
 const store = useStore();
 const type = ref(0);
 const router = useRouter();
@@ -33,11 +34,18 @@ const walletList = ref([
 ])
 const chageTag = async (value: number) => {
   type.value = value
-
+  switch(value)
+  {
+	case 1:
+		metamask().connect()
+		break;
+	default:
+		break;
+  }
 }
-const getWallet = async () =>{
+const getWallet = async (acc: string) =>{
   const params = {
-    address:'0x78aa39849c1280cfcadd65c585acae297789084a'
+    address: acc
   }
   const res =  await homeApi.postLogin(params);
   localStorage.setItem('token', res.token);
@@ -46,11 +54,108 @@ const getWallet = async () =>{
   localStorage.setItem('username', res.username);
   localStorage.setItem('status', res.status);
 }
+const getJs = (jsUrl: string)=> {
+	let script = document.createElement('script');
+	script.type = 'text/javascript';
+	script.src = jsUrl;
+	document.body.appendChild(script);
+}
 const login = ()=>{
   router.push({name: 'Home',})
 }
+const walletconnect = ()=>{
+	const self = this
+	const fn = {
+		init:function(){
+			// Subscribe to connection events
+		},
+		connect:function(){
+			bind();
+			if (!connector.connected) {
+				// create new session
+				connector.createSession();
+			}else{
+				metamask().login(account,2);
+			}
+		},
+		logout:function(){
+			account = null;
+			if(connector ==null) return
+			connector.killSession()
+		},
+		setAccount:function(acc){
+			account = acc;
+			console.log("取得token登入",account)
+			//alert(account);
+			metamask().login(account,2);
+		}
+	}
+	return fn
+}
+const metamask = ()=> {
+	const fn = {
+		isInstall: function () {
+			if (typeof window.ethereum !== 'undefined') { //check metamask
+				console.log('MetaMask is installed!');
+			} else {
+				//此為進首頁提示,先關掉
+				//alert("未安裝狐狸錢包 , 請檢查狐狸錢包")
+			}
+		},
+		connect: function () {
+			//window.ethereum.request({ method: 'eth_requestAccounts' });
+			try{
+				window.ethereum.request({
+					method: 'eth_requestAccounts'
+				}).then((result) => {
+					account = result[0];
+					console.log()
+					console.log("帳號",account)
+					metamask().login(account,1);
+				}).catch((error) => {
+					//console.log("出問題",error)
+					if(error.code == -32002){
+						alert("錢包連結中, 請點一下右上角小狐狸工具進行登入驗證")
+					}
+				});
+
+				window.ethereum.on('accountsChanged', function (accounts) {
+					account = accounts[0];
+					metamask().login(account,1);
+				});
+			}catch(e){
+				if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Pixel|Opera Mini/i.test(navigator.userAgent) && firstScan==false){
+					if(account!=null){
+						metamask().login(account,1);
+					}else{
+						alert("偵測為手機版,開啟Walletconnect")
+						setTimeout(() => {
+							// location.href="https://metamask.app.link/dapp/www.nftotal.io/"
+							walletconnect().connect()
+						}, 3000);
+					}
+				}else{
+					if(firstScan == false){alert("未安裝狐狸錢包 , 請檢查狐狸錢包")}
+					firstScan = false
+				}
+			}
+		},
+		login:function(acc,type){
+			getWallet(acc)
+		},
+		logOut:function(){
+			walletconnect().logout();
+		}
+	}
+	return fn;
+}
+
 onMounted(() => {
-  getWallet()
+	getJs('https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js')
+	getJs('https://cdn.jsdelivr.net/npm/@walletconnect/client@1.7.7/dist/umd/index.min.js')
+	getJs('https://cdn.jsdelivr.net/npm/@walletconnect/qrcode-modal/dist/umd/index.min.js')
+	
+  // getWallet()
 })
 </script>
 
