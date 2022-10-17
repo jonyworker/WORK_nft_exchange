@@ -82,17 +82,17 @@
   color: rgba(255,255,255,.3490196078);
 }
 
-// .clamp-1 {
-//   overflow: hidden;
-//   text-overflow: ellipsis;
-//   white-space: nowrap;
-// }
 .clamp-1 {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
   overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
+// .clamp-1 {
+//   display: -webkit-box;
+//   -webkit-box-orient: vertical;
+//   -webkit-line-clamp: 1;
+//   overflow: hidden;
+// }
 .clamp-2 {
   display: -webkit-box;
   -webkit-box-orient: vertical;

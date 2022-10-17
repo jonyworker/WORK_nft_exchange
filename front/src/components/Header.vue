@@ -49,8 +49,8 @@
 
           <!-- Header - 連結錢包 v-if="status !== 'OK'"-->
 
-          <div>
-            <div class="connectWallet ml-auto" @click="toWallet()" v-if="!isLogin">Connect Wallet</div>
+          <div class="ml-auto">
+            <div class="connectWallet" @click="toWallet()" v-if="!isLogin">Connect Wallet</div>
             <div class="login ml-auto" v-else @click="logout()"></div>
           </div>
 
