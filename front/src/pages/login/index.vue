@@ -26,12 +26,15 @@ const store = useStore();
 const type = ref(0);
 const router = useRouter();
 
-interface Window {
-  ethereum: string
-  WalletConnect: string
-  WalletConnectQRCodeModal: string
-}
-const window = ref<Window|null>(null);
+// interface Window {
+//   ethereum: string
+//   WalletConnect: string
+//   WalletConnectQRCodeModal: string
+// }
+// const window = ref<Window|null>(null);
+const ethereum = (window as any).ethereum
+const WalletConnect = (window as any).WalletConnect
+const WalletConnectQRCodeModal = (window as any).WalletConnectQRCodeModal
 
 const getImage = (url:any) =>{
   return new URL(url,import.meta.url).href;
@@ -75,9 +78,9 @@ const login = ()=>{
   router.push({name: 'Home',})
 }
 const bind = ()=> {
-	connector = new window.WalletConnect.default({
+	connector = new WalletConnect.default({
 		bridge: "https://bridge.walletconnect.org", // Required
-		qrcodeModal: window.WalletConnectQRCodeModal.default,
+		qrcodeModal: WalletConnectQRCodeModal.default,
 	});
 	// Subscribe to connection events
 	connector.on("wc_sessionRequest", (error: any, payload: any) => {
@@ -158,7 +161,7 @@ const walletconnect = ()=>{
 const metamask = ()=> {
 	const fn = {
 		isInstall: function () {
-			if (typeof window.ethereum !== 'undefined') { //check metamask
+			if (typeof ethereum !== 'undefined') { //check metamask
 				console.log('MetaMask is installed!');
 			} else {
 				//此為進首頁提示,先關掉
@@ -166,9 +169,9 @@ const metamask = ()=> {
 			}
 		},
 		connect: function () {
-			//window.ethereum.request({ method: 'eth_requestAccounts' });
+			//ethereum.request({ method: 'eth_requestAccounts' });
 			try{
-				window.ethereum.request({
+				ethereum.request({
 					method: 'eth_requestAccounts'
 				}).then((result: any) => {
 					account = result[0];
@@ -182,7 +185,7 @@ const metamask = ()=> {
 					}
 				});
 
-				window.ethereum.on('accountsChanged', function (accounts: any) {
+				ethereum.on('accountsChanged', function (accounts: any) {
 					account = accounts[0];
 					metamask().login(account,1);
 				});
