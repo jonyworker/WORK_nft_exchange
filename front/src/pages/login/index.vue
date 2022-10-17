@@ -26,10 +26,10 @@ const getImage = (url:any) =>{
 }
 const walletList = ref([
     {id:1,name:'MetaMask',image:getImage("../../assets/images/metamask.png")},
-  {id:2,name:'imToken',image:getImage("../../assets/images/minting_1.png")},
-  {id:3,name:'SafePal',image:getImage("../../assets/images/minting_2.png")},
-  {id:4,name:'Wallet Connect',image:getImage("../../assets/images/minting_3.png")},
-  {id:5,name:'Coinbase Wallet',image:getImage("../../assets/images/minting_4.png")},
+  // {id:2,name:'imToken',image:getImage("../../assets/images/minting_1.png")},
+  // {id:3,name:'SafePal',image:getImage("../../assets/images/minting_2.png")},
+  // {id:4,name:'Wallet Connect',image:getImage("../../assets/images/minting_3.png")},
+  // {id:5,name:'Coinbase Wallet',image:getImage("../../assets/images/minting_4.png")},
 ])
 const chageTag = async (value: number) => {
   type.value = value

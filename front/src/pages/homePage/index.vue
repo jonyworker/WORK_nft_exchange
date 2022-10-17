@@ -80,9 +80,9 @@
         </div>
         <div class="demo-flex">
           <div>項目健康指數</div>
-          <div>${{ panel.data.holders }}</div>
+<!--          <div>${{ panel.data.holders }}</div>-->
           <div>
-            <span class="time">24h</span>
+<!--            <span class="time">24h</span>-->
             <span>{{ (panel.data.holders / panel.data.item_qty * 100).toFixed(1) }}%</span>
           </div>
         </div>
@@ -455,7 +455,7 @@ onMounted(() => {
 }
 .coll{
   position: relative;
-  left: 340px;
+  left: 400px;
   display: inline-block;
   top: -36px;
   .image{
