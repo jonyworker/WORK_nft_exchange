@@ -18,10 +18,21 @@ import {onMounted, ref} from "vue";
 import {useRouter} from 'vue-router';
 import {useStore} from "vuex";
 
-var account = null;
+let web3: any;
+let firstScan: boolean = true;
+let account: any = null;
+let connector: any = null;
 const store = useStore();
 const type = ref(0);
 const router = useRouter();
+
+interface Window {
+  ethereum: string
+  WalletConnect: string
+  WalletConnectQRCodeModal: string
+}
+const window = ref<Window|null>(null);
+
 const getImage = (url:any) =>{
   return new URL(url,import.meta.url).href;
 }
@@ -63,6 +74,58 @@ const getJs = (jsUrl: string)=> {
 const login = ()=>{
   router.push({name: 'Home',})
 }
+const bind = ()=> {
+	connector = new window.WalletConnect.default({
+		bridge: "https://bridge.walletconnect.org", // Required
+		qrcodeModal: window.WalletConnectQRCodeModal.default,
+	});
+	// Subscribe to connection events
+	connector.on("wc_sessionRequest", (error: any, payload: any) => {
+		if (error) {
+			throw error;
+		}
+
+		console.log("wc_sessionRequest",payload)
+	});
+	// Subscribe to connection events
+	connector.on("wc_sessionUpdate", (error: any, payload: any) => {
+		if (error) {
+			throw error;
+		}
+		console.log("wc_sessionUpdate",payload)
+	});
+	// Subscribe to connection events
+	connector.on("connect", (error: any, payload: any) => {
+		if (error) {
+			throw error;
+		}
+
+		// Get provided accounts and chainId
+		const { accounts, chainId } = payload.params[0];
+		console.log("connect",accounts)
+		walletconnect().setAccount(connector._accounts[0]);
+	});
+
+	connector.on("session_update", (error: any, payload: any) => {
+		if (error) {
+			throw error;
+		}
+
+		// Get updated accounts and chainId
+		const { accounts, chainId } = payload.params[0];
+		console.log("accounts",accounts)
+		walletconnect().setAccount(connector._accounts[0]);
+	});
+
+	connector.on("disconnect", (error: any, payload: any) => {
+		if (error) {
+			throw error;
+		}
+		console.log("登出")
+		// Delete connector
+	});
+	console.log(connector)
+}
 const walletconnect = ()=>{
 	const self = this
 	const fn = {
@@ -83,7 +146,7 @@ const walletconnect = ()=>{
 			if(connector ==null) return
 			connector.killSession()
 		},
-		setAccount:function(acc){
+		setAccount:function(acc: string){
 			account = acc;
 			console.log("取得token登入",account)
 			//alert(account);
@@ -107,23 +170,23 @@ const metamask = ()=> {
 			try{
 				window.ethereum.request({
 					method: 'eth_requestAccounts'
-				}).then((result) => {
+				}).then((result: any) => {
 					account = result[0];
 					console.log()
 					console.log("帳號",account)
 					metamask().login(account,1);
-				}).catch((error) => {
+				}).catch((error: any) => {
 					//console.log("出問題",error)
 					if(error.code == -32002){
 						alert("錢包連結中, 請點一下右上角小狐狸工具進行登入驗證")
 					}
 				});
 
-				window.ethereum.on('accountsChanged', function (accounts) {
+				window.ethereum.on('accountsChanged', function (accounts: any) {
 					account = accounts[0];
 					metamask().login(account,1);
 				});
-			}catch(e){
+			}catch(e: any){
 				if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Pixel|Opera Mini/i.test(navigator.userAgent) && firstScan==false){
 					if(account!=null){
 						metamask().login(account,1);
@@ -140,7 +203,7 @@ const metamask = ()=> {
 				}
 			}
 		},
-		login:function(acc,type){
+		login:function(acc: string,type: any){
 			getWallet(acc)
 		},
 		logOut:function(){
