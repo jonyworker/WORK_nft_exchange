@@ -81,7 +81,7 @@ const getWallet = async (acc: string) =>{
 }
 const getJs = (jsUrl: string)=> {
 	let script = document.createElement('script');
-	script.type = 'text/javascript';
+	// script.type = 'text/javascript';
 	script.src = jsUrl;
 	document.body.appendChild(script);
 }
@@ -228,9 +228,9 @@ const metamask = ()=> {
 }
 
 onMounted(() => {
-	getJs('https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js')
-	getJs('https://cdn.jsdelivr.net/npm/@walletconnect/client@1.7.7/dist/umd/index.min.js')
-	getJs('https://cdn.jsdelivr.net/npm/@walletconnect/qrcode-modal/dist/umd/index.min.js')
+	// getJs('https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js')
+	// getJs('https://cdn.jsdelivr.net/npm/@walletconnect/client@1.7.7/dist/umd/index.min.js')
+	// getJs('https://cdn.jsdelivr.net/npm/@walletconnect/qrcode-modal/dist/umd/index.min.js')
 	
   // getWallet()
 })
