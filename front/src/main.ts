@@ -2,7 +2,8 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import './assets/style/app.css'
 import ElementPlus from 'element-plus';
-import "element-plus/dist/index.css"; // element默认主题色
+// import "element-plus/dist/index.css"; // element默认主题色
+import "./assets/style/theme/scss/theme-chalk/index.css"//更換element plus css 連結
 import "element-plus/theme-chalk/dark/css-vars.css"; // 暗黑模式主题色
 import "./assets/style/theme/dark/css-vars.css"; // 暗黑模式主题色
 import "./assets/style/theme/light/css-vars.css"; // 暗黑模式主题色
