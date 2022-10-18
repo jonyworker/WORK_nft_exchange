@@ -317,17 +317,50 @@
 
 
         <!-- 路線圖 & 成員介紹 -->
+        <div class="row">
+          <div class="col-11">
+            <el-dialog v-model="dialogFormVisible">
+              <div class="content row">
+  
+                <div class="project-info-wrap col-4">
+                  <!-- 項目頭像 -->
+                  <div class="project-img-wrap">
+                    <img :src="dropsOne?.collection_url" alt="">
+                  </div>
+                  <!-- 項目名稱 -->
+                  <div class="main-name">{{ dropsOne?.collection }}</div>
+                  <!-- 項目tag -->
+                  <div class="project-tag-wrap">
+                    <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
+                        {{item.name}}
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="project-detail-wrap col-8">
+                  <div v-if="type === 1">{{dropsFour?.member}}</div>
+                  <div v-if="type === 2">{{dropsFour?.roadmap}}</div>
+                </div>
+  
+              </div>
+            </el-dialog>
+          </div>
+        </div>
 
-        <el-dialog v-model="dialogFormVisible" width="85%">
-          <!-- PC     -->
-          <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
+        <!-- old -->
+        <!-- <div class="row">
+          <el-dialog v-model="dialogFormVisible" >
+
+            <div class=" d-none d-lg-5 " v-if="$store.state.os.isPc">
               <div class="main">
                 <div class="main-left">
+
                   <div class="main-img">
                     <img :src="dropsOne?.collection_url" alt="">
                   </div>
+
                   <div class="main-name">{{ dropsOne?.collection }}</div>
-  
+
                   <div class="tab-list">
                     <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
                       {{item.name}}
@@ -337,27 +370,31 @@
                 <div class="main-right" v-if="type === 1">{{dropsOne?.member}}</div>
                 <div class="main-right" v-if="type === 2">{{dropsOne?.roadmap}}</div>
               </div>
-          </div>
-          <!-- H5 || table-->
-          <div v-else >
-            <div class="ipad-main">
-              <div class="main-img">
-                <img :src="dropsOne?.collection_url" alt="">
-              </div>
-              <div class="right">
-                <div class="main-name">{{ dropsOne?.collection }}</div>
-                <div class="tags">
-                  <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
-                    {{item.name}}
-                  </div>
-                </div>
-      
-              </div>
             </div>
-            <div v-if="type === 1">{{dropsOne?.member}}</div>
-            <div  v-if="type === 2">{{dropsOne?.roadmap}}</div>
-          </div>
-        </el-dialog>
+
+            <div v-else >
+              <div class="ipad-main">
+
+                <div class="main-img">
+                  <img :src="dropsOne?.collection_url" alt="">
+                </div>
+                <div class="right">
+
+                  <div class="main-name">{{ dropsOne?.collection }}</div>
+
+                  <div class="tags">
+                    <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
+                      {{item.name}}
+                    </div>
+                  </div>
+        
+                </div>
+              </div>
+              <div v-if="type === 1">{{dropsOne?.member}}</div>
+              <div  v-if="type === 2">{{dropsOne?.roadmap}}</div>
+            </div>
+          </el-dialog>
+        </div> -->
 
         <el-dialog v-model="dialogFormTwo" width="85%">
           <!-- PC -->
