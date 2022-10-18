@@ -50,7 +50,7 @@
             <div>${{ panel.data.market_cap }}</div>
             <div>
               <span class="time">24h</span>
-              <span>{{ (panel.data.market_cap_p * 100).toFixed(1) }}%</span>
+              <span :style="[{color: panel.data.market_cap_p < 0 ? 'red' :'green'}]">{{ (panel.data.market_cap_p * 100).toFixed(1) }}%</span>
             </div>
           </div>
           <div class="card">
@@ -58,7 +58,7 @@
             <div>{{ panel.data.holders }}</div>
             <div>
               <span class="time">24h</span>
-              <span>{{ (panel.data.holders_p * 100).toFixed(1) }}%</span>
+              <span :style="[{color: panel.data.holders_p < 0 ? 'red' :'green'}]">{{ (panel.data.holders_p * 100).toFixed(1) }}%</span>
             </div>
           </div>
           <div class="card">
@@ -66,7 +66,7 @@
             <div>${{ panel.data.volume_24 }}</div>
             <div>
               <span class="time">24h</span>
-              <span>{{ (panel.data.volume_24_p * 100).toFixed(1) }}%</span>
+              <span :style="[{color: panel.data.volume_24_p < 0 ? 'red' :'green'}]">{{ (panel.data.volume_24_p * 100).toFixed(1) }}%</span>
             </div>
           </div>
           <div class="card">
@@ -74,7 +74,7 @@
             <div>${{ panel.data.floor_price }}</div>
             <div>
               <span class="time">24h</span>
-              <span>{{ (panel.data.floor_price_p * 100).toFixed(1) }}%</span>
+              <span :style="[{color: panel.data.floor_price_p < 0 ? 'red' :'green'}]">{{ (panel.data.floor_price_p * 100).toFixed(1) }}%</span>
             </div>
           </div>
         </div>
