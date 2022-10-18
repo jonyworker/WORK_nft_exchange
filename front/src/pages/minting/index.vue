@@ -17,23 +17,7 @@
         </div>
       </div>
   
-      <!-- <div class="minting_box">
-        <div class="title">
-          <div class="box">
-            <div><img src="@/assets/images/icon_title_minting.png" alt="logo"></div>
-            <div class="tit">{{$t('home.mint')}}</div>
-          </div>
-        </div>
-      </div> -->
-  
-  
-  
-  
-  
-  
-  
-  
-  
+      
   
       <div class="minting-content mt-10">
         <div class="row">

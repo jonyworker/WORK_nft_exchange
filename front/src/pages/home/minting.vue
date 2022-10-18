@@ -25,15 +25,15 @@
           <div class="row">
             <!-- 1st -->
             <div class="col-12 col-sm-6 col-lg-3">
-              <div class="card-item card">
+              <div class="card">
                 <!-- 卡片圖片 -->
                 <div class="card-image">
     <!--              <img :src="http + dropsOne?.background" alt="">-->
                   <img src="@/assets/images/random_1.png" alt="">
-                  <div class="card_icon">
-                    <div class="icon_list"  @click="toDailog(1)"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
+                  <div class="card-icon-group">
+                    <div class="icon-img-wrap"  @click="toDailog(1)"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
                     </div>
-                    <div class="icon_list"  @click="toDailog(2)"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
+                    <div class="icon-img-wrap"  @click="toDailog(2)"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
                   </div>
                   <div class="card-time-wrap">
                     <p class="count-down-day">{{ durationDateOne?.value?.days }}</p>
@@ -56,7 +56,7 @@
                   <p class="card-text-p clamp-3 mb-8">{{ dropsOne?.introduction }}</p>
                   <p class="card-text-p mb-8">{{$t('home.price')}}{{ dropsOne?.price }}</p>
                   <p class="card-text-p mb-8">{{$t('home.total')}}{{ dropsOne?.total }}</p>
-                  <p class="card-text-p mb-8">{{$t('home.shortTime')}}{{ dropsOne?.shortTime }}</p>
+                  <p class="card-text-p mb-24">{{$t('home.shortTime')}}{{ dropsOne?.shortTime }}</p>
                   
                   <!-- 卡片icon -->
                   <div class="mt-auto">
@@ -94,15 +94,15 @@
 
             <!-- 2nd -->
             <div class="d-none d-sm-block col-sm-6 col-lg-3" >
-              <div class="card-item card">
+              <div class="card">
                 <!-- 卡片圖片 -->
                 <div class="card-image">
     <!--              <img :src="http + dropsTwo?.background" alt="">-->
                   <img src="@/assets/images/random_2.png" alt="">
-                  <div class="card_icon">
-                    <div class="icon_list" @click="toDailogTwo(1)"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
+                  <div class="card-icon-group">
+                    <div class="icon-img-wrap" @click="toDailogTwo(1)"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
                     </div>
-                    <div class="icon_list" @click="toDailogTwo(2)"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
+                    <div class="icon-img-wrap" @click="toDailogTwo(2)"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
                   </div>
                   <div class="card-time-wrap">
                     <p class="count-down-day">{{ durationDateTwo?.value?.days }}</p>
@@ -125,7 +125,7 @@
                   <p class="card-text-p clamp-3 mb-8">{{ dropsTwo?.introduction }}</p>
                   <p class="card-text-p mb-8">{{$t('home.price')}}{{ dropsTwo?.price }}</p>
                   <p class="card-text-p mb-8">{{$t('home.total')}}{{ dropsTwo?.total }}</p>
-                  <p class="card-text-p mb-8">{{$t('home.shortTime')}}{{ dropsTwo?.shortTime }}</p>
+                  <p class="card-text-p mb-24">{{$t('home.shortTime')}}{{ dropsTwo?.shortTime }}</p>
 
                   <!-- 卡片icon -->
                   <div class="mt-auto">
@@ -164,15 +164,15 @@
 
             <!-- 3rd -->
             <div class="d-none d-lg-block col-lg-3">
-              <div class="card-item card">
+              <div class="card">
                 <!-- 卡片圖片 -->
                 <div class="card-image">
     <!--              <img :src="http + dropsThree?.background" alt="">-->
                   <img src="@/assets/images/random_3.png" alt="">
-                  <div class="card_icon">
-                    <div class="icon_list" @click="toDailogThree(1)"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
+                  <div class="card-icon-group">
+                    <div class="icon-img-wrap" @click="toDailogThree(1)"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
                     </div>
-                    <div class="icon_list" @click="toDailogThree(2)"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
+                    <div class="icon-img-wrap" @click="toDailogThree(2)"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
                   </div>
                   <div class="card-time-wrap">
                     <p class="count-down-day">{{ durationDateThree?.value?.days }}</p>
@@ -196,7 +196,7 @@
                   <p class="card-text-p clamp-3 mb-8">{{ dropsThree?.introduction }}</p>
                   <p class="card-text-p mb-8">{{$t('home.price')}}{{ dropsThree?.price }}</p>
                   <p class="card-text-p mb-8">{{$t('home.total')}}{{ dropsThree?.total }}</p>
-                  <p class="card-text-p mb-8">{{$t('home.shortTime')}}{{ dropsThree?.shortTime }}</p>
+                  <p class="card-text-p mb-24">{{$t('home.shortTime')}}{{ dropsThree?.shortTime }}</p>
 
                   <!-- 卡片icon -->
                   <div class="mt-auto">
@@ -235,15 +235,15 @@
     
             <!-- 4th -->
             <div class="d-none d-lg-block col-lg-3">
-              <div class="card-item card">
+              <div class="card">
                 <!-- 卡片圖片 -->
                 <div class="card-image">
     <!--              <img :src="http + dropsFour?.background" alt="">-->
                   <img src="@/assets/images/random_1.png" alt="">
-                  <div class="card_icon">
-                    <div class="icon_list" @click="toDailogfour(1)"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
+                  <div class="card-icon-group">
+                    <div class="icon-img-wrap" @click="toDailogfour(1)"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
                     </div>
-                    <div class="icon_list" @click="toDailogfour(2)"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
+                    <div class="icon-img-wrap" @click="toDailogfour(2)"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
                   </div>
                   <div class="card-time-wrap">
                     <p class="count-down-day">{{ durationDateFour?.value?.days }}</p>
@@ -266,7 +266,7 @@
                   <p class="card-text-p clamp-3 mb-8">{{ dropsFour?.introduction }}</p>
                   <p class="card-text-p mb-8">{{$t('home.price')}}{{ dropsFour?.price }}</p>
                   <p class="card-text-p mb-8">{{$t('home.total')}}{{ dropsFour?.total }}</p>
-                  <p class="card-text-p mb-8">{{$t('home.shortTime')}}{{ dropsFour?.shortTime }}</p>
+                  <p class="card-text-p mb-24">{{$t('home.shortTime')}}{{ dropsFour?.shortTime }}</p>
 
                   <!-- 卡片icon -->
                   <div class="mt-auto">
@@ -481,7 +481,7 @@
             <div  v-if="type === 2">{{dropsFour?.roadmap}}</div>
           </div>
         </el-dialog>
-        
+
       </div>
     </div>
   </div>
@@ -621,6 +621,8 @@ onMounted(() => {
 
 
 <style scoped lang="less">
+
+// 成員介紹 & 路線圖
 .ipad-main{
   display: flex;
   padding-bottom: 30px;
@@ -637,7 +639,7 @@ onMounted(() => {
   }
   img{
     width: 132px;
-   /* height:132px;*/
+    /* height:132px;*/
     border-radius:50%;
   }
 }
@@ -681,204 +683,204 @@ width: 68%;
 }
 /* 设置滚动条的样式 */
 
-.card-icon-img{
-  width: 38px;
-  height: 38px;
-  img{
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-  }
-}
-.card_icon{
-  width: 50px;
-  display: flex;
-  position: absolute;
-  top:10%;
-  left: 10%;
-  gap:12px;
-  .icon_list{
-    width: 50px;
-    img{
-      width: 24px;
-      height: 16.5px;
-    }
-  }
-}
-.minting_box{
-  display: flex;
-  justify-content:space-between;
-  margin-top: 82.5px;
-}
-.minting-content .card-item {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
+// .card-icon-img{
+//   width: 38px;
+//   height: 38px;
+//   img{
+//     width: 100%;
+//     height: 100%;
+//     border-radius: 50%;
+//   }
+// }
+// .card_icon{
+//   width: 50px;
+//   display: flex;
+//   position: absolute;
+//   top:10%;
+//   left: 10%;
+//   gap:12px;
+//   .icon_list{
+//     width: 50px;
+//     img{
+//       width: 24px;
+//       height: 16.5px;
+//     }
+//   }
+// }
+// .minting_box{
+//   display: flex;
+//   justify-content:space-between;
+//   margin-top: 82.5px;
+// }
+// .minting-content .card-item {
+//   display: flex;
+//   flex-direction: column;
+//   height: 100%;
+// }
 
-/*----- 卡片圖片 -----*/
-.minting-content .card-image {
-  width: 100%;
-  border-radius: 16px 16px 0px 0px;
-  overflow: hidden;
-  position: relative;
-}
+// /*----- 卡片圖片 -----*/
+// .minting-content .card-image {
+//   width: 100%;
+//   border-radius: 16px 16px 0px 0px;
+//   overflow: hidden;
+//   position: relative;
+// }
 
-.minting-content .card-image .card-time-wrap {
-  display: flex;
-  gap: 8px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-}
+// .minting-content .card-image .card-time-wrap {
+//   display: flex;
+//   gap: 8px;
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%,-50%);
+// }
 
-.minting-content .card-image .card-time-wrap p {
-  font-family: "Noto Sans TC", sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 1.4;
-  letter-spacing: 0;
-  color: #FFFFFF;
-  padding: 10px;
-  border-radius: 8px;
-  background-color: #4447E2;
-}
-.minting-content .card-image .card-time-wrap p {
-  font-size: 18px;
-}
-@media screen and (min-width: 768px) {
-  .minting-content .card-image .card-time-wrap p {
-    font-size: calc(0vw + 18px);
-  }
-}
-@media screen and (min-width: 1536px) {
-  .minting-content .card-image .card-time-wrap p {
-    font-size: 18px;
-  }
-}
+// .minting-content .card-image .card-time-wrap p {
+//   font-family: "Noto Sans TC", sans-serif;
+//   font-style: normal;
+//   font-weight: 700;
+//   line-height: 1.4;
+//   letter-spacing: 0;
+//   color: #FFFFFF;
+//   padding: 10px;
+//   border-radius: 8px;
+//   background-color: #4447E2;
+// }
+// .minting-content .card-image .card-time-wrap p {
+//   font-size: 18px;
+// }
+// @media screen and (min-width: 768px) {
+//   .minting-content .card-image .card-time-wrap p {
+//     font-size: calc(0vw + 18px);
+//   }
+// }
+// @media screen and (min-width: 1536px) {
+//   .minting-content .card-image .card-time-wrap p {
+//     font-size: 18px;
+//   }
+// }
 
 /*----- 卡片下方文字區塊 -----*/
 /*----- 卡片下方文字 - 容器 -----*/
-.minting-content .card-text {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  background-color: #1C1C24;
-  border-radius: 0px 0px 16px 16px;
-  padding:6px 16px 0px 16px;
-  color:rgba(255, 255, 255, 0.9);
-}
+// .minting-content .card-text {
+//   display: flex;
+//   flex-direction: column;
+//   flex: 1;
+//   background-color: #1C1C24;
+//   border-radius: 0px 0px 16px 16px;
+//   padding:6px 16px 0px 16px;
+//   color:rgba(255, 255, 255, 0.9);
+// }
 
 /*----- 卡片下方文字 - 文字 -----*/
-.minting-content .card-title {
-  flex: 1;
-}
+// .minting-content .card-title {
+//   flex: 1;
+// }
 
-.minting-content .card-text h3 {
-  font-family: "Noto Sans TC", sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 1.33;
-  letter-spacing: 0;
-  -webkit-line-clamp: 2;
-}
-.minting-content .card-text h3 {
-  font-size: 22px;
-}
-@media screen and (min-width: 768px) {
-  .minting-content .card-text h3 {
-    font-size: calc(0.78125vw + 16px);
-  }
-}
-@media screen and (min-width: 1536px) {
-  .minting-content .card-text h3 {
-    font-size: 28px;
-  }
-}
+// .minting-content .card-text h3 {
+//   font-family: "Noto Sans TC", sans-serif;
+//   font-style: normal;
+//   font-weight: 700;
+//   line-height: 1.33;
+//   letter-spacing: 0;
+//   -webkit-line-clamp: 2;
+// }
+// .minting-content .card-text h3 {
+//   font-size: 22px;
+// }
+// @media screen and (min-width: 768px) {
+//   .minting-content .card-text h3 {
+//     font-size: calc(0.78125vw + 16px);
+//   }
+// }
+// @media screen and (min-width: 1536px) {
+//   .minting-content .card-text h3 {
+//     font-size: 28px;
+//   }
+// }
 
-.minting-content .card-text .card-time {
-  font-family: "Noto Sans TC", sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.375;
-  letter-spacing: 0;
-}
-.minting-content .card-text .card-time {
-  font-size: 16px;
-}
-@media screen and (min-width: 768px) {
-  .minting-content .card-text .card-time {
-    font-size: calc(0vw + 16px);
-  }
-}
-@media screen and (min-width: 1536px) {
-  .minting-content .card-text .card-time {
-    font-size: 16px;
-  }
-}
+// .minting-content .card-text .card-time {
+//   font-family: "Noto Sans TC", sans-serif;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: 1.375;
+//   letter-spacing: 0;
+// }
+// .minting-content .card-text .card-time {
+//   font-size: 16px;
+// }
+// @media screen and (min-width: 768px) {
+//   .minting-content .card-text .card-time {
+//     font-size: calc(0vw + 16px);
+//   }
+// }
+// @media screen and (min-width: 1536px) {
+//   .minting-content .card-text .card-time {
+//     font-size: 16px;
+//   }
+// }
 
 /*----- 卡片下方文字 - 列表 -----*/
-.minting-content .card-text .info-list {
-  display: flex;
-  flex-wrap: wrap;
-}
+// .minting-content .card-text .info-list {
+//   display: flex;
+//   flex-wrap: wrap;
+// }
 
-.minting-content .card-text .info-item:nth-of-type(-1n+2) {
-  padding-right: 3.2%;
-  border-right: 1px solid #fff;
-  margin-right: 3%;
-}
+// .minting-content .card-text .info-item:nth-of-type(-1n+2) {
+//   padding-right: 3.2%;
+//   border-right: 1px solid #fff;
+//   margin-right: 3%;
+// }
 
-.minting-content .card-text .community-icon {
-  fill: #FFFFFF;
-}
+// .minting-content .card-text .community-icon {
+//   fill: #FFFFFF;
+// }
 
-.minting-content .card-text .info-item {
-  display: flex;
-}
+// .minting-content .card-text .info-item {
+//   display: flex;
+// }
 
-.minting-content .card-text .info-item h4 {
-  font-family: "Noto Sans TC", sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 1.4;
-  letter-spacing: 0;
-}
-.minting-content .card-text .info-item h4 {
-  font-size: 18px;
-}
-@media screen and (min-width: 768px) {
-  .minting-content .card-text .info-item h4 {
-    font-size: calc(0vw + 18px);
-  }
-}
-@media screen and (min-width: 1536px) {
-  .minting-content .card-text .info-item h4 {
-    font-size: 18px;
-  }
-}
+// .minting-content .card-text .info-item h4 {
+//   font-family: "Noto Sans TC", sans-serif;
+//   font-style: normal;
+//   font-weight: 700;
+//   line-height: 1.4;
+//   letter-spacing: 0;
+// }
+// .minting-content .card-text .info-item h4 {
+//   font-size: 18px;
+// }
+// @media screen and (min-width: 768px) {
+//   .minting-content .card-text .info-item h4 {
+//     font-size: calc(0vw + 18px);
+//   }
+// }
+// @media screen and (min-width: 1536px) {
+//   .minting-content .card-text .info-item h4 {
+//     font-size: 18px;
+//   }
+// }
 
-.minting-content .card-text .info-item small {
-  font-family: "Noto Sans TC", sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.66;
-  letter-spacing: 0;
-}
-.minting-content .card-text .info-item small {
-  font-size: 12px;
-}
-@media screen and (min-width: 768px) {
-  .minting-content .card-text .info-item small {
-    font-size: calc(0vw + 12px);
-  }
-}
-@media screen and (min-width: 1536px) {
-  .minting-content .card-text .info-item small {
-    font-size: 12px;
-  }
-}
+// .minting-content .card-text .info-item small {
+//   font-family: "Noto Sans TC", sans-serif;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: 1.66;
+//   letter-spacing: 0;
+// }
+// .minting-content .card-text .info-item small {
+//   font-size: 12px;
+// }
+// @media screen and (min-width: 768px) {
+//   .minting-content .card-text .info-item small {
+//     font-size: calc(0vw + 12px);
+//   }
+// }
+// @media screen and (min-width: 1536px) {
+//   .minting-content .card-text .info-item small {
+//     font-size: 12px;
+//   }
+// }
 // .card-footer {
 //   padding: 6px 16px 16px;
 //   background-color: #1C1C24;
@@ -907,10 +909,6 @@ width: 68%;
 
 
 
-  .minting-section .card-body-content {
-    background-color: #1C1C24;
-    border-radius: 0px 0px 16px 16px;
-    color: rgba(255, 255, 255, 0.9);
-  }
+  
 
 </style>
