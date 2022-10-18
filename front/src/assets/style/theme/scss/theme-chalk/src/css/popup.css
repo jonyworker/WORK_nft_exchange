@@ -1,0 +1,50 @@
+/* Element Chalk Variables */
+:root {
+  --el-popup-modal-bg-color: var(--el-color-black);
+  --el-popup-modal-opacity: 0.5;
+}
+
+.v-modal-enter {
+  -webkit-animation: v-modal-in var(--el-transition-duration-fast) ease;
+          animation: v-modal-in var(--el-transition-duration-fast) ease;
+}
+
+.v-modal-leave {
+  -webkit-animation: v-modal-out var(--el-transition-duration-fast) ease forwards;
+          animation: v-modal-out var(--el-transition-duration-fast) ease forwards;
+}
+
+@-webkit-keyframes v-modal-in {
+  0% {
+    opacity: 0;
+  }
+}
+
+@keyframes v-modal-in {
+  0% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes v-modal-out {
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes v-modal-out {
+  100% {
+    opacity: 0;
+  }
+}
+.v-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: var(--el-popup-modal-opacity);
+  background: var(--el-popup-modal-bg-color);
+}
+
+.el-popup-parent--hidden {
+  overflow: hidden;
+}/*# sourceMappingURL=popup.css.map */

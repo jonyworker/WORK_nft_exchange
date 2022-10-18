@@ -1,0 +1,73 @@
+/* Element Chalk Variables */
+.el-month-table {
+  font-size: 12px;
+  margin: -1px;
+  border-collapse: collapse;
+}
+.el-month-table td {
+  text-align: center;
+  padding: 8px 0;
+  cursor: pointer;
+}
+.el-month-table td div {
+  height: 48px;
+  padding: 6px 0;
+  box-sizing: border-box;
+}
+.el-month-table td.today .cell {
+  color: var(--el-color-primary);
+  font-weight: bold;
+}
+.el-month-table td.today.start-date .cell, .el-month-table td.today.end-date .cell {
+  color: #ffffff;
+}
+.el-month-table td.disabled .cell {
+  background-color: var(--el-fill-color-light);
+  cursor: not-allowed;
+  color: var(--el-text-color-placeholder);
+}
+.el-month-table td.disabled .cell:hover {
+  color: var(--el-text-color-placeholder);
+}
+.el-month-table td .cell {
+  width: 60px;
+  height: 36px;
+  display: block;
+  line-height: 36px;
+  color: var(--el-datepicker-text-color);
+  margin: 0 auto;
+  border-radius: 18px;
+}
+.el-month-table td .cell:hover {
+  color: var(--el-datepicker-hover-text-color);
+}
+.el-month-table td.in-range div {
+  background-color: var(--el-datepicker-inrange-bg-color);
+}
+.el-month-table td.in-range div:hover {
+  background-color: var(--el-datepicker-inrange-hover-bg-color);
+}
+.el-month-table td.start-date div, .el-month-table td.end-date div {
+  color: #ffffff;
+}
+.el-month-table td.start-date .cell, .el-month-table td.end-date .cell {
+  color: #ffffff;
+  background-color: var(--el-datepicker-active-color);
+}
+.el-month-table td.start-date div {
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+}
+.el-month-table td.end-date div {
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
+.el-month-table td.current:not(.disabled) .cell {
+  color: var(--el-datepicker-active-color);
+}
+.el-month-table td:focus-visible {
+  outline: none;
+}
+.el-month-table td:focus-visible .cell {
+  outline: 2px solid var(--el-datepicker-active-color);
+}/*# sourceMappingURL=month-table.css.map */
