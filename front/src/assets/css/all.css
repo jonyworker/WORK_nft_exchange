@@ -131,6 +131,27 @@
   }
 }
 
+.heading-B-5 {
+  font-family: "Noto Sans TC", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+.heading-B-5 {
+  font-size: 18px;
+}
+@media screen and (min-width: 768px) {
+  .heading-B-5 {
+    font-size: calc(0vw + 18px);
+  }
+}
+@media screen and (min-width: 1536px) {
+  .heading-B-5 {
+    font-size: 18px;
+  }
+}
+
 .body-B-1 {
   font-family: "Noto Sans TC", sans-serif;
   font-style: normal;
@@ -12118,6 +12139,14 @@ img {
   flex: 1;
 }
 
+.minting-section .card-body-content {
+  background-color: #1C1C24;
+  border-radius: 0px 0px 16px 16px;
+  color: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(255, 255, 255, 0.1019607843);
+  border-top: none;
+}
+
 .card-title-h3 {
   font-family: "Noto Sans TC", sans-serif;
   font-style: normal;
@@ -12286,13 +12315,74 @@ img {
 
 .card .link-wrap {
   display: flex;
-  gap: 24px;
+  align-items: center;
+  gap: 16px;
 }
 
 .card .link-wrap .link-icon svg {
   fill: rgba(255, 255, 255, 0.2);
   height: 32px;
   width: 32px;
+}
+
+.card .card-image {
+  width: 100%;
+  border-radius: 16px 16px 0px 0px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-icon-group {
+  display: flex;
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  gap: 16px;
+}
+
+.card-icon-group .icon-img-wrap {
+  width: 24px;
+  height: 20px;
+}
+
+.card-icon-group .icon-img-wrap img {
+  width: 100%;
+}
+
+.card .card-image .card-time-wrap {
+  position: absolute;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  gap: 8px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card .card-image .card-time-wrap p {
+  font-family: "Noto Sans TC", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #4447E2;
+}
+.card .card-image .card-time-wrap p {
+  font-size: 18px;
+}
+@media screen and (min-width: 768px) {
+  .card .card-image .card-time-wrap p {
+    font-size: calc(0vw + 18px);
+  }
+}
+@media screen and (min-width: 1536px) {
+  .card .card-image .card-time-wrap p {
+    font-size: 18px;
+  }
 }
 
 .blog-main-img-wrap {

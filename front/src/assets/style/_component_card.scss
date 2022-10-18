@@ -62,6 +62,16 @@
   align-items: start;
   flex: 1;
 }
+
+.minting-section .card-body-content {
+  background-color: #1C1C24;
+  border-radius: 0px 0px 16px 16px;
+  color: rgba(255, 255, 255, 0.9);
+  border: 2px solid $color-alpha-white-10;
+  border-top: none;
+}
+
+
 .card-title-h3 {
   // 28px-22px
   @include display-B-3;
@@ -82,17 +92,13 @@
   color: rgba(255,255,255,.3490196078);
 }
 
+
 .clamp-1 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
-// .clamp-1 {
-//   display: -webkit-box;
-//   -webkit-box-orient: vertical;
-//   -webkit-line-clamp: 1;
-//   overflow: hidden;
-// }
 .clamp-2 {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -129,10 +135,55 @@
 
 .card .link-wrap {
   display: flex;
-  gap: 24px;
+  align-items: center;
+  gap: 16px;
 }
  .card .link-wrap .link-icon svg {
   fill: rgba(255, 255, 255, 0.2);
   height: 32px;
   width: 32px;
 }
+
+
+// Minting圖片區 - 底圖
+.card .card-image {
+  width: 100%;
+  border-radius: 16px 16px 0px 0px;
+  overflow: hidden;
+  position: relative;
+}
+
+// Minting圖片區 - icon
+.card-icon-group {
+  display: flex;
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  gap: 16px;
+}
+.card-icon-group .icon-img-wrap {
+  width: 24px;
+  height: 20px;
+}
+.card-icon-group .icon-img-wrap img{
+  width: 100%;
+}
+
+// Minting圖片區 - 時間
+.card .card-image .card-time-wrap {
+  position: absolute;
+  width: fit-content;
+  display: flex;
+  gap: 8px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.card .card-image .card-time-wrap p {
+  @include display-B-5;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #4447E2;
+}
+

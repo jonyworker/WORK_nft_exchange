@@ -1,129 +1,162 @@
  <template>
-  <div class="container">
-
-    <div class="minting_box">
-      <div class="title">
-        <div class="box">
-          <div><img src="@/assets/images/icon_title_minting.png" alt="logo"></div>
-          <div class="tit">{{$t('home.mint')}}</div>
-        </div>
-      </div>
-    </div>
-    <div class="minting-content mt-10">
-      <div class="row">
-
-        <div class="col-12 col-sm-6 col-lg-3" v-for="(item,index) in dropsList" :key="index">
-          <div class="card-item card-1" >
-
-            <div class="card-image">
-
-              <img :src="http + item.background" alt="">
-              <div class="card_icon">
-                <div class="icon_list"  @click="toDialog(1,item)"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
-                </div>
-                <div class="icon_list"  @click="toDialog(2,item)"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
-              </div>
-              <CountDown :count_down_date="item.date"/>
-            </div>
-
-            <div class="card-text">
-
-              <div class="card-text-icon-wrap">
-                <div class="card-icon-img">
-                  <img :src="item.collection_url" alt="">
-                </div>
-                <p class="heading-B-4 text-white clamp-1">{{ item.collection }}</p>
-              </div>
-
-              <div class="card-text-wrap">
-                <p class="card-title clamp-3 text-white pt-4 pl-16 " >
-                  {{ item.introduction }}
-                </p>
-                <p class="card-text  text-white clamp-1">{{$t('home.price')}}{{ item.price }}</p>
-                <p class="card-text  text-white">{{$t('home.total')}}{{ item.total }}</p>
-                <p class="card-text text-white">{{$t('home.shortTime')}}{{ item.shortTime }}</p>
-              </div>
-
-              <div class="card-footer">
-
-                <ul class="social-link-wrap">
-
-                  <li class="social-link-item">
-                    <div class="social-link-icon" @click="toWebsite(item.website || '')">
-                      <img src="@/assets/images/icon_world.png" alt="">
-                    </div>
-                  </li>
-
-                  <li class="social-link-item">
-                    <div class="social-link-icon" @click="toDiscord(item.discord || '')">
-                      <img src="@/assets/images/icon_discord.png" alt="">
-                    </div>
-                  </li>
-
-                  <li class="social-link-item">
-                    <div class="social-link-icon" @click="toTwitter(item.twitter || '')">
-                      <img src="@/assets/images/icon_twitter.png" alt="">
-                    </div>
-                  </li>
-
-                  <li class="social-link-item">
-                    <div class="social-link-icon" @click="toSchedule(item.schedule || '')">
-                      <img src="@/assets/images/icons.png" alt="">
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
+  <div class="minting-section mt-80">
+    <div class="container">
+  
+      <!-- 標題組 -->
+      <div class="row mb-40">
+        <div class="col-12 d-flex justify-content-between align-items-center">
+          <div class="section-title-wrap flex-column align-items-start">
+            <!-- 標題  -->
+            <h2 class="section-title color-white mb-8">
+              {{$t('home.mint')}}
+            </h2>
+  
+            <p class="section-subTitle color-white mb-24">NFTotal上排名靠前的 NFT，按數量、底價和其他統計數據排名</p>
+  
           </div>
-
         </div>
-
       </div>
-    </div>
-    <el-dialog v-model="dialogFormVisible" width="85%">
-      <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
-        <div class="main">
-          <div class="main-left">
+  
+      <!-- <div class="minting_box">
+        <div class="title">
+          <div class="box">
+            <div><img src="@/assets/images/icon_title_minting.png" alt="logo"></div>
+            <div class="tit">{{$t('home.mint')}}</div>
+          </div>
+        </div>
+      </div> -->
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="minting-content mt-10">
+        <div class="row">
+
+          <!-- 卡片 -->
+          <div class="col-12 col-sm-6 col-lg-3 mb-24" v-for="(item,index) in dropsList" :key="index">
+              <div class="card">
+                <!-- 卡片圖片 -->
+                <div class="card-image">
+    <!--              <img :src="http + dropsOne?.background" alt="">-->
+                  <img :src="http + item.background" alt="">
+                  <div class="card-icon-group">
+                    <div class="icon-img-wrap"  @click="toDialog(1,item)"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="24px">
+                    </div>
+                    <div class="icon-img-wrap"  @click="toDialog(2,item)"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="24px"></div>
+                  </div>
+                  <CountDown :count_down_date="item.date"/>
+                  <!-- <div class="card-time-wrap">
+                    <p class="count-down-day">{{ durationDateOne?.value?.days }}</p>
+                    <p class="count-down-hour">{{ durationDateOne?.value?.hours }}</p>
+                    <p class="count-down-min">{{ durationDateOne?.value?.minutes }}</p>
+                    <p class="count-down-sec">{{ durationDateOne?.value?.seconds }}</p>
+                  </div> -->
+                </div>
+                <!-- 卡片內文 -->
+                <div class="card-body-content p-16">
+
+                  <!-- icon 標題組 -->
+                  <div class="card-icon-title-wrap mb-12">
+                    <div class="icon mr-16">
+                      <img :src="item.collection_url" alt="">
+                    </div>
+                    <p class="title card-title-h5 text-white clamp-1">{{ item.collection }}</p>
+                  </div>
+                  <!-- 卡片 - 文字 -->
+                  <p class="card-text-p clamp-3 mb-8">{{ item.introduction }}</p>
+                  <p class="card-text-p mb-8">{{$t('home.price')}}{{ item.price }}</p>
+                  <p class="card-text-p mb-8">{{$t('home.total')}}{{ item.total }}</p>
+                  <p class="card-text-p mb-24">{{$t('home.shortTime')}}{{ item.shortTime }}</p>
+                  
+                  <!-- 卡片icon -->
+                  <div class="mt-auto">
+                    <!-- social-link -->
+                    <ul class="link-wrap">
+                      <!-- icon-group -->
+                      <li class="link-item">
+                        <div class="link-icon" @click="toWebsite(item.website || '')">
+                          <img src="@/assets/images/icon_world.png" alt="">
+                        </div>
+                      </li>
+                      <!-- icon-map -->
+                      <li class="link-item">
+                        <div class="link-icon" @click="toDiscord(item.discord || '')">
+                          <img src="@/assets/images/icon_discord.png" alt="">
+                        </div>
+                      </li>
+                      <!-- icon-homepage -->
+                      <li class="link-item">
+                        <div class="link-icon" @click="toTwitter(item.twitter || '')">
+                          <img src="@/assets/images/icon_twitter.png" alt="">
+                        </div>
+                      </li>
+                      <!-- icon-discord -->
+                      <li class="link-item">
+                        <div class="link-icon" @click="toSchedule(item.schedule || '')">
+                          <img src="@/assets/images/icons.png" alt="">
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+        </div>
+      </div>
+
+      <!-- 彈出視窗 -->
+      <el-dialog v-model="dialogFormVisible" width="85%">
+        <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
+          <div class="main">
+            <div class="main-left">
+              <div class="main-img">
+                <img :src="dataList?.collection_url" alt="">
+              </div>
+              <div class="main-name">{{ dataList?.collection }}</div>
+  
+              <div class="tab-list">
+                <div v-for="(items,index) in List" :key="index" :class="['tag',type===items.value?'active_tag':'']" @click="changeList(items.value)">
+                  {{items.name}}
+                </div>
+              </div>
+            </div>
+            <div class="main-right" v-if="type === 1">{{dataList?.member}}</div>
+            <div class="main-right" v-if="type === 2">{{dataList?.roadmap}}</div>
+          </div>
+        </div>
+  
+        <div v-else >
+          <div class="ipad-main">
             <div class="main-img">
               <img :src="dataList?.collection_url" alt="">
             </div>
-            <div class="main-name">{{ dataList?.collection }}</div>
-
-            <div class="tab-list">
-              <div v-for="(items,index) in List" :key="index" :class="['tag',type===items.value?'active_tag':'']" @click="changeList(items.value)">
-                {{items.name}}
+            <div class="right">
+              <div class="main-name">{{ dataList?.collection }}</div>
+              <div class="tags">
+                <div v-for="(ite,index) in List" :key="index" :class="['tag',type===ite.value?'active_tag':'']" @click="changeList(ite.value)">
+                  {{ite.name}}
+                </div>
               </div>
+  
             </div>
           </div>
-          <div class="main-right" v-if="type === 1">{{dataList?.member}}</div>
-          <div class="main-right" v-if="type === 2">{{dataList?.roadmap}}</div>
+          <div v-if="type === 1">{{dataList?.member}}</div>
+          <div  v-if="type === 2">{{dataList?.roadmap}}</div>
         </div>
-      </div>
-
-      <div v-else >
-        <div class="ipad-main">
-          <div class="main-img">
-            <img :src="dataList?.collection_url" alt="">
-          </div>
-          <div class="right">
-            <div class="main-name">{{ dataList?.collection }}</div>
-            <div class="tags">
-              <div v-for="(ite,index) in List" :key="index" :class="['tag',type===ite.value?'active_tag':'']" @click="changeList(ite.value)">
-                {{ite.name}}
-              </div>
-            </div>
-
-          </div>
-        </div>
-        <div v-if="type === 1">{{dataList?.member}}</div>
-        <div  v-if="type === 2">{{dataList?.roadmap}}</div>
-      </div>
-
-    </el-dialog>
+  
+      </el-dialog>
+    </div>
   </div>
 </template>
 
- <script setup lang="ts">
+<script setup lang="ts">
 
 import {computed, onMounted, ref} from "vue";
 import {useRouter} from 'vue-router';
@@ -221,7 +254,9 @@ onMounted(() => {
 
 </script>
 
- <style scoped lang="less">
+<style scoped lang="less">
+
+// 路線圖
 .ipad-main{
   display: flex;
   padding-bottom: 30px;
@@ -249,6 +284,7 @@ onMounted(() => {
   width: 65%;
   margin: auto;
 }
+
 :deep  .el-dialog{
   background: rgba(47, 47, 47, 1);
 }
@@ -282,216 +318,167 @@ onMounted(() => {
 }
 /* 设置滚动条的样式 */
 
-.card-icon-img{
-  width: 38px;
-  height: 38px;
-  img{
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    overflow: hidden;
-  }
-}
-.card_icon{
-  width: 50px;
-  display: flex;
-  position: absolute;
-  top:10%;
-  left: 10%;
-  gap:12px;
-  .icon_list{
-    width: 50px;
-    img{
-      width: 24px;
-      height: 16.5px;
-    }
-  }
-}
-.minting_box{
-  display: flex;
-  justify-content:space-between;
-  margin-top: 82.5px;
-}
-.minting-content .card-item {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
+// .card-icon-img{
+//   width: 38px;
+//   height: 38px;
+//   img{
+//     width: 36px;
+//     height: 36px;
+//     border-radius: 50%;
+//     overflow: hidden;
+//   }
+// }
 
-/*----- 卡片圖片 -----*/
-.minting-content .card-image {
-  width: 100%;
-  border-radius: 16px 16px 0px 0px;
-  overflow: hidden;
-  position: relative;
-}
 
-.minting-content .card-image .card-time-wrap {
-  display: flex;
-  gap: 8px;
-  position: absolute;
-  top: 40%;
-  right: 30%;
-}
 
-.minting-content .card-image .card-time-wrap p {
-  font-family: "Noto Sans TC", sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 1.4;
-  letter-spacing: 0;
-  color: #FFFFFF;
-  padding: 10px;
-  border-radius: 8px;
-  background-color: #4447E2;
-}
-.minting-content .card-image .card-time-wrap p {
-  font-size: 18px;
-}
-@media screen and (min-width: 768px) {
-  .minting-content .card-image .card-time-wrap p {
-    font-size: calc(0vw + 18px);
-  }
-}
-@media screen and (min-width: 1536px) {
-  .minting-content .card-image .card-time-wrap p {
-    font-size: 18px;
-  }
-}
+
+
+// .minting_box{
+//   display: flex;
+//   justify-content:space-between;
+//   margin-top: 82.5px;
+// }
+// .minting-content .card-item {
+//   display: flex;
+//   flex-direction: column;
+//   height: 100%;
+// }
+
+
 
 /*----- 卡片下方文字區塊 -----*/
 /*----- 卡片下方文字 - 容器 -----*/
-.minting-content .card-text {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  background-color: #1C1C24;
-  border-radius: 0px 0px 16px 16px;
-  padding:6px 16px 0px 16px;
-  color:rgba(255, 255, 255, 0.9);
-}
+// .minting-content .card-text {
+//   display: flex;
+//   flex-direction: column;
+//   flex: 1;
+//   background-color: #1C1C24;
+//   border-radius: 0px 0px 16px 16px;
+//   padding:6px 16px 0px 16px;
+//   color:rgba(255, 255, 255, 0.9);
+// }
 
 /*----- 卡片下方文字 - 文字 -----*/
-.minting-content .card-title {
-  flex: 1;
-}
+// .minting-content .card-title {
+//   flex: 1;
+// }
 
-.minting-content .card-text h3 {
-  font-family: "Noto Sans TC", sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 1.33;
-  letter-spacing: 0;
-  -webkit-line-clamp: 2;
-}
-.minting-content .card-text h3 {
-  font-size: 22px;
-}
-@media screen and (min-width: 768px) {
-  .minting-content .card-text h3 {
-    font-size: calc(0.78125vw + 16px);
-  }
-}
-@media screen and (min-width: 1536px) {
-  .minting-content .card-text h3 {
-    font-size: 28px;
-  }
-}
+// .minting-content .card-text h3 {
+//   font-family: "Noto Sans TC", sans-serif;
+//   font-style: normal;
+//   font-weight: 700;
+//   line-height: 1.33;
+//   letter-spacing: 0;
+//   -webkit-line-clamp: 2;
+// }
+// .minting-content .card-text h3 {
+//   font-size: 22px;
+// }
+// @media screen and (min-width: 768px) {
+//   .minting-content .card-text h3 {
+//     font-size: calc(0.78125vw + 16px);
+//   }
+// }
+// @media screen and (min-width: 1536px) {
+//   .minting-content .card-text h3 {
+//     font-size: 28px;
+//   }
+// }
 
-.minting-content .card-text .card-time {
-  font-family: "Noto Sans TC", sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.375;
-  letter-spacing: 0;
-}
-.minting-content .card-text .card-time {
-  font-size: 16px;
-}
-@media screen and (min-width: 768px) {
-  .minting-content .card-text .card-time {
-    font-size: calc(0vw + 16px);
-  }
-}
-@media screen and (min-width: 1536px) {
-  .minting-content .card-text .card-time {
-    font-size: 16px;
-  }
-}
+// .minting-content .card-text .card-time {
+//   font-family: "Noto Sans TC", sans-serif;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: 1.375;
+//   letter-spacing: 0;
+// }
+// .minting-content .card-text .card-time {
+//   font-size: 16px;
+// }
+// @media screen and (min-width: 768px) {
+//   .minting-content .card-text .card-time {
+//     font-size: calc(0vw + 16px);
+//   }
+// }
+// @media screen and (min-width: 1536px) {
+//   .minting-content .card-text .card-time {
+//     font-size: 16px;
+//   }
+// }
 
 /*----- 卡片下方文字 - 列表 -----*/
-.minting-content .card-text .info-list {
-  display: flex;
-  flex-wrap: wrap;
-}
+// .minting-content .card-text .info-list {
+//   display: flex;
+//   flex-wrap: wrap;
+// }
 
-.minting-content .card-text .info-item:nth-of-type(-1n+2) {
-  padding-right: 3.2%;
-  border-right: 1px solid #fff;
-  margin-right: 3%;
-}
+// .minting-content .card-text .info-item:nth-of-type(-1n+2) {
+//   padding-right: 3.2%;
+//   border-right: 1px solid #fff;
+//   margin-right: 3%;
+// }
 
-.minting-content .card-text .community-icon {
-  fill: #FFFFFF;
-}
+// .minting-content .card-text .community-icon {
+//   fill: #FFFFFF;
+// }
 
-.minting-content .card-text .info-item {
-  display: flex;
-}
+// .minting-content .card-text .info-item {
+//   display: flex;
+// }
 
-.minting-content .card-text .info-item h4 {
-  font-family: "Noto Sans TC", sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 1.4;
-  letter-spacing: 0;
-}
-.minting-content .card-text .info-item h4 {
-  font-size: 18px;
-}
-@media screen and (min-width: 768px) {
-  .minting-content .card-text .info-item h4 {
-    font-size: calc(0vw + 18px);
-  }
-}
-@media screen and (min-width: 1536px) {
-  .minting-content .card-text .info-item h4 {
-    font-size: 18px;
-  }
-}
+// .minting-content .card-text .info-item h4 {
+//   font-family: "Noto Sans TC", sans-serif;
+//   font-style: normal;
+//   font-weight: 700;
+//   line-height: 1.4;
+//   letter-spacing: 0;
+// }
+// .minting-content .card-text .info-item h4 {
+//   font-size: 18px;
+// }
+// @media screen and (min-width: 768px) {
+//   .minting-content .card-text .info-item h4 {
+//     font-size: calc(0vw + 18px);
+//   }
+// }
+// @media screen and (min-width: 1536px) {
+//   .minting-content .card-text .info-item h4 {
+//     font-size: 18px;
+//   }
+// }
 
-.minting-content .card-text .info-item small {
-  font-family: "Noto Sans TC", sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.66;
-  letter-spacing: 0;
-}
-.minting-content .card-text .info-item small {
-  font-size: 12px;
-}
-@media screen and (min-width: 768px) {
-  .minting-content .card-text .info-item small {
-    font-size: calc(0vw + 12px);
-  }
-}
-@media screen and (min-width: 1536px) {
-  .minting-content .card-text .info-item small {
-    font-size: 12px;
-  }
-}
-.card-footer {
-  padding: 6px 16px 16px;
-  background-color: #1C1C24;
-}
-.card-footer .social-link-wrap {
-  display: flex;
-  gap: 24px;
-}
-.card-footer .social-link-wrap .social-link-icon svg {
-  fill: rgba(255, 255, 255, 0.2);
-  height: 32px;
-  width: 32px;
-}
+// .minting-content .card-text .info-item small {
+//   font-family: "Noto Sans TC", sans-serif;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: 1.66;
+//   letter-spacing: 0;
+// }
+// .minting-content .card-text .info-item small {
+//   font-size: 12px;
+// }
+// @media screen and (min-width: 768px) {
+//   .minting-content .card-text .info-item small {
+//     font-size: calc(0vw + 12px);
+//   }
+// }
+// @media screen and (min-width: 1536px) {
+//   .minting-content .card-text .info-item small {
+//     font-size: 12px;
+//   }
+// }
+// .card-footer {
+//   padding: 6px 16px 16px;
+//   background-color: #1C1C24;
+// }
+// .card-footer .social-link-wrap {
+//   display: flex;
+//   gap: 24px;
+// }
+// .card-footer .social-link-wrap .social-link-icon svg {
+//   fill: rgba(255, 255, 255, 0.2);
+//   height: 32px;
+//   width: 32px;
+// }
 
 </style>
