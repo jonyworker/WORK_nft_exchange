@@ -1,22 +1,51 @@
 <template>
-  <div class="container">
-    <div class="wrap-title">連結你的錢包</div>
-    <!-- <div class="wrap-subTitle">所有文章都通過 Mirror 發佈在區塊鏈上。 NFTotal 擁有文章的版權。NFTotal 擁有文章的版權。</div> -->
-    <div class="wrap-tabs">
-      <!-- <div v-for="(item,index) in walletList" :key="index" :class="['tags',type===item.id?'active_tags':'']" @click="chageTag(item.id)">
-        <div class="image"><img :src="item.image" alt=""> </div>
-        <div class="name">{{item.name}}</div>
-      </div> -->
-	  <div class="tags" @click="chageTag(1)">
-	    <div class="image"><img src="@/assets/images/metamask.png" alt=""> </div>
-	    <div class="name">MetaMask</div>
+  <section class="mt-80">
+  	<div class="container">
+	    
+			<!-- NFT分析 標題組 -->
+			<div class="row mb-40">
+				<div class="col-12 d-flex justify-content-lg-center justify-content-start align-items-center">
+					<div class="section-title-wrap flex-column align-items-lg-center align-items-start">
+						<!-- 標題  -->
+						<h2 class="section-title color-white mb-8">
+							連結你的錢包
+						</h2>
+	
+						<p class="section-subTitle color-white mb-lg-24 mb-16">所有文章都通過 Mirror 發佈在區塊鏈上。 NFTotal 擁有文章的版權。NFTotal 擁有文章的版權</p>
+	
+					</div>
+				</div>
+			</div>
+	
+	
+			<!-- 登入連結 -->
+	    <div class="row justify-content-center ">
+	    	<div class="col-lg-6 col-md-10 col-12">
+	    		<div class="login-link-group">
+			      <!-- <div v-for="(item,index) in walletList" :key="index" :class="['tags',type===item.id?'active_tags':'']" @click="chageTag(item.id)">
+			        <div class="image"><img :src="item.image" alt=""> </div>
+			        <div class="name">{{item.name}}</div>
+			      </div> -->
+						<div class="login-link-wrap" @click="chageTag(1)">
+							<div class="image">
+								<img src="@/assets/images/metamask.png" alt="">
+							</div>
+							<p class="heading-B-2 ml-auto">MetaMask</p>
+						</div>
+
+						<div class="login-link-wrap" @click="chageTag(4)">
+							<div class="image">
+								<img src="@/assets/images/walletconnect.png" alt=""> 
+							</div>
+							<p class="heading-B-2 ml-auto">Wallet Connect</p>
+						</div>
+			    </div>
+	    	</div>
+	    </div>
+	
+	
 	  </div>
-	  <div class="tags" @click="chageTag(4)">
-	    <div class="image"><img src="@/assets/images/walletconnect.png" alt=""> </div>
-	    <div class="name">Wallet Connect</div>
-	  </div>
-    </div>
-  </div>
+  </section>
 </template>
 
 <script lang="ts" setup>
@@ -237,87 +266,115 @@ onMounted(() => {
 </script>
 
 <style scoped lang="less">
-@media screen and (min-width: 768px){
-  .wrap-title{
-    font-size: 30px !important;
-    text-align: left !important;
-  }
-  .tags{
-    font-size: 30px !important;
-    display: flex;
-    justify-content: space-between;
-    .image{
-      padding-left: 20px;
-      img{
-        width:40px;
-        height:40px;
-        margin-top:-12px;
-      }
-    }
-  }
-  .wrap-subTitle{
-    font-size: 16px !important;
-    text-align: left !important;
-  }
+// @media screen and (min-width: 768px){
+//   .wrap-title{
+//     font-size: 30px !important;
+//     text-align: left !important;
+//   }
+//   .tags{
+//     font-size: 30px !important;
+//     display: flex;
+//     justify-content: space-between;
+//     .image{
+//       padding-left: 20px;
+//       img{
+//         width:40px;
+//         height:40px;
+//         margin-top:-12px;
+//       }
+//     }
+//   }
+//   .wrap-subTitle{
+//     font-size: 16px !important;
+//     text-align: left !important;
+//   }
+// }
+// @media screen and (max-width: 450px){
+//   .wrap-title{
+//     font-size: 28px !important;
+//     text-align: left !important;
+//   }
+//   .tags{
+//     font-size: 28px !important;
+//     display: flex;
+//     justify-content: space-between;
+//     .image{
+//       padding-left: 20px;
+//       img{
+//         width:30px;
+//         height:30px;
+//         margin-top:-12px;
+//       }
+//     }
+//   }
+//   .wrap-subTitle{
+//     font-size: 14px !important;
+//     text-align: left !important;
+//   }
+// }
+// .wrap-title{
+//   padding-top: 50px;
+//   text-align: center !important;
+//   padding-bottom: 10px;
+//   //width: 1200px;
+//   //margin: auto;
+//   font-size: 32px;
+// }
+// .wrap-subTitle{
+//   text-align: center;
+//   font-size: 18px;
+// }
+// .wrap-tabs{
+// //width: 636px;
+//   margin:30px auto;
+// }
+// .tags{
+//   background: #121212;
+//   border: 2px solid rgba(255, 255, 255, 0.1);
+//   border-radius: 20px;
+//   height: 60px;
+//   line-height:60px;
+//   margin-bottom: 15px;
+//   text-align: right;
+//   padding-right: 40px;
+//   font-size: 32px;
+// }
+// .tags:hover{
+//   background: #414141;
+//   border: 2px solid #4447E2;
+//   border-radius: 20px;
+// }
+// .active_tags{
+//   background: #414141;
+//   border: 2px solid #4447E2;
+//   border-radius: 20px;
+// }
+
+
+
+
+
+.login-link-group	{
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
 }
-@media screen and (max-width: 450px){
-  .wrap-title{
-    font-size: 28px !important;
-    text-align: left !important;
-  }
-  .tags{
-    font-size: 28px !important;
-    display: flex;
-    justify-content: space-between;
-    .image{
-      padding-left: 20px;
-      img{
-        width:30px;
-        height:30px;
-        margin-top:-12px;
-      }
-    }
-  }
-  .wrap-subTitle{
-    font-size: 14px !important;
-    text-align: left !important;
-  }
-}
-.wrap-title{
-  padding-top: 50px;
-  text-align: center !important;
-  padding-bottom: 10px;
-  //width: 1200px;
-  //margin: auto;
-  font-size: 32px;
-}
-.wrap-subTitle{
-  text-align: center;
-  font-size: 18px;
-}
-.wrap-tabs{
-//width: 636px;
-  margin:30px auto;
-}
-.tags{
-  background: #121212;
+.login-link-wrap {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	background: #1C1C24;
   border: 2px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  height: 60px;
-  line-height:60px;
-  margin-bottom: 15px;
-  text-align: right;
-  padding-right: 40px;
-  font-size: 32px;
+  border-radius: 16px;
+	padding: 24px 40px;
 }
-.tags:hover{
-  background: #414141;
-  border: 2px solid #4447E2;
-  border-radius: 20px;
+.login-link-wrap:hover {
+	border: 2px solid #4447E2;
+	background: #414141;
 }
-.active_tags{
-  background: #414141;
-  border: 2px solid #4447E2;
-  border-radius: 20px;
+.login-link-wrap .image {
+	width: 56px;
 }
+
+
 </style>
