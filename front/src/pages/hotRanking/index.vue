@@ -4,14 +4,18 @@
         <div class="container">
           <div class="all-nft-content">
 
-            <!-- 標題組 -->
-            <div class="row mb-5">
+            <!-- NFT分析 標題組 -->
+            <div class="row mb-40">
               <div class="col-12 d-flex justify-content-between align-items-center">
-                <div class="title-wrap">
-                  <h2 class="title-set mb-6">
+                <div class="section-title-wrap flex-column align-items-start">
+                  <!-- 標題  -->
+                  <h2 class="section-title color-white mb-8">
                     {{$t('home.analysis')}}
                   </h2>
-                  <p class="subtile mb-6">{{$t('home.newsList')}}</p>
+
+                  <p class="section-subTitle color-white mb-lg-24 mb-16">{{$t('home.newsList')}}</p>
+
+                  <!-- 子選項 -->
                   <div class="tabs">
                     <div v-for="(item,index) in tabs" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeTag(item.value)">
                       {{item.name}}
@@ -20,8 +24,14 @@
                 </div>
               </div>
             </div>
+
+
+
+
+
             <!-- 熱門排行 -->
             <div class="row" v-show="type === 2">
+              <!-- 時間選擇tag -->
               <div class="tabs mt-10">
                 <div v-for="(item,index) in textList" :key="index" :class="['tag',date===item.value?'active_tag':'']" @click="changeDate(item.value)" v-show="index < 3">
                   {{item.name}}
@@ -74,6 +84,7 @@
                 </div>
               </div>
             </div>
+
             <div class="row" v-show="type === 3">
               <div class="tabs">
                 <div v-for="(item,index) in textList" :key="index" :class="['tag',date ===item.value?'active_tag':'']" @click="changeDate(item.value)" v-show="index < 3">
@@ -124,6 +135,9 @@
                 </div>
               </div>
             </div>
+
+
+
           </div>
         </div>
       </div>
@@ -259,59 +273,57 @@ onMounted(() => {
 </script>
 
 <style scoped lang="less">
-.tabs{
-  margin-top: 10px;
-}
-.title-wrap .subtile {
-  font-family: "Noto Sans TC", sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.4;
-  letter-spacing: 0;
-  color: rgba(255, 255, 255, 0.3490196078);
-}
-.title-wrap .subtile {
-  font-size: 18px;
-}
-@media screen and (min-width: 768px) {
-  .title-wrap .subtile {
-    font-size: calc(0vw + 18px);
-  }
-}
-@media screen and (min-width: 1536px) {
-  .title-wrap .subtile {
-    font-size: 18px;
-  }
-}
-.parent{
-  width: 128px;
-  height: 36px;
-  line-height: 36px;
-  text-align: left;
-  .parent-main{
-    width: 100%;
-    height: 36px;
-    display: flex;
-    overflow: hidden;
-    .prev-span{
-      display: block;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-    .next-span{
-      display: block;
-      white-space: nowrap;
-    }
-  }
-}
-.profile-pic img{
-  margin-left:10px;
-  height: 30px;
-  width: 35px;
-}
-.profile img{
-  position: relative;
-  left:10px;
-}
+
+// .title-wrap .subtile {
+//   font-family: "Noto Sans TC", sans-serif;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: 1.4;
+//   letter-spacing: 0;
+//   color: rgba(255, 255, 255, 0.3490196078);
+// }
+// .title-wrap .subtile {
+//   font-size: 18px;
+// }
+// @media screen and (min-width: 768px) {
+//   .title-wrap .subtile {
+//     font-size: calc(0vw + 18px);
+//   }
+// }
+// @media screen and (min-width: 1536px) {
+//   .title-wrap .subtile {
+//     font-size: 18px;
+//   }
+// }
+// .parent{
+//   width: 128px;
+//   height: 36px;
+//   line-height: 36px;
+//   text-align: left;
+//   .parent-main{
+//     width: 100%;
+//     height: 36px;
+//     display: flex;
+//     overflow: hidden;
+//     .prev-span{
+//       display: block;
+//       overflow: hidden;
+//       text-overflow: ellipsis;
+//       white-space: nowrap;
+//     }
+//     .next-span{
+//       display: block;
+//       white-space: nowrap;
+//     }
+//   }
+// }
+// .profile-pic img{
+//   margin-left:10px;
+//   height: 30px;
+//   width: 35px;
+// }
+// .profile img{
+//   position: relative;
+//   left:10px;
+// }
 </style>
