@@ -56,11 +56,11 @@
 
 
           <!-- Header - 語言選擇 -->
-          <el-sub-menu  style="margin-right: -20px;" index="8">
+          <el-sub-menu class="body-B-1" style="margin-right: -20px;" index="8">
             <template #title >{{ langType[language] }}</template>
-            <el-menu-item index="zhCn" @click="handleCommand('zhCn')">简体中文</el-menu-item>
-            <el-menu-item index="zh-tw" @click="handleCommand('zh-tw')">繁體中文</el-menu-item>
-            <el-menu-item index="en" @click="handleCommand('en')">English</el-menu-item>
+            <el-menu-item class="body-B-1" index="zhCn" @click="handleCommand('zhCn')">简体中文</el-menu-item>
+            <el-menu-item class="body-B-1" index="zh-tw" @click="handleCommand('zh-tw')">繁體中文</el-menu-item>
+            <el-menu-item class="body-B-1" index="en" @click="handleCommand('en')">English</el-menu-item>
           </el-sub-menu>
 
         </el-menu>
