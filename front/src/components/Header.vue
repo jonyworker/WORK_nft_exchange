@@ -31,16 +31,16 @@
           </li>
 
           <!-- Header - NFT分析 -->
-          <el-menu-item style="padding: 0 16px" index="1" @click="toHotRanking()">{{$t('home.search')}}</el-menu-item>
+          <el-menu-item class="body-B-1" style="padding: 0 16px" index="1" @click="toHotRanking()">{{$t('home.search')}}</el-menu-item>
 
           <!-- Header - 熱門排行 -->
-          <el-menu-item style="padding: 0 16px" index="" @click="toHot()">熱門排行</el-menu-item>
+          <el-menu-item class="body-B-1" style="padding: 0 16px" index="" @click="toHot()">熱門排行</el-menu-item>
 
           <!-- Header - Minting觀測站 -->
-          <el-menu-item style="padding: 0 16px" index="2" @click="toMinting()">{{$t('home.mint')}}</el-menu-item>
+          <el-menu-item class="body-B-1" style="padding: 0 16px" index="2" @click="toMinting()">{{$t('home.mint')}}</el-menu-item>
 
           <!-- Header - 新聞＆專欄 -->
-          <el-menu-item style="padding: 0 16px" index="5" @click="toNews(1)">{{$t('home.news')}}</el-menu-item>
+          <el-menu-item class="body-B-1" style="padding: 0 16px" index="5" @click="toNews(1)">{{$t('home.news')}}</el-menu-item>
 
           <!-- Header - 背景調整 -->
           <!-- <el-menu-item index="7" @click="toggleDark(!isDark)">
