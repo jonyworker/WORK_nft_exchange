@@ -1,0 +1,30 @@
+/*//////////////////////////////
+===== component-form START =====
+//////////////////////////////*/
+
+.form-list {
+  display: flex;
+  flex-direction: column;
+  // gap: 24px;
+  // width: 100%;
+}
+.form-list .form-item {
+  display: flex;
+  flex-direction: column;
+}
+.form-list .form-item [type="text"]{
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: 8px;
+  outline: none;
+  border: 2px solid $color-alpha-white-20;
+  background-color: $color-elevation-0;
+  @include body-B-1;
+}
+
+
+
+
+
+
+

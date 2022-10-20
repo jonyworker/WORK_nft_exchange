@@ -1,55 +1,95 @@
 <template>
   <div class="">
-    <div class="personal-page">
-      <div class="personal-bg">
+    <div class="personal-content">
+      <!-- 個人資料-背景 -->
+      <div class="container-fluid">
+        <div class="row">
+          <div class="personal-bg"></div>
+        </div>
+        
       </div>
-      <div class="personal-page-title">
-        <div class="personal-page-content">
-          <div class="avatar">
-            <img-upload
-                ref="uploadRef"
-                :show-icon="false"
-                v-model:imageUrl="avatar"
-                :can-clip="false"
-                accept=".png"
-            >
-            </img-upload>
+      
+      <!-- 個人資料-頭像 -->
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+
+            <div class="personal-page-content-1">
+              <!-- 頭像 -->
+              <div class="avatar-wrap mb-32">
+                <div class="avatar">
+                  <img-upload
+                      ref="uploadRef"
+                      :show-icon="false"
+                      v-model:imageUrl="avatar"
+                      
+                      :can-clip="false"
+                      accept=".png"
+                  >
+                  </img-upload>
+                </div>
+              </div>
+              <div class="personal-info-text-content pb-40">
+                <!-- 使用者名稱 -->
+                <div class="heading-B-2">使用者自訂名稱</div>
+                <!-- setting icon -->
+                <el-icon class="ml-auto">
+                  <Setting/>
+                </el-icon>
+              </div>
+            </div>
+            
           </div>
-          <div class="text">使用者自訂名稱</div>
-          <el-icon>
-            <Setting/>
-          </el-icon>
         </div>
       </div>
-      <div class="form-wrapper">
-        <el-form
-            ref="ruleFormRef"
-            :model="formModel"
-            :rules="rules"
-            label-width="120px"
-            label-position="top"
-        >
-          <el-form-item label="使用者名稱" prop="name">
-            <el-input v-model="formModel.name" placeholder="請輸入使用者名稱" autocomplete="off" size="large"/>
-          </el-form-item>
-          <el-form-item label="E-mail" prop="email" class="mt-24">
-            <el-input v-model="formModel.email" placeholder="請輸入電子信箱" autocomplete="off" size="large"/>
-          </el-form-item>
-          <el-form-item label="錢包地址" class="mt-48">
-            <div class="wallet-address">
-              <div>0x2d775455skkcoa54d7ad5fwok454cd</div>
-              <el-icon>
-                <CopyDocument/>
-              </el-icon>
+
+      <!-- 個人資料-資料修改 -->
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-xl-8 col-md-10 col-12">
+            <div class="">
+              <form>
+                <ul class="form-list mt-64">
+                  <li class="form-item mb-24">
+                    <label class="body-B-1 mb-4" for="user-name">使用者名稱</label>
+                    <input v-model="formModel.name" placeholder="請輸入使用者名稱" autocomplete="off" size="large" type="text" id="user-name"/>
+                  </li>
+    
+                  <li label="E-mail" prop="email" class="form-item mb-48">
+                    <label class="body-B-1 mb-4" for="user-email">電子信箱</label>
+                    <input v-model="formModel.email" placeholder="請輸入電子信箱" autocomplete="off" size="large" type="text" id="user-email"/>
+                  </li>
+
+
+                  <li label="錢包地址" class="mb-72">
+                    <label class="body-B-1 mb-4">錢包地址</label>
+                    <div class="wallet-address">
+
+                      <p class="body-B-1 clamp-1">0x2d775455skkcoa54d7ad5fwok454cd</p>
+                      
+                      <el-icon class="ml-auto">
+                        <CopyDocument/>
+                      </el-icon>
+                    </div>
+                  </li>
+
+                  <li class="">
+                    <button class="btn btn-large" type="primary" @click="submitForm()">儲存</button>
+                  </li>
+
+                </ul>
+  
+                
+              </form>
             </div>
-
-          </el-form-item>
-
-          <el-form-item class="mt-72">
-            <el-button style="width: 100%" type="primary" @click="submitForm()">儲存</el-button>
-          </el-form-item>
-        </el-form>
+          </div>
+        </div>
       </div>
+      
+      
+
+
+
       <el-dialog v-model="showDialog">
         <img-upload
             ref="uploadRef"
@@ -58,6 +98,7 @@
             accept=".png"
         ></img-upload>
       </el-dialog>
+
     </div>
   </div>
 
@@ -121,71 +162,122 @@ const submitForm = async () => {
 
 </script>
 
-<style scoped lang="less">
-.personal-page {
+<style  lang="less">
+
+.personal-bg {
+  width: 100%;
+  height: 364px;
+  background: #D9D9D9;
+}
+.personal-page-content-1 {
   display: flex;
   flex-direction: column;
+  align-items: start;
+  margin-top: -170px;
+}
+// 頭像
+.personal-page-content-1 .avatar-wrap {
+  display: flex;
   align-items: center;
-
-  .personal-bg {
-    width: 100%;
-    height: 364px;
-    background: #D9D9D9;
-  }
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #fff;
 }
-
-.personal-page-title {
-
-  width: 100%;
-  max-width: 1290px;
-  .personal-page-content {
-    padding-top: 63px;
-    margin: 0 40px 63px 40px;
-
-    height: 143px;
-    color: rgba(255, 255, 255, 0.9);
-    font-weight: 700;
-    font-size: 36px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-  }
-  .text {
-    flex: 1;
-  }
-
-  .avatar {
-    position: absolute;
-    top: -164px;
-    width: 190px;
-    height: 190px;
-    border-radius: 50%;
-  }
-}
-
-.avatar-img {
+.personal-page-content-1 .avatar {
   width: 190px;
   height: 190px;
   border-radius: 50%;
+  overflow: hidden;
 }
+.personal-page-content-1 .uploader,
+.personal-page-content-1 .uploader .el-upload--picture {
+  width: 100%;
+  height: 100%;
+}
+.personal-page-content-1 .uploader .el-upload--picture .uploader__img {
+  object-fit:cover;
+}
+
+
+
+
+.personal-info-text-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+.personal-info-text-content .el-icon {
+  width: 30px;
+  height: 30px;
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+
 
 .wallet-address {
   display: flex;
-  box-sizing: content-box;
-  flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+  gap:16px;
   width: 100%;
   height: 56px;
-  padding: 0 18px;
+  padding: 16px 18px;
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
+  border-radius: 8px;
+  .el-icon {
+    flex-shrink: 0;
+    width: 18px;
+    height: 24px;
+    svg {
+      width: 100%;
+    }
+  }
 }
 
-.form-wrapper {
-  padding: 0 40px;
-  width: 100%;
-  max-width: 640px;
+
+  /*/////////////////////////////
+===== Desktop First START =====
+/////////////////////////////*/
+/*----- max-width 1536 -----*/
+@media screen and (max-width: 1536px) {}
+/*----- max-width 1200 -----*/
+@media screen and (max-width: 1200px) {}
+/*----- max-width 992 -----*/
+@media screen and (max-width: 992px) {
+  .personal-page-content-1 {
+    margin-top: -75px;
+  }
+  .personal-page-content-1 .avatar-wrap {
+    width: 150px;
+    height: 150px;
+  }
+  .personal-page-content-1 .avatar {
+    width: 140px;
+    height: 140px;
+  }
 }
+/*----- max-width 768 -----*/
+@media screen and (max-width: 768px) {}
+/*----- max-width 576 -----*/
+@media screen and (max-width: 576px) {
+  .personal-page-content-1 {
+    margin-top: -50px;
+  }
+  .personal-page-content-1 .avatar-wrap {
+    width: 110px;
+    height: 110px;
+  }
+  .personal-page-content-1 .avatar {
+    width: 100px;
+    height: 100px;
+  }
+}
+  
 </style>
