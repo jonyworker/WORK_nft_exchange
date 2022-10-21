@@ -1,33 +1,68 @@
  <template>
-<div >
-  <div class="analysis"></div>
+<div>
+  <!-- 個人資料-背景 -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="personal-bg"></div>
+    </div>
+  </div>
+
+  <!-- 個人資料-頭像 / 資料 -->
   <div class="container">
-    <div class="top-image">
-<!--      <img src="@/assets/images/nft_profile_3.png" alt="">-->
-    </div>
-    <div class="head-wrap">
-      <div class="wrap">
-        <div class="tit">{{username}}</div>
-<!--        <div class="wrap-item">-->
-<!--          <div class="parent">-->
-<!--            <div class='parent-main'>-->
-<!--              {{toLogin.username}}-->
-<!--&lt;!&ndash;              <span class='prev-span'>{{toLogin.username.slice(0,6)}}</span>-->
-<!--              <span class='next-span'>{{toLogin.username.slice(-3)}}</span>&ndash;&gt;-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="profile-pic ml-6" @click="copyInfo(toLogin.username)">-->
-<!--            <img src="@/assets/images/icon_copy.png" alt="">-->
-<!--          </div>-->
-<!--        </div>-->
+    <div class="row">
+      <div class="personal-page col-12">
+
+        <div class="personal-page-content-1">
+          <!-- 頭像 -->
+          <div class="avatar-wrap mb-32">
+            <div class="avatar">
+              <img-upload
+                  ref="uploadRef"
+                  :show-icon="false"
+                  v-model:imageUrl="avatar"
+                  
+                  :can-clip="false"
+                  accept=".png"
+              >
+              </img-upload>
+            </div>
+          </div>
+          <div class="personal-info-text-content pb-40  align-items-start">
+            <!-- 使用者名稱 -->
+            <div class="d-lg-flex align-items-center d-flex-column">
+              <div class="heading-B-2 mr-24">使用者自訂名稱</div>
+              <!-- 錢包地址 -->
+              <div class="d-flex mt-lg-0 mt-8">
+                <div class="body-B-1 clamp-single" style="width: 130px;">{{username}}</div>
+                <div class="icon icon-copy ml-8">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="M9 18q-.825 0-1.412-.587Q7 16.825 7 16V4q0-.825.588-1.413Q8.175 2 9 2h9q.825 0 1.413.587Q20 3.175 20 4v12q0 .825-.587 1.413Q18.825 18 18 18Zm0-2h9V4H9v12Zm-4 6q-.825 0-1.413-.587Q3 20.825 3 20V7q0-.425.288-.713Q3.575 6 4 6t.713.287Q5 6.575 5 7v13h10q.425 0 .713.288.287.287.287.712t-.287.712Q15.425 22 15 22ZM9 4v12V4Z"/></svg>
+                </div>
+              </div>
+            </div>
+            
+            <!-- setting icon -->
+            <el-icon class="ml-auto">
+              <Setting/>
+            </el-icon>
+          </div>
+        </div>
+        
       </div>
-      <div class="right-image"></div>
     </div>
+  </div>
+  
+  <div class="container">
+
+    
+
+
+    <!-- 分頁選單 -->
     <div class="tabs">
       <div v-for="(item,index) in textList" :key="index" :class="['tages',type===item.value?'active_tages':'']" @click="changeTag(item.value)">
         {{item.name}}
       </div>
     </div>
+    <!-- 分頁內容 type-1 -->
     <div class="row" v-show="type === 1">
       <div class="col-12">
         <div class="table-responsive">
@@ -72,6 +107,7 @@
         </div>
       </div>
     </div>
+    <!-- 分頁內容 type-2 -->
     <div v-show="type === 2">
       <div class="minting-content mt-10">
 
@@ -109,7 +145,7 @@
 </div>
 </template>
 
- <script setup lang="ts">
+<script setup lang="ts">
 import {onMounted, ref} from "vue";
 import {homeApi, homePageApi} from "@/api";
 import {copy} from "@utils/copy";
@@ -166,11 +202,11 @@ onMounted(() => {
 
 </script>
 
- <style scoped lang="less">
- svg { fill: #fff;width: 30px;
-   height: 30px;
-   font-size: 30px;
-   overflow: inherit;padding-right:10px }
+<style scoped lang="less">
+//  svg { fill: #fff;width: 30px;
+//    height: 30px;
+//    font-size: 30px;
+//    overflow: inherit;padding-right:10px }
  .minting-content{
    margin-top: 30px;
  }

@@ -9,7 +9,7 @@
         
       </div>
       
-      <!-- 個人資料-頭像 -->
+      <!-- 個人資料-頭像 / 資料 -->
       <div class="container">
         <div class="row">
           <div class="col-12">
@@ -163,121 +163,22 @@ const submitForm = async () => {
 </script>
 
 <style  lang="less">
-
-.personal-bg {
-  width: 100%;
-  height: 364px;
-  background: #D9D9D9;
-}
-.personal-page-content-1 {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  margin-top: -170px;
-}
-// 頭像
-.personal-page-content-1 .avatar-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  overflow: hidden;
-  background-color: #fff;
-}
-.personal-page-content-1 .avatar {
-  width: 190px;
-  height: 190px;
-  border-radius: 50%;
-  overflow: hidden;
-}
-.personal-page-content-1 .uploader,
-.personal-page-content-1 .uploader .el-upload--picture {
-  width: 100%;
-  height: 100%;
-}
-.personal-page-content-1 .uploader .el-upload--picture .uploader__img {
-  object-fit:cover;
-}
-
-
-
-
-.personal-info-text-content {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-}
-.personal-info-text-content .el-icon {
-  width: 30px;
-  height: 30px;
-  svg {
+  .wallet-address {
+    display: flex;
+    align-items: center;
+    gap:16px;
     width: 100%;
-    height: 100%;
-  }
-}
-
-
-
-
-.wallet-address {
-  display: flex;
-  align-items: center;
-  gap:16px;
-  width: 100%;
-  height: 56px;
-  padding: 16px 18px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  .el-icon {
-    flex-shrink: 0;
-    width: 18px;
-    height: 24px;
-    svg {
-      width: 100%;
+    height: 56px;
+    padding: 16px 18px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    .el-icon {
+      flex-shrink: 0;
+      width: 18px;
+      height: 24px;
+      svg {
+        width: 100%;
+      }
     }
   }
-}
-
-
-  /*/////////////////////////////
-===== Desktop First START =====
-/////////////////////////////*/
-/*----- max-width 1536 -----*/
-@media screen and (max-width: 1536px) {}
-/*----- max-width 1200 -----*/
-@media screen and (max-width: 1200px) {}
-/*----- max-width 992 -----*/
-@media screen and (max-width: 992px) {
-  .personal-page-content-1 {
-    margin-top: -75px;
-  }
-  .personal-page-content-1 .avatar-wrap {
-    width: 150px;
-    height: 150px;
-  }
-  .personal-page-content-1 .avatar {
-    width: 140px;
-    height: 140px;
-  }
-}
-/*----- max-width 768 -----*/
-@media screen and (max-width: 768px) {}
-/*----- max-width 576 -----*/
-@media screen and (max-width: 576px) {
-  .personal-page-content-1 {
-    margin-top: -50px;
-  }
-  .personal-page-content-1 .avatar-wrap {
-    width: 110px;
-    height: 110px;
-  }
-  .personal-page-content-1 .avatar {
-    width: 100px;
-    height: 100px;
-  }
-}
-  
 </style>
