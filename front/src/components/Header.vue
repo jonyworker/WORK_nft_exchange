@@ -125,8 +125,8 @@
     </div>
 
     <!-- 彈出選單 -->
+    <!-- 彈出-會員登入頁 -->
     <el-drawer v-model="visibleLogout" :show-close="false" >
-
       <div class="drawer">
         <div @click="toAnalysis(1)">追蹤項目</div>
         <div @click="toAnalysis(2)">追蹤 NFT</div>
@@ -136,22 +136,46 @@
         登出
       </div>
     </el-drawer>
-      <el-drawer v-model="visible" :show-close="false" >
-        <div class="login" v-if="!isLogin" @click="visibleLogout === true"></div>
-        <div class="drawer">
-          <div @click="toHotRanking()">{{$t('home.analysis')}}</div>
-          <div @click="toHotItem()">{{$t('home.hot_item')}}</div>
-          <div @click="toMinting()">{{$t('home.mint')}}</div>
-          <div @click="toNews(1)">{{$t('home.newsBlog')}}</div>
+
+    <!-- 彈出-漢堡選單 -->
+    <el-drawer v-model="visible" :show-close="false" >
+      <!-- 頭像 -->
+      <div class="d-flex mb-24">
+        <div class="login mr-8" v-if="!isLogin" @click="visibleLogout === true"></div>
+        <div class="d-flex flex-column">
+          <div class="caption-L-1 mr-24" style="color: rgba(255, 255, 255, 0.7);">使用者自訂名稱</div>
+          <!-- 錢包地址 -->
+          <div class="d-flex align-items-center mt-lg-0">
+            <div class="caption-L-1 clamp-single" style="width: 130px; color: rgba(255, 255, 255, 0.7);">0xe9fe2d2a2385a90e3aaceb600ec75154f46abd4f</div>
+            <div class="icon icon-copy ml-8" style="fill: rgba(255, 255, 255, 0.7);">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" width="24px"><path d="M9 18q-.825 0-1.412-.587Q7 16.825 7 16V4q0-.825.588-1.413Q8.175 2 9 2h9q.825 0 1.413.587Q20 3.175 20 4v12q0 .825-.587 1.413Q18.825 18 18 18Zm0-2h9V4H9v12Zm-4 6q-.825 0-1.413-.587Q3 20.825 3 20V7q0-.425.288-.713Q3.575 6 4 6t.713.287Q5 6.575 5 7v13h10q.425 0 .713.288.287.287.287.712t-.287.712Q15.425 22 15 22ZM9 4v12V4Z"/></svg>
+              <!-- <svg id="zoom-in-alt" data-name="Line color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon line-color" width="48" height="48"><path id="primary" d="M19,11a8,8,0,1,1-8-8A8,8,0,0,1,19,11Zm2,10-4.34-4.34" style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path><path id="secondary" d="M11,14V8M8,11h6" style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path></svg> -->
+            </div>
+          </div>
         </div>
-        <div index="zhCn" @click="handleCommand('zhCn')">简体中文</div>
-        <div index="zh-tw" @click="handleCommand('zh-tw')">繁體中文</div>
-        <div index="en" @click="handleCommand('en')">English</div>
-        <div class="to-wallet" @click="toWallet()"  v-if="!isLogin">
+      </div>
+      <!-- 選單 -->
+      <div class="drawer">
+        <div class="heading-B-3 mb-md-16 mb-8" @click="toHotRanking()">{{$t('home.analysis')}}</div>
+        <div class="heading-B-3 mb-md-16 mb-8" @click="toHotItem()">{{$t('home.hot_item')}}</div>
+        <div class="heading-B-3 mb-md-16 mb-8" @click="toMinting()">{{$t('home.mint')}}</div>
+        <div class="heading-B-3 mb-24" @click="toNews(1)">{{$t('home.newsBlog')}}</div>
+      </div>
+      <div class="heading-B-5 mb-12" index="zhCn" @click="handleCommand('zhCn')">简体中文</div>
+      <div class="heading-B-5 mb-12" index="zh-tw" @click="handleCommand('zh-tw')">繁體中文</div>
+      <div class="heading-B-5" index="en" @click="handleCommand('en')">English</div>
+
+      <div class="mt-auto">
+        <div class="connectWallet justify-content-center" @click="toWallet()"  v-if="!isLogin">
           Connect Wallet
         </div>
-      </el-drawer>
-    </div>
+        <div class="connectWallet justify-content-center" @click="toWallet()"  v-if="isLogin">
+          登出
+        </div>
+      </div>
+    </el-drawer>
+
+  </div>
 
 </template>
 
@@ -240,84 +264,93 @@ const toMinting = () =>{
 }
 </script>
 <style lang="less" scoped>
-.login{
-  width:40px;
-  height:40px;
-  border-radius: 50%;
-  background: #D9D9D9;
-  // margin-top:10px;
-}
-.drawer{
-line-height: 40px;
-  font-weight: 700;
-  font-size: 17px;
-}
-:deep  .el-overlay {
-  position: fixed;
-  top: 0px;
-  right: 0px;
-  bottom: 0;
-  left: 0;
-  z-index: 2000;
-  height: 100%;
-  background-color: rgba(18, 18, 18, 0.85);
-  color: #fff;
-/*  backdrop-filter: blur(20px);*/
-  overflow: auto;
-}
-:deep  .el-drawer {
-  width: 327px !important;
-  position: absolute;
-  box-sizing: border-box;
-  right: 20px !important;
-  background-color: var(--el-drawer-bg-color);
-  display: flex;
-  flex-direction: column;
-  box-shadow: var(--el-box-shadow-dark);
-  overflow: hidden;
-  transition: all var(--el-transition-duration);
-}
-:deep  .el-drawer__body {
-  background:rgba(18, 18, 18, 0.85);
-  flex: 1;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  padding: var(--el-drawer-padding-primary);
-  overflow: auto;
-  margin-bottom: 50px;
-  border-radius: 10px;
-}
+  .login{
+    width:40px;
+    height:40px;
+    border-radius: 50%;
+    background: #D9D9D9;
+  }
+  .drawer{
+    line-height: 40px;
+    font-weight: 700;
+    font-size: 17px;
+  }
+  :deep .el-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2000;
+    height: 100%;
+    background-color: rgba(18, 18, 18, 0.10);
+    color: #fff;
+    backdrop-filter: blur(8px);
+    overflow: auto;
+  }
+  :deep .el-drawer {
+    width: 327px !important;
+    right: 24px !important;
+    position: absolute;
+    box-sizing: border-box;
+    // display: flex;
+    // flex-direction: column;
+    background: none;
+    box-shadow: none; 
+    overflow: hidden;
+    transition: all var(--el-transition-duration);
+  }
+  :deep .el-drawer__header {
+    display: none;
+  }
+  :deep .el-drawer__body {
+    background:rgba(18, 18, 18, 0.9);
+    backdrop-filter: blur(2px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    height: 100%;
+    padding: 24px;
+    overflow: auto;
+    margin: 24px 0px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+  }
+  :deep .el-drawer__body .heading-B-3 {
+    color: rgba(255, 255, 255, 0.9);
+  }
+  :deep .el-drawer__body .heading-B-5 {
+    color: rgba(255, 255, 255, 0.7);
+  }
 // .header-logo{
 //   font-size:32px;
 //   font-weight: 700;
 //   width:72%;
 // }
-.to-wallet{
-  background: linear-gradient(180deg, #8585FF 0%, #4A4AC4 100%);
-  border-radius: 24px;
-  text-align: center;
-  margin-top: 17px;
-  height: 32px;
-  line-height:28px;
-
-}
-.top_center{
-  width:167px;
-  background: linear-gradient(180deg, #8585FF 0%, #4A4AC4 100%);
-  border-radius: 24px;
-  text-align: center;
-  height: 32px;
-  line-height:12px;
-  padding: 8px 24px;
-  margin-top: 12px;
-  margin-right: 15px;
-}
-.menu_icon{
-width: 3%;
-}
-.menu_icon svg{
-  margin-top:20px;
-  width: 36px;
-  height:27px;
-
-}
+  .to-wallet{
+    background: linear-gradient(180deg, #8585FF 0%, #4A4AC4 100%);
+    border-radius: 24px;
+    text-align: center;
+    // margin-top: 17px;
+    height: 32px;
+    line-height:28px;
+  }
+  .top_center{
+    width:167px;
+    background: linear-gradient(180deg, #8585FF 0%, #4A4AC4 100%);
+    border-radius: 24px;
+    text-align: center;
+    height: 32px;
+    line-height:12px;
+    padding: 8px 24px;
+    margin-top: 12px;
+    margin-right: 15px;
+  }
+  .menu_icon{
+  width: 3%;
+  }
+  .menu_icon svg{
+    margin-top:20px;
+    width: 36px;
+    height:27px;
+  }
 </style>
