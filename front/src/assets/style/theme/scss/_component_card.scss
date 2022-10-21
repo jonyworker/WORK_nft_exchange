@@ -94,7 +94,11 @@
   @include functional-L-1;
   color: rgba(255,255,255,.3490196078);
 }
-
+.clamp-single {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
 .clamp-1 {
   display: -webkit-box;
