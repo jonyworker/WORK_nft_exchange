@@ -128,12 +128,14 @@
     <!-- 彈出-會員登入頁 -->
     <el-drawer v-model="visibleLogout" :show-close="false" >
       <div class="drawer">
-        <div @click="toAnalysis(1)">追蹤項目</div>
-        <div @click="toAnalysis(2)">追蹤 NFT</div>
-        <div @click="goto('Personal')">個人資料編輯</div>
+        <div class="heading-B-3 mb-md-16 mb-8" @click="toAnalysis(1)">追蹤項目</div>
+        <div class="heading-B-3 mb-md-16 mb-8" @click="toAnalysis(2)">追蹤 NFT</div>
+        <div class="heading-B-3" @click="goto('Personal')">個人資料編輯</div>
       </div>
-      <div class="to-wallet" @click="toLogout()"  >
-        登出
+      <div class="mt-auto">
+        <div class="connectWallet justify-content-center" @click="toLogout()"  >
+          登出
+        </div>
       </div>
     </el-drawer>
 
