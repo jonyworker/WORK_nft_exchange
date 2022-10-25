@@ -19,7 +19,7 @@
               <img-upload
                   ref="uploadRef"
                   :show-icon="false"
-                  v-model:imageUrl="avatar"
+                  v-model="avatar"
                   
                   :can-clip="false"
                   accept=".png"

@@ -74,7 +74,7 @@
                   </li>
 
                   <li class="">
-                    <button class="btn btn-large" type="primary" @click="submitForm()">儲存</button>
+                    <button class="btn btn-large" type="button" @click="submitForm()">儲存</button>
                   </li>
 
                 </ul>
