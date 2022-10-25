@@ -90,7 +90,8 @@
                 </div>
               </div>
             </div>
-
+            
+            <!-- 高勝率錢包 -->
             <div class="row" v-show="type === 3">
               <div class="tabs">
                 <div v-for="(item,index) in textList" :key="index" :class="['tag',date ===item.value?'active_tag':'']" @click="changeDate(item.value)" v-show="index < 3">
