@@ -63,19 +63,25 @@
                         <th scope="row">0{{index + 1}}</th>
                         <td class="td-wrap">
                           <div class="td-wrap-content">
-                            <div class="profile-pic mr-8">
+                            <div class="profile-pic mr-12">
                               <img :src="item.photo_url" alt="">
                             </div>
-                            <p class="single-ellipsis" @click="toIndex(item.id)">{{item.name}}</p>
+                            <p class="clamp-single" @click="toIndex(item.id)">{{item.name}}</p>
                           </div>
                         </td>
-                        <td class="" v-if="date === 1">{{ item.volume_24_p }}</td>
+                        <!-- 交易量 -->
+                        <td class="" v-if="date === 1">{{ item.volume_24}}</td>
                         <td class="" v-if="date === 2">{{ item.volume_7d }}</td>
                         <td class="" v-if="date === 3">{{ item.volume_30d}}</td>
+                        <!-- 24H% -->
                         <td :class="Number(item.volume_24_p) < 0 ?'go-down' :'go-up'" >{{item.volume_24_p}}</td>
+                        <!-- 7D% -->
                         <td :class="Number(item.volume_7d_p) < 0 ?'go-down' :'go-up'" >{{item.volume_7d_p}}</td>
-                        <td>{{item.holders}}</td>
+                        <!-- 地板價 -->
                         <td>{{item.floor_price}}</td>
+                        <!-- 持有者 -->
+                        <td>{{item.holders}}</td>
+                        <!-- 數量 -->
                         <td>{{item.item_qty}}</td>
                       </tr>
                       </tbody>
