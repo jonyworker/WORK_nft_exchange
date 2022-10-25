@@ -30,11 +30,12 @@
             </div>
           </li>
 
-          <!-- Header - NFT分析 -->
-          <el-menu-item class="body-B-1" style="padding: 0 16px" index="1" @click="toHotRanking()">{{$t('home.search')}}</el-menu-item>
 
           <!-- Header - 熱門排行 -->
-          <el-menu-item class="body-B-1" style="padding: 0 16px" index="" @click="toHot()">熱門排行</el-menu-item>
+          <el-menu-item class="body-B-1" style="padding: 0 16px" index="" @click="toHotItem()">{{$t('home.hot_item')}}</el-menu-item>
+
+          <!-- Header - 高勝率錢包 -->
+          <el-menu-item class="body-B-1" style="padding: 0 16px" index="1" @click="toHotRanking()">{{$t('home.highWinningWallet')}}</el-menu-item>
 
           <!-- Header - Minting觀測站 -->
           <el-menu-item class="body-B-1" style="padding: 0 16px" index="2" @click="toMinting()">{{$t('home.mint')}}</el-menu-item>
@@ -158,9 +159,13 @@
       </div>
       <!-- 選單 -->
       <div class="drawer">
-        <div class="heading-B-3 mb-md-16 mb-8" @click="toHotRanking()">{{$t('home.analysis')}}</div>
+        <!-- 熱門排行 -->
         <div class="heading-B-3 mb-md-16 mb-8" @click="toHotItem()">{{$t('home.hot_item')}}</div>
+        <!-- 高勝率錢包 -->
+        <div class="heading-B-3 mb-md-16 mb-8" @click="toHotRanking()">{{$t('home.highWinningWallet')}}</div>
+        <!-- minting觀測站 -->
         <div class="heading-B-3 mb-md-16 mb-8" @click="toMinting()">{{$t('home.mint')}}</div>
+        <!-- 新聞&專欄 -->
         <div class="heading-B-3 mb-24" @click="toNews(1)">{{$t('home.newsBlog')}}</div>
       </div>
       <div class="heading-B-5 mb-12" index="zhCn" @click="handleCommand('zhCn')">简体中文</div>
