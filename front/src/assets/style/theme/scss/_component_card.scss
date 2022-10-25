@@ -1,7 +1,4 @@
-
-/*//////////////////////////////
-===== component-card START =====
-//////////////////////////////*/
+ 
 
 
 
@@ -13,7 +10,6 @@
 }
 .card .card-icon-title-wrap {
   display: flex;
-  align-items: baseline;
 }
 .card-icon-title-wrap .icon {
   width: 36px;
@@ -33,6 +29,7 @@
   position: relative;
   img{
     object-fit:cover;
+    vertical-align: middle;
   }
 }
 .card-image-content.ratio--1_1 {
