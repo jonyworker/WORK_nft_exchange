@@ -1,6 +1,6 @@
 
 @import"./index.less";
-@import"./theme/dist/all.min.css";
+@import"./theme/css/all.min.css";
 
 :root {
     --primary-color: red;
