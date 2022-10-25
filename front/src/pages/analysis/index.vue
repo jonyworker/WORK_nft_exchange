@@ -187,6 +187,7 @@ const analysisList = ref<IPanelList[] >([])
 const dropsList = ref<IInfo[] | null>(null);
 const textList = ref([{name:'追蹤項目',value:1,},{name:'追蹤NFT',value:2}]);
 const toLogin = ref({});
+const avatar = ref('')
 const username = localStorage.getItem('username');
 const ps = router.currentRoute.value.query.type;
 const changeTag = async (value: number) => {

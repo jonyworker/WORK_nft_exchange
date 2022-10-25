@@ -16,6 +16,7 @@ export interface IPanelList{
     volume_7d:number,
     volume_7d_p:string,
     unit: string,
+    avatar:string,
 }
 export interface IInfo  {
     collection_name:string,
