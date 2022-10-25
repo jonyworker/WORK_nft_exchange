@@ -46,7 +46,7 @@
                 <div class="card-body-content p-16">
 
                   <!-- icon 標題組 -->
-                  <div class="card-icon-title-wrap mb-12">
+                  <div class="card-icon-title-wrap align-items-center mb-12">
                     <div class="icon mr-16">
                       <img :src="dropsOne?.collection_url" alt="">
                     </div>
@@ -114,7 +114,7 @@
                 <!-- card - body -->
                 <div class="card-body-content p-16">
                   <!-- icon 標題組 -->
-                  <div class="card-icon-title-wrap mb-12">
+                  <div class="card-icon-title-wrap align-items-center mb-12">
                     <div class="icon mr-16">
                       <img :src="dropsTwo?.collection_url" alt="">
                     </div>
@@ -185,7 +185,7 @@
                 <div class="card-body-content p-16">
 
                   <!-- icon 標題組 -->
-                  <div class="card-icon-title-wrap mb-12">
+                  <div class="card-icon-title-wrap align-items-center mb-12">
                     <div class="icon mr-16">
                       <img :src="dropsThree?.collection_url" alt="">
                     </div>
@@ -255,7 +255,7 @@
                 <!-- card - body -->
                 <div class="card-body-content p-16">
                   <!-- icon 標題組 -->
-                  <div class="card-icon-title-wrap mb-12">
+                  <div class="card-icon-title-wrap align-items-center mb-12">
                     <div class="icon mr-16">
                       <img :src="dropsFour?.collection_url" alt="">
                     </div>
