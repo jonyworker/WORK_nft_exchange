@@ -50,60 +50,6 @@
                 </div>
               </div>
             </div>
-            <!-- 2nd -->
-<!--            <div class="d-none d-sm-block col-sm-6 col-lg-4">-->
-<!--              <div class="card" @click="toDetails(newListTwo?.id)">-->
-<!--                &lt;!&ndash; card-img &ndash;&gt;-->
-<!--                <div class="card-image-content ratio&#45;&#45;1-91_1 bdRadius-8 mb-16">-->
-<!--                  <img :src="newListTwo?.photo_url" alt="">-->
-<!--                </div>-->
-<!--                &lt;!&ndash; card-body &ndash;&gt;-->
-<!--                <div class="card-body-content">-->
-<!--    -->
-<!--                  <div class="card-tag mb-8">-->
-<!--                    <p>{{newListTwo?.ind}}</p>-->
-<!--                  </div>-->
-<!--    -->
-<!--                  <h3 class="card-title-h4 clamp-2 mb-16">{{newListTwo?.title}}-->
-<!--                  </h3>-->
-<!--                  &lt;!&ndash; <div class="card-paragraph">-->
-<!--                    <div class="multiline-ellipsis mb-12" >-->
-<!--                      <div v-html="newListTwo?.content"></div>-->
-<!--                    </div>-->
-<!--                  </div> &ndash;&gt;-->
-<!--                  <small class="card-text-small">-->
-<!--                    <time datetime="">2022-03-30</time>-->
-<!--                  </small>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            &lt;!&ndash; 3rd &ndash;&gt;-->
-<!--            <div class="d-none d-lg-block col-lg-4">-->
-<!--              <div class="card" @click="toDetails(newListFree?.id)">-->
-<!--                &lt;!&ndash; card-img &ndash;&gt;-->
-<!--                <div class="card-image-content ratio&#45;&#45;1-91_1 bdRadius-8 mb-16">-->
-<!--                  <img :src="newListFree?.photo_url" alt="">-->
-<!--                </div>-->
-<!--                &lt;!&ndash; card-body &ndash;&gt;-->
-<!--                <div class="card-body-content">-->
-<!--    -->
-<!--                  <div class="card-tag mb-8">-->
-<!--                    <p>{{newListFree?.ind}}</p>-->
-<!--                  </div>-->
-<!--    -->
-<!--                  <h3 class="card-title-h4 clamp-2 mb-16">{{newListFree?.title}}</h3>-->
-<!--                  &lt;!&ndash; <div class="card-paragraph">-->
-<!--                    <div class="multiline-ellipsis mb-12" >-->
-<!--                      <div v-html="newListFree?.content"></div>-->
-<!--                    </div>-->
-<!--                  </div> &ndash;&gt;-->
-<!--                  <small class="card-text-small">-->
-<!--                    <time datetime="">2022-03-30</time>-->
-<!--                  </small>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-            
         </div>
     
         <!-- 前往查看按鈕 (手機顯示) -->
@@ -141,7 +87,7 @@ const newListFor = ref<INewListFor|null>(null);
 //请求数据
 const getHomeNew = async() =>{
   const params = {
-    count:9,
+    count:12,
     page:1
   }
   const res = await homeApi.getNews(params);
