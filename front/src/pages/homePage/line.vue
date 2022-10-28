@@ -1,11 +1,14 @@
 <template>
-  <div class="tabs">
-    <div class="tabs-title">周期尺度</div>
-    <div :class="['tabs-item ',current==='price_3d'&&'active']" @click="changeData('price_3d')">3d</div>
-    <div :class="['tabs-item ',current==='price_30d'&&'active']" @click="changeData('price_30d')">30d</div>
-    <div :class="['tabs-item ',current==='price_3m'&&'active']" @click="changeData('price_3m')">3m</div>
+  <div class="tabs mb-24">
+    <div class="heading-B-3 mr-auto">周期尺度</div>
+    <div :class="['tag ',current==='price_3d'&&'active_tag']" @click="changeData('price_3d')">3D</div>
+
+    <div :class="['tag',current==='price_30d'&&'active_tag']" @click="changeData('price_30d')">30D</div>
+
+    <div :class="['tag',current==='price_3m'&&'active_tag']" @click="changeData('price_3m')">3M</div>
+
   </div>
-  <div id="lineChart" class="pieChart"></div>
+  <div id="lineChart" class="lineChart"></div>
 </template>
 
 <script lang="ts" setup>
@@ -98,13 +101,13 @@ const changeData = (type: string) => {
     series: [
 
       {
-        name: '地板价',
+        name: '地板價',
         type: 'bar',
         data: lowPrice.value,
 
       },
       {
-        name: '平均价',
+        name: '平均價',
         data: avgPrice.value,
         type: 'line',
         stack: 'x',
@@ -162,37 +165,9 @@ onMounted(() => {
 </script>
 
 <style scoped lang="less">
-.pieChart {
+.lineChart {
   height: 427px;
 }
 
-.tabs {
-  display: flex;
-  justify-content: flex-end;
-  font-weight: 700;
-  font-size: 18px;
-  color: #fff;
-  margin-bottom: 15px;
-  .tabs-title {
-    flex: 1;
-    font-weight: 700;
-    font-size: 28px;
-    height:30px;
-  }
-  .tabs-item {
-    border-radius: 15px;
-    text-align: center;
-    border: 1px solid;
-    padding: 4px 16px;
-    box-sizing: border-box;
-    width: 58px;
-    line-height: 22px;
-    height: 30px;
-    background: rgba(255, 255, 255, 0.1);
-  }
-  .active{
-    background: linear-gradient(180deg, #8585FF 0%, #4A4AC4 100%);
-  }
-}
 
 </style>
