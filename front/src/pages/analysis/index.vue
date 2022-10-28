@@ -108,7 +108,7 @@
       </div>
     </div>
     <!-- 分頁內容 type-2 -->
-    <div v-show="type === 2">
+    <div class="row" v-show="type === 2">
       
       <!-- 1st -->
       <div class="col-12 col-sm-6 col-lg-3">
