@@ -8,6 +8,18 @@
   align-items: start;
   height: 100%;
 }
+.card.card-background {
+  background-color: #1C1C24;
+  border-radius: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  border: 2px solid $color-alpha-white-10;
+}
+.card.card-background-dark {
+  background-color: #121212;
+  border-radius: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  border: 2px solid $color-alpha-white-10;
+}
 .card .card-icon-title-wrap {
   display: flex;
 }
@@ -24,9 +36,9 @@
 
 /*----- card-image-content -----*/
 .card-image-content {
-  width: 100%;
+  // width: 100%;
   overflow: hidden;
-  position: relative;
+  // position: relative;
   img{
     object-fit:cover;
     vertical-align: middle;
@@ -190,4 +202,32 @@
   border-radius: 8px;
   background-color: #4447E2;
 }
+
+
+.badge {
+  display: inline-block;
+  padding: 0.35em 0.65em;
+  font-size: 1em;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+}
+.bg-alpha-white-10 {
+  background-color: $color-alpha-white-10;
+}
+.bg-alpha-white-55 {
+  background-color: $color-alpha-white-55;
+}
+.bg-white {
+  background-color: $color-white;
+}
+
+
+
+
+
 

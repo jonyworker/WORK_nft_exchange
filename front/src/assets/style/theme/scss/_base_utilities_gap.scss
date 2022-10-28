@@ -1,0 +1,82 @@
+
+
+/*/////////////////////////////
+===== GAP Utilities START =====
+/////////////////////////////*/
+
+/* bootstrap breakpoint
+none => <576px
+sm => >=576px
+md => >=768px
+lg => >=992px
+xl => >=1200px
+xxl => >=1400px */
+
+.gap-4 {gap: 4px;}
+.gap-8 {gap: 8px;}
+.gap-16 {gap: 16px;}
+.gap-24 {gap: 24px;}
+.gap-32 {gap: 32px;}
+.gap-40 {gap: 40px;}
+
+
+
+/*//////////////////////////////////
+===== GAP Utilities SM (576px) =====
+//////////////////////////////////*/
+@media screen and (min-width: 576px) {
+  .gap-sm-4 {gap: 4px;}
+  .gap-sm-8 {gap: 8px;}
+  .gap-sm-16 {gap: 16px;}
+  .gap-sm-24 {gap: 24px;}
+  .gap-sm-32 {gap: 32px;}
+  .gap-sm-40 {gap: 40px;}
+}
+
+/*//////////////////////////////////
+===== GAP Utilities MD (720px) =====
+//////////////////////////////////*/
+@media screen and (min-width: 768px) {
+  .gap-md-4 {gap: 4px;}
+  .gap-md-8 {gap: 8px;}
+  .gap-md-16 {gap: 16px;}
+  .gap-md-24 {gap: 24px;}
+  .gap-md-32 {gap: 32px;}
+  .gap-md-40 {gap: 40px;}
+}
+
+/*//////////////////////////////////
+===== GAP Utilities lg (960px) =====
+//////////////////////////////////*/
+@media screen and (min-width: 992px) {
+  .gap-lg-4 {gap: 4px;}
+  .gap-lg-8 {gap: 8px;}
+  .gap-lg-16 {gap: 16px;}
+  .gap-lg-24 {gap: 24px;}
+  .gap-lg-32 {gap: 32px;}
+  .gap-lg-40 {gap: 40px;}
+}
+
+/*///////////////////////////////////
+===== GAP Utilities xl (1200px) =====
+///////////////////////////////////*/
+@media screen and (min-width: 1200px) {
+  .gap-xl-4 {gap: 4px;}
+  .gap-xl-8 {gap: 8px;}
+  .gap-xl-16 {gap: 16px;}
+  .gap-xl-24 {gap: 24px;}
+  .gap-xl-32 {gap: 32px;}
+  .gap-xl-40 {gap: 40px;}
+}
+
+/*////////////////////////////////////
+===== GAP Utilities xxl (1536px) =====
+////////////////////////////////////*/
+@media screen and (min-width: 1536px) {
+  .gap-xxl-4 {gap: 4px;}
+  .gap-xxl-8 {gap: 8px;}
+  .gap-xxl-16 {gap: 16px;}
+  .gap-xxl-24 {gap: 24px;}
+  .gap-xxl-32 {gap: 32px;}
+  .gap-xxl-40 {gap: 40px;}
+}

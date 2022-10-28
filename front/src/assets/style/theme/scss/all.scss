@@ -2,8 +2,10 @@
 @import "./variables";
 @import "./base_fluid_calculator";//置換成這個
 @import "./base_typography";
-@import "./base_spacing_utilities";
-@import "./base_spacing_utilities";
+@import "./base_utilities_spacing";
+@import "./base_utilities_gap";
+@import "./base_utilities_square";
+@import "./base_utilities_radius";
 @import "./base_global";
 @import "./bootstrap-grid";
 
