@@ -11,7 +11,7 @@
               {{$t('home.mint')}}
             </h2>
   
-            <p class="section-subTitle color-white mb-24">NFTotal上排名靠前的 NFT，按數量、底價和其他統計數據排名</p>
+            <p class="section-subTitle color-white mb-24">{{$t('home.mintSub')}}</p>
   
           </div>
         </div>
