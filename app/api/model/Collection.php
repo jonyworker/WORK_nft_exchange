@@ -59,4 +59,21 @@ class Collection extends Model
         }
         return $data;
     }
+
+    public static function queryByNameAndContract($name,$contract,$field)
+    {
+        $where[] = ['contract', '=', $contract];
+        $whereOr[] = ['name', 'like', $name];
+
+        $where[] = ['valid', '=', 1];
+        $where[] = ['update_ind', '=', 1];
+        $where[] = ['level_ind', '=', 1];
+
+        $list = self::where($where)->whereOr($whereOr)->order('name')->field($field)->select();
+        if(empty($list) || $list->isEmpty()) {
+            return [];
+        }
+
+        return $list;
+    }
 }
