@@ -1,28 +1,39 @@
 <template>
   <div class="mt-80">
     <!-- 項目資訊 -->
-    <div class="container">
+    <div class="container mb-24">
       <div class="row">
         <div class="col-12">
-          <div v-if="panel.data" class="card card-background p-24">
+          <div v-if="panel.data" class="card card-background p-md-24 p-12">
             <div class="row">
               <!-- 項目info -->
               <div class="col-xl-7 col-12 d-flex flex-column mb-xl-0 mb-24">
                 <!-- 項目方頭像、名稱、tabs -->
                 <div class="d-flex flex-md-row flex-column gap-24 mb-24">
                   <!-- 項目頭像 -->
-                  <div class="card-image-content square-120 radius-half flex-shrink-0">
-                    <img :src="panel.data.photo_url">
-                  </div>
-                  <div class="d-flex flex-column flex-grow-1">
-                    <div class="d-flex align-items-center mb-auto">
-                      <!-- 項目名稱 -->
-                      <h3 class="heading-B-1 mr-auto">{{ panel.data.name }}</h3>
-                      <!-- icon like -->
-                      <!-- 未點擊 -->
+                  <div class="d-flex">
+                    <div class="card-image-content square-120 radius-half flex-shrink-0">
+                      <img :src="panel.data.photo_url">
+                    </div>
+                    <!-- icon like -->
+                    <!-- 未點擊 -->
+                    <div class="d-md-none ml-auto">
                       <div class="square-36 i-like-fill i-white" @click="toCollRemove(panel.data.id)" v-if="panel.data.is_collected === 1"></div>
                       <!-- 點擊 -->
                       <div class="square-36 i-like i-white" @click="toColl(panel.data.id)" v-else></div>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-column flex-grow-1">
+                    <div class="d-flex align-items-start mb-auto">
+                      <!-- 項目名稱 -->
+                      <h3 class="heading-B-2 mr-auto mb-md-0 mb-16">{{ panel.data.name }}</h3>
+                      <!-- icon like -->
+                      <!-- 未點擊 -->
+                      <div class="d-md-block d-none">
+                        <div class="square-36 i-like-fill i-white" @click="toCollRemove(panel.data.id)" v-if="panel.data.is_collected === 1"></div>
+                        <!-- 點擊 -->
+                        <div class="square-36 i-like i-white" @click="toColl(panel.data.id)" v-else></div>
+                      </div>
                     </div>                 
                     
                     <div class="d-flex gap-16">
@@ -44,32 +55,37 @@
                   </div>
                 </div>
 
-
                 <!-- 項目介紹 -->
                 <div class="body-L-1 mb-24 clamp-5">
                   {{ panel.data.introduction }}
                 </div>
 
                 <!-- 下方按鈕 -->
-                <div class="d-flex align-items-end mt-auto">
+                <div class="
+                  d-flex
+                  flex-md-row 
+                  flex-column 
+                  align-items-md-end 
+                  align-items-inherit 
+                  mt-auto">
                   <!-- icon群 -->
                   <div class="d-flex align-items-center gap-16">
-                    <div class="i i-group bg-alpha-white-55 square-24" @click="toDailog(1)"></div>
-                    <div class="i i-map bg-alpha-white-55 square-24" @click="toDailog(2)"></div>
-                    <div class="i i-earth bg-alpha-white-55 square-24" @click="toLink(panel.data.website)"></div>
-                    <div class="i i-discord bg-alpha-white-55 square-24" @click="toLink(panel.data.discord)"></div>
+                    <div class="i-group bg-alpha-white-55 square-24" @click="toDailog(1)"></div>
+                    <div class="i-map bg-alpha-white-55 square-24" @click="toDailog(2)"></div>
+                    <div class="i-earth bg-alpha-white-55 square-24" @click="toLink(panel.data.website)"></div>
+                    <div class="i-discord bg-alpha-white-55 square-24" @click="toLink(panel.data.discord)"></div>
                     <div class="i-twitter bg-alpha-white-55 square-24" @click="toLink(panel.data.instagram)"></div>
                     <div class="i-instagram bg-alpha-white-55 square-24" @click="toLink(panel.data.instagram)"></div>
                   </div>
                   <!-- 立即購買按鈕 -->
-                  <div class="btn-buy btn-bold ml-auto" @click="toLink(panel.data.platform_url)">立即購買</div>
+                  <div class="btn-buy btn-bold ml-md-auto mt-md-0 mt-40 " @click="toLink(panel.data.platform_url)">立即購買</div>
                 </div>
 
               </div>
               
-              <!-- 小卡群 -->
+              <!-- 小資訊群 -->
               <div class="col-xl-5 col-12 overflow-hidden">
-                <div class="row row-cols-2 gx-3 gy-3">
+                <div class="row row-cols-1 row-cols-md-2 gx-3 gy-3 mb-16">
                   <!-- 市值 -->
                   <div class="col">
                     <div class="card card-background-dark p-16 gap-4">
@@ -114,8 +130,10 @@
                       </div>
                     </div>
                   </div>
-                  <!-- 項目健康指數 -->
-                  <div class="col-12">
+                  
+                </div>
+                <!-- 項目健康指數 -->
+                <div class="col-12">
                     <div class="card card-background-dark p-16 gap-4">
                       <div class="body-B-1">項目健康指數</div>
                       <div class="heading-B-4">{{ (panel.data.holders / panel.data.item_qty * 100).toFixed(1) }}%</div>
@@ -125,7 +143,6 @@
                       </div> -->
                     </div>
                   </div>
-                </div>
               </div>
 
             </div>
@@ -136,15 +153,15 @@
     </div>
       
     <!--   图表 -->
-    <div class="container">
+    <div class="container mb-24">
       <div class="row">
-        <div class="col-6">
-          <div class="line">
+        <div class="col-xl-6 col-12 mb-xl-0 mb-24">
+          <div class="line p-md-24 p-12">
             <Line :panel="panel"/>
           </div>
         </div>
-        <div class="col-6">
-          <div class="pie">
+        <div class="col-xl-6 col-12">
+          <div class="pie p-md-24 p-12">
             <Pie :panel="panel"/>
           </div>
         </div>
@@ -155,7 +172,7 @@
     <div class="container">
 
       <!-- 項目方NFT卡片工具列 -->
-      <div class="dialog-wrap ">
+      <div class="dialog-wrap mb-24">
         <el-row >
           
           <el-col :md="8" :sm="8" :xs="24">
@@ -182,7 +199,7 @@
               </template>
               <div class="d-flex flex-row align-items-center justify-content-around">
                 <el-input v-model="form.min" placeholder="Min" style="width: 110px;"/>
-                到
+                to
                 <el-input v-model="form.max" placeholder="Max" style="width: 110px;"/>
               </div>
               <div class="mt-16 d-flex flex-row align-items-center justify-content-center">
@@ -206,7 +223,7 @@
 
       <!-- 項目方NFT卡片 -->
       <div class="minting-section">
-        <div class="row gy-3">
+        <div class="row gy-4">
           
           <!-- 尼哥做的 -->
           <div class="col-12 col-sm-6 col-lg-3"  v-for="(item,index) in dropsList" :key="index">
@@ -229,7 +246,7 @@
                   <div class="square-24 i-like i-white" @click="toNft(item.id)" v-else></div>
                 </div> 
                 <!-- 卡片 - 文字 -->
-                <p class="card-text-p">#1234</p>
+                <p class="card-text-p">#{{ item.tokenid }}</p>
                 
                 
               </div>
@@ -579,8 +596,7 @@ onMounted(() => {
 .pie, .line {
   // margin: 12px 0;
   background: #1C1C24;
-  padding: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.1019607843);
   border-radius: 16px;
 }
 
@@ -862,9 +878,7 @@ onMounted(() => {
   margin-top: 100px;
 }
 
-.container {
-  margin-top: 30px !important;
-}
+
 
 :deep .el-icon {
   color: rgba(255, 255, 255, 0.4) !important;
