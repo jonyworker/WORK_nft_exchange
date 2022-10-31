@@ -33,6 +33,7 @@
 }
 .ck-content p a {
   @include body-L-1;
+  word-break: break-all;
   margin-bottom: 32px;
   text-decoration: underline;
   cursor: pointer;
