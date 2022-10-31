@@ -26,7 +26,7 @@
                 <svg id="zoom-in-alt" data-name="Line color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon line-color" width="48" height="48"><path id="primary" d="M19,11a8,8,0,1,1-8-8A8,8,0,0,1,19,11Zm2,10-4.34-4.34" style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path><path id="secondary" d="M11,14V8M8,11h6" style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path></svg>
               </div>
               <!-- search - input -->
-              <input v-model="input" type="search" placeholder="搜尋項目">
+              <input v-model="input" type="search" :placeholder="$t('home.searchWallet')">
             </div>
           </li>
 
