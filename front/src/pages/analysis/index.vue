@@ -243,7 +243,7 @@ onMounted(() => {
    color:red;
  }
 .container{
-  position: relative;
+  // position: relative;
 }
 .analysis{
   height: 364px;
