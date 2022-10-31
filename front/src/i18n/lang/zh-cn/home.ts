@@ -3,7 +3,7 @@
 export default {
     toggle: '切换',
     search:'NFT分析',
-    searchWallet:'搜索項目地址',
+    searchWallet:'搜索項目',
     mint:'Minting观测站',
     overview:'统计',
     tool:'工具',
@@ -77,4 +77,7 @@ export default {
     walletAdd:'钱包地址',
     save:'储存',
     setting:'基本资料设定',
+
+
+    mintSub: 'Mint观测站将收集最近即将Mint的项目简介信息',
 };

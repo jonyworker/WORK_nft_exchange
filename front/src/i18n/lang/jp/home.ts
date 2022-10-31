@@ -4,7 +4,7 @@ export default {
     toggle: 'トグル',
     search:'NFTを調べる',
     mint:'鋳造観測所',
-    searchWallet:'プロジェクトアドレスを検索',
+    searchWallet:'プロジェクトを検索',
     overview:'統計学',
     tool:'道具',
     news:'ニュース',
@@ -77,4 +77,8 @@ export default {
     walletAdd:'ウォレットアドレス',
     save:'お店',
     setting:'基本データ設定',
+
+
+    mintSub: 'Mint staton は、最近の今後の Mint プロジェクト プロファイルに関する情報を収集します。',
+
 };

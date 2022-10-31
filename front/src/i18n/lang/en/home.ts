@@ -4,7 +4,7 @@ export default   {
     toggle: 'Toggle',
     search:'Search',
     mint:'Mint',
-    searchWallet:'Search Project Address',
+    searchWallet:'Search Collection',
     overview:'Overview',
     tool:'Tool',
     news:'News',
@@ -77,4 +77,8 @@ export default   {
     walletAdd:'wallet address',
     save:'save',
     setting:'settings',
+
+
+
+    mintSub: 'Mint Station will collect information on recent upcoming Mint project profiles',
 };

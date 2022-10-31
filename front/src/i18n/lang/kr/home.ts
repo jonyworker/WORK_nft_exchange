@@ -4,7 +4,7 @@ export default {
     toggle: '다른언어',
     search:'NFT검색',
     mint:'민팅',
-    searchWallet:'프로젝트 주소 검색',
+    searchWallet:'검색 항목',
     overview:'통계',
     tool:'도구',
     news:'뉴스',
@@ -77,4 +77,7 @@ export default {
     walletAdd:'월렛주소',
     save:'저장',
     setting:'기본정보설정',
+
+
+    mintSub: 'Mint station 는 최근의 Mint 프로젝트 프로필에 대한 정보를 수집합니다.',
 };

@@ -4,7 +4,7 @@ export default {
     toggle: '切換',
     search:'NFT分析',
     mint:'Minting觀測站',
-    searchWallet:'搜尋項目地址',
+    searchWallet:'搜尋項目',
     overview:'統計',
     tool:'工具',
     news:'新聞',
@@ -77,4 +77,7 @@ export default {
     walletAdd:'錢包地址',
     save:'儲存',
     setting:'基本資料設定',
+
+
+    mintSub: 'Mint觀測站將收集最近即將Mint的項目簡介資訊',
 };
