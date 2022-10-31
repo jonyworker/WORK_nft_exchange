@@ -1,11 +1,13 @@
 <template>
-  <div class="tabs mb-24">
-    <div class="heading-B-3 mr-auto">周期尺度</div>
-    <div :class="['tag ',current==='price_3d'&&'active_tag']" @click="changeData('price_3d')">3D</div>
-
-    <div :class="['tag',current==='price_30d'&&'active_tag']" @click="changeData('price_30d')">30D</div>
-
-    <div :class="['tag',current==='price_3m'&&'active_tag']" @click="changeData('price_3m')">3M</div>
+  <div class="d-flex flex-column flex-lg-row mb-24">
+    <div class="heading-B-3 mr-auto mb-lg-0 mb-8">周期尺度</div>
+    <div class="d-flex gap-8">
+      <div :class="['tag ',current==='price_3d'&&'active_tag']" @click="changeData('price_3d')">3D</div>
+  
+      <div :class="['tag',current==='price_30d'&&'active_tag']" @click="changeData('price_30d')">30D</div>
+  
+      <div :class="['tag',current==='price_3m'&&'active_tag']" @click="changeData('price_3m')">3M</div>
+    </div>
 
   </div>
   <div id="lineChart" class="lineChart"></div>
@@ -167,6 +169,7 @@ onMounted(() => {
 <style scoped lang="less">
 .lineChart {
   height: 427px;
+  // overflow-x: auto;
 }
 
 
