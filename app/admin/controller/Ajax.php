@@ -72,13 +72,13 @@ class Ajax extends AdminController
         $uploadConfig = [
             'upload_type' => 'local',
             'upload_allow_ext' => 'doc,gif,ico,icon,jpg,mp3,mp4,p12,pem,png,rar,jpeg',
-            'upload_allow_size' => '1024000',
+            'upload_allow_size' => '2048000',
             'upload_allow_mime' => 'image/gif,image/jpeg,video/x-msvideo,text/plain,image/png',
             'upload_allow_type' => 'local',
         ];
         $rule = [
             'upload_type|指定上传类型有误' => "in:local",
-            'file|文件' => "require|file|fileExt:doc,gif,ico,icon,jpg,mp3,mp4,p12,pem,png,rar,jpeg|fileSize:1024000",
+            'file|文件' => "require|file|fileExt:doc,gif,ico,icon,jpg,mp3,mp4,p12,pem,png,rar,jpeg|fileSize:2048000",
         ];
         $this->validate($data, $rule);
         try {
