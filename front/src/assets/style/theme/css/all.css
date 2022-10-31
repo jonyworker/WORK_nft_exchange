@@ -8702,6 +8702,31 @@ img {
   }
 }
 
+.ck-content p a {
+  font-family: "Noto Sans TC", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.375;
+  letter-spacing: 0;
+  margin-bottom: 32px;
+  text-decoration: underline;
+  cursor: pointer;
+  color: var(--el-color-white);
+}
+.ck-content p a {
+  font-size: 16px;
+}
+@media screen and (min-width: 768px) {
+  .ck-content p a {
+    font-size: calc(0vw + 16px);
+  }
+}
+@media screen and (min-width: 1536px) {
+  .ck-content p a {
+    font-size: 16px;
+  }
+}
+
 .ck-content > p {
   font-family: "Noto Sans TC", sans-serif;
   font-style: normal;
