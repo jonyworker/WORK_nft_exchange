@@ -44,9 +44,9 @@
           <el-menu-item class="body-B-1" style="padding: 0 16px" index="5" @click="toNews(1)">{{$t('home.news')}}</el-menu-item>
 
           <!-- Header - 背景調整 -->
-          <!-- <el-menu-item index="7" @click="toggleDark(!isDark)">
-            {{ $t(isDark ? 'global.dark' : 'global.light') }}
-          </el-menu-item> -->
+<!--          <el-menu-item index="7" @click="toggleDark(!isDark)">-->
+<!--            {{ $t(isDark ? 'global.dark' : 'global.light') }}-->
+<!--          </el-menu-item>-->
 
           <!-- Header - 連結錢包 v-if="status !== 'OK'"-->
 
@@ -271,6 +271,20 @@ const toMinting = () =>{
 }
 </script>
 <style lang="less" scoped>
+:deep .el-menu {
+  background:#121212 !important;
+  color:#FFF !important;
+}
+:deep .el-sub-menu__title{
+  color:#FFF !important;
+}
+:deep .el-sub-menu__title:hover{
+  background:#121212 !important;
+  color:#FFF !important;
+}
+:deep .el-menu-item{
+  color:#FFF !important;
+}
   .login{
     width:40px;
     height:40px;

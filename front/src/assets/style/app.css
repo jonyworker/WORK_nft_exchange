@@ -105,7 +105,9 @@ a {
 a, a:link, a:visited, a:hover {
     text-decoration: none
 }
-
+.color-white{
+    color:#fff !important;
+}
 .single-ellipsis {
     overflow: hidden;
     text-overflow: ellipsis;

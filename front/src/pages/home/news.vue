@@ -33,11 +33,11 @@
                 <!-- card-body -->
                 <div class="card-body-content">
     
-                  <div class="card-tag mb-8">
+                  <div class="card-tag mb-8 color-white">
                     <p>{{item.ind}}</p>
                   </div>
     
-                  <h3 class="card-title-h4 clamp-2 mb-16">{{item.title}}
+                  <h3 class="card-title-h4 color-white clamp-2 mb-16">{{item.title}}
                   </h3>
                   <!-- <div class="card-paragraph">
                     <div class="multiline-ellipsis mb-12" >

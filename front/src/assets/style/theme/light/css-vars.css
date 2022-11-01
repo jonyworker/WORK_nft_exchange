@@ -1,0 +1,9 @@
+html.dark {
+    /* 自定义深色背景颜色 */
+    --af-bg-color: #000000;
+    --el-color-primary: #7979f0;
+    --el-button-hover-bg-color: #7979f0;
+    --el-color-primary-dark-2: #7979f0;
+    --el-color-primary-light-3: #7979f0;
+    --el-border-radius-base:8px
+}
