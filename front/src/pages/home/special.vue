@@ -198,7 +198,7 @@ const chageTag = async (value: number) => {
   hotListFree.value = res.hot_collections.slice(10,15);
 }
 const hotRanking = () => {
-  router.push({name: 'HotRanking',query:{type:2}})
+  router.push({name: 'HotRanking',query:{type:1}})
 }
 const toIndex = (id:any) =>{
   router.push({name: 'HomePage',query:{id:id}})

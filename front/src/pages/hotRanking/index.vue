@@ -24,13 +24,8 @@
                 </div>
               </div>
             </div>
-
-
-
-
-
             <!-- 熱門排行 -->
-            <div class="row" v-show="type === 2">
+            <div class="row" v-show="type === 1">
               <!-- 時間選擇tag -->
               <div class="tabs mt-10">
                 <div v-for="(item,index) in textList" :key="index" :class="['tag',date===item.value?'active_tag':'']" @click="changeDate(item.value)" v-show="index < 3">
@@ -92,7 +87,7 @@
             </div>
             
             <!-- 高勝率錢包 -->
-            <div class="row" v-show="type === 3">
+            <div class="row" v-show="type === 2">
               <div class="tabs">
                 <div v-for="(item,index) in textList" :key="index" :class="['tag',date ===item.value?'active_tag':'']" @click="changeDate(item.value)" v-show="index < 3">
                   {{item.name}}
@@ -142,9 +137,6 @@
                 </div>
               </div>
             </div>
-
-
-
           </div>
         </div>
       </div>
@@ -196,7 +188,7 @@ const getTextList = async() =>{
   tabs.value = res.period
 }
 const ps = router.currentRoute.value.query.type;
-const type = ref ( 2);
+const type = ref ( 1);
 const date = ref(1);
 const row = ref(1)
 const toArrow = async(val:number) =>{
@@ -218,7 +210,7 @@ const copyInfo=(info:string)=>{
 }
 const changeDate = async(value:number) =>{
   date.value = value;
-  if(type.value === 2){
+  if(type.value === 1){
     const params ={
       count :10,    //每頁多少筆紀錄  // 用途:讓前端進行下滑分頁使用, 每次分頁撈取30條
       page:1,      // 返回第幾頁的數據
@@ -227,7 +219,7 @@ const changeDate = async(value:number) =>{
     }
     const res = await homeApi.getHotLists(params);
     hotList.value = res.hot_collections;
-  }else if(type.value === 3){
+  }else if(type.value === 2){
     const params ={
       count :30,    //每頁多少筆紀錄  // 用途:讓前端進行下滑分頁使用, 每次分頁撈取30條
       page:1,      // 返回第幾頁的數據
