@@ -27,6 +27,8 @@ class MemberCollection extends Model
                 'item_qty' => $info['item_qty'],
                 'market_cap' => $info['market_cap'],
                 'market_cap_p' => $info['market_cap_p'],
+                'volume_7d' => $info['volume_24'],
+                'volume_7d_p' => $info['volume_24_p'],
                 'volume_24' => $info['volume_24'],
                 'volume_24_p' => $info['volume_24_p'],
                 'sales_24' => $info['sales_24'],
