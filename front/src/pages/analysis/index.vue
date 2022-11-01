@@ -71,7 +71,7 @@
               <thead class="mb-40">
               <tr>
                 <th>#</th>
-                <th>{{$t('home.demo')}}</th>
+                <th>{{$t('home.demo')}}</th>  
                 <th>{{$t('home.floorPrice')}}</th>
                 <th>
                   7d值
@@ -86,6 +86,7 @@
 
               <tr v-for="(item,index) in analysisList" :key="index">
                 <th scope="row">0{{index + 1}}</th>
+                <!-- 項目 -->
                 <td class="td-wrap">
                   <div class="td-wrap-content">
                     <div class="profile-pic mr-8">
@@ -94,11 +95,17 @@
                     <p class="single-ellipsis">{{item.name}}</p>
                   </div>
                 </td>
+                <!-- 地板價 -->
                 <td class="">{{ item.floor_price }}</td>
+                <!-- 7d值 -->
                 <td :class="Number(item.volume_7d) > 0 ? 'go-down' : 'red'">{{item.volume_7d}}</td>
+                <!-- 24H% -->
                 <td :class="Number(item.volume_24_p) > 0 ?'go-up': 'red'">{{item.volume_24_p}}</td>
+                <!-- 7d% -->
                 <td>{{item. volume_7d_p}}</td>
+                <!-- Owners -->
                 <td>{{item.holders}}</td>
+                <!-- Items -->
                 <td>{{item.item_qty}}</td>
               </tr>
               </tbody>
@@ -236,15 +243,15 @@ onMounted(() => {
 //    height: 30px;
 //    font-size: 30px;
 //    overflow: inherit;padding-right:10px }
- .minting-content{
-   margin-top: 30px;
- }
- .red{
-   color:red;
- }
-.container{
-  // position: relative;
-}
+//  .minting-content{
+//    margin-top: 30px;
+//  }
+//  .red{
+//    color:red;
+//  }
+// .container{
+//   position: relative;
+// }
 .analysis{
   height: 364px;
   background: #D9D9D9;
@@ -345,24 +352,24 @@ onMounted(() => {
     }
   }
 }
-.profile-pic{
-  width: 50px;
-  height: 50px;
-  img{
-    width: 19px;
-    height: 22px;
-    margin-top: 16px;
-    margin-left: 10px;
-    border-radius:50%;
-  }
-}
-.right-image{
-  padding-top: 50px;
-  text-align: right;
-  line-height: 40px;
-  font-size: 32px;
-  margin-top: 10px;
-}
+// .profile-pic{
+//   width: 50px;
+//   height: 50px;
+//   img{
+//     width: 19px;
+//     height: 22px;
+//     margin-top: 16px;
+//     margin-left: 10px;
+//     border-radius:50%;
+//   }
+// }
+// .right-image{
+//   padding-top: 50px;
+//   text-align: right;
+//   line-height: 40px;
+//   font-size: 32px;
+//   margin-top: 10px;
+// }
 
 
 
