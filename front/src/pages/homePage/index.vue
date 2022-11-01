@@ -282,49 +282,14 @@
     </div>
 
 
-    <!-- 彈出視窗 -->
-    <el-dialog v-model="dialogFormVisible" width="85%">
-  
-      <!-- PC     -->
-      <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
-        <div class="main">
-          <div class="main-left">
-            <div class="main-img">
-              <img :src="panel.data.photo_url" alt="">
-            </div>
-    <!--            <div class="main-name">{{ dropsFour?.collection }}</div>-->
+    <!-- 彈出視窗 Lynn版本 -->
+   
 
-            <div class="tab-list">
-              <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
-                {{item.name}}
-              </div>
-            </div>
-          </div>
-          <div class="main-right" v-if="type === 1">{{panel.data.member}}</div>
-          <div class="main-right" v-if="type === 2">{{panel.data.roadmap}}</div>
-        </div>
-      </div>
-      <!-- H5 || table-->
-      <div v-else >
-        <div class="ipad-main">
-          <div class="main-img">
-            <img :src="panel.data.photo_url" alt="">
-          </div>
-          <div class="right">
-    <!--            <div class="main-name">{{ dropsFour?.collection }}</div>-->
-            <div class="tags">
-              <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
-                {{item.name}}
-              </div>
-            </div>
+    <!-- 彈出視窗 Jony版本 -->
+    <div class="continer">
+      <div class="row"> </div>
+    </div>
 
-          </div>
-        </div>
-        <div v-if="type === 1">{{panel.data.member}}</div>
-        <div  v-if="type === 2">{{panel.data.roadmap}}</div>
-      </div>
-
-    </el-dialog>
 
   </div>
 </template>
@@ -498,6 +463,12 @@ onMounted(() => {
 </script>
 
 <style lang="less" scoped>
+
+/* jony code start */
+
+
+/* jony code end */
+
 .ipad-main{
   display: flex;
   padding-bottom: 30px;
