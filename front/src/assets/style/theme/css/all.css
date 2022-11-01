@@ -8299,6 +8299,7 @@ img {
 
 /*----- card-image-content -----*/
 .card-image-content {
+  width: 100%;
   overflow: hidden;
 }
 .card-image-content img {
