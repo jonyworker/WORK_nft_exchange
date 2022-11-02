@@ -57,7 +57,7 @@ class Nft extends Model
                 'usd_price' => $item['usd_price'],
                 'permalink' => $item['permalink'],
                 'tokenid' => $item['tokenid'],
-                'collection_name' => $item['collection_name'],
+                'name' => $item['name'],
                 'is_collected' => \app\api\model\MemberNft::isCollection($userId, $item['id'])
 
             ];
