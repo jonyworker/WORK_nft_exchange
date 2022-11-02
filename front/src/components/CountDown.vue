@@ -1,10 +1,10 @@
 <template>
 
   <div class="card-time-wrap">
-    <p class="count-down-day">{{ time?.days }}</p>
-    <p class="count-down-hour">{{ time?.hours }}</p>
-    <p class="count-down-min">{{ time?.minutes }}</p>
-    <p class="count-down-sec">{{ time?.seconds }}</p>
+    <p class="count-down-day color-white">{{ time?.days }}</p>
+    <p class="count-down-hour color-white">{{ time?.hours }}</p>
+    <p class="count-down-min color-white">{{ time?.minutes }}</p>
+    <p class="count-down-sec color-white">{{ time?.seconds }}</p>
   </div>
 </template>
 
