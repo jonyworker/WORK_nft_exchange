@@ -60,10 +60,10 @@ class Collection extends Model
         return $data;
     }
 
-    public static function queryByNameAndContract($name,$contract,$field)
+    public static function queryByKeyword($keyword,$field)
     {
-        $where[] = ['contract', '=', $contract];
-        $whereOr[] = ['name', 'like', $name];
+        $where[] = ['contract', '=', $keyword];
+        $whereOr[] = ['name', 'like', $keyword];
 
         $where[] = ['valid', '=', 1];
         $where[] = ['update_ind', '=', 1];
