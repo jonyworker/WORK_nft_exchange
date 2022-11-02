@@ -411,7 +411,7 @@
 }
 
 .hover-primary:hover {
-  color: #4447E2;
+  color: #9fa0e9;
 }
 
 /*////////////////////////////////////////
@@ -8647,7 +8647,7 @@ img {
   letter-spacing: 0;
   margin-top: 8px;
   text-align: center;
-  color: rgba(255, 255, 255, 0.3490196078);
+  color: rgba(255, 255, 255, 0.4);
 }
 .blog-caption {
   font-size: 12px;
@@ -8670,6 +8670,7 @@ img {
   line-height: 1.125;
   letter-spacing: 0;
   margin-bottom: 40px;
+  color: rgba(255, 255, 255, 0.8980392157);
 }
 .ck-content h2 {
   font-size: 26px;
@@ -8692,6 +8693,7 @@ img {
   line-height: 1.33;
   letter-spacing: 0;
   margin-bottom: 40px;
+  color: rgba(255, 255, 255, 0.8980392157);
 }
 .ck-content h3 {
   font-size: 22px;
@@ -8717,7 +8719,7 @@ img {
   margin-bottom: 32px;
   text-decoration: underline;
   cursor: pointer;
-  color: var(--el-color-white);
+  color: rgba(255, 255, 255, 0.8980392157);
 }
 .ck-content p a {
   font-size: 16px;
@@ -8741,6 +8743,7 @@ img {
   letter-spacing: 0;
   line-height: 1.6;
   margin-bottom: 32px;
+  color: rgba(255, 255, 255, 0.8980392157);
 }
 .ck-content > p {
   font-size: 16px;
@@ -8770,6 +8773,7 @@ img {
   font-style: italic;
   margin-bottom: 32px;
   border-left: solid 5px hsl(0deg, 0%, 80%);
+  color: rgba(255, 255, 255, 0.8980392157);
 }
 .ck-content > blockquote {
   font-size: 16px;
