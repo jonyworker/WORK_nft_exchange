@@ -26,36 +26,28 @@
                 <svg id="zoom-in-alt" data-name="Line color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon line-color" width="48" height="48"><path id="primary" d="M19,11a8,8,0,1,1-8-8A8,8,0,0,1,19,11Zm2,10-4.34-4.34" style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path><path id="secondary" d="M11,14V8M8,11h6" style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path></svg>
               </div>
               <!-- search - input -->
-              <input v-model="input" type="search" :placeholder="$t('home.searchWallet')">
+              <input v-model="input" type="search" :placeholder="$t('home.searchWallet')" @input="changeInput" />
             </div>
           </li>
 
 
           <!-- Header - 熱門排行 -->
           <el-menu-item class="body-B-1 hover-primary" style="padding: 0 16px" index="" @click="toHotItem()">{{$t('home.hot_item')}}</el-menu-item>
-
           <!-- Header - 高勝率錢包 -->
           <el-menu-item class="body-B-1 hover-primary" style="padding: 0 16px" index="1" @click="toHotRanking()">{{$t('home.highWinningWallet')}}</el-menu-item>
-
           <!-- Header - Minting觀測站 -->
           <el-menu-item class="body-B-1 hover-primary" style="padding: 0 16px" index="2" @click="toMinting()">{{$t('home.mint')}}</el-menu-item>
-
           <!-- Header - 新聞＆專欄 -->
           <el-menu-item class="body-B-1 hover-primary" style="padding: 0 16px" index="5" @click="toNews(1)">{{$t('home.news')}}</el-menu-item>
-
           <!-- Header - 背景調整 -->
 <!--          <el-menu-item index="7" @click="toggleDark(!isDark)">-->
 <!--            {{ $t(isDark ? 'global.dark' : 'global.light') }}-->
 <!--          </el-menu-item>-->
-
           <!-- Header - 連結錢包 v-if="status !== 'OK'"-->
-
           <div class="ml-auto">
             <div class="connectWallet" @click="toWallet()" v-if="!isLogin">Connect Wallet</div>
             <div class="login ml-auto" v-else @click="logout()"></div>
           </div>
-
-
           <!-- Header - 語言選擇 -->
           <el-sub-menu class="body-B-1" style="margin-right: -20px;" index="8">
             <template #title >{{ langType[language] }}</template>
@@ -63,11 +55,9 @@
             <el-menu-item class="body-B-1" index="zhCn" @click="handleCommand('zhCn')">简体中文</el-menu-item>
             <el-menu-item class="body-B-1" index="en" @click="handleCommand('en')">English</el-menu-item>
           </el-sub-menu>
-
         </el-menu>
       </div>
     </div>
-
     <!-- 裝置介於 768px 以下時顯示 -->
     <div class="middle_header top-bar-section">
       <div class="container">
@@ -85,7 +75,7 @@
                 <svg id="zoom-in-alt" data-name="Line color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon line-color" width="48" height="48"><path id="primary" d="M19,11a8,8,0,1,1-8-8A8,8,0,0,1,19,11Zm2,10-4.34-4.34" style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path><path id="secondary" d="M11,14V8M8,11h6" style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path></svg>
               </div>
               <!-- search - input -->
-              <input v-model="input" type="search" placeholder="搜索NFT和錢包">
+              <input v-model="input" type="search" placeholder="搜索NFT和錢包" @input="changeInput" />
             </div>
           </div>
           <!-- Header - Minting觀測站 -->
@@ -124,7 +114,13 @@
         </div>
       </div>
     </div>
-
+    <!--搜索结果-->
+    <div  class="search-list" v-if="input !== ''">
+      <div class="search-container" v-for="(item,index) in searchResult" :key="index" v-show="index < 11">
+        <div class="search-img"><img :src="item.photo_url" alt=""></div>
+        <div class="search-text">{{item.name}}</div>
+      </div>
+    </div>
     <!-- 彈出選單 -->
     <!-- 彈出-會員登入頁 -->
     <el-drawer v-model="visibleLogout" :show-close="false" >
@@ -190,7 +186,7 @@
 import {langType} from '../enum/lanuage';
 import { ElButton, ElDrawer } from 'element-plus'
 import { CircleCloseFilled } from '@element-plus/icons-vue'
-import {homeApi} from "@/api";
+import {homeApi,userApi} from "@/api";
 
 import { ref } from 'vue'
 import {useI18n} from 'vue-i18n';
@@ -205,6 +201,7 @@ const isDark = useDark();
 const toggleDark = useToggle(isDark);
 const router = useRouter();
 const store = useStore();
+const searchResult = ref([])
 const isLogin = computed<languageType>(() => store.state.isLogin);
 // 改变语言
 const goto =(pathName:string,query?:Record<string, any>)=>{
@@ -235,6 +232,12 @@ const toAnalysis = (type:number) =>{
 const logout = () =>{
   visibleLogout.value = true
   visible.value = false
+}
+//搜索功能
+const changeInput = async() =>{
+  const res = await userApi.search({keyword:input.value});
+  searchResult.value = res.data
+  console.log("-> res", res);
 }
 //退出登录
 const toLogout = async() =>{
@@ -271,7 +274,32 @@ const toMinting = () =>{
 }
 </script>
 <style lang="less" scoped>
-
+.top-bar-section .header-search input{
+  color:#fff;
+}
+.search-list{
+  position:absolute;
+  top:60px;
+  left:96px;
+  z-index:999;
+  width:400px;
+padding:20px;
+}
+.search-container{
+  flex-wrap: wrap;
+  display:flex;
+  justify-content: space-between;
+  background:rgb(0,0,0);
+  padding:5px 20px;
+}
+.search-text{
+  color:#fff;
+}
+.search-img img{
+  width:50px;
+  height:50px;
+  border-radius:50%;
+}
   /* main nav hover效果 開始*/
   :deep .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
     background-color: #FFFFFF1A;
