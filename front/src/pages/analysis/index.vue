@@ -30,18 +30,16 @@
           <div class="personal-info-text-content pb-40  align-items-start">
             <!-- 使用者名稱 -->
             <div class="d-lg-flex align-items-center d-flex-column">
-              <div class="heading-B-2 mr-24">使用者自訂名稱</div>
+              <div class="heading-B-2 mr-24 color-white">使用者自訂名稱</div>
               <!-- 錢包地址 -->
               <div class="d-flex mt-lg-0 mt-8">
-                <div class="body-B-1 clamp-single" style="width: 130px;">{{username}}</div>
-                <div class="icon icon-copy ml-8">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="M9 18q-.825 0-1.412-.587Q7 16.825 7 16V4q0-.825.588-1.413Q8.175 2 9 2h9q.825 0 1.413.587Q20 3.175 20 4v12q0 .825-.587 1.413Q18.825 18 18 18Zm0-2h9V4H9v12Zm-4 6q-.825 0-1.413-.587Q3 20.825 3 20V7q0-.425.288-.713Q3.575 6 4 6t.713.287Q5 6.575 5 7v13h10q.425 0 .713.288.287.287.287.712t-.287.712Q15.425 22 15 22ZM9 4v12V4Z"/></svg>
-                </div>
+                <div class="body-B-1 clamp-single color-white" style="width: 130px;">{{username}}</div>
+                <div class=" ml-8 i-copy bg-alpha-white-55 square-24"></div>
               </div>
             </div>
             
             <!-- setting icon -->
-            <el-icon class="ml-auto">
+            <el-icon class="ml-auto" style="">
               <Setting/>
             </el-icon>
           </div>
@@ -252,6 +250,10 @@ onMounted(() => {
 // .container{
 //   position: relative;
 // }
+:deep .el-icon {
+  color: white;
+}
+
 .analysis{
   height: 364px;
   background: #D9D9D9;
