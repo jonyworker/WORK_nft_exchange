@@ -286,7 +286,24 @@ const toMinting = () =>{
   }
   /* main nav hover效果 結束*/
 
+  /* main nav 語言選擇 hover效果 開始*/
+  :deep .el-popper.is-light {
+    background: #121212 !important;
+    border: 1px solid #FFFFFF66 !important;
+  }
+  
+  :deep .el-menu {
+    background:#121212 !important;
+  }
+  :deep .el-menu--horizontal .el-menu .el-menu-item {
+    background:#121212 !important;
+    color: #FFFFFF99 !important;
+  }
+  :deep .el-menu--horizontal .el-menu-item:not(.is-disabled):focus, .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
+    background-color: #FFFFFF1A;
+  }
 
+  /* main nav 語言選擇 hover效果 結束*/
 
 
 

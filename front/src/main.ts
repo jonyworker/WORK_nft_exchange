@@ -10,6 +10,7 @@ import "element-plus/dist/index.css"; // element默认主题色
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import store from "./store";
 import router from "./router";
+import '@/assets/style/theme/css/popupcss.css'
 
 
 import i18n from "./i18n/index";
