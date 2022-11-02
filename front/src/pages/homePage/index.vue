@@ -340,8 +340,9 @@ type IInfo = {
   price: string,
   unit: string,
   usd_price: string,
-  is_collected:number,
-  tokenid:string,
+  is_collected: number,
+  tokenid: string,
+  name: string,
 }
 const dropsList = ref<IInfo[] | null>(null);
 const type = ref(1)
