@@ -7,7 +7,7 @@
         <div class="row justify-content-center">
           <div class="col-lg-8 col-12 mb-56">
             <!-- 標題組 - 新聞標籤 -->
-            <div class="card-tag mb-16 align-self-start">
+            <div class="card-tag mb-16 align-self-start color-white">
               <p>{{newList?.ind}}</p>
             </div>
             <!-- 標題組 - 新聞標題 -->
