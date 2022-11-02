@@ -46,7 +46,7 @@
                 <div class="card-body-content p-16">
 
                   <!-- icon 標題組 -->
-                  <div class="card-icon-title-wrap mb-12">
+                  <div class="card-icon-title-wrap mb-12 align-items-center">
                     <div class="icon mr-16">
                       <img :src="item.collection_url" alt="">
                     </div>
