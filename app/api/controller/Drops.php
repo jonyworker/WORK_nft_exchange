@@ -83,8 +83,8 @@ class Drops extends BaseController
 
             foreach ($data as $k => $v) {
                 $data[$k]['background'] = $background[shuffle($background)];
-                $ymd = date('Ymd',$v['ori_date']);
-                $his = date('His',$v['ori_date']);
+                $ymd = date('Ymd',strtotime($v['ori_date']));
+                $his = date('His',strtotime($v['ori_date']));
                 $data[$k]['schedule'] = 'https://calendar.google.com/calendar/u/0/r/eventedit?dates='.$ymd.'T'.$his.'-8/'.$ymd.
                 'T013000-8&location=http://potatopalsnft.com/&text=Mint提醒(SerNFT)&details='.$v['introduction'];
             }

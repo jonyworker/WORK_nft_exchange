@@ -213,7 +213,7 @@ class Projects extends AdminController
         }
         try {
             $row->save([
-                $post['field'] => $post['value'],
+                $post['field'] => $post['value'] == 0 ? 2 : $post['value'],
             ]);
         } catch (\Exception $e) {
             $this->error($e->getMessage());
