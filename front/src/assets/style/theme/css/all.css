@@ -410,8 +410,12 @@
   }
 }
 
-.hover-primary:hover {
+.hover-primary:not(.active):hover {
   color: #9fa0e9;
+}
+
+.hover-primary.isActive {
+  color: #4447E2;
 }
 
 /*////////////////////////////////////////
