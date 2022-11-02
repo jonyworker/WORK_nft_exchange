@@ -89,7 +89,7 @@
             <!-- 高勝率錢包 -->
             <div class="row" v-show="type === 2">
               <div class="tabs">
-                <div v-for="(item,index) in textList" :key="index" :class="['tag',date ===item.value?'active_tag':'']" @click="changeDate(item.value)" v-show="index < 3">
+                <div v-for="(item,index) in textList" :key="index" :class="['tag',walletDate ===item.value?'active_tag':'']" @click="changeWalletDate(item.value)" v-show="index < 3">
                   {{item.name}}
                 </div>
               </div>
@@ -190,6 +190,7 @@ const getTextList = async() =>{
 const ps = router.currentRoute.value.query.type;
 const type = ref ( 1);
 const date = ref(1);
+const walletDate = ref (3);
 const row = ref(1)
 const toArrow = async(val:number) =>{
   row.value = val;
@@ -208,6 +209,21 @@ const changeTag = (value:number) =>{
 const copyInfo=(info:string)=>{
   copy(info)
 }
+const changeWalletDate = async (value:number)=>{
+  walletDate.value = value
+ if(type.value === 2){
+   const params ={
+     count :30,    //每頁多少筆紀錄  // 用途:讓前端進行下滑分頁使用, 每次分頁撈取30條
+     page:1,      // 返回第幾頁的數據
+     ind :walletDate.value,  // 週期, 默認4   // 1: 24h  2:7d   3:30d  4:60d
+     orderby: walletDate.value , //排序, 默認1   // 1: win_p  2: win_ct   3: txn_ct
+     orderby_ind: 1 ,// 排序方向 , 默認1  //1:desc   2:asc
+   }
+   const res = await homeApi.getProfitList(params);
+   walletList.value = res.high_profit
+  }
+
+}
 const changeDate = async(value:number) =>{
   date.value = value;
   if(type.value === 1){
@@ -219,16 +235,6 @@ const changeDate = async(value:number) =>{
     }
     const res = await homeApi.getHotLists(params);
     hotList.value = res.hot_collections;
-  }else if(type.value === 2){
-    const params ={
-      count :30,    //每頁多少筆紀錄  // 用途:讓前端進行下滑分頁使用, 每次分頁撈取30條
-      page:1,      // 返回第幾頁的數據
-      ind :date.value,  // 週期, 默認4   // 1: 24h  2:7d   3:30d  4:60d
-      orderby: date.value , //排序, 默認1   // 1: win_p  2: win_ct   3: txn_ct
-      orderby_ind: 1 ,// 排序方向 , 默認1  //1:desc   2:asc
-    }
-    const res = await homeApi.getProfitList(params);
-    walletList.value = res.high_profit
   }
 
 }
@@ -253,8 +259,8 @@ const getProfig = async () =>{
   const params ={
       count :30,    //每頁多少筆紀錄  // 用途:讓前端進行下滑分頁使用, 每次分頁撈取30條
       page:1,      // 返回第幾頁的數據
-    ind : date.value,  // 週期, 默認4   // 1: 24h  2:7d   3:30d  4:60d
-    orderby:  date.value , //排序, 默認1   // 1: win_p  2: win_ct   3: txn_ct
+    ind :walletDate.value,  // 週期, 默認4   // 1: 24h  2:7d   3:30d  4:60d
+    orderby:  walletDate.value , //排序, 默認1   // 1: win_p  2: win_ct   3: txn_ct
     orderby_ind: 1 ,// 排序方向 , 默認1  //1:desc   2:asc
 }
   const res = await homeApi.getProfitList(params);
@@ -272,6 +278,36 @@ onMounted(() => {
 </script>
 
 <style scoped lang="less">
+.parent{
+  width: 128px;
+  height: 36px;
+  line-height: 36px;
+  text-align: left;
+  .parent-main{
+    width: 100%;
+    height: 36px;
+    display: flex;
+    overflow: hidden;
+    .prev-span{
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .next-span{
+      display: block;
+      white-space: nowrap;
+    }
+  }
+}
+.profile-pic img{
+  width:28px;
+  text-align:center;
+}
+.profile img{
+  margin-left:10px;
+  width:15px;
+}
 
 // .title-wrap .subtile {
 //   font-family: "Noto Sans TC", sans-serif;

@@ -261,7 +261,7 @@ const toNews = (value:number) =>{
   router.push({name: 'News',query:{type:value}})
 }
 const toHotItem = () =>{
-  router.push({name: 'HotRanking',query:{type:2}})
+  router.push({name: 'HotRanking',query:{type:1}})
 }
 const toIndex = () =>{
   router.push({name: 'HomePage',})
