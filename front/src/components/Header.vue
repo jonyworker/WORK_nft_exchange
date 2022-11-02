@@ -59,8 +59,8 @@
           <!-- Header - 語言選擇 -->
           <el-sub-menu class="body-B-1" style="margin-right: -20px;" index="8">
             <template #title >{{ langType[language] }}</template>
-            <el-menu-item class="body-B-1" index="zhCn" @click="handleCommand('zhCn')">简体中文</el-menu-item>
             <el-menu-item class="body-B-1" index="zh-tw" @click="handleCommand('zh-tw')">繁體中文</el-menu-item>
+            <el-menu-item class="body-B-1" index="zhCn" @click="handleCommand('zhCn')">简体中文</el-menu-item>
             <el-menu-item class="body-B-1" index="en" @click="handleCommand('en')">English</el-menu-item>
           </el-sub-menu>
 
@@ -168,8 +168,8 @@
         <!-- 新聞&專欄 -->
         <div class="heading-B-3 mb-24" @click="toNews(1)">{{$t('home.newsBlog')}}</div>
       </div>
-      <div class="heading-B-5 mb-12" index="zhCn" @click="handleCommand('zhCn')">简体中文</div>
       <div class="heading-B-5 mb-12" index="zh-tw" @click="handleCommand('zh-tw')">繁體中文</div>
+      <div class="heading-B-5 mb-12" index="zhCn" @click="handleCommand('zhCn')">简体中文</div>
       <div class="heading-B-5" index="en" @click="handleCommand('en')">English</div>
 
       <div class="mt-auto">
