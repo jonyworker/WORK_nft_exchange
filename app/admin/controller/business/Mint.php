@@ -77,15 +77,31 @@ class Mint extends AdminController
         //時間         date             必填
         if ($this->request->isPost()) {
             $post = $this->request->post();
-            $rule = [
-                'blockchain|鏈' => 'require',
-                'collection|項目' => 'require',
-                'utc|時區(UTC)' => 'require',
-                'ori_date|當地時間' => 'require',
-                'valid|狀態' => 'require',
-                'date|時間' => 'require',
-                'total|項目數' => 'require',
-            ];
+            if ($post['is_tab']) {
+                $rule = [
+                    'blockchain|鏈' => 'require',
+                    'collection|項目' => 'require',
+                    'utc|時區(UTC)' => 'require',
+                    'valid|狀態' => 'require',
+                    'total|項目數' => 'require',
+                ];
+                if (!$post['ori_date']) {
+                    unset($post['ori_date']);
+                }
+                if (!$post['date']) {
+                    unset($post['date']);
+                }
+            } else {
+                $rule = [
+                    'blockchain|鏈' => 'require',
+                    'collection|項目' => 'require',
+                    'utc|時區(UTC)' => 'require',
+                    'ori_date|當地時間' => 'require',
+                    'valid|狀態' => 'require',
+                    'date|時間' => 'require',
+                    'total|項目數' => 'require',
+                ];
+            }
             $this->validate($post, $rule);
 
             //转化标签
@@ -128,15 +144,31 @@ class Mint extends AdminController
         empty($row) && $this->error('数据不存在');
         if ($this->request->isPost()) {
             $post = $this->request->post();
-            $rule = [
-                'blockchain|鏈' => 'require',
-                'collection|項目' => 'require',
-                'utc|時區(UTC)' => 'require',
-                'ori_date|當地時間' => 'require',
-                'valid|狀態' => 'require',
-                'date|時間' => 'require',
-                'total|項目數' => 'require',
-            ];
+            if ($post['is_tab']) {
+                $rule = [
+                    'blockchain|鏈' => 'require',
+                    'collection|項目' => 'require',
+                    'utc|時區(UTC)' => 'require',
+                    'valid|狀態' => 'require',
+                    'total|項目數' => 'require',
+                ];
+                if (!$post['ori_date']) {
+                    unset($post['ori_date']);
+                }
+                if (!$post['date']) {
+                    unset($post['date']);
+                }
+            } else {
+                $rule = [
+                    'blockchain|鏈' => 'require',
+                    'collection|項目' => 'require',
+                    'utc|時區(UTC)' => 'require',
+                    'ori_date|當地時間' => 'require',
+                    'valid|狀態' => 'require',
+                    'date|時間' => 'require',
+                    'total|項目數' => 'require',
+                ];
+            }
             $this->validate($post, $rule);
             try {
                 $post['editName'] = session('admin.username');

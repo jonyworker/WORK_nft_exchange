@@ -75,6 +75,10 @@ class Collection extends Model
             return [];
         }
 
+        foreach ($list as $k => $v) {
+            $list[$k]['forward'] = 'http://v2admin.nftotal.io/dist/#/homePage?id='.$v['id'];
+        }
+
         return $list;
     }
 }
