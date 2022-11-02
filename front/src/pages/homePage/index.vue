@@ -176,7 +176,7 @@
         <el-row >
           
           <el-col :md="8" :sm="8" :xs="24">
-            <div class="left">
+            <div class="left color-white">
               <el-switch v-model="form.filter_ind"
                         active-value="1"
                         inactive-value="2"/>

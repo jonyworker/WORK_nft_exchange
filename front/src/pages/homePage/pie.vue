@@ -1,5 +1,5 @@
 <template>
-  <div class="heading-B-3 mb-24">持有數量分佈</div>
+  <div class="heading-B-3 mb-24 color-white">持有數量分佈</div>
   <div id="pieChart" class="pieChart"></div>
 </template>
 

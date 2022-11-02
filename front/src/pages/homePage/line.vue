@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex flex-column flex-lg-row mb-24">
-    <div class="heading-B-3 mr-auto mb-lg-0 mb-8">周期尺度</div>
+    <div class="heading-B-3 mr-auto mb-lg-0 mb-8 color-white">周期尺度</div>
     <div class="d-flex gap-8">
       <div :class="['tag ',current==='price_3d'&&'active_tag']" @click="changeData('price_3d')">3D</div>
   
@@ -44,6 +44,7 @@ const changeData = (type: string) => {
   } = formatData(newData)
   dateRange.value = date_list;
   lowPrice.value = floor_price
+  console.log(lowPrice.value,'lowPrice.value')
   avgPrice.value = avg_price
   volumes.value = volume
   // 绘制图表
@@ -101,13 +102,14 @@ const changeData = (type: string) => {
       }
     ],
     series: [
-
       {
         name: '地板價',
-        type: 'bar',
         data: lowPrice.value,
+        type: 'line',
 
+        stack: 'x',
       },
+
       {
         name: '平均價',
         data: avgPrice.value,
@@ -119,7 +121,7 @@ const changeData = (type: string) => {
         data: volumes.value,
         type: 'line',
         stack: 'x',
-      }
+      },
     ]
   });
 }
@@ -138,6 +140,7 @@ const formatData = (list: ITrend[]) => {
 
   return list.reduce((prev: IFormatData, cur: ITrend) => {
     const {date, floor_price, avg_price, volume} = cur
+
     return {
       date_list: [...prev.date_list, date],
       floor_price: [...prev.floor_price, floor_price],
