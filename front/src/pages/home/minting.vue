@@ -56,7 +56,7 @@
                   <p class="card-text-p clamp-3 mb-8">{{ dropsOne?.introduction }}</p>
                   <p class="card-text-p mb-8">{{$t('home.price')}}{{ dropsOne?.price }}</p>
                   <p class="card-text-p mb-8">{{$t('home.total')}}{{ dropsOne?.total }}</p>
-                  <p class="card-text-p mb-24">{{$t('home.shortTime')}}{{ dropsOne?.shortTime }}</p>
+                  <p class="card-text-p mb-24">{{$t('home.shortTime')}}{{ dropsOne?.date }}</p>
                   
                   <!-- 卡片icon -->
                   <div class="mt-auto">
@@ -125,7 +125,7 @@
                   <p class="card-text-p clamp-3 mb-8">{{ dropsTwo?.introduction }}</p>
                   <p class="card-text-p mb-8">{{$t('home.price')}}{{ dropsTwo?.price }}</p>
                   <p class="card-text-p mb-8">{{$t('home.total')}}{{ dropsTwo?.total }}</p>
-                  <p class="card-text-p mb-24">{{$t('home.shortTime')}}{{ dropsTwo?.shortTime }}</p>
+                  <p class="card-text-p mb-24">{{$t('home.shortTime')}}{{ dropsTwo?.date }}</p>
 
                   <!-- 卡片icon -->
                   <div class="mt-auto">
@@ -196,7 +196,7 @@
                   <p class="card-text-p clamp-3 mb-8">{{ dropsThree?.introduction }}</p>
                   <p class="card-text-p mb-8">{{$t('home.price')}}{{ dropsThree?.price }}</p>
                   <p class="card-text-p mb-8">{{$t('home.total')}}{{ dropsThree?.total }}</p>
-                  <p class="card-text-p mb-24">{{$t('home.shortTime')}}{{ dropsThree?.shortTime }}</p>
+                  <p class="card-text-p mb-24">{{$t('home.shortTime')}}{{ dropsThree?.date }}</p>
 
                   <!-- 卡片icon -->
                   <div class="mt-auto">
@@ -266,7 +266,7 @@
                   <p class="card-text-p clamp-3 mb-8">{{ dropsFour?.introduction }}</p>
                   <p class="card-text-p mb-8">{{$t('home.price')}}{{ dropsFour?.price }}</p>
                   <p class="card-text-p mb-8">{{$t('home.total')}}{{ dropsFour?.total }}</p>
-                  <p class="card-text-p mb-24">{{$t('home.shortTime')}}{{ dropsFour?.shortTime }}</p>
+                  <p class="card-text-p mb-24">{{$t('home.shortTime')}}{{ dropsFour?.date }}</p>
 
                   <!-- 卡片icon -->
                   <div class="mt-auto">
