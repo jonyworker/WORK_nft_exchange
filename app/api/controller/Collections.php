@@ -74,10 +74,10 @@ class Collections extends BaseController
     {
         $lan = (int)$this->request->post('lan',1); // 1:繁體中文 2:簡體中文 3:英文 4:日 5:韓
         // 項目錢包地址
-        $contract = $this->request->post('contract');
-        if (empty($contract)) {
-            return json(['code' => 400, 'message' => '項目錢包地址不能为空']);
-        }
+//        $contract = $this->request->post('contract');
+//        if (empty($contract)) {
+//            return json(['code' => 400, 'message' => '項目錢包地址不能为空']);
+//        }
         // 項目名稱關鍵字
         $keyword = $this->request->post('keyword');
         if (empty($keyword)) {
