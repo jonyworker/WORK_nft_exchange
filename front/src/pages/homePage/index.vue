@@ -469,6 +469,42 @@ onMounted(() => {
 
 /* jony code start */
 
+:deep .el-input__wrapper {
+  background-color: #121212;
+  border:1px solid #FFFFFF99;
+  box-shadow: none;
+}
+:deep .el-input__inner {
+  color: #FFFFFFCC;
+}
+:deep .el-button {
+  background-color: #121212;
+  color: #fff;
+  border:1px solid #FFFFFF99;
+}
+:deep .el-button.is-round {
+  background-color: #4447E2;
+  color: #fff;
+  border:none;
+}
+
+:deep .el-button:focus, .el-button:hover {
+  color: #fff;
+  border-color: #FFFFFF99;
+  background-color: #FFFFFF1A;
+  // outline: 0;
+}
+
+:deep .el-switch.is-checked .el-switch__core {
+    border-color: #4447E2;
+    background-color: #4447E2;
+}
+
+
+
+:deep .el-select:hover:not(.el-select--disabled) .el-input__wrapper {
+  box-shadow: none;
+}
 
 /* jony code end */
 

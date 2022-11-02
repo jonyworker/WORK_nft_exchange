@@ -12,6 +12,9 @@
   background:#121212 !important;
   color: #FFFFFF99 !important;
 }
-/* .el-menu--horizontal .el-menu-item:focus, .el-menu--horizontal .el-menu-item:hover {
-  background-color: #FFFFFF1A;
-} */
+.el-popper.is-light .el-popper__arrow::before {
+  border: 1px solid #FFFFFF66;
+  background: #121212;
+  right: 0;
+  
+}
