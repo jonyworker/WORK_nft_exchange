@@ -31,9 +31,9 @@
               </div>
               <div class="personal-info-text-content pb-40">
                 <!-- 使用者名稱 -->
-                <div class="heading-B-2">使用者自訂名稱</div>
+                <div class="heading-B-2 color-white">使用者自訂名稱</div>
                 <!-- setting icon -->
-                <el-icon class="ml-auto">
+                <el-icon class="ml-auto color-white">
                   <Setting/>
                 </el-icon>
               </div>
@@ -51,23 +51,23 @@
               <form>
                 <ul class="form-list mt-64">
                   <li class="form-item mb-24">
-                    <label class="body-B-1 mb-4" for="user-name">使用者名稱</label>
-                    <input v-model="formModel.name" placeholder="請輸入使用者名稱" autocomplete="off" size="large" type="text" id="user-name"/>
+                    <label class="body-B-1 mb-4 color-white" for="user-name">{{$t('home.userName')}}</label>
+                    <input class="color-white" v-model="formModel.name" placeholder="請輸入使用者名稱" autocomplete="off" size="large" type="text" id="user-name"/>
                   </li>
     
                   <li label="E-mail" prop="email" class="form-item mb-48">
-                    <label class="body-B-1 mb-4" for="user-email">電子信箱</label>
-                    <input v-model="formModel.email" placeholder="請輸入電子信箱" autocomplete="off" size="large" type="text" id="user-email"/>
+                    <label class="body-B-1 mb-4 color-white" for="user-email">E-mail</label>
+                    <input class="color-white" v-model="formModel.email" placeholder="請輸入電子信箱" autocomplete="off" size="large" type="text" id="user-email"/>
                   </li>
 
 
                   <li label="錢包地址" class="mb-72">
-                    <label class="body-B-1 mb-4">錢包地址</label>
+                    <label class="body-B-1 mb-4 color-white">{{$t('home.walletAdd')}}</label>
                     <div class="wallet-address">
 
-                      <p class="body-B-1 clamp-1">0x2d775455skkcoa54d7ad5fwok454cd</p>
+                      <p class="body-B-1 clamp-1 color-white">0x2d775455skkcoa54d7ad5fwok454cd(我是假資料)</p>
                       
-                      <el-icon class="ml-auto">
+                      <el-icon class="ml-auto color-white">
                         <CopyDocument/>
                       </el-icon>
                     </div>

@@ -237,13 +237,15 @@
               <div class="card-body-content p-16" style=" flex:0;">
 
                 <!-- icon 標題組 -->
-                <div class="card-icon-title-wrap align-items-center mb-12">
+                <div class="card-icon-title-wrap align-items-center mb-12" style="width:100%;">
                   <!-- 項目方名稱 -->
-                  <p class="title card-title-h5 text-white clamp-1">動態項目方名稱動態項目方名稱動態項目方名</p>
+                  <p class="title card-title-h5 text-white clamp-1">{{ item.name }}</p>
                   <!-- 愛心icon -->
                   <!-- <div class="i i-24 i-white i-like"></div> -->
-                  <div class="square-24 i-like-fill i-white" @click="toNftRemove(item.id)" v-if="item.is_collected === 1"></div>
-                  <div class="square-24 i-like i-white" @click="toNft(item.id)" v-else></div>
+                  <div class="ml-auto">
+                    <div class="square-24 i-like-fill i-white" @click="toNftRemove(item.id)" v-if="item.is_collected === 1"></div>
+                    <div class="square-24 i-like i-white" @click="toNft(item.id)" v-else></div>
+                  </div>
                 </div> 
                 <!-- 卡片 - 文字 -->
                 <p class="card-text-p">#{{ item.tokenid }}</p>

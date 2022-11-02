@@ -32,16 +32,16 @@
 
 
           <!-- Header - 熱門排行 -->
-          <div class="body-B-1 hover-primary" style="padding: 0 16px" index="" @click="toHotItem()">{{$t('home.hot_item')}}</div>
+          <el-menu-item class="body-B-1 hover-primary" style="padding: 0 16px" index="" @click="toHotItem()">{{$t('home.hot_item')}}</el-menu-item>
 
           <!-- Header - 高勝率錢包 -->
-          <div class="body-B-1 hover-primary" style="padding: 0 16px" index="1" @click="toHotRanking()">{{$t('home.highWinningWallet')}}</div>
+          <el-menu-item class="body-B-1 hover-primary" style="padding: 0 16px" index="1" @click="toHotRanking()">{{$t('home.highWinningWallet')}}</el-menu-item>
 
           <!-- Header - Minting觀測站 -->
-          <div class="body-B-1 hover-primary" style="padding: 0 16px" index="2" @click="toMinting()">{{$t('home.mint')}}</div>
+          <el-menu-item class="body-B-1 hover-primary" style="padding: 0 16px" index="2" @click="toMinting()">{{$t('home.mint')}}</el-menu-item>
 
           <!-- Header - 新聞＆專欄 -->
-          <div class="body-B-1 hover-primary" style="padding: 0 16px" index="5" @click="toNews(1)">{{$t('home.news')}}</div>
+          <el-menu-item class="body-B-1 hover-primary" style="padding: 0 16px" index="5" @click="toNews(1)">{{$t('home.news')}}</el-menu-item>
 
           <!-- Header - 背景調整 -->
 <!--          <el-menu-item index="7" @click="toggleDark(!isDark)">-->
@@ -59,8 +59,8 @@
           <!-- Header - 語言選擇 -->
           <el-sub-menu class="body-B-1" style="margin-right: -20px;" index="8">
             <template #title >{{ langType[language] }}</template>
-            <el-menu-item class="body-B-1" index="zhCn" @click="handleCommand('zhCn')">简体中文</el-menu-item>
             <el-menu-item class="body-B-1" index="zh-tw" @click="handleCommand('zh-tw')">繁體中文</el-menu-item>
+            <el-menu-item class="body-B-1" index="zhCn" @click="handleCommand('zhCn')">简体中文</el-menu-item>
             <el-menu-item class="body-B-1" index="en" @click="handleCommand('en')">English</el-menu-item>
           </el-sub-menu>
 
@@ -168,8 +168,8 @@
         <!-- 新聞&專欄 -->
         <div class="heading-B-3 mb-24" @click="toNews(1)">{{$t('home.newsBlog')}}</div>
       </div>
-      <div class="heading-B-5 mb-12" index="zhCn" @click="handleCommand('zhCn')">简体中文</div>
       <div class="heading-B-5 mb-12" index="zh-tw" @click="handleCommand('zh-tw')">繁體中文</div>
+      <div class="heading-B-5 mb-12" index="zhCn" @click="handleCommand('zhCn')">简体中文</div>
       <div class="heading-B-5" index="en" @click="handleCommand('en')">English</div>
 
       <div class="mt-auto">
@@ -271,6 +271,25 @@ const toMinting = () =>{
 }
 </script>
 <style lang="less" scoped>
+
+  /* main nav hover效果 開始*/
+  :deep .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
+    background-color: #FFFFFF1A;
+  }
+  :deep .el-menu--horizontal>.el-menu-item.is-active {
+    border-bottom: 2px solid #4447E2;
+    color: #4447E2 !important;
+  }
+  :deep .el-menu--horizontal .el-menu-item:not(.is-disabled):focus, .el-menu--horizontal .el-menu-item:not(.is-disabled):hover,
+  .el-menu--horizontal>.el-menu-item:not(.is-disabled):focus {
+      background-color: none;
+  }
+  /* main nav hover效果 結束*/
+
+
+
+
+
 :deep .el-menu {
   background:#121212 !important;
   color:#FFF !important;

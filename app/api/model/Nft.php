@@ -32,6 +32,7 @@ class Nft extends Model
     public static function getListByApi($userId, $collectionId, $filterInd, $orderBy, $page = 1, $perPage = 20)
     {
         $contract = Collection::queryByCollectionId($collectionId, 1);
+        $name = $contract['name'];
         $contract = $contract['contract'];
         $where[] = ['contract', '=', $contract];
 
@@ -57,6 +58,7 @@ class Nft extends Model
                 'usd_price' => $item['usd_price'],
                 'permalink' => $item['permalink'],
                 'tokenid' => $item['tokenid'],
+                'name' => $name,
                 'is_collected' => \app\api\model\MemberNft::isCollection($userId, $item['id'])
 
             ];

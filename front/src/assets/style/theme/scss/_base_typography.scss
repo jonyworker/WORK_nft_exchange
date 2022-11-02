@@ -220,6 +220,10 @@
   border-radius: 100px;
   background-color: $color-main;
 }
-.hover-primary:hover {
+.hover-primary:not(.active):hover {
   color: $color-primary-light;
+}
+
+.hover-primary.isActive {
+  color: $color-primary-default;
 }
