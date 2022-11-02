@@ -38,13 +38,13 @@
                     <!-- 卡片內文 -->
                     <div class="card-body-content">
                       <!-- 卡片 tag -->
-                      <div class="card-tag mb-8">
+                      <div class="card-tag mb-8 color-white">
                         <p>{{newListTwo?.ind}}</p>
                       </div>
                       <!-- 卡片標題 -->
-                      <h3 class="card-title-h4 clamp-2 mb-16">{{newListTwo?.title}}</h3>
+                      <h3 class="card-title-h4 clamp-2 mb-16 color-white">{{newListTwo?.title}}</h3>
                       <!-- 內容簡介 -->
-                      <div class="card-text-p clamp-5 mb-8">
+                      <div class="card-text-p clamp-5 mb-8 color-white">
                         <div v-html="newListTwo?.content" ></div>
                       </div>
                       <!-- 時間 -->
@@ -73,12 +73,12 @@
                 <!-- 卡片內文 -->
                 <div class="card-body-content">
                   <!-- tag -->
-                  <div class="card-tag mb-8">
+                  <div class="card-tag mb-8 color-white">
                     <p>{{item.ind}}</p>
                   </div>
 
                   <!-- 標題 -->
-                  <h3 class="card-title-h4 clamp-2 mb-8 flex-grow-1">{{item.title}}</h3>
+                  <h3 class="card-title-h4 clamp-2 mb-8 flex-grow-1 color-white">{{item.title}}</h3>
 
                   <!-- 內文 -->
                   <!-- <div class="card-paragraph">
