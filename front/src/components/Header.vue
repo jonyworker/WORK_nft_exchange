@@ -32,16 +32,16 @@
 
 
           <!-- Header - 熱門排行 -->
-          <el-menu-item class="body-B-1" style="padding: 0 16px" index="" @click="toHotItem()">{{$t('home.hot_item')}}</el-menu-item>
+          <div class="body-B-1 hover-primary" style="padding: 0 16px" index="" @click="toHotItem()">{{$t('home.hot_item')}}</div>
 
           <!-- Header - 高勝率錢包 -->
-          <el-menu-item class="body-B-1" style="padding: 0 16px" index="1" @click="toHotRanking()">{{$t('home.highWinningWallet')}}</el-menu-item>
+          <div class="body-B-1 hover-primary" style="padding: 0 16px" index="1" @click="toHotRanking()">{{$t('home.highWinningWallet')}}</div>
 
           <!-- Header - Minting觀測站 -->
-          <el-menu-item class="body-B-1" style="padding: 0 16px" index="2" @click="toMinting()">{{$t('home.mint')}}</el-menu-item>
+          <div class="body-B-1 hover-primary" style="padding: 0 16px" index="2" @click="toMinting()">{{$t('home.mint')}}</div>
 
           <!-- Header - 新聞＆專欄 -->
-          <el-menu-item class="body-B-1" style="padding: 0 16px" index="5" @click="toNews(1)">{{$t('home.news')}}</el-menu-item>
+          <div class="body-B-1 hover-primary" style="padding: 0 16px" index="5" @click="toNews(1)">{{$t('home.news')}}</div>
 
           <!-- Header - 背景調整 -->
 <!--          <el-menu-item index="7" @click="toggleDark(!isDark)">-->

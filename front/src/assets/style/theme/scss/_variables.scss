@@ -32,7 +32,9 @@ $color-alpha-gray-40: #18181866;
 $color-alpha-gray-20: #18181833;
 $color-alpha-gray-10: #1818181A;
 
-$color-purple: #4447E2;
+$color-purple-default: #4447E2;
+$color-purple-dark: #1f206d;
+$color-purple-light: #9fa0e9;
 $color-green: #14D400;
 
 $color-elevation-0: #121212;
@@ -48,9 +50,9 @@ $color-text-main: $color-alpha-white-35;
 $color-border-light: $color-alpha-white-20;
 $color-border: $color-alpha-white-40;
 
-$color-primary-default: #166A39;
-$color-primary-dark: #0E3D1E;
-$color-primary-light: #E6F5EA;
+$color-primary-default: $color-purple-default;
+$color-primary-dark: $color-purple-dark;
+$color-primary-light: $color-purple-light;
 
 $text-color-primary: #1C2B36;
 $text-color-secondary: #3E5463;
