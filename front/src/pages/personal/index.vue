@@ -33,7 +33,7 @@
                 <!-- 使用者名稱 -->
                 <div class="heading-B-2 color-white">使用者自訂名稱</div>
                 <!-- setting icon -->
-                <el-icon class="ml-auto">
+                <el-icon class="ml-auto color-white">
                   <Setting/>
                 </el-icon>
               </div>
