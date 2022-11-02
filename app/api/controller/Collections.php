@@ -79,7 +79,7 @@ class Collections extends BaseController
 //            return json(['code' => 400, 'message' => '項目錢包地址不能为空']);
 //        }
         // 項目名稱關鍵字
-        $keyword = $this->request->post('keyword');
+        $keyword = $this->request->param('keyword');
         if (empty($keyword)) {
             return json(['code' => 400, 'message' => '項目名稱關鍵字不能为空']);
         }
