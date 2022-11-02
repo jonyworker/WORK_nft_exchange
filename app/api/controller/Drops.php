@@ -56,7 +56,7 @@ class Drops extends BaseController
         //傳入lan =5,  introduction 取drops.introduction_ko
         //                member 取drops. member_ko
         //                roadmap取drops.roadmap_ko
-        $field = 'id,collection_url,collection,tag,price,blockchain,total,date,website,twitter,discord,mint_url,ori_date';
+        $field = 'id,collection_url,collection,tag,price,blockchain,total,date,website,twitter,discord,mint_url,ori_date,is_tba';
         if ($request['lan'] == 1) {
             $field .= ',introduction,member,roadmap';
         } elseif ($request['lan'] == 2) {
