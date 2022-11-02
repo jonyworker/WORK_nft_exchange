@@ -58,7 +58,7 @@ class News extends BaseController
         //          content 取news.content_jp
         //傳入lan =5,  title 取news.title_ko
         //          content 取news.content_ko
-        $field = 'id,ind,author,start_date,photo_url,source';
+        $field = 'id,ind,author,start_date,photo_url,source,large_photo_url';
         if ($request['lan'] == 1) {
             $field .= ',title,content';
         } elseif ($request['lan'] == 2) {
