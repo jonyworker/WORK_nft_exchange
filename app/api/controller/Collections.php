@@ -79,15 +79,15 @@ class Collections extends BaseController
             return json(['code' => 400, 'message' => '項目錢包地址不能为空']);
         }
         // 項目名稱關鍵字
-        $name = $this->request->post('name');
-        if (empty($name)) {
+        $keyword = $this->request->post('keyword');
+        if (empty($keyword)) {
             return json(['code' => 400, 'message' => '項目名稱關鍵字不能为空']);
         }
 
         $field = 'id,name,photo_url,contract';
 
         $data['state'] = 'OK';
-        $data['data'] = Collection::queryByNameAndContract($name, $contract, $field);
+        $data['data'] = Collection::queryByKeyword($keyword, $field);
 
         return json($data);
     }
