@@ -12,7 +12,7 @@
                 <div class="d-flex flex-md-row flex-column gap-24 mb-24">
                   <!-- 項目頭像 -->
                   <div class="d-flex">
-                    <div class="card-image-content square-120 radius-half flex-shrink-0">
+                    <div class="card-image-content square-120 radius-half flex-shrink-0" style="width:auto">
                       <img :src="panel.data.photo_url">
                     </div>
                     <!-- icon like -->
@@ -288,8 +288,12 @@
    
 
     <!-- 彈出視窗 Jony版本 -->
-    <div class="continer">
-      <div class="row"> </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+
+        </div>
+      </div>
     </div>
 
 
