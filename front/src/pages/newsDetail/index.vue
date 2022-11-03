@@ -23,7 +23,7 @@
         <div class="row justify-content-center mb-56">
           <div class="col-11">
             <div class="card-image-content ratio--1-91_1 bdRadius-8 mb-12">
-              <img class="blog-main-img" :src="newList?.photo_url" alt="">
+              <img class="blog-main-img" :src="newList?.large_photo_url" alt="">
             </div>
             <p class="blog-caption">{{newList?.source}}</p>
           </div>
@@ -56,6 +56,7 @@ interface INewListFor{
   content:string;
   start_date:string;
   source:string;
+  large_photo_url:string;
 }
 
 const newList = ref<INewListFor|null>(null);
