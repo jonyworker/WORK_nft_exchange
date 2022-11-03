@@ -26,7 +26,7 @@
           <!-- 內容 -->
           <div class="row" >
             <div class="d-none d-lg-block col-12 mb-24" >
-              <div class="card" @click="toDetails(newListTwo?.id)">
+              <div class="card d-block" @click="toDetails(newListTwo?.id)">
                 <div class="row">
                   <!-- 卡片圖片 -->
                   <div class="col-8">
