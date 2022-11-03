@@ -16,7 +16,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">時區(UTC)</label>
             <div class="layui-input-block">
-                <select name="utc" lay-verify="required" >
+                <select id="utc" name="utc" lay-verify="required" lay-filter="changeUtc">
                     <option value="">請選擇時區（UTC）</option>
                     {volist name='utcList' id='utc'}
                     <option value="{$utc}"> {$utc}</option>
@@ -28,7 +28,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">當地時間</label>
             <div class="layui-input-block">
-                <input type="text" name="ori_date" class="layui-input" lay-verify="required" placeholder="請輸入當地時間" value="{$row.ori_date|default=''}">
+                <input type="text" id="ori_date" name="ori_date" class="layui-input" lay-verify="required" placeholder="請輸入當地時間" value="{$row.ori_date|default=''}">
             </div>
         </div>
 
@@ -36,7 +36,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">時間</label>
             <div class="layui-input-block">
-                <input type="text" name="date" class="layui-input" lay-verify="required" placeholder="請輸入當地時間" value="{$row.date|default=''}">
+                <input type="text" id="date" name="date" class="layui-input" lay-verify="required" placeholder="請輸入當地時間" value="{$row.date|default=''}">
             </div>
         </div>
 
@@ -44,7 +44,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">TBA</label>
             <div class="layui-input-block">
-                <input type="checkbox" name="is_tab" title="TBA" value="2">
+                <input type="checkbox" name="is_tab" title="TBA" value="2" lay-filter="changeIsTab">
             </div>
         </div>
 

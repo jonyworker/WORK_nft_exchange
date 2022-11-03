@@ -1,5 +1,5 @@
 define(["jquery", "easy-admin"], function ($, ea) {
-
+    var form = layui.form;
     var init = {
         table_elem: '#currentTable',
         table_render_id: 'currentTableRenderId',
@@ -64,5 +64,46 @@ define(["jquery", "easy-admin"], function ($, ea) {
             ea.listen();
         },
     };
+
+    form.on('checkbox(changeIsTab)', function(data){
+        console.log(data.elem); //得到checkbox原始DOM对象
+        console.log(data.elem.checked); //是否被选中，true或者false
+        console.log(data.value); //复选框value值，也可以通过data.elem.value得到
+        console.log(data.othis); //得到美化后的DOM对象
+        if (data.elem.checked) {
+            $('#ori_date').removeAttr('lay-verify');
+            $('#date').removeAttr('lay-verify');
+        } else {
+            $('#ori_date').attr('lay-verify','required');
+            $('#date').attr('lay-verify','required');
+        }
+    });
+
+    form.on('select(changeUtc)', function(data){
+        changeDate();
+    })
+
+    $('body').on("change",'#ori_date',function(){
+        changeDate();
+    })
+
+    function changeDate() {
+        if (!$('#ori_date').val() || !$('#utc').val()) {
+            return;
+        }
+        var date = new Date($('#ori_date').val());
+        var time = 8 - $('#utc').val();
+        date.setHours(date.getHours() + time);
+
+        var y = date.getFullYear();
+        var m = (date.getMonth() + 1) < 10 ? ("0" + (date.getMonth() + 1)) : (date.getMinutes() + 1);
+        var d = date.getDate() < 10 ? ("0" + date.getDate()) : date.getDate();
+        var h = date.getHours() < 10 ? ('0' + date.getHours()) : date.getHours()
+        var f = date.getMinutes() < 10 ? ('0' + date.getMinutes()) : date.getMinutes()
+        var s = date.getSeconds() < 10 ? ('0' + date.getSeconds()) : date.getSeconds()
+
+        const newDate = y + '-' + m + '-' + d + " " + h + ":" + f + ":" + s;
+        $('#date').val(newDate);
+    }
     return Controller;
 });
