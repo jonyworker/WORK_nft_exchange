@@ -116,7 +116,7 @@
     </div>
     <!--搜索结果-->
     <div  class="search-list" v-if="input !== ''">
-      <div class="search-container" v-for="(item,index) in searchResult" :key="index" v-show="index < 11">
+      <div class="search-container" v-for="(item,index) in searchResult" :key="index" v-show="index < 11" @click="toLink(item.forward)">
         <div class="search-img"><img :src="item.photo_url" alt=""></div>
         <div class="search-text">{{item.name}}</div>
       </div>
@@ -197,6 +197,7 @@ import {useStore} from "vuex";
  type IInfo ={
    photo_url:string;
    name:string;
+   forward:string;
 }
 const input = ref('')
 const visible = ref(false);
@@ -222,7 +223,13 @@ const handleSelect = (value: string) => {
 const toHot = () =>{
   router.push({name: 'HotRanking',query:{type:2}})
 }
-
+//搜索结果跳转
+const toLink = (url:string|undefined) =>{
+  if (!url) {
+    return
+  }
+  window.open(url)
+}
 const handleCommand = (value: string) => {
   store.commit('CHANGE_LANGUAGE', value);
   router.go(0);
@@ -283,8 +290,8 @@ const toMinting = () =>{
 }
 .search-list{
   position:absolute;
-  top:60px;
-  left:96px;
+  top:70px;
+  left:200px;
   z-index:999;
   width:400px;
 padding:20px;
@@ -295,14 +302,20 @@ padding:20px;
   justify-content: space-between;
   background:rgb(0,0,0);
   padding:5px 20px;
+  color:#fff;
+}
+.search-container:hover{
+  background:#fff;
+  color:#333;
 }
 .search-text{
-  color:#fff;
+line-height:60px;
 }
 .search-img img{
   width:50px;
   height:50px;
   border-radius:50%;
+  margin-top: 5px;
 }
   /* main nav hover效果 開始*/
   :deep .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
