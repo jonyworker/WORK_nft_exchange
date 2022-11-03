@@ -194,6 +194,10 @@ import {useDark, useToggle} from '@vueuse/core';
 import {useRouter} from 'vue-router';
 import {computed} from 'vue';
 import {useStore} from "vuex";
+ type IInfo ={
+   photo_url:string;
+   name:string;
+}
 const input = ref('')
 const visible = ref(false);
 const visibleLogout = ref(false);
@@ -201,7 +205,7 @@ const isDark = useDark();
 const toggleDark = useToggle(isDark);
 const router = useRouter();
 const store = useStore();
-const searchResult = ref([])
+const searchResult = ref<IInfo[] | null>(null);
 const isLogin = computed<languageType>(() => store.state.isLogin);
 // 改变语言
 const goto =(pathName:string,query?:Record<string, any>)=>{
