@@ -2,11 +2,11 @@
   <div class="d-flex flex-column flex-lg-row mb-24">
     <div class="heading-B-3 mr-auto mb-lg-0 mb-8 color-white">周期尺度</div>
     <div class="d-flex gap-8">
-      <div :class="['tag ',current==='price_3d'&&'active_tag']" @click="changeData(1)">3D</div>
+      <div :class="['tag ',ind===1&&'active_tag']" @click="changeData(1)">3D</div>
 
-      <div :class="['tag',current==='price_30d'&&'active_tag']" @click="changeData(2)">30D</div>
+      <div :class="['tag',ind===2&&'active_tag']" @click="changeData(2)">30D</div>
 
-      <div :class="['tag',current==='price_3m'&&'active_tag']" @click="changeData(3)">3M</div>
+      <div :class="['tag',ind===3&&'active_tag']" @click="changeData(3)">3M</div>
     </div>
 
   </div>
@@ -20,7 +20,6 @@ import { ITrend} from "@/pages/homePage/homePageTypes";
 import {homePageApi} from "@/api";
 import {useRoute} from "vue-router";
 
-const current = ref<string>('price_3d') // 激活
 const dateRange = ref<string[]>() // 时间轴
 const lowPrice = ref<string[]>() // 底价
 const avgPrice = ref<string[]>()// 均价
