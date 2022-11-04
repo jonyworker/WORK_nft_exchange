@@ -29,6 +29,8 @@ Route::get('collection/index','Collections/index')->middleware(OptionalAuth::cla
 Route::post('collection/nft','Collections/nft')->middleware(OptionalAuth::class);
 //23. 取得搜尋選單結果 POST /api/collection/search
 Route::post('collection/search','Collections/search')->middleware(OptionalAuth::class);
+// 12-2 取得項目主頁資訊(價格圖表) POST /api/collection/pricehistory
+Route::post('collection/pricehistory','Collections/priceHistory')->middleware(OptionalAuth::class);
 
 //图片上传 POST /api/upload/image 字段file
 Route::post('upload/image','Upload/image')->middleware(Auth::class);
