@@ -15,12 +15,11 @@
 
 <script lang="ts" setup>
 import * as echarts from 'echarts';
-import {onMounted, defineProps, ref} from 'vue'
-import {panelData, ITrend} from "@/pages/homePage/homePageTypes";
+import {onMounted, ref} from 'vue'
+import { ITrend} from "@/pages/homePage/homePageTypes";
 import {homePageApi} from "@/api";
 import {useRoute} from "vue-router";
 
-const props = defineProps<{ panel: panelData }>()
 const current = ref<string>('price_3d') // 激活
 const dateRange = ref<string[]>() // 时间轴
 const lowPrice = ref<string[]>() // 底价

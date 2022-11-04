@@ -157,7 +157,7 @@
       <div class="row">
         <div class="col-xl-6 col-12 mb-xl-0 mb-24">
           <div class="line p-md-24 p-12">
-            <Line :panel="panel" @prams="type" v-model:value="ind" />
+            <Line />
           </div>
         </div>
         <div class="col-xl-6 col-12">
