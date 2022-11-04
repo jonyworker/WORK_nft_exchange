@@ -157,7 +157,7 @@
       <div class="row">
         <div class="col-xl-6 col-12 mb-xl-0 mb-24">
           <div class="line p-md-24 p-12">
-            <Line :panel="panel"/>
+            <Line :panel="panel" @prams="type" v-model:value="ind" />
           </div>
         </div>
         <div class="col-xl-6 col-12">
@@ -354,9 +354,7 @@ const toDailog = (val:number) =>{
   dialogFormVisible.value = true;
   type.value = val
 }
-const changeList = (value:number) =>{
-  type.value = value
-}
+
 //复制
 const copyInfo=(info:string)=>{
   copy(info)
@@ -368,13 +366,14 @@ const toLink = (url:string) =>{
   }
   window.open(url)
 }
+
 const getHomePage = async () => {
   const {id} = route.query
-  const res: panelData = await homePageApi.getHomePoster({collectionId: id as string});
+  const params = {
+    collectionId: id as string,
+  }
+  const res: panelData = await homePageApi.getHomePoster(params);
   panel.data = res.data
-  panel.price_3d = res.price_3d
-  panel.price_30d = res.price_30d
-  panel.price_3m = res.price_3m
   panel.holder_stat = res.holder_stat
 
 }

@@ -11,8 +11,7 @@ const service = axios.create({
 })
 service.interceptors.request.use(function (config) {
     // 在发送请求之前做些什么
-    const lan =sessionStorage.getItem('localeLangEnum')??1
-    console.log("-> config", config);
+    const lan =sessionStorage.getItem('localeLangEnum')??1;
     config.headers = {...config.headers,
        'access-token':localStorage.getItem('token')??'',
         'Authorization':'bearer ' + localStorage.getItem('token')??'',

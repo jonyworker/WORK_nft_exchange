@@ -2,11 +2,11 @@
   <div class="d-flex flex-column flex-lg-row mb-24">
     <div class="heading-B-3 mr-auto mb-lg-0 mb-8 color-white">周期尺度</div>
     <div class="d-flex gap-8">
-      <div :class="['tag ',current==='price_3d'&&'active_tag']" @click="changeData('price_3d')">3D</div>
-  
-      <div :class="['tag',current==='price_30d'&&'active_tag']" @click="changeData('price_30d')">30D</div>
-  
-      <div :class="['tag',current==='price_3m'&&'active_tag']" @click="changeData('price_3m')">3M</div>
+      <div :class="['tag ',current==='price_3d'&&'active_tag']" @click="changeData(1)">3D</div>
+
+      <div :class="['tag',current==='price_30d'&&'active_tag']" @click="changeData(2)">30D</div>
+
+      <div :class="['tag',current==='price_3m'&&'active_tag']" @click="changeData(3)">3M</div>
     </div>
 
   </div>
@@ -15,8 +15,10 @@
 
 <script lang="ts" setup>
 import * as echarts from 'echarts';
-import {onMounted, defineProps} from 'vue'
+import {onMounted, defineProps, ref} from 'vue'
 import {panelData, ITrend} from "@/pages/homePage/homePageTypes";
+import {homePageApi} from "@/api";
+import {useRoute} from "vue-router";
 
 const props = defineProps<{ panel: panelData }>()
 const current = ref<string>('price_3d') // 激活
@@ -24,17 +26,23 @@ const dateRange = ref<string[]>() // 时间轴
 const lowPrice = ref<string[]>() // 底价
 const avgPrice = ref<string[]>()// 均价
 const volumes = ref<string[]>()
+const priceData = ref<ITrend[]>([])
 const myChart = ref();
+const route = useRoute()
+const ind = ref(1)
 
+const emit = defineEmits(['update:value']);
 /**
  * 切换数据
- * @param type
  */
-const changeData = (type: string) => {
-  current.value = type
-  const data:any[] = props.panel?.[type as never]
-  const newData =data.sort((a:any,b:any)=>{
-    return (new Date(a.date).getTime()-new Date(b.date).getTime())
+const changeData = async (index: number) => {
+  ind.value = index
+  await getPrice()
+}
+
+const renderData = () => {
+  const newData = priceData.value.sort((a: any, b: any) => {
+    return (new Date(a.date).getTime() - new Date(b.date).getTime())
   })
   const {
     date_list,
@@ -43,14 +51,13 @@ const changeData = (type: string) => {
     volume,
   } = formatData(newData)
   dateRange.value = date_list;
-  lowPrice.value = floor_price
-  console.log(lowPrice.value,'lowPrice.value')
-  avgPrice.value = avg_price
-  volumes.value = volume
+  lowPrice.value = floor_price;
+  avgPrice.value = avg_price;
+  volumes.value = volume;
   // 绘制图表
   myChart.value.setOption({
     legend: {
-      textStyle:{
+      textStyle: {
         fontSize: 16,//字体大小
         color: '#ffffff'//字体颜色
       }
@@ -154,19 +161,26 @@ const formatData = (list: ITrend[]) => {
     volume: []
   })
 }
+//图表
+const getPrice = async () => {
+  const {id} = route.query
+  const params = {
+    collectionId: id as string,
+    ind: ind.value
+  }
+  try {
+    const res: { [key: string]: ITrend[] } = await homePageApi.priceHistory(params);
+    priceData.value = res?.data || res?.price_3d || res?.price_30d || res?.price_3m;
+    renderData()
+  } catch (e) {
 
-watch(() => props?.panel, () => {
-  props?.panel?.price_3m && changeData('price_3d' as never)
-}, {
-  immediate: true,
-  deep: true
-})
-
+  }
+}
 onMounted(() => {
   const chartDom = document.getElementById('lineChart');
-  myChart.value =  chartDom && echarts.init(chartDom);
+  myChart.value = chartDom && echarts.init(chartDom);
+  getPrice()
 })
-
 </script>
 
 <style scoped lang="less">
