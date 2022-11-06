@@ -15,8 +15,8 @@
 
 <script lang="ts" setup>
 import * as echarts from 'echarts';
-import {onMounted, ref,watch} from 'vue'
-import { ITrend} from "@/pages/homePage/homePageTypes";
+import {onMounted, ref, watch} from 'vue'
+import {ITrend} from "@/pages/homePage/homePageTypes";
 import {homePageApi} from "@/api";
 import {useRoute} from "vue-router";
 
@@ -52,6 +52,12 @@ const renderData = () => {
   lowPrice.value = floor_price;
   avgPrice.value = avg_price;
   volumes.value = volume;
+  if (!myChart.value) {
+    const chartDom = document.getElementById('lineChart');
+    console.log("-> myChart.value 1", myChart.value);
+    myChart.value = chartDom && echarts.init(chartDom);
+  }
+  console.log("->  myChart.value", myChart.value);
   // 绘制图表
   myChart.value.setOption({
     legend: {
@@ -174,7 +180,7 @@ const getPrice = async () => {
 
   }
 }
-watch(()=> myChart.value,getPrice)
+watch(() => myChart.value, getPrice)
 onMounted(() => {
   const chartDom = document.getElementById('lineChart');
   myChart.value = chartDom && echarts.init(chartDom);
