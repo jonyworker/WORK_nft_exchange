@@ -58,6 +58,7 @@ const renderData = () => {
     myChart.value = chartDom && echarts.init(chartDom);
   }
   console.log("->  myChart.value", myChart.value);
+  console.log("-> 数据", {date_list, floor_price, avg_price, volume});
   // 绘制图表
   myChart.value.setOption({
     legend: {
