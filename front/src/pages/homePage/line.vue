@@ -15,7 +15,7 @@
 
 <script lang="ts" setup>
 import * as echarts from 'echarts';
-import {onMounted, ref} from 'vue'
+import {onMounted, ref,watch} from 'vue'
 import { ITrend} from "@/pages/homePage/homePageTypes";
 import {homePageApi} from "@/api";
 import {useRoute} from "vue-router";
@@ -174,6 +174,7 @@ const getPrice = async () => {
 
   }
 }
+watch(()=> myChart.value,getPrice)
 onMounted(() => {
   const chartDom = document.getElementById('lineChart');
   myChart.value = chartDom && echarts.init(chartDom);
