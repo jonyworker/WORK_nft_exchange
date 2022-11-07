@@ -30,7 +30,7 @@ class Collections extends BaseController
             return json(['code' => 400, 'message' => '项目id不能为空']);
         }
 
-        $ind = (int)$this->request->get('ind');
+//        $ind = (int)$this->request->get('ind');
         $lan = (int)$this->request->get('lan', 1);
 
         $data['state'] = 'OK';
@@ -39,15 +39,15 @@ class Collections extends BaseController
         $data['data']['is_collected'] = \app\api\model\MemberCollection::isCollection($userId, $collectionId);
 
 
-        $contract = $data['data']['contract'];
-
-        if ($ind == 1) {
-            $data['price_3d'] = StatCollectionDay::getPriceByDate(date('Y-m-d H:i:s', strtotime('-3 days')), $contract, 3);
-        } elseif ($ind == 2) {
-            $data['price_30d'] = StatCollectionDay::getPriceByDate(date('Y-m-d H:i:s', strtotime('-30 days')), $contract, 30);
-        } elseif ($ind == 3) {
-            $data['price_3m'] = StatCollectionDay::getPriceByDate(date('Y-m-d H:i:s', strtotime('-3 months')), $contract, 90);
-        }
+//        $contract = $data['data']['contract'];
+//
+//        if ($ind == 1) {
+//            $data['price_3d'] = StatCollectionDay::getPriceByDate(date('Y-m-d H:i:s', strtotime('-3 days')), $contract, 3);
+//        } elseif ($ind == 2) {
+//            $data['price_30d'] = StatCollectionDay::getPriceByDate(date('Y-m-d H:i:s', strtotime('-30 days')), $contract, 30);
+//        } elseif ($ind == 3) {
+//            $data['price_3m'] = StatCollectionDay::getPriceByDate(date('Y-m-d H:i:s', strtotime('-3 months')), $contract, 90);
+//        }
 
         $data['holder_stat'] = [
             '1' => StatHolderCt::countHolderByCt($collectionId, 1),
@@ -94,6 +94,33 @@ class Collections extends BaseController
 
         $data['state'] = 'OK';
         $data['data'] = Collection::queryByKeyword($keyword, $field);
+
+        return json($data);
+    }
+
+    public function priceHistory(): Json
+    {
+        $ind = (int)$this->request->param('ind');
+        $lan = (int)$this->request->param('lan',1); // 1:繁體中文 2:簡體中文 3:英文 4:日 5:韓
+        $userId = $this->getUserId();
+
+        $collectionId = (int)$this->request->param('collectionId');
+        if ($collectionId <= 0) {
+            return json(['code' => 400, 'message' => '项目id不能为空']);
+        }
+
+        $data['state'] = 'OK';
+
+        $collection = Collection::queryByCollectionId($collectionId, $lan);
+        $contract = $collection['contract'];
+
+        if ($ind == 1) {
+            $data['price_3d'] = StatCollectionDay::getPriceByDate(date('Y-m-d H:i:s', strtotime('-3 days')), $contract, 3);
+        } elseif ($ind == 2) {
+            $data['price_30d'] = StatCollectionDay::getPriceByDate(date('Y-m-d H:i:s', strtotime('-30 days')), $contract, 30);
+        } elseif ($ind == 3) {
+            $data['price_3m'] = StatCollectionDay::getPriceByDate(date('Y-m-d H:i:s', strtotime('-3 months')), $contract, 90);
+        }
 
         return json($data);
     }

@@ -1,5 +1,5 @@
 import request from '../request/index'
-import {panelData} from "@/pages/homePage/homePageTypes";
+import {ITrend, panelData} from "@/pages/homePage/homePageTypes";
 
 
 const homePageApi = {
@@ -25,5 +25,9 @@ const homePageApi = {
     async removeColl(params:any){
         return await request.post('/api/member/collection/remove',params)
     },
+    //周期图
+    async priceHistory (params: {collectionId:string}): Promise<{[key:string]:ITrend[]}>{
+        return await request.post('/api/collection/pricehistory',params)
+    }
 }
 export default homePageApi
