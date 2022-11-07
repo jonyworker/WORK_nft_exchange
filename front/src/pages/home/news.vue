@@ -27,7 +27,7 @@
             <div class="col-12 col-sm-6 col-lg-4" v-for="(item,index) in newList" :key="index">
               <div class="card" @click="toDetails(item.id)">
                 <!-- card-img -->
-                <div class="card-image-content ratio--1-91_1 bdRadius-8 mb-16">
+                <div class="card-image-content ratio--1-91_1 bdRadius-8 mb-16" style="width:100%">
                   <img :src="item.photo_url" alt="">
                 </div>
                 <!-- card-body -->
