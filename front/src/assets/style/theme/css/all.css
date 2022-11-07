@@ -8929,7 +8929,7 @@ img {
   border: 2px solid rgba(255, 255, 255, 0.2);
   height: 80vh;
   padding: 24px;
-  padding-top: 14px;
+  padding-top: 12px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -8943,7 +8943,7 @@ img {
 
 .popup-text {
   overflow-y: auto;
-  max-height: calc(80vh - 48px - 43px);
+  max-height: calc(80vh - 36px - 36px - 4px);
   padding-bottom: 24px;
   width: 100%;
 }/*# sourceMappingURL=all.css.map */

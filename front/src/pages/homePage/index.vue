@@ -180,7 +180,7 @@
               <el-switch v-model="form.filter_ind"
                         active-value="1"
                         inactive-value="2"/>
-              過濾售出價格
+              {{$t('home.sellPrice')}}
             </div>
           </el-col>
           <el-col :md="8" :sm="8" :xs="12">
@@ -191,7 +191,7 @@
             >
               <template #reference>
                 <el-button class="special-btn" size="large" style="width: 100%;justify-content: space-around" @click="visible = !visible">
-                  <div style="flex: 1;text-align: left">售出價格區間</div>
+                  <div style="flex: 1;text-align: left">{{$t('home.priceRange')}}</div>
                     <el-icon>
                       <ArrowDown/>
                     </el-icon>
@@ -203,7 +203,7 @@
                 <el-input v-model="form.max" placeholder="Max" style="width: 110px;"/>
               </div>
               <div class="mt-16 d-flex flex-row align-items-center justify-content-center">
-                <el-button round type="primary" @click="visible=!visible">确认</el-button>
+                <el-button round type="primary" @click="visible=!visible"> {{$t('home.filter')}}</el-button>
               </div>
             </el-popover>
           </el-col>
@@ -288,10 +288,57 @@
    
 
     <!-- 彈出視窗 Jony版本 -->
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
+    <div class="popup-section" id="close-popup" >
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-11">
+            <div class="popup_content">
+              <!-- 關閉 toggle -->
+              <div class="popup_header mb-4">
+                <button class="i-close square-32 i-alpha-60" onclick="document.getElementById('close-popup').style.display='none'"></button>
+              </div>
 
+              <div class="popup_body">
+                
+                <div class="row" style="height:100%;">
+                  <!-- 項目資訊集合 -->
+                  <div class="col-lg-3 col-12">
+                    <div class=" flex-lg-column flex-sm-row flex-column align-items-lg-center d-flex mb-24 mb-lg-0">
+                      <div class="card-image-content rwd-pic-content radius-half flex-shrink-0  mb-lg-32 mb-sm-0 mb-32 ">
+                        <img src="https://lh3.googleusercontent.com/H8jOCJuQokNqGBpkBN5wk1oZwO7LM8bNnrHCaekV2nKjnCqw6UB5oaH8XyNeBDj6bA_n1mjejzhFQUP3O1NfjFLHr3FOaeHcTOOT=s120" alt="">
+                      </div>
+                      <div class="justify-content-between flex-column d-flex ml-lg-0 ml-sm-16 ml-0">
+                        <!-- 項目名稱 -->
+                        <h3 class="heading-B-2 clamp-2 color-white mb-lg-32 mb-auto d-sm-block d-none">Gambling Apes Official</h3>
+                        <!-- 路線圖成員介紹按鈕 -->
+                        <div class="flex-lg-column d-flex gap-16">
+                          <div
+                            class="heading-B-5" 
+                            v-for="(item,index) in List"
+                            :key="index" 
+                            :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
+                            {{item.name}}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- 項目資訊集合 -->
+                  <div class="col-lg-9 col-12">
+                    <div class="popup-scroll">
+                      <div class="popup-text color-white body-L-1" v-if="type === 1">
+                        太空人前晚慘挨平世界大賽紀錄的單場5轟，昨天G4卻在奇兵右投哈維爾6局完美壓制下，與牛棚3投攜手演出賽史首場「接力」無安打比賽，加上打線於5局上灌進5分，讓太空人以5比0完封費城人，將系列賽扳成2平。「很有趣，我爸媽賽前說我會投出無安打。」哈維爾賽後透露，這是來自多明尼加的雙親首次到大聯盟現場看他比賽，還大膽「預告」，「他們這樣說當然讓我很有動力，要拿出最佳表現。我知道在系列賽1比2落後的情況下，自己今晚的責任重大，感謝上帝讓我完成任務。」棄打從投 造就奇兵世界大賽過去只出現過一場無安打比賽，就是1956年洋基右投拉森的「完全比賽」，另一場季後賽無安打則是費城人哈勒戴於2010年國聯冠軍賽所締造，但接力無安打則是頭一遭。哈維爾則是另一個意外，他在2015年、18歲生日的前1周，被太空人以區區1萬美元簽下，一開始的位置還是外野手。棄打從投最初球速也僅85哩上下，直到2020年被選為太空人小聯盟最佳投手才竄出。哈維爾今年6月下旬對陣洋基，就與牛棚2投完成接力無安打，昨天更於高張力的世界大賽再來一次。而且哈維爾先發6局飆出9K，投97球有72%為四縫線速球，竟讓費城人一籌莫展。特別是4局下他連飆3K，下半局太空人打線馬上攻下5分大局，奠定勝基。哈波頭痛 球真難打太空人捕手瓦茲奎茲盛讚哈維爾擁有他見過「最棒的速球」，費城人強打哈波則說，哈維爾的92哩速球感覺像97哩，「我們沒怎麼碰過他，今晚看到他的球，真的不好打。」哈維爾的綽號叫「爬蟲」，因為什麼狀況都不會顯露情緒，像是冷血動物，總教練貝克說：「夏天投球他也一樣『冷酷』。」昨天哈維爾雖有機會獨力挑戰無安打比賽，但因已經10天未出賽，教練團賽前就設定100球限制，6局結束也果斷換投，畢竟以這位奇兵的表現，後面比賽肯定還用得上。
+                        太空人前晚慘挨平世界大賽紀錄的單場5轟，昨天G4卻在奇兵右投哈維爾6局完美壓制下，與牛棚3投攜手演出賽史首場「接力」無安打比賽，加上打線於5局上灌進5分，讓太空人以5比0完封費城人，將系列賽扳成2平。「很有趣，我爸媽賽前說我會投出無安打。」哈維爾賽後透露，這是來自多明尼加的雙親首次到大聯盟現場看他比賽，還大膽「預告」，「他們這樣說當然讓我很有動力，要拿出最佳表現。我知道在系列賽1比2落後的情況下，自己今晚的責任重大，感謝上帝讓我完成任務。」棄打從投 造就奇兵世界大賽過去只出現過一場無安打比賽，就是1956年洋基右投拉森的「完全比賽」，另一場季後賽無安打則是費城人哈勒戴於2010年國聯冠軍賽所締造，但接力無安打則是頭一遭。哈維爾則是另一個意外，他在2015年、18歲生日的前1周，被太空人以區區1萬美元簽下，一開始的位置還是外野手。棄打從投最初球速也僅85哩上下，直到2020年被選為太空人小聯盟最佳投手才竄出。哈維爾今年6月下旬對陣洋基，就與牛棚2投完成接力無安打，昨天更於高張力的世界大賽再來一次。而且哈維爾先發6局飆出9K，投97球有72%為四縫線速球，竟讓費城人一籌莫展。特別是4局下他連飆3K，下半局太空人打線馬上攻下5分大局，奠定勝基。哈波頭痛 球真難打太空人捕手瓦茲奎茲盛讚哈維爾擁有他見過「最棒的速球」，費城人強打哈波則說，哈維爾的92哩速球感覺像97哩，「我們沒怎麼碰過他，今晚看到他的球，真的不好打。」哈維爾的綽號叫「爬蟲」，因為什麼狀況都不會顯露情緒，像是冷血動物，總教練貝克說：「夏天投球他也一樣『冷酷』。」昨天哈維爾雖有機會獨力挑戰無安打比賽，但因已經10天未出賽，教練團賽前就設定100球限制，6局結束也果斷換投，畢竟以這位奇兵的表現，後面比賽肯定還用得上。
+                        太空人前晚慘挨平世界大賽紀錄的單場5轟，昨天G4卻在奇兵右投哈維爾6局完美壓制下，與牛棚3投攜手演出賽史首場「接力」無安打比賽，加上打線於5局上灌進5分，讓太空人以5比0完封費城人，將系列賽扳成2平。「很有趣，我爸媽賽前說我會投出無安打。」哈維爾賽後透露，這是來自多明尼加的雙親首次到大聯盟現場看他比賽，還大膽「預告」，「他們這樣說當然讓我很有動力，要拿出最佳表現。我知道在系列賽1比2落後的情況下，自己今晚的責任重大，感謝上帝讓我完成任務。」棄打從投 造就奇兵世界大賽過去只出現過一場無安打比賽，就是1956年洋基右投拉森的「完全比賽」，另一場季後賽無安打則是費城人哈勒戴於2010年國聯冠軍賽所締造，但接力無安打則是頭一遭。哈維爾則是另一個意外，他在2015年、18歲生日的前1周，被太空人以區區1萬美元簽下，一開始的位置還是外野手。棄打從投最初球速也僅85哩上下，直到2020年被選為太空人小聯盟最佳投手才竄出。哈維爾今年6月下旬對陣洋基，就與牛棚2投完成接力無安打，昨天更於高張力的世界大賽再來一次。而且哈維爾先發6局飆出9K，投97球有72%為四縫線速球，竟讓費城人一籌莫展。特別是4局下他連飆3K，下半局太空人打線馬上攻下5分大局，奠定勝基。哈波頭痛 球真難打太空人捕手瓦茲奎茲盛讚哈維爾擁有他見過「最棒的速球」，費城人強打哈波則說，哈維爾的92哩速球感覺像97哩，「我們沒怎麼碰過他，今晚看到他的球，真的不好打。」哈維爾的綽號叫「爬蟲」，因為什麼狀況都不會顯露情緒，像是冷血動物，總教練貝克說：「夏天投球他也一樣『冷酷』。」昨天哈維爾雖有機會獨力挑戰無安打比賽，但因已經10天未出賽，教練團賽前就設定100球限制，6局結束也果斷換投，畢竟以這位奇兵的表現，後面比賽肯定還用得上。
+                      </div>
+                      <div class="popup-text color-white" v-if="type === 2">{{panel.data.roadmap}}</div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -508,6 +555,53 @@ onMounted(() => {
 :deep .el-select:hover:not(.el-select--disabled) .el-input__wrapper {
   box-shadow: none;
 }
+.popup-section .card-image-content {
+  width: 196px;
+  height: 196px;
+}
+.tag {
+  height: auto;
+  text-align: center;
+}
+
+/*/////////////////////////////
+===== Desktop First START =====
+/////////////////////////////*/
+/*----- max-width 1536 -----*/
+@media screen and (max-width: 1536px) {}
+/*----- max-width 1200 -----*/
+@media screen and (max-width: 1200px) {
+  
+}
+/*----- max-width 992 -----*/
+@media screen and (max-width: 992px) {
+  .popup-text {
+    max-height: calc(80vh - 156px - 36px - 36px - 4px);
+  }
+  .card-image-content {
+    width: 132px;
+    height: 132px;
+  }
+  
+}
+/*----- max-width 768 -----*/
+@media screen and (max-width: 768px) {
+ 
+  
+}
+/*----- max-width 576 -----*/
+@media screen and (max-width: 576px) {
+  .popup-text {
+    max-height: calc(80vh - 216px - 36px - 36px - 4px);
+  }
+  .card-image-content {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+
+
 
 /* jony code end */
 
