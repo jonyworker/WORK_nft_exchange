@@ -294,9 +294,9 @@
               <div class="popup-body card-image-content rwd-pic-content radius-half flex-shrink-0  mb-lg-32 mb-sm-0 mb-8 ">
                 <img :src="panel.data.photo_url" alt="">
               </div>
-              <div class="justify-content-between flex-column d-flex ml-lg-0 ml-sm-16 ml-0">
+              <div class="justify-content-between flex-column d-flex ml-lg-0 ml-sm-16 ml-0" style="width: -webkit-fill-available;">
                 <!-- 項目名稱 -->
-                <h3 class="heading-B-2 clamp-2 color-white mb-lg-32 mb-auto d-sm-block d-none">Gambling Apes Official</h3>
+                <h3 class="heading-B-2 clamp-2 color-white mb-lg-32 mb-auto d-sm-block d-none">{{ panel.data.name }}</h3>
                 <!-- 路線圖成員介紹按鈕 -->
                 <div class="flex-lg-column d-flex gap-16">
                   <div
