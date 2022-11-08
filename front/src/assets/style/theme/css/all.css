@@ -8939,11 +8939,4 @@ img {
   display: flex;
   align-items: center;
   justify-content: end;
-}
-
-.popup-text {
-  overflow-y: auto;
-  max-height: calc(80vh - 36px - 36px - 4px);
-  padding-bottom: 24px;
-  width: 100%;
 }/*# sourceMappingURL=all.css.map */

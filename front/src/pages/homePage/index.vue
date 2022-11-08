@@ -284,50 +284,44 @@
     </div>
 
 
-    <!-- 彈出視窗 Lynn版本 -->
-    <el-dialog v-model="dialogFormVisible" width="85%">
-
-    <!-- PC     -->
-    <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
-      <div class="main">
-        <div class="main-left">
-          <div class="main-img">
-            <img :src="panel.data.photo_url" alt="">
-          </div>
-    <!--            <div class="main-name">{{ dropsFour?.collection }}</div>-->
-
-          <div class="tab-list">
-            <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
-              {{item.name}}
+    <!-- 彈出視窗 Jony版本 （更新） -->
+    <el-dialog v-model="dialogFormVisible">
+      <div class="" v-if="$store.state.os.isPc">
+        <div class="row" style="height:100%;">
+          <!-- 項目資訊集合 -->
+          <div class="col-lg-3 col-12" >
+            <div class=" flex-lg-column flex-sm-row flex-column align-items-lg-center d-flex mb-24 mb-lg-0">
+              <div class="popup-body card-image-content rwd-pic-content radius-half flex-shrink-0  mb-lg-32 mb-sm-0 mb-8 ">
+                <img :src="panel.data.photo_url" alt="">
+              </div>
+              <div class="justify-content-between flex-column d-flex ml-lg-0 ml-sm-16 ml-0">
+                <!-- 項目名稱 -->
+                <h3 class="heading-B-2 clamp-2 color-white mb-lg-32 mb-auto d-sm-block d-none">Gambling Apes Official</h3>
+                <!-- 路線圖成員介紹按鈕 -->
+                <div class="flex-lg-column d-flex gap-16">
+                  <div
+                    class="heading-B-5" 
+                    v-for="(item,index) in List" 
+                    :key="index" 
+                    :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
+                    {{item.name}}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="main-right color-white" v-if="type === 1">{{panel.data.member}}</div>
-        <div class="main-right color-white" v-if="type === 2">{{panel.data.roadmap}}</div>
-      </div>
-    </div>
-    <!-- H5 || table-->
-    <div v-else >
-      <div class="ipad-main">
-        <div class="main-img">
-          <img :src="panel.data.photo_url" alt="">
-        </div>
-        <div class="right">
-    <!--            <div class="main-name">{{ dropsFour?.collection }}</div>-->
-          <div class="tags">
-            <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
-              {{item.name}}
+          <!-- 項目資訊集合 -->
+          <div class="col-lg-9 col-12">
+            <div class="popup-scroll">
+              <div class="popup-text color-white body-L-1" v-if="type === 1">{{panel.data.member}}</div>
+              <div class="popup-text color-white body-L-1" v-if="type === 2">{{panel.data.roadmap}}</div>
             </div>
           </div>
 
         </div>
       </div>
-      <div v-if="type === 1">{{panel.data.member}}</div>
-      <div  v-if="type === 2">{{panel.data.roadmap}}</div>
-    </div>
-
     </el-dialog>
-   
+  
 
     
 
@@ -540,20 +534,55 @@ onMounted(() => {
     border-color: #4447E2;
     background-color: #4447E2;
 }
-
-
-
 :deep .el-select:hover:not(.el-select--disabled) .el-input__wrapper {
   box-shadow: none;
 }
-.popup-section .card-image-content {
+
+
+/*----- Popup Code Start -----*/
+:deep .el-overlay {
+  background-color: rgba(18, 18, 18, 0.1);
+  backdrop-filter: blur(8px);
+}
+:deep .el-overlay-dialog {
+  display: flex;
+}
+:deep .el-dialog {
+  width: 100%;
+  padding-top: 24px !important;
+  padding-right: 24px !important;
+  padding-left: 24px !important;
+  padding-bottom: 24px !important;
+  background: rgba(18,18,18,.92) !important; 
+  backdrop-filter: blur(2px);
+  border: 2px solid rgba(255,255,255,.2);
+  height: 80vh;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+:deep .el-dialog__body {
+  padding: 0;
+}
+.popup-body.card-image-content {
   width: 196px;
   height: 196px;
+}
+.popup-text {
+  overflow-y: auto;
+  max-height: calc(80vh - 48px - 30px - 4px);
+  padding-bottom: 24px;
+  width: 100%;
 }
 .tag {
   height: auto;
   text-align: center;
 }
+
 
 /*/////////////////////////////
 ===== Desktop First START =====
@@ -561,36 +590,64 @@ onMounted(() => {
 /*----- max-width 1536 -----*/
 @media screen and (max-width: 1536px) {}
 /*----- max-width 1200 -----*/
-@media screen and (max-width: 1200px) {
-  
-}
+@media screen and (max-width: 1200px) {}
 /*----- max-width 992 -----*/
 @media screen and (max-width: 992px) {
   .popup-text {
-    max-height: calc(80vh - 156px - 36px - 36px - 4px);
+    max-height: calc(80vh - 48px - 132px - 24px - 30px - 4px);
   }
-  .card-image-content {
+  .popup-body.card-image-content {
     width: 132px;
     height: 132px;
   }
   
 }
 /*----- max-width 768 -----*/
-@media screen and (max-width: 768px) {
- 
-  
-}
+@media screen and (max-width: 768px) {}
 /*----- max-width 576 -----*/
 @media screen and (max-width: 576px) {
   .popup-text {
-    max-height: calc(80vh - 216px - 36px - 36px - 4px);
+    max-height: calc(80vh - 48px - 1px - 24px - 30px - 4px);
   }
-  .card-image-content {
+  .popup-body.card-image-content {
     width: 120px;
     height: 120px;
   }
+  :deep .el-dialog {
+      max-width: 540px;
+    }
 }
 
+  /*/////////////////////////////
+  ===== Mobile First START =====
+  /////////////////////////////*/
+  @media (min-width: 576px) {
+    :deep .el-dialog {
+      max-width: 540px;
+    }
+  }
+  @media (min-width: 768px) {
+    :deep .el-dialog {
+      max-width: calc( 720px * 0.9166666667 );
+    }
+  }
+  @media (min-width: 992px) {
+    :deep .el-dialog {
+      max-width: 960px;
+    }
+  }
+  @media (min-width: 1200px) {
+    :deep .el-dialog {
+      max-width: calc( 1140px * 0.9166666667 );
+    }
+  }
+  @media (min-width: 1400px) {
+    :deep .el-dialog {
+      max-width: calc( 1320px * 0.9166666667 );
+      // 1320 x 0.9166666667 (col-11)
+    }
+  }
+/*----- Popup Code End -----*/
 
 
 
