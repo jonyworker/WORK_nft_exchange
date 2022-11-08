@@ -15,17 +15,18 @@
 
 <script lang="ts" setup>
 import * as echarts from 'echarts';
-import {onMounted, ref, watch} from 'vue'
+import {onMounted, ref, watch,onBeforeMount} from 'vue'
 import {ITrend} from "@/pages/homePage/homePageTypes";
 import {homePageApi} from "@/api";
 import {useRoute} from "vue-router";
+import {EChartsType} from "echarts";
 
 const dateRange = ref<string[]>() // 时间轴
 const lowPrice = ref<string[]>() // 底价
 const avgPrice = ref<string[]>()// 均价
 const volumes = ref<string[]>()
 const priceData = ref<ITrend[]>([])
-const myChart = ref();
+const myChart = ref<EChartsType|null>(null);
 const route = useRoute()
 const ind = ref(1)
 
@@ -59,6 +60,7 @@ const renderData = () => {
   }
   console.log("->  myChart.value", myChart.value);
   console.log("-> 数据", {date_list, floor_price, avg_price, volume});
+  if(!myChart.value){return}
   // 绘制图表
   myChart.value.setOption({
     legend: {
@@ -186,6 +188,14 @@ onMounted(() => {
   const chartDom = document.getElementById('lineChart');
   myChart.value = chartDom && echarts.init(chartDom);
   getPrice()
+})
+
+onBeforeMount(()=> {
+  if (! myChart.value ) {
+    return
+  }
+  myChart.value.dispose()
+  myChart.value = null
 })
 </script>
 
