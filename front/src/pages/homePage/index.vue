@@ -285,61 +285,51 @@
 
 
     <!-- 彈出視窗 Lynn版本 -->
-   
+    <el-dialog v-model="dialogFormVisible" width="85%">
 
-    <!-- 彈出視窗 Jony版本 -->
-    <div class="popup-section" id="close-popup" >
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-11">
-            <div class="popup_content">
-              <!-- 關閉 toggle -->
-              <div class="popup_header mb-4">
-                <button class="i-close square-32 i-alpha-60" onclick="document.getElementById('close-popup').style.display='none'"></button>
-              </div>
+    <!-- PC     -->
+    <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
+      <div class="main">
+        <div class="main-left">
+          <div class="main-img">
+            <img :src="panel.data.photo_url" alt="">
+          </div>
+    <!--            <div class="main-name">{{ dropsFour?.collection }}</div>-->
 
-              <div class="popup_body">
-                
-                <div class="row" style="height:100%;">
-                  <!-- 項目資訊集合 -->
-                  <div class="col-lg-3 col-12" >
-                    <div class=" flex-lg-column flex-sm-row flex-column align-items-lg-center d-flex mb-24 mb-lg-0">
-                      <div class="card-image-content rwd-pic-content radius-half flex-shrink-0  mb-lg-32 mb-sm-0 mb-32 ">
-                        <img :src="panel.data.photo_url" alt="">
-                      </div>
-                      <div class="justify-content-between flex-column d-flex ml-lg-0 ml-sm-16 ml-0">
-                        <!-- 項目名稱 -->
-                        <h3 class="heading-B-2 clamp-2 color-white mb-lg-32 mb-auto d-sm-block d-none">Gambling Apes Official</h3>
-                        <!-- 路線圖成員介紹按鈕 -->
-                        <div class="flex-lg-column d-flex gap-16">
-                          <div
-                            class="heading-B-5" 
-                            v-for="(item,index) in List"
-                            :key="index" 
-                            :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
-                            {{item.name}}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- 項目資訊集合 -->
-                  <div class="col-lg-9 col-12">
-                    <div class="popup-scroll">
-                      <div class="popup-text color-white body-L-1" v-if="type === 1">
-                        {{panel.data.member}}
-                      </div>
-                      <div class="popup-text color-white" v-if="type === 2">{{panel.data.roadmap}}</div>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
+          <div class="tab-list">
+            <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
+              {{item.name}}
             </div>
           </div>
         </div>
+        <div class="main-right" v-if="type === 1">{{panel.data.member}}</div>
+        <div class="main-right" v-if="type === 2">{{panel.data.roadmap}}</div>
       </div>
     </div>
+    <!-- H5 || table-->
+    <div v-else >
+      <div class="ipad-main">
+        <div class="main-img">
+          <img :src="panel.data.photo_url" alt="">
+        </div>
+        <div class="right">
+    <!--            <div class="main-name">{{ dropsFour?.collection }}</div>-->
+          <div class="tags">
+            <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
+              {{item.name}}
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div v-if="type === 1">{{panel.data.member}}</div>
+      <div  v-if="type === 2">{{panel.data.roadmap}}</div>
+    </div>
+
+    </el-dialog>
+   
+
+    
 
 
   </div>
