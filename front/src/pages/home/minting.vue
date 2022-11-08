@@ -514,8 +514,8 @@
     
               </div>
             </div>
-            <div v-if="type === 1">{{dropsFour?.member}}</div>
-            <div  v-if="type === 2">{{dropsFour?.roadmap}}</div>
+            <div class="color-white" v-if="type === 1">{{dropsFour?.member}}</div>
+            <div class="color-white" v-if="type === 2">{{dropsFour?.roadmap}}</div>
           </div>
         </el-dialog>
 

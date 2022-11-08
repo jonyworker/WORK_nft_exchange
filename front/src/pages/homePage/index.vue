@@ -302,8 +302,8 @@
             </div>
           </div>
         </div>
-        <div class="main-right" v-if="type === 1">{{panel.data.member}}</div>
-        <div class="main-right" v-if="type === 2">{{panel.data.roadmap}}</div>
+        <div class="main-right color-white" v-if="type === 1">{{panel.data.member}}</div>
+        <div class="main-right color-white" v-if="type === 2">{{panel.data.roadmap}}</div>
       </div>
     </div>
     <!-- H5 || table-->
@@ -389,7 +389,10 @@ const toDailog = (val:number) =>{
   dialogFormVisible.value = true;
   type.value = val
 }
-
+//路途切换
+const changeList = (value:number) =>{
+  type.value = value
+}
 //复制
 const copyInfo=(info:string)=>{
   copy(info)
