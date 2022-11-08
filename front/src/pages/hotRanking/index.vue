@@ -58,7 +58,7 @@
                         <th scope="row">0{{index + 1}}</th>
                         <td class="td-wrap">
                           <div class="td-wrap-content">
-                            <div class="profile-pic mr-12 d-flex">
+                            <div class="profile-pic mr-12 d-flex" @click="toIndex(item.id)">
                               <img :src="item.photo_url" alt="">
                             </div>
                             <p class="clamp-single" @click="toIndex(item.id)">{{item.name}}</p>
