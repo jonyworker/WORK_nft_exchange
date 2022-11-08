@@ -67,7 +67,7 @@
             >
               <div class="card" @click="toDetails(item.id)">
                 <!-- 卡片圖片 -->
-                <div class="card-image-content ratio--1-91_1 bdRadius-8 mb-16">
+                <div class="card-image-content ratio--1-91_1 bdRadius-8 mb-16" style="width:100%">
                   <img :src="item.photo_url" alt="">
                 </div>
                 <!-- 卡片內文 -->
