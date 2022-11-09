@@ -8889,6 +8889,30 @@ img {
   }
 }
 
+.popup-scroll p {
+  font-family: "Noto Sans TC", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.375;
+  letter-spacing: 0;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: rgba(255, 255, 255, 0.8980392157);
+}
+.popup-scroll p {
+  font-size: 16px;
+}
+@media screen and (min-width: 768px) {
+  .popup-scroll p {
+    font-size: calc(0vw + 16px);
+  }
+}
+@media screen and (min-width: 1536px) {
+  .popup-scroll p {
+    font-size: 16px;
+  }
+}
+
 /*//////////////////////////////
 ===== component-form START =====
 //////////////////////////////*/

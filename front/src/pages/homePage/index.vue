@@ -309,14 +309,21 @@
           <!-- 項目資訊集合 -->
           <div class="col-lg-9 col-12">
             <div class="popup-scroll">
-              <div class="popup-text color-white body-L-1" v-if="type === 1">{{panel.data.member}}</div>
-              <div class="popup-text color-white body-L-1" v-if="type === 2">{{panel.data.roadmap}}</div>
+              <div class="popup-text color-white body-L-1" v-if="type === 1" v-html="panel.data.member"></div>
+              <div class="popup-text color-white body-L-1" v-if="type === 2" v-html="panel.data.roadmap"></div>
             </div>
           </div>
 
         </div>
       </div>
     </el-dialog>
+
+
+
+
+
+
+    
   
 
     

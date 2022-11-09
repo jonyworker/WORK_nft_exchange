@@ -77,7 +77,12 @@
 
 
 
-
+.popup-scroll p {
+  @include body-L-1;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: $color-alpha-white-90;
+}
 
 
 

@@ -16,126 +16,115 @@
           </div>
         </div>
       </div>
-  
-      
-  
+      <!-- 小卡片組 -->
       <div class="minting-content mt-10">
         <div class="row">
 
           <!-- 卡片 -->
           <div class="col-12 col-sm-6 col-lg-3 mb-24" v-for="(item,index) in dropsList" :key="index">
-              <div class="card">
-                <!-- 卡片圖片 -->
-                <div class="card-image">
-    <!--              <img :src="http + dropsOne?.background" alt="">-->
-                  <img :src="http + item.background" alt="">
-                  <div class="card-icon-group">
-                    <div class="icon-img-wrap"  @click="toDialog(1,item)"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="24px">
-                    </div>
-                    <div class="icon-img-wrap"  @click="toDialog(2,item)"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="24px"></div>
-                  </div>
-                  <CountDown :count_down_date="item.date"/>
-                  <!-- <div class="card-time-wrap">
-                    <p class="count-down-day">{{ durationDateOne?.value?.days }}</p>
-                    <p class="count-down-hour">{{ durationDateOne?.value?.hours }}</p>
-                    <p class="count-down-min">{{ durationDateOne?.value?.minutes }}</p>
-                    <p class="count-down-sec">{{ durationDateOne?.value?.seconds }}</p>
-                  </div> -->
+            <div class="card">
+              <!-- 卡片圖片 -->
+              <div class="card-image">
+                <img :src="http + item.background" alt="">
+                <div class="card-icon-group">
+                  <div class="i-group bg-alpha-white-55 square-28"  @click="toDialog(1,item)"></div>
+                  <div class="i-map bg-alpha-white-55 square-28"  @click="toDialog(2,item)"></div>
                 </div>
-                <!-- 卡片內文 -->
-                <div class="card-body-content p-16">
+                <CountDown :count_down_date="item.date"/>
+              </div>
+              <!-- 卡片內文 -->
+              <div class="card-body-content p-16">
 
-                  <!-- icon 標題組 -->
-                  <div class="card-icon-title-wrap mb-12 align-items-center">
-                    <div class="icon mr-16">
-                      <img :src="item.collection_url" alt="">
-                    </div>
-                    <p class="title card-title-h5 text-white clamp-1">{{ item.collection }}</p>
+                <!-- icon 標題組 -->
+                <div class="card-icon-title-wrap mb-12 align-items-center">
+                  <div class="icon mr-16">
+                    <img :src="item.collection_url" alt="">
                   </div>
-                  <!-- 卡片 - 文字 -->
-                  <p class="card-text-p clamp-3 mb-8">{{ item.introduction }}</p>
-                  <p class="card-text-p mb-8">{{$t('home.price')}}{{ item.price }}</p>
-                  <p class="card-text-p mb-8">{{$t('home.total')}}{{ item.total }}</p>
-                  <p class="card-text-p mb-24">{{$t('home.shortTime')}}{{ item.date }}</p>
-                  
-                  <!-- 卡片icon -->
-                  <div class="mt-auto">
-                    <!-- social-link -->
-                    <ul class="link-wrap">
-                      <!-- icon-group -->
-                      <li class="link-item">
-                        <div class="link-icon" @click="toWebsite(item.website || '')">
-                          <img src="@/assets/images/icon_world.png" alt="">
-                        </div>
-                      </li>
-                      <!-- icon-map -->
-                      <li class="link-item">
-                        <div class="link-icon" @click="toDiscord(item.discord || '')">
-                          <img src="@/assets/images/icon_discord.png" alt="">
-                        </div>
-                      </li>
-                      <!-- icon-homepage -->
-                      <li class="link-item">
-                        <div class="link-icon" @click="toTwitter(item.twitter || '')">
-                          <img src="@/assets/images/icon_twitter.png" alt="">
-                        </div>
-                      </li>
-                      <!-- icon-discord -->
-                      <li class="link-item">
-                        <div class="link-icon" @click="toSchedule(item.schedule || '')">
-                          <img src="@/assets/images/icons.png" alt="">
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
+                  <p class="title card-title-h5 text-white clamp-1">{{ item.collection }}</p>
+                </div>
+                <!-- 卡片 - 文字 -->
+                <p class="card-text-p clamp-3 mb-8">{{ item.introduction }}</p>
+                <p class="card-text-p mb-8">{{$t('home.price')}}{{ item.price }}</p>
+                <p class="card-text-p mb-8">{{$t('home.total')}}{{ item.total }}</p>
+                <p class="card-text-p mb-24">{{$t('home.shortTime')}}{{ item.date }}</p>
+                
+                <!-- 卡片icon -->
+                <div class="mt-auto">
+                  <!-- social-link -->
+                  <ul class="link-wrap">
+                    <!-- icon-group -->
+                    <li class="link-item">
+                      <div class="link-icon" @click="toWebsite(item.website || '')">
+                        <img src="@/assets/images/icon_world.png" alt="">
+                      </div>
+                    </li>
+                    <!-- icon-map -->
+                    <li class="link-item">
+                      <div class="link-icon" @click="toDiscord(item.discord || '')">
+                        <img src="@/assets/images/icon_discord.png" alt="">
+                      </div>
+                    </li>
+                    <!-- icon-homepage -->
+                    <li class="link-item">
+                      <div class="link-icon" @click="toTwitter(item.twitter || '')">
+                        <img src="@/assets/images/icon_twitter.png" alt="">
+                      </div>
+                    </li>
+                    <!-- icon-discord -->
+                    <li class="link-item">
+                      <div class="link-icon" @click="toSchedule(item.schedule || '')">
+                        <img src="@/assets/images/icons.png" alt="">
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
+          </div>
   
         </div>
       </div>
 
-      <!-- 彈出視窗 -->
-      <el-dialog v-model="dialogFormVisible" width="85%">
-        <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
-          <div class="main">
-            <div class="main-left">
-              <div class="main-img">
-                <img :src="dataList?.collection_url" alt="">
-              </div>
-              <div class="main-name">{{ dataList?.collection }}</div>
-  
-              <div class="tab-list">
-                <div v-for="(items,index) in List" :key="index" :class="['tag',type===items.value?'active_tag':'']" @click="changeList(items.value)">
-                  {{items.name}}
+      <!-- 彈出視窗 Jony版本 Minting （更新） -->
+      <el-dialog v-model="dialogFormVisible">
+        <div class="" v-if="$store.state.os.isPc">
+          <div class="row" style="height:100%;">
+            <!-- 項目資訊集合 -->
+            <div class="col-lg-3 col-12" >
+              <div class=" flex-lg-column flex-sm-row flex-column align-items-lg-center d-flex mb-24 mb-lg-0">
+                <div class="popup-body card-image-content rwd-pic-content radius-half flex-shrink-0  mb-lg-32 mb-sm-0 mb-8 ">
+                  <img :src="dataList?.collection_url" alt="">
+                </div>
+                <div class="justify-content-between flex-column d-flex ml-lg-0 ml-sm-16 ml-0" style="width: -webkit-fill-available;">
+                  <!-- 項目名稱 -->
+                  <h3 class="heading-B-2 clamp-2 color-white mb-lg-32 mb-auto d-sm-block d-none">{{ dataList?.collection }}</h3>
+                  <!-- 路線圖成員介紹按鈕 -->
+                  <div class="flex-lg-column d-flex gap-16">
+                    <div
+                      class="heading-B-5" 
+                      v-for="(item,index) in List" 
+                      :key="index" 
+                      :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
+                      {{item.name}}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="main-right" v-if="type === 1">{{dataList?.member}}</div>
-            <div class="main-right" v-if="type === 2">{{dataList?.roadmap}}</div>
-          </div>
-        </div>
-  
-        <div v-else >
-          <div class="ipad-main">
-            <div class="main-img">
-              <img :src="dataList?.collection_url" alt="">
-            </div>
-            <div class="right">
-              <div class="main-name">{{ dataList?.collection }}</div>
-              <div class="tags">
-                <div v-for="(ite,index) in List" :key="index" :class="['tag',type===ite.value?'active_tag':'']" @click="changeList(ite.value)">
-                  {{ite.name}}
-                </div>
+            <!-- 項目資訊集合 -->
+            <div class="col-lg-9 col-12">
+              <div class="popup-scroll">
+                <div class="popup-text color-white body-L-1" v-if="type === 1" v-html="dataList?.member"></div>
+                <div class="popup-text color-white body-L-1" v-if="type === 2" v-html="dataList?.roadmap"></div>
               </div>
-  
             </div>
+
           </div>
-          <div v-if="type === 1">{{dataList?.member}}</div>
-          <div  v-if="type === 2">{{dataList?.roadmap}}</div>
         </div>
-  
       </el-dialog>
+
+
+
     </div>
   </div>
 </template>
@@ -240,66 +229,176 @@ onMounted(() => {
 
 <style scoped lang="less">
 
-// 路線圖
-.ipad-main{
+/*----- Popup Code Start -----*/
+:deep .el-overlay {
+  background-color: rgba(18, 18, 18, 0.1);
+  backdrop-filter: blur(8px);
+}
+:deep .el-overlay-dialog {
   display: flex;
-  padding-bottom: 30px;
-  .tags{
-    display: flex;
-    padding-top:20px;
-  }
-  .right{
-    width: 75%;
-    padding-left:10px;
-  }
-  .main-img{
-    width:25%;
-  }
-  img{
-    width: 132px;
-    /* height:132px;*/
-    border-radius:50%;
-  }
 }
-.tag{
-  margin-top: 10px;
-}
-.tab-list{
-  width: 65%;
-  margin: auto;
-}
-
-:deep  .el-dialog{
-  background: rgba(47, 47, 47, 1);
-}
-.main{
+:deep .el-dialog {
+  width: 100%;
+  padding-top: 24px !important;
+  padding-right: 24px !important;
+  padding-left: 24px !important;
+  padding-bottom: 24px !important;
+  background: rgba(18,18,18,.92) !important; 
+  backdrop-filter: blur(2px);
+  border: 2px solid rgba(255,255,255,.2);
+  height: 80vh;
+  border-radius: 8px;
   display: flex;
-  height: 50vh;
+  flex-direction: column;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }
-.main-left{
-  width:30%;
+:deep .el-dialog__body {
+  padding: 0;
+}
+.popup-body.card-image-content {
+  width: 196px;
+  height: 196px;
+}
+.popup-text {
+  overflow-y: auto;
+  max-height: calc(80vh - 48px - 30px - 4px);
+  padding-bottom: 24px;
+  width: 100%;
+}
+.tag {
+  height: auto;
   text-align: center;
-  .main-img{
+}
 
-    width: 196px;
-    margin: auto;
-    height: 196px;
-    img{
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
+
+/*/////////////////////////////
+===== Desktop First START =====
+/////////////////////////////*/
+/*----- max-width 1536 -----*/
+@media screen and (max-width: 1536px) {}
+/*----- max-width 1200 -----*/
+@media screen and (max-width: 1200px) {}
+/*----- max-width 992 -----*/
+@media screen and (max-width: 992px) {
+  .popup-text {
+    max-height: calc(80vh - 48px - 132px - 24px - 30px - 4px);
+  }
+  .popup-body.card-image-content {
+    width: 132px;
+    height: 132px;
+  }
+  
+}
+/*----- max-width 768 -----*/
+@media screen and (max-width: 768px) {}
+/*----- max-width 576 -----*/
+@media screen and (max-width: 576px) {
+  .popup-text {
+    max-height: calc(80vh - 48px - 1px - 24px - 30px - 4px);
+  }
+  .popup-body.card-image-content {
+    width: 120px;
+    height: 120px;
+  }
+  :deep .el-dialog {
+      max-width: 540px;
+    }
+}
+
+  /*/////////////////////////////
+  ===== Mobile First START =====
+  /////////////////////////////*/
+  @media (min-width: 576px) {
+    :deep .el-dialog {
+      max-width: 540px;
     }
   }
-  .main-name{
-    padding: 30px 0px;
+  @media (min-width: 768px) {
+    :deep .el-dialog {
+      max-width: calc( 720px * 0.9166666667 );
+    }
   }
-}
-.main-right{
-  overflow-y: scroll;
-  text-indent: 2em;
-  width: 68%;
-  line-height: 24px;
-}
+  @media (min-width: 992px) {
+    :deep .el-dialog {
+      max-width: 960px;
+    }
+  }
+  @media (min-width: 1200px) {
+    :deep .el-dialog {
+      max-width: calc( 1140px * 0.9166666667 );
+    }
+  }
+  @media (min-width: 1400px) {
+    :deep .el-dialog {
+      max-width: calc( 1320px * 0.9166666667 );
+      // 1320 x 0.9166666667 (col-11)
+    }
+  }
+/*----- Popup Code End -----*/
+
+// // 路線圖
+// .ipad-main{
+//   display: flex;
+//   padding-bottom: 30px;
+//   .tags{
+//     display: flex;
+//     padding-top:20px;
+//   }
+//   .right{
+//     width: 75%;
+//     padding-left:10px;
+//   }
+//   .main-img{
+//     width:25%;
+//   }
+//   img{
+//     width: 132px;
+//     /* height:132px;*/
+//     border-radius:50%;
+//   }
+// }
+// .tag{
+//   margin-top: 10px;
+// }
+// .tab-list{
+//   width: 65%;
+//   margin: auto;
+// }
+
+// :deep  .el-dialog{
+//   background: rgba(47, 47, 47, 1);
+// }
+// .main{
+//   display: flex;
+//   height: 50vh;
+// }
+// .main-left{
+//   width:30%;
+//   text-align: center;
+//   .main-img{
+
+//     width: 196px;
+//     margin: auto;
+//     height: 196px;
+//     img{
+//       width: 100%;
+//       height: 100%;
+//       border-radius: 50%;
+//     }
+//   }
+//   .main-name{
+//     padding: 30px 0px;
+//   }
+// }
+// .main-right{
+//   overflow-y: scroll;
+//   text-indent: 2em;
+//   width: 68%;
+//   line-height: 24px;
+// }
 /* 设置滚动条的样式 */
 
 // .card-icon-img{
