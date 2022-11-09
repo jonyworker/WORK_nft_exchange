@@ -78,6 +78,7 @@ class Specials extends AdminController
             ];
             $this->validate($post, $rule);
             try {
+                $post['photo_url'] = $post['large_photo_url'];
                 $post['valid'] = $post['valid'] == 'on' ? 1 : 2;
                 $post['ind'] = $this->model::Types['specials'];
                 $post['createName'] = session('admin.username');
@@ -112,6 +113,7 @@ class Specials extends AdminController
             ];
             $this->validate($post, $rule);
             try {
+                $post['photo_url'] = $post['large_photo_url'];
                 $post['valid'] = $post['valid'] == 'on' ? 1 : 2;
                 $post['ind'] = $this->model::Types['specials'];
                 $post['editName'] = session('admin.username');
