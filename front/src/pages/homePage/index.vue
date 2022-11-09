@@ -78,7 +78,7 @@
                     <div class="i-instagram bg-alpha-white-55 square-24" @click="toLink(panel.data.instagram)"></div>
                   </div>
                   <!-- 立即購買按鈕 -->
-                  <div class="btn-buy btn-bold ml-md-auto mt-md-0 mt-40 " @click="toLink(panel.data.platform_url)">立即購買</div>
+                  <div class="btn-buy btn-bold ml-md-auto mt-md-0 mt-40 " @click="toLink(panel.data.platform_url)">{{$t('home.buyNow')}}</div>
                 </div>
 
               </div>
@@ -89,7 +89,7 @@
                   <!-- 市值 -->
                   <div class="col">
                     <div class="card card-background-dark p-16 gap-4">
-                      <div class="body-B-1">市值</div>
+                      <div class="body-B-1">{{$t('home.marketCap')}}</div>
                       <div class="heading-B-4">${{ panel.data.market_cap }}</div>
                       <div class="d-flex gap-8">
                         <span class="badge radius-caps py-4 caption-L-1">24h</span>
@@ -100,7 +100,7 @@
                   <!-- 持有者 -->
                   <div class="col">
                     <div class="card card-background-dark p-16 gap-4">
-                      <div class="body-B-1">持有者</div>
+                      <div class="body-B-1">{{$t('home.holder')}}</div>
                       <div class="heading-B-4">{{ panel.data.holders }}</div>
                       <div class="d-flex gap-8">
                         <span class="badge radius-caps py-4 caption-L-1">24h</span>
@@ -111,7 +111,7 @@
                   <!-- 交易額 -->
                   <div class="col">
                     <div class="card card-background-dark p-16 gap-4">
-                      <div class="body-B-1">交易額</div>
+                      <div class="body-B-1">{{$t('home.volume')}}</div>
                       <div class="heading-B-4">${{ panel.data.volume_24 }}</div>
                       <div class="d-flex gap-8">
                         <span class="badge radius-caps py-4 caption-L-1">24h</span>
@@ -122,7 +122,7 @@
                   <!-- 地板價 -->
                   <div class="col">
                     <div class="card card-background-dark p-16 gap-4">
-                      <div class="body-B-1">地板價</div>
+                      <div class="body-B-1">{{$t('home.floorPrice')}}</div>
                       <div class="heading-B-4">${{ panel.data.floor_price }}</div>
                       <div class="d-flex gap-8">
                         <span class="badge radius-caps py-4 caption-L-1">24h</span>
@@ -135,12 +135,8 @@
                 <!-- 項目健康指數 -->
                 <div class="col-12">
                     <div class="card card-background-dark p-16 gap-4">
-                      <div class="body-B-1">項目健康指數</div>
+                      <div class="body-B-1">{{$t('home.collectionHealth')}}</div>
                       <div class="heading-B-4">{{ (panel.data.holders / panel.data.item_qty * 100).toFixed(1) }}%</div>
-                      <!-- <div class="d-flex gap-8">
-                        <span class="badge radius-caps py-4 caption-L-1">24h</span>
-                        <span class="body-B-1" :style="[{color: panel.data.floor_price_p < 0 ? 'red' :'green'}]">{{ (panel.data.floor_price_p * 100).toFixed(1) }}%</span>
-                      </div> -->
                     </div>
                   </div>
               </div>

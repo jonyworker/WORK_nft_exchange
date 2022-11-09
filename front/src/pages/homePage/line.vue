@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex flex-column flex-lg-row mb-24">
-    <div class="heading-B-3 mr-auto mb-lg-0 mb-8 color-white">周期尺度</div>
+    <div class="heading-B-3 mr-auto mb-lg-0 mb-8 color-white">{{$t('home.holdingPeriod')}}</div>
     <div class="d-flex gap-8">
       <div :class="['tag ',ind===1&&'active_tag']" @click="changeData(1)">3D</div>
 
