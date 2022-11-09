@@ -56,7 +56,6 @@ interface INewListFor{
   content:string;
   start_date:string;
   source:string;
-  photo_url:string;
 }
 
 const newList = ref<INewListFor|null>(null);
