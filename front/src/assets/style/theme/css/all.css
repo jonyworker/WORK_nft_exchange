@@ -8808,6 +8808,30 @@ img {
   }
 }
 
+.ck-content > p strong {
+  font-family: "Noto Sans TC", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.57;
+  letter-spacing: 0;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  color: rgba(255, 255, 255, 0.8980392157);
+}
+.ck-content > p strong {
+  font-size: 16px;
+}
+@media screen and (min-width: 768px) {
+  .ck-content > p strong {
+    font-size: calc(0vw + 16px);
+  }
+}
+@media screen and (min-width: 1536px) {
+  .ck-content > p strong {
+    font-size: 16px;
+  }
+}
+
 .ck-content > blockquote {
   overflow: hidden;
   padding-right: 1.5em;

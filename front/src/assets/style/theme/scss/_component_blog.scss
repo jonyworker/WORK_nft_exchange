@@ -47,6 +47,12 @@
   margin-bottom: 32px;
   color: $color-alpha-white-90;
 }
+.ck-content > p strong { 
+  @include body-B-1;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  color: $color-alpha-white-90;
+}
 .ck-content > blockquote {
   overflow: hidden;
   padding-right: 1.5em;
