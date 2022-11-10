@@ -327,7 +327,7 @@
                   </div>
                   <div class="justify-content-between flex-column d-flex ml-lg-0 ml-sm-16 ml-0" style="width: -webkit-fill-available;">
                     <!-- 項目名稱 -->
-                    <h3 class="heading-B-2 clamp-2 color-white mb-lg-32 mb-auto d-sm-block d-none">{{ dropsOne?.collection }}</h3>
+                    <h3 class="heading-B-2 clamp-2 color-white mb-lg-32 mb-auto d-sm-block d-none text-lg-center text-start break-word">{{ dropsOne?.collection }}</h3>
                     <!-- 路線圖成員介紹按鈕 -->
                     <div class="flex-lg-column d-flex gap-16">
                       <div
@@ -364,7 +364,7 @@
                   </div>
                   <div class="justify-content-between flex-column d-flex ml-lg-0 ml-sm-16 ml-0" style="width: -webkit-fill-available;">
                     <!-- 項目名稱 -->
-                    <h3 class="heading-B-2 clamp-2 color-white mb-lg-32 mb-auto d-sm-block d-none">{{ dropsTwo?.collection }}</h3>
+                    <h3 class="heading-B-2 clamp-2 color-white mb-lg-32 mb-auto d-sm-block d-none text-lg-center text-start break-word">{{ dropsTwo?.collection }}</h3>
                     <!-- 路線圖成員介紹按鈕 -->
                     <div class="flex-lg-column d-flex gap-16">
                       <div
@@ -401,7 +401,7 @@
                   </div>
                   <div class="justify-content-between flex-column d-flex ml-lg-0 ml-sm-16 ml-0" style="width: -webkit-fill-available;">
                     <!-- 項目名稱 -->
-                    <h3 class="heading-B-2 clamp-2 color-white mb-lg-32 mb-auto d-sm-block d-none">{{ dropsThree?.collection }}</h3>
+                    <h3 class="heading-B-2 clamp-2 color-white mb-lg-32 mb-auto d-sm-block d-none text-lg-center text-start break-word">{{ dropsThree?.collection }}</h3>
                     <!-- 路線圖成員介紹按鈕 -->
                     <div class="flex-lg-column d-flex gap-16">
                       <div
@@ -438,7 +438,7 @@
                   </div>
                   <div class="justify-content-between flex-column d-flex ml-lg-0 ml-sm-16 ml-0" style="width: -webkit-fill-available;">
                     <!-- 項目名稱 -->
-                    <h3 class="heading-B-2 clamp-2 color-white mb-lg-32 mb-auto d-sm-block d-none">{{ dropsFour?.collection }}</h3>
+                    <h3 class="heading-B-2 clamp-2 color-white mb-lg-32 mb-auto d-sm-block d-none text-lg-center text-start break-word">{{ dropsFour?.collection }}</h3>
                     <!-- 路線圖成員介紹按鈕 -->
                     <div class="flex-lg-column d-flex gap-16">
                       <div
@@ -643,6 +643,9 @@ onMounted(() => {
   height: auto;
   text-align: center;
 }
+.break-word {
+  word-break: break-word;
+}
 
 
 /*/////////////////////////////
@@ -662,13 +665,14 @@ onMounted(() => {
     height: 132px;
   }
   
+  
 }
 /*----- max-width 768 -----*/
 @media screen and (max-width: 768px) {}
 /*----- max-width 576 -----*/
 @media screen and (max-width: 576px) {
   .popup-text {
-    max-height: calc(80vh - 48px - 1px - 24px - 30px - 4px);
+    max-height: calc(80vh - 48px - 173px - 24px - 30px - 4px);
   }
   .popup-body.card-image-content {
     width: 120px;
