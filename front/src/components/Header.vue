@@ -10,6 +10,7 @@
           mode="horizontal"
           :ellipsis="false"
           @select="handleSelect"
+          :default-active="activeIndex"
         >
           <!-- Header - Logo商標  -->
           <li class="header-logo" index="0" @click="toHome()">
@@ -32,13 +33,13 @@
 
 
           <!-- Header - 熱門排行 -->
-          <el-menu-item class="body-B-1 hover-primary" style="padding: 0 16px" index="" @click="toHotItem()">{{$t('home.hot_item')}}</el-menu-item>
+          <el-menu-item class="body-B-1 hover-primary" style="padding: 0 16px" index="0" @click="toHotItem()">{{$t('home.hot_item')}}</el-menu-item>
           <!-- Header - 高勝率錢包 -->
           <el-menu-item class="body-B-1 hover-primary" style="padding: 0 16px" index="1" @click="toHotRanking()">{{$t('home.highWinningWallet')}}</el-menu-item>
           <!-- Header - Minting觀測站 -->
           <el-menu-item class="body-B-1 hover-primary" style="padding: 0 16px" index="2" @click="toMinting()">{{$t('home.mint')}}</el-menu-item>
           <!-- Header - 新聞＆專欄 -->
-          <el-menu-item class="body-B-1 hover-primary" style="padding: 0 16px" index="5" @click="toNews(1)">{{$t('home.news')}}</el-menu-item>
+          <el-menu-item class="body-B-1 hover-primary" style="padding: 0 16px" index="3" @click="toNews(1)">{{$t('home.news')}}</el-menu-item>
           <!-- Header - 背景調整 -->
 <!--          <el-menu-item index="7" @click="toggleDark(!isDark)">-->
 <!--            {{ $t(isDark ? 'global.dark' : 'global.light') }}-->
@@ -201,6 +202,7 @@ import {useStore} from "vuex";
 }
 const input = ref('')
 const visible = ref(false);
+const activeIndex = ref<null|string>(null);
 const visibleLogout = ref(false);
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
@@ -262,6 +264,7 @@ const toLogout = async() =>{
 }
 const toHotRanking = () =>{
   /*router.push({name: 'Analysis'})*/
+  activeIndex.value='1';
   router.push({name: 'HotRanking',query:{type:2}})
 }
 const toWallet = () =>{
@@ -269,18 +272,22 @@ const toWallet = () =>{
 }
 
 const toHome = () =>{
+  activeIndex.value = null
   router.push({name: 'Home'})
 };
 const toNews = (value:number) =>{
+  activeIndex.value='3';
   router.push({name: 'News',query:{type:value}})
 }
 const toHotItem = () =>{
+  activeIndex.value='0';
   router.push({name: 'HotRanking',query:{type:1}})
 }
 const toIndex = () =>{
   router.push({name: 'HomePage',})
 }
 const toMinting = () =>{
+  activeIndex.value='2';
   router.push({name:'Minting'})
 }
 </script>

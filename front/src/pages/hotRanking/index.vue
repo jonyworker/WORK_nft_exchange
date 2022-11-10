@@ -269,7 +269,16 @@ const getProfig = async () =>{
 const toLink = (url:string) =>{
   window.open(url)
 }
-onMounted(() => {
+watch(()=>router.currentRoute.value.query.type,()=>{
+  const type = router.currentRoute.value.query.type  as never
+  getProfig()
+  getHomeHot()
+  changeTag(Number(type))
+  getTextList()
+},{
+  deep: true,
+})
+ onMounted(() => {
   getProfig()
   getHomeHot()
   changeTag(Number(ps))
