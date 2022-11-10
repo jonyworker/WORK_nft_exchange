@@ -13,7 +13,7 @@
                     {{$t('home.analysis')}}
                   </h2>
 
-                  <p class="section-subTitle color-white mb-lg-24 mb-16">{{$t('home.newsList')}}</p>
+                  <p class="section-subTitle color-white mb-lg-24 mb-16">{{$t('home.rankingSub')}}</p>
 
                   <!-- 子選項 -->
                   <div class="tabs">

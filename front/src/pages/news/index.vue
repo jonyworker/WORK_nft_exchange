@@ -11,7 +11,7 @@
                   {{$t('home.latestNews')}}
                 </h2>
 
-                <p class="section-subTitle color-white mb-24">{{$t('home.newsList')}}</p>
+                <p class="section-subTitle color-white mb-24">{{$t('home.newsSub')}}</p>
 
                 <!-- 子選項 -->
                 <div class="tabs">
