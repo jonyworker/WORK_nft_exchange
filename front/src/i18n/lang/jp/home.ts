@@ -29,7 +29,6 @@ export default {
     newsNfTotal:'最新の NFTotalアップデートを入手する',
     analysis:'NFT分析',
     latestNews:'最新ニュース',
-    newsList:'ボリューム、リザーブ価格、その他の統計でランク付けされた NFTotalのトップ NFT',
     demo:'事業',
     tradingVolume:'取引量',
     number:'量',
@@ -80,5 +79,7 @@ export default {
 
 
     mintSub: 'Mint staton は、最近の今後の Mint プロジェクト プロファイルに関する情報を収集します。',
+    newsSub:'金融市場の最も価値のあるコンテンツ。 最新の金融ニュースに追いつきます',
+    rankingSub:'ボリューム、リザーブ価格、その他の統計でランク付けされた NFTotal のトップ NFT',
 
 };

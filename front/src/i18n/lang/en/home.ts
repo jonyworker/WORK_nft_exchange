@@ -29,7 +29,7 @@ export default   {
     newsNfTotal:'get news from NFTotal',
     analysis:'NFT analysis',
     latestNews:'NEWS',
-    newsList:'Top NFTs on NFTotal, ranked by size, reserve price and other stats',
+
     demo:'Project',
     tradingVolume:'Trading Volume',
     number:'Number',
@@ -81,4 +81,6 @@ export default   {
 
 
     mintSub: 'Mint Station will collect information on recent upcoming Mint project profiles',
+    newsSub:'The most valuable content of finance market . Cathing up the latest finance news',
+    rankingSub:'Top NFTs on NFTotal, ranked by size, floor price and other stats',
 };

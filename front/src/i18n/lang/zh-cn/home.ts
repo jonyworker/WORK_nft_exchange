@@ -29,7 +29,6 @@ export default {
     newsNfTotal:'获取最新的 NFTotal 更新',
     analysis:'NFT分析',
     latestNews:'最新消息',
-    newsList:'NFTotal上排名靠前的NFT，按数量、底价和其他统计数据排名',
     demo:'项目',
     tradingVolume:'交易量',
     number:'数量',
@@ -80,4 +79,6 @@ export default {
 
 
     mintSub: 'Mint观测站将收集最近即将Mint的项目简介信息',
+    newsSub:'给你金融市场最有价值的文章内容、让你不再错过这市场的快速脉动',
+    rankingSub:'NFTotal上排名靠前的NFT，按数量、底价和其他统计数据排名',
 };
