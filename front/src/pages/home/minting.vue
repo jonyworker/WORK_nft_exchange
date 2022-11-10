@@ -53,7 +53,7 @@
                     <p class="title card-title-h5 text-white clamp-1">{{ dropsOne?.collection }}</p>
                   </div>
                   <!-- 卡片 - 文字 -->
-                  <p class="card-text-p clamp-3 mb-8">{{ dropsOne?.introduction }}</p>
+                  <p class="card-text-p clamp-3 mb-8" v-html="dropsOne?.introduction"></p>
                   <p class="card-text-p mb-8">{{$t('home.price')}}{{ dropsOne?.price }}</p>
                   <p class="card-text-p mb-8">{{$t('home.total')}}{{ dropsOne?.total }}</p>
                   <p class="card-text-p mb-24">{{$t('home.shortTime')}}{{ dropsOne?.date }}</p>
@@ -122,7 +122,8 @@
                   </div>
 
                   <!-- 卡片 - 文字 -->
-                  <p class="card-text-p clamp-3 mb-8">{{ dropsTwo?.introduction }}</p>
+                  
+                  <p class="card-text-p clamp-3 mb-8" v-html="dropsTwo?.introduction"></p>
                   <p class="card-text-p mb-8">{{$t('home.price')}}{{ dropsTwo?.price }}</p>
                   <p class="card-text-p mb-8">{{$t('home.total')}}{{ dropsTwo?.total }}</p>
                   <p class="card-text-p mb-24">{{$t('home.shortTime')}}{{ dropsTwo?.date }}</p>
@@ -193,7 +194,7 @@
                   </div>
 
                   <!-- 卡片 - 文字 -->
-                  <p class="card-text-p clamp-3 mb-8">{{ dropsThree?.introduction }}</p>
+                  <p class="card-text-p clamp-3 mb-8" v-html="dropsThree?.introduction"></p>
                   <p class="card-text-p mb-8">{{$t('home.price')}}{{ dropsThree?.price }}</p>
                   <p class="card-text-p mb-8">{{$t('home.total')}}{{ dropsThree?.total }}</p>
                   <p class="card-text-p mb-24">{{$t('home.shortTime')}}{{ dropsThree?.date }}</p>
@@ -263,7 +264,7 @@
                   </div>
 
                   <!-- 卡片 - 文字 -->
-                  <p class="card-text-p clamp-3 mb-8">{{ dropsFour?.introduction }}</p>
+                  <p class="card-text-p clamp-3 mb-8" v-html="dropsFour?.introduction"></p>
                   <p class="card-text-p mb-8">{{$t('home.price')}}{{ dropsFour?.price }}</p>
                   <p class="card-text-p mb-8">{{$t('home.total')}}{{ dropsFour?.total }}</p>
                   <p class="card-text-p mb-24">{{$t('home.shortTime')}}{{ dropsFour?.date }}</p>
@@ -314,210 +315,155 @@
 
 
 
-
-
-        <!-- 路線圖 & 成員介紹 -->
-        <div class="row">
-          <div class="col-11">
-            <el-dialog v-model="dialogFormVisible">
-              <div class="content row">
-  
-                <div class="project-info-wrap col-4">
-                  <!-- 項目頭像 -->
-                  <div class="project-img-wrap">
+        <!-- 彈出視窗 Jony版本 首頁 Minting 第一個 -->
+        <el-dialog v-model="dialogFormVisible">
+          <div class="" v-if="$store.state.os.isPc" >
+            <div class="row" style="height:100%;">
+              <!-- 項目資訊集合 -->
+              <div class="col-lg-3 col-12" >
+                <div class=" flex-lg-column flex-sm-row flex-column align-items-lg-center d-flex mb-24 mb-lg-0">
+                  <div class="popup-body card-image-content rwd-pic-content radius-half flex-shrink-0  mb-lg-32 mb-sm-0 mb-8 ">
                     <img :src="dropsOne?.collection_url" alt="">
                   </div>
-                  <!-- 項目名稱 -->
-                  <div class="main-name">{{ dropsOne?.collection }}</div>
-                  <!-- 項目tag -->
-                  <div class="project-tag-wrap">
-                    <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
+                  <div class="justify-content-between flex-column d-flex ml-lg-0 ml-sm-16 ml-0" style="width: -webkit-fill-available;">
+                    <!-- 項目名稱 -->
+                    <h3 class="heading-B-2 clamp-2 color-white mb-lg-32 mb-auto d-sm-block d-none">{{ dropsOne?.collection }}</h3>
+                    <!-- 路線圖成員介紹按鈕 -->
+                    <div class="flex-lg-column d-flex gap-16">
+                      <div
+                        class="heading-B-5" 
+                        v-for="(item,index) in List" 
+                        :key="index" 
+                        :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
                         {{item.name}}
+                      </div>
                     </div>
                   </div>
                 </div>
-  
-                <div class="project-detail-wrap col-8">
-                  <div v-if="type === 1">{{dropsFour?.member}}</div>
-                  <div v-if="type === 2">{{dropsFour?.roadmap}}</div>
-                </div>
-  
               </div>
-            </el-dialog>
-          </div>
-        </div>
-
-        <!-- old -->
-        <!-- <div class="row">
-          <el-dialog v-model="dialogFormVisible" >
-
-            <div class=" d-none d-lg-5 " v-if="$store.state.os.isPc">
-              <div class="main">
-                <div class="main-left">
-
-                  <div class="main-img">
-                    <img :src="dropsOne?.collection_url" alt="">
-                  </div>
-
-                  <div class="main-name">{{ dropsOne?.collection }}</div>
-
-                  <div class="tab-list">
-                    <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
-                      {{item.name}}
-                    </div>
-                  </div>
+              <!-- 項目資訊集合 -->
+              <div class="col-lg-9 col-12">
+                <div class="popup-scroll">
+                  <div class="popup-text color-white body-L-1" v-if="type === 1" v-html="dropsOne?.member"></div>
+                  <div class="popup-text color-white body-L-1" v-if="type === 2" v-html="dropsOne?.roadmap"></div>
                 </div>
-                <div class="main-right" v-if="type === 1">{{dropsOne?.member}}</div>
-                <div class="main-right" v-if="type === 2">{{dropsOne?.roadmap}}</div>
               </div>
+
             </div>
-
-            <div v-else >
-              <div class="ipad-main">
-
-                <div class="main-img">
-                  <img :src="dropsOne?.collection_url" alt="">
-                </div>
-                <div class="right">
-
-                  <div class="main-name">{{ dropsOne?.collection }}</div>
-
-                  <div class="tags">
-                    <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
-                      {{item.name}}
+          </div>
+        </el-dialog>
+        <!-- 彈出視窗 Jony版本 首頁 Minting 第二個 -->
+        <el-dialog v-model="dialogFormTwo">
+          <div class="" v-if="$store.state.os.isPc" >
+            <div class="row" style="height:100%;">
+              <!-- 項目資訊集合 -->
+              <div class="col-lg-3 col-12" >
+                <div class=" flex-lg-column flex-sm-row flex-column align-items-lg-center d-flex mb-24 mb-lg-0">
+                  <div class="popup-body card-image-content rwd-pic-content radius-half flex-shrink-0  mb-lg-32 mb-sm-0 mb-8 ">
+                    <img :src="dropsTwo?.collection_url" alt="">
+                  </div>
+                  <div class="justify-content-between flex-column d-flex ml-lg-0 ml-sm-16 ml-0" style="width: -webkit-fill-available;">
+                    <!-- 項目名稱 -->
+                    <h3 class="heading-B-2 clamp-2 color-white mb-lg-32 mb-auto d-sm-block d-none">{{ dropsTwo?.collection }}</h3>
+                    <!-- 路線圖成員介紹按鈕 -->
+                    <div class="flex-lg-column d-flex gap-16">
+                      <div
+                        class="heading-B-5" 
+                        v-for="(item,index) in List" 
+                        :key="index" 
+                        :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
+                        {{item.name}}
+                      </div>
                     </div>
                   </div>
+                </div>
+              </div>
+              <!-- 項目資訊集合 -->
+              <div class="col-lg-9 col-12">
+                <div class="popup-scroll">
+                  <div class="popup-text color-white body-L-1" v-if="type === 1" v-html="dropsTwo?.member"></div>
+                  <div class="popup-text color-white body-L-1" v-if="type === 2" v-html="dropsTwo?.roadmap"></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </el-dialog>
+        <!-- 彈出視窗 Jony版本 首頁 Minting 第三個 -->
+        <el-dialog v-model="dialogFormThree">
+          <div class="" v-if="$store.state.os.isPc" >
+            <div class="row" style="height:100%;">
+              <!-- 項目資訊集合 -->
+              <div class="col-lg-3 col-12" >
+                <div class=" flex-lg-column flex-sm-row flex-column align-items-lg-center d-flex mb-24 mb-lg-0">
+                  <div class="popup-body card-image-content rwd-pic-content radius-half flex-shrink-0  mb-lg-32 mb-sm-0 mb-8 ">
+                    <img :src="dropsThree?.collection_url" alt="">
+                  </div>
+                  <div class="justify-content-between flex-column d-flex ml-lg-0 ml-sm-16 ml-0" style="width: -webkit-fill-available;">
+                    <!-- 項目名稱 -->
+                    <h3 class="heading-B-2 clamp-2 color-white mb-lg-32 mb-auto d-sm-block d-none">{{ dropsThree?.collection }}</h3>
+                    <!-- 路線圖成員介紹按鈕 -->
+                    <div class="flex-lg-column d-flex gap-16">
+                      <div
+                        class="heading-B-5" 
+                        v-for="(item,index) in List" 
+                        :key="index" 
+                        :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
+                        {{item.name}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- 項目資訊集合 -->
+              <div class="col-lg-9 col-12">
+                <div class="popup-scroll">
+                  <div class="popup-text color-white body-L-1" v-if="type === 1" v-html="dropsThree?.member"></div>
+                  <div class="popup-text color-white body-L-1" v-if="type === 2" v-html="dropsThree?.roadmap"></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </el-dialog>
+        <!-- 彈出視窗 Jony版本 首頁 Minting 第三個 -->
+        <el-dialog v-model="dialogFormFour">
+          <div class="" v-if="$store.state.os.isPc" >
+            <div class="row" style="height:100%;">
+              <!-- 項目資訊集合 -->
+              <div class="col-lg-3 col-12" >
+                <div class=" flex-lg-column flex-sm-row flex-column align-items-lg-center d-flex mb-24 mb-lg-0">
+                  <div class="popup-body card-image-content rwd-pic-content radius-half flex-shrink-0  mb-lg-32 mb-sm-0 mb-8 ">
+                    <img :src="dropsFour?.collection_url" alt="">
+                  </div>
+                  <div class="justify-content-between flex-column d-flex ml-lg-0 ml-sm-16 ml-0" style="width: -webkit-fill-available;">
+                    <!-- 項目名稱 -->
+                    <h3 class="heading-B-2 clamp-2 color-white mb-lg-32 mb-auto d-sm-block d-none">{{ dropsFour?.collection }}</h3>
+                    <!-- 路線圖成員介紹按鈕 -->
+                    <div class="flex-lg-column d-flex gap-16">
+                      <div
+                        class="heading-B-5" 
+                        v-for="(item,index) in List" 
+                        :key="index" 
+                        :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
+                        {{item.name}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- 項目資訊集合 -->
+              <div class="col-lg-9 col-12">
+                <div class="popup-scroll">
+                  <div class="popup-text color-white body-L-1" v-if="type === 1" v-html="dropsFour?.member"></div>
+                  <div class="popup-text color-white body-L-1" v-if="type === 2" v-html="dropsFour?.roadmap"></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </el-dialog>
         
-                </div>
-              </div>
-              <div v-if="type === 1">{{dropsOne?.member}}</div>
-              <div  v-if="type === 2">{{dropsOne?.roadmap}}</div>
-            </div>
-          </el-dialog>
-        </div> -->
-
-        <el-dialog v-model="dialogFormTwo" width="85%">
-          <!-- PC -->
-          <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
-            <div class="main">
-              <div class="main-left">
-                <div class="main-img">
-                  <img :src="dropsTwo?.collection_url" alt="">
-                </div>
-                <div class="main-name">{{ dropsTwo?.collection }}</div>
-    
-                <div class="tab-list">
-                  <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
-                    {{item.name}}
-                  </div>
-                </div>
-              </div>
-              <div class="main-right" v-if="type === 1">{{dropsTwo?.member}}</div>
-              <div class="main-right" v-if="type === 2">{{dropsTwo?.roadmap}}</div>
-            </div>
-          </div>
-          <!-- H5 || table-->
-          <div v-else >
-            <div class="ipad-main">
-              <div class="main-img">
-                <img :src="dropsTwo?.collection_url" alt="">
-              </div>
-              <div class="right">
-                <div class="main-name">{{ dropsTwo?.collection }}</div>
-                <div class="tags">
-                  <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
-                    {{item.name}}
-                  </div>
-                </div>
-    
-              </div>
-            </div>
-            <div v-if="type === 1">{{dropsTwo?.member}}</div>
-            <div  v-if="type === 2">{{dropsTwo?.roadmap}}</div>
-          </div>
-        </el-dialog>
-
-        <el-dialog v-model="dialogFormThree" width="85%">
-          <!-- PC     -->
-          <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
-            <div class="main">
-              <div class="main-left">
-                <div class="main-img">
-                  <img :src="dropsThree?.collection_url" alt="">
-                </div>
-                <div class="main-name">{{ dropsThree?.collection }}</div>
-    
-                <div class="tab-list">
-                  <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
-                    {{item.name}}
-                  </div>
-                </div>
-              </div>
-              <div class="main-right" v-if="type === 1">{{dropsThree?.member}}</div>
-              <div class="main-right" v-if="type === 2">{{dropsThree?.roadmap}}</div>
-            </div>
-          </div>
-          <!-- H5 || table-->
-          <div v-else >
-            <div class="ipad-main">
-              <div class="main-img">
-                <img :src="dropsThree?.collection_url" alt="">
-              </div>
-              <div class="right">
-                <div class="main-name">{{ dropsThree?.collection }}</div>
-                <div class="tags">
-                  <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
-                    {{item.name}}
-                  </div>
-                </div>
-    
-              </div>
-            </div>
-            <div v-if="type === 1">{{dropsThree?.member}}</div>
-            <div  v-if="type === 2">{{dropsThree?.roadmap}}</div>
-          </div>
-        </el-dialog>
-
-        <el-dialog v-model="dialogFormFour" width="85%">
-          <!-- PC     -->
-          <div class=" d-none d-lg-block col-12" v-if="$store.state.os.isPc">
-            <div class="main">
-              <div class="main-left">
-                <div class="main-img">
-                  <img :src="dropsFour?.collection_url" alt="">
-                </div>
-                <div class="main-name">{{ dropsFour?.collection }}</div>
-    
-                <div class="tab-list">
-                  <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
-                    {{item.name}}
-                  </div>
-                </div>
-              </div>
-              <div class="main-right" v-if="type === 1">{{dropsFour?.member}}</div>
-              <div class="main-right" v-if="type === 2">{{dropsFour?.roadmap}}</div>
-            </div>
-          </div>
-          <!-- H5 || table-->
-          <div v-else >
-            <div class="ipad-main">
-              <div class="main-img">
-                <img :src="dropsFour?.collection_url" alt="">
-              </div>
-              <div class="right">
-                <div class="main-name">{{ dropsFour?.collection }}</div>
-                <div class="tags">
-                  <div v-for="(item,index) in List" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeList(item.value)">
-                    {{item.name}}
-                  </div>
-                </div>
-    
-              </div>
-            </div>
-            <div class="color-white" v-if="type === 1">{{dropsFour?.member}}</div>
-            <div class="color-white" v-if="type === 2">{{dropsFour?.roadmap}}</div>
-          </div>
-        </el-dialog>
 
       </div>
     </div>
@@ -652,12 +598,118 @@ onMounted(() => {
 
 </script>
 
-
-
-
-
-
 <style scoped lang="less">
+
+ /*----- Popup Code Start -----*/
+:deep .el-overlay {
+  background-color: rgba(18, 18, 18, 0.1);
+  backdrop-filter: blur(8px);
+}
+:deep .el-overlay-dialog {
+  display: flex;
+}
+:deep .el-dialog {
+  width: 100%;
+  padding-top: 24px !important;
+  padding-right: 24px !important;
+  padding-left: 24px !important;
+  padding-bottom: 24px !important;
+  background: rgba(18,18,18,.92) !important; 
+  backdrop-filter: blur(2px);
+  border: 2px solid rgba(255,255,255,.2);
+  height: 80vh;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+:deep .el-dialog__body {
+  padding: 0;
+}
+.popup-body.card-image-content {
+  width: 196px;
+  height: 196px;
+}
+.popup-text {
+  overflow-y: auto;
+  max-height: calc(80vh - 48px - 30px - 4px);
+  padding-bottom: 24px;
+  width: 100%;
+}
+.tag {
+  height: auto;
+  text-align: center;
+}
+
+
+/*/////////////////////////////
+===== Desktop First START =====
+/////////////////////////////*/
+/*----- max-width 1536 -----*/
+@media screen and (max-width: 1536px) {}
+/*----- max-width 1200 -----*/
+@media screen and (max-width: 1200px) {}
+/*----- max-width 992 -----*/
+@media screen and (max-width: 992px) {
+  .popup-text {
+    max-height: calc(80vh - 48px - 132px - 24px - 30px - 4px);
+  }
+  .popup-body.card-image-content {
+    width: 132px;
+    height: 132px;
+  }
+  
+}
+/*----- max-width 768 -----*/
+@media screen and (max-width: 768px) {}
+/*----- max-width 576 -----*/
+@media screen and (max-width: 576px) {
+  .popup-text {
+    max-height: calc(80vh - 48px - 1px - 24px - 30px - 4px);
+  }
+  .popup-body.card-image-content {
+    width: 120px;
+    height: 120px;
+  }
+  :deep .el-dialog {
+      max-width: 540px;
+    }
+}
+
+  /*/////////////////////////////
+  ===== Mobile First START =====
+  /////////////////////////////*/
+  @media (min-width: 576px) {
+    :deep .el-dialog {
+      max-width: 540px;
+    }
+  }
+  @media (min-width: 768px) {
+    :deep .el-dialog {
+      max-width: calc( 720px * 0.9166666667 );
+    }
+  }
+  @media (min-width: 992px) {
+    :deep .el-dialog {
+      max-width: 960px;
+    }
+  }
+  @media (min-width: 1200px) {
+    :deep .el-dialog {
+      max-width: calc( 1140px * 0.9166666667 );
+    }
+  }
+  @media (min-width: 1400px) {
+    :deep .el-dialog {
+      max-width: calc( 1320px * 0.9166666667 );
+      // 1320 x 0.9166666667 (col-11)
+    }
+  }
+/*----- Popup Code End -----*/ 
+
 
 // 成員介紹 & 路線圖
 .ipad-main{
