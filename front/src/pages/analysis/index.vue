@@ -51,15 +51,13 @@
   
   <div class="container">
 
-    
-
-
     <!-- 分頁選單 -->
-    <div class="tabs">
+    <div class="tabs mb-32">
       <div v-for="(item,index) in textList" :key="index" :class="['tages',type===item.value?'active_tages':'']" @click="changeTag(item.value)">
         {{item.name}}
       </div>
     </div>
+
     <!-- 分頁內容 type-1 -->
     <div class="row" v-show="type === 1">
       <div class="col-12">
