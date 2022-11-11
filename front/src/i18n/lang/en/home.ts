@@ -25,8 +25,8 @@ export default   {
     tradingDynamics:'Trading Dynamics',
     description: 'The aspiration is to serve all Chinese-speaking NFT users. We will also launch more application tools to help you better observe all NFT projects.',
     community:'Join Community',
-    delivery:'Delivery',
-    newsNfTotal:'get news from NFTotal',
+    delivery:'Send',
+    newsNfTotal:'Get news from NFTotal',
     analysis:'NFT analysis',
     latestNews:'NEWS',
 
