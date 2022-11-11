@@ -8893,6 +8893,46 @@ img {
   }
 }
 
+.ck-content > ul {
+  list-style: disc;
+  margin-bottom: 32px;
+  color: rgba(255, 255, 255, 0.8980392157);
+  margin-left: 32px;
+}
+
+.ck-content > ol {
+  list-style: decimal;
+  margin-bottom: 32px;
+  color: rgba(255, 255, 255, 0.8980392157);
+  margin-left: 32px;
+}
+
+.ck-content > ul li,
+.ck-content > ol li {
+  font-family: "Noto Sans TC", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.375;
+  letter-spacing: 0;
+  line-height: 1.6;
+}
+.ck-content > ul li,
+.ck-content > ol li {
+  font-size: 16px;
+}
+@media screen and (min-width: 768px) {
+  .ck-content > ul li,
+.ck-content > ol li {
+    font-size: calc(0vw + 16px);
+  }
+}
+@media screen and (min-width: 1536px) {
+  .ck-content > ul li,
+.ck-content > ol li {
+    font-size: 16px;
+  }
+}
+
 .ck-content > p strong {
   font-family: "Noto Sans TC", sans-serif;
   font-style: normal;

@@ -47,6 +47,23 @@
   margin-bottom: 32px;
   color: $color-alpha-white-90;
 }
+.ck-content > ul {
+  list-style:disc;
+  margin-bottom: 32px;
+  color: $color-alpha-white-90;
+  margin-left: 32px;
+}
+.ck-content > ol {
+  list-style: decimal;
+  margin-bottom: 32px;
+  color: $color-alpha-white-90;
+  margin-left: 32px;
+}
+.ck-content > ul li,
+.ck-content > ol li {
+  @include body-L-1;
+  line-height: 1.6;
+}
 .ck-content > p strong { 
   @include body-B-1;
   line-height: 1.6;
