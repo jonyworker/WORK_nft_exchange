@@ -4,7 +4,7 @@
     <div class="container mb-24">
       <div class="row">
         <div class="col-12">
-          <div v-if="panel.data" class="card card-background p-md-24 p-12">
+          <div v-if="panel.data" class="card card-background p-md-24 p-12" style="display: block;">
             <div class="row">
               <!-- 項目info -->
               <div class="col-xl-7 col-12 d-flex flex-column mb-xl-0 mb-24">
