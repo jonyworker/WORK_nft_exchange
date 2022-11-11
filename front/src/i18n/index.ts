@@ -7,7 +7,7 @@ import kr from './lang/kr';
 
 const i18n = createI18n({
     legacy: false,
-    locale: sessionStorage.getItem('localeLang') || 'zhCn',
+    locale: sessionStorage.getItem('localeLang') || 'zh-tw',
     messages: {
         zhCn,
         en,
