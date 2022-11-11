@@ -35,19 +35,19 @@
             <div class="hot-item-card ">
               <ul class="ranking-list" v-for="(item,index) in hotList" :key="index">
                 <!-- 1st -->
-                <li class="ranking-item">
+                <li class="ranking-item" @click="toIndex(item.id)" style="cursor:pointer;">
                   <small class="ranking-sort">0{{index+1}}</small>
-                  <div class="ranking-picture" @click="toIndex(item.id)">
+                  <div class="ranking-picture" >
                     <img :src="item.photo_url" alt="">
                   </div>
                   <div class="ranking-text">
                     <div class="ranking-top">
-                    <span class="title-wrap"  @click="toIndex(item.id)">
-                            <span class="ranking-title">{{item.name}}</span>
+                      <span class="title-wrap">
+                        <span class="ranking-title">{{item.name}}</span>
                       </span>
                       <span class="ranking-value">
                         <span>{{ item.volume_24_p }}%</span>
-                  </span>
+                      </span>
                     </div>
                     <div class="ranking-bottom">
                           <span class="floor-price">
@@ -74,19 +74,19 @@
           <div class="hot-item-card ">
             <ul class="ranking-list" v-for="(item,index) in hotListTwo" :key="index">
               <!-- 1st -->
-              <li class="ranking-item">
+              <li class="ranking-item" @click="toIndex(item.id)" style="cursor:pointer;">
                 <small class="ranking-sort">{{index+6}}</small>
-                <div class="ranking-picture" @click="toIndex(item.id)">
+                <div class="ranking-picture">
                   <img :src="item.photo_url" alt="">
                 </div>
                 <div class="ranking-text">
                   <div class="ranking-top">
-                    <span class="title-wrap" @click="toIndex(item.id)">
-                            <span class="ranking-title">{{item.name}}</span>
-                      </span>
+                    <span class="title-wrap">
+                      <span class="ranking-title">{{item.name}}</span>
+                    </span>
                     <span class="ranking-value">
-                        <span>{{ item.volume_24_p }}%</span>
-                  </span>
+                      <span>{{ item.volume_24_p }}%</span>
+                    </span>
                   </div>
                   <div class="ranking-bottom">
                           <span class="floor-price">
@@ -113,19 +113,19 @@
             <div class="hot-item-card ">
               <ul class="ranking-list" v-for="(item,index) in hotListFree" :key="index">
                 <!-- 1st -->
-                <li class="ranking-item">
+                <li class="ranking-item" @click="toIndex(item.id)" style="cursor:pointer;">
                   <small class="ranking-sort">{{index+11}}</small>
-                  <div class="ranking-picture" @click="toIndex(item.id)">
+                  <div class="ranking-picture">
                     <img :src="item.photo_url" alt="">
                   </div>
                   <div class="ranking-text">
                     <div class="ranking-top">
-                    <span class="title-wrap"  @click="toIndex(item.id)">
-                            <span class="ranking-title">{{item.name}}</span>
+                      <span class="title-wrap">
+                        <span class="ranking-title">{{item.name}}</span>
                       </span>
                       <span class="ranking-value">
                         <span>{{ item.volume_24_p }}%</span>
-                  </span>
+                      </span>
                     </div>
                     <div class="ranking-bottom">
                           <span class="floor-price">
