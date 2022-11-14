@@ -15,7 +15,7 @@
 
 <script lang="ts" setup>
 import * as echarts from 'echarts';
-import {onMounted, ref, watch,onBeforeMount} from 'vue'
+import {onMounted, ref, watch, onBeforeMount, nextTick} from 'vue'
 import {ITrend} from "@/pages/homePage/homePageTypes";
 import {homePageApi} from "@/api";
 import {useRoute} from "vue-router";
@@ -55,11 +55,8 @@ const renderData = () => {
   volumes.value = volume;
   if (!myChart.value) {
     const chartDom = document.getElementById('lineChart');
-    console.log("-> myChart.value 1", myChart.value);
     myChart.value = chartDom && echarts.init(chartDom);
   }
-  console.log("->  myChart.value", myChart.value);
-  console.log("-> 数据", {date_list, floor_price, avg_price, volume});
   if(!myChart.value){return}
   // 绘制图表
   myChart.value.setOption({
@@ -178,7 +175,10 @@ const getPrice = async () => {
   try {
     const res: { [key: string]: ITrend[] } = await homePageApi.priceHistory(params);
     priceData.value = res?.data || res?.price_3d || res?.price_30d || res?.price_3m;
-    renderData()
+    nextTick(()=>{
+      renderData()
+    })
+
   } catch (e) {
 
   }
