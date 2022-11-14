@@ -30,14 +30,14 @@
 							<div class="image">
 								<img src="@/assets/images/metamask.png" alt="">
 							</div>
-							<p class="heading-B-2 ml-auto color-white">MetaMask</p>
+							<p class="heading-B-2 ml-auto color-white text-end">MetaMask</p>
 						</div>
 
 						<div class="login-link-wrap" @click="chageTag(4)">
 							<div class="image">
 								<img src="@/assets/images/walletconnect.png" alt=""> 
 							</div>
-							<p class="heading-B-2 ml-auto color-white">Wallet Connect</p>
+							<p class="heading-B-2 ml-auto color-white text-end">Wallet Connect</p>
 						</div>
 			    </div>
 	    	</div>

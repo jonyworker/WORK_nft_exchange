@@ -1,9 +1,9 @@
 export const langType = {
     zhCn: '简体中文',
-    en: 'english',
+    en: 'English',
     'zh-tw': '繁體中文',
-    'ko': '韩语',
-    'ja': '日语'
+    'ko': '한글',
+    'ja': '日本語'
 }
 
 export enum LANG_TYPE_ENUM {

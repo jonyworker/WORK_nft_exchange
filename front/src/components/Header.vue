@@ -81,7 +81,7 @@
           </div>
           <!-- Header - Minting觀測站 -->
           <div class="connectWallet ml-auto mr-20" @click="toWallet()" v-if="!isLogin">
-            middle
+            Connect Wallet
           </div>
           <div class="login ml-auto" v-else @click="logout()" style="margin-right:10px;"></div>
           <div class="burger-toggle" @click="visible = true">
@@ -104,7 +104,7 @@
           </div>
           <!-- Header - Minting觀測站 -->
           <div class="connectWallet ml-auto mr-20" @click="toWallet()" v-if="!isLogin">
-            small
+            Connect Wallet
           </div>
           <div class="login ml-auto" v-else @click="logout()" style="margin-right:10px;"></div>
           <div class="burger-toggle" @click="visible = true">
