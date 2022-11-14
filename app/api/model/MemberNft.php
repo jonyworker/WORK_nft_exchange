@@ -25,7 +25,7 @@ class MemberNft extends Model
                 'collection_name' => $info['name'],
                 'photo_url' => $info['photo_url'],
                 'contract' => $info['contract'],
-                'token_id' => $info['contract'],
+                'token_id' => $info['tokenid'],
             ];
         }
         return $data;
