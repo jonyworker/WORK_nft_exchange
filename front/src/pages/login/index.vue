@@ -8,10 +8,10 @@
 					<div class="section-title-wrap flex-column align-items-lg-center align-items-start">
 						<!-- 標題  -->
 						<h2 class="section-title color-white mb-8">
-							連結你的錢包
+							{{$t('home.linkWallet')}}
 						</h2>
 	
-						<p class="section-subTitle color-white mb-lg-24 mb-16">所有文章都通過 Mirror 發佈在區塊鏈上。 NFTotal 擁有文章的版權。NFTotal 擁有文章的版權</p>
+						<p class="section-subTitle color-white mb-lg-24 mb-16">{{$t('home.walletDesc')}}</p>
 	
 					</div>
 				</div>
