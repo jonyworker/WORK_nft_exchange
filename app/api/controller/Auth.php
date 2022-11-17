@@ -63,7 +63,10 @@ class Auth extends BaseController
                 'token' => $token,
                 'username' => $address,
                 'is_holder' => $isHolder, //#1:非holder   2:是holder
-                'holding_atl_nft' => empty($holdingAtlNft) ? '' : implode(',', $holdingAtlNft)
+                'holding_atl_nft' => empty($holdingAtlNft) ? '' : implode(',', $holdingAtlNft),
+                'name' => $member['name'],
+                'photo_url' => $member['photo_url'],
+                'email' => $member['email'],
             ]);
 
         } catch (\Throwable $exception) {
