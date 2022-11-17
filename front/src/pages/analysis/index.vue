@@ -32,7 +32,7 @@
             <div class="d-lg-flex align-items-center d-flex-column">
               <div class="heading-B-2 mr-24 color-white">使用者自訂名稱</div>
               <!-- 錢包地址 -->
-              <div class="d-flex mt-lg-0 mt-8">
+              <div class="d-flex mt-lg-0 mt-8" @click="copyInfo(username)">
                 <div class="body-B-1 clamp-single color-white" style="width: 130px;">{{username}}</div>
                 <div class=" ml-8 i-copy bg-alpha-white-55 square-24"></div>
               </div>
@@ -115,7 +115,7 @@
       
       <!-- 1st -->
       <div class="col-12 col-sm-6 col-lg-3" v-for="(item,index) in dropsList" :key="index">
-        <div class="card">
+        <div class="card" @click="toLink(item.id)">
           <!-- 卡片圖片 -->
           <div class="card-image-content ratio--1_1" style="border-radius: 16px 16px 0 0;">
             <img :src="item.photo_url" alt="">
@@ -138,39 +138,6 @@
           </div>
         </div>
       </div>
-
-
-
-      <!-- Lynn做的 -->
-      <!-- <div class="minting-content mt-10">
-
-        <div class="row">
-
-          <div class="col-12 col-sm-6 col-lg-3" v-for="(item,index) in dropsList" :key="index">
-            <div class="card-item card-1 mb-10" >
-              
-              <div class="card-image">
-                <img :src="item.photo_url" alt="">
-              </div>
-
-              <div class="card-text">
-                <div class="card-text-wrap">
-                  
-                  <div class="text">{{item.collection_name}}</div>
-                  <div class="image" @click="toNftRemove(item.id)">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="38" width="38">
-                      <path d="m21.95 40.2-2.65-2.45Q13.1 32 8.55 26.775T4 15.85q0-4.5 3.025-7.525Q10.05 5.3 14.5 5.3q2.55 0 5.05 1.225T24 10.55q2.2-2.8 4.55-4.025Q30.9 5.3 33.5 5.3q4.45 0 7.475 3.025Q44 11.35 44 15.85q0 5.7-4.55 10.925Q34.9 32 28.7 37.75l-2.65 2.45q-.85.8-2.05.8-1.2 0-2.05-.8Z"/>
-                    </svg>
-                  </div>
-
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div> -->
-      
     </div>
   </div>
 </div>
@@ -220,7 +187,12 @@ const collection = async ()=>{
   analysisList.value  = res.data
 
 }
-
+/**
+ * 跳转主页
+ * */
+const toLink = (id:any) =>{
+  router.push({name: 'HomePage',query:{id:id}})
+}
 const getAnalysis = async () => {
   const res = await homeApi.postMember();
   dropsList.value = res.data
