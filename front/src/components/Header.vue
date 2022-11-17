@@ -40,6 +40,7 @@
           <el-menu-item class="body-B-1 hover-primary" style="padding: 0 16px" index="2" @click="toMinting()">{{$t('home.mint')}}</el-menu-item>
           <!-- Header - 新聞＆專欄 -->
           <el-menu-item class="body-B-1 hover-primary" style="padding: 0 16px" index="3" @click="toNews(1)">{{$t('home.news')}}</el-menu-item>
+          <el-menu-item class="body-B-1 hover-primary" style="padding: 0 16px" index="4" @click="toBlog(2)">{{$t('home.blog')}}</el-menu-item>
           <!-- Header - 背景調整 -->
 <!--          <el-menu-item index="7" @click="toggleDark(!isDark)">-->
 <!--            {{ $t(isDark ? 'global.dark' : 'global.light') }}-->
@@ -116,7 +117,7 @@
       </div>
     </div>
     <!--搜索结果-->
-    <div  class="search-list" v-if="input !== ''">
+    <div  class="search-list" v-if="input !== '' && checkInput === true">
       <div class="search-container" v-for="(item,index) in searchResult" :key="index" v-show="index < 11" @click="toLink(item.forward)">
         <div class="search-img"><img :src="item.photo_url" alt=""></div>
         <div class="search-text">{{item.name}}</div>
@@ -200,7 +201,8 @@ import {useStore} from "vuex";
    name:string;
    forward:string;
 }
-const input = ref('')
+const input = ref('');
+ const checkInput = ref(false);
 const visible = ref(false);
 const activeIndex = ref<null|string>(null);
 const visibleLogout = ref(false);
@@ -230,7 +232,8 @@ const toLink = (url:string|undefined) =>{
   if (!url) {
     return
   }
-  window.open(url)
+  window.open(url);
+  checkInput.value = false;
 }
 const handleCommand = (value: string) => {
   store.commit('CHANGE_LANGUAGE', value);
@@ -249,8 +252,8 @@ const logout = () =>{
 //搜索功能
 const changeInput = async() =>{
   const res = await userApi.search({keyword:input.value});
-  searchResult.value = res.data
-  console.log("-> res", res);
+  searchResult.value = res.data;
+  checkInput.value = true;
 }
 //退出登录
 const toLogout = async() =>{
@@ -277,6 +280,9 @@ const toHome = () =>{
 };
 const toNews = (value:number) =>{
   activeIndex.value='3';
+  router.push({name: 'News',query:{type:value}})
+}
+const toBlog = (value:number) =>{
   router.push({name: 'News',query:{type:value}})
 }
 const toHotItem = () =>{

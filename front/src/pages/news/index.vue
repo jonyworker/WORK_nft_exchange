@@ -126,7 +126,7 @@ const tabs = ref<IText[]>()
 const getTextList = async () => {
   const res = await homeApi.getText();
   tabs.value = res.newstab
-  tabs.value&&chageTag(tabs.value[0].value)
+  tabs.value && type.value
 }
 const toDetails = (id: number) => {
   router.push({name: 'NewsDetail', query: {id}})
@@ -195,9 +195,19 @@ const load = async () => {
   }
 
 }
+watch(()=>router.currentRoute.value.query.type,()=>{
+  const type = router.currentRoute.value.query.type  as never
+  chageTag(Number(type))
+  getNews()
+  getTextList()
+
+},{
+  deep: true,
+})
 watchEffect(()=>{
   load()
 })
+
 onMounted(() => {
   getNews()
   getTextList()
