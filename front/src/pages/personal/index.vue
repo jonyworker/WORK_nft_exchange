@@ -1,95 +1,55 @@
 <template>
   <div class="">
-    <div class="personal-content">
-      <!-- 個人資料-背景 -->
-      <div class="container-fluid">
-        <div class="row">
-          <div class="personal-bg"></div>
-        </div>
-        
+    <div class="personal-page">
+      <div class="personal-bg">
       </div>
-      
-      <!-- 個人資料-頭像 / 資料 -->
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-
-            <div class="personal-page-content-1">
-              <!-- 頭像 -->
-              <div class="avatar-wrap mb-32">
-                <div class="avatar">
-                  <img-upload
-                      ref="uploadRef"
-                      :show-icon="false"
-                      v-model:imageUrl="avatar"
-                      
-                      :can-clip="false"
-                      accept=".png"
-                  >
-                  </img-upload>
-                </div>
-              </div>
-              <div class="personal-info-text-content pb-40">
-                <!-- 使用者名稱 -->
-                <div class="heading-B-2 color-white">使用者自訂名稱</div>
-                <!-- setting icon -->
-                <el-icon class="ml-auto color-white">
-                  <Setting/>
-                </el-icon>
-              </div>
-            </div>
-            
+      <div class="personal-page-title">
+        <div class="personal-page-content">
+          <div class="avatar">
+            <img-upload
+                ref="uploadRef"
+                :show-icon="false"
+                v-model:imageUrl="avatar"
+                :can-clip="false"
+                accept=".png,.jpeg,.jpg"
+            >
+            </img-upload>
           </div>
+          <div class="text">使用者自訂名稱</div>
+          <el-icon>
+            <Setting/>
+          </el-icon>
         </div>
       </div>
-
-      <!-- 個人資料-資料修改 -->
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-xl-8 col-md-10 col-12">
-            <div class="">
-              <form>
-                <ul class="form-list mt-64">
-                  <li class="form-item mb-24">
-                    <label class="body-B-1 mb-4 color-white" for="user-name">{{$t('home.userName')}}</label>
-                    <input class="color-white" v-model="formModel.name" placeholder="請輸入使用者名稱" autocomplete="off" size="large" type="text" id="user-name"/>
-                  </li>
-    
-                  <li label="E-mail" prop="email" class="form-item mb-48">
-                    <label class="body-B-1 mb-4 color-white" for="user-email">E-mail</label>
-                    <input class="color-white" v-model="formModel.email" placeholder="請輸入電子信箱" autocomplete="off" size="large" type="text" id="user-email"/>
-                  </li>
-
-
-                  <li label="錢包地址" class="mb-72">
-                    <label class="body-B-1 mb-4 color-white">{{$t('home.walletAdd')}}</label>
-                    <div class="wallet-address">
-
-                      <p class="body-B-1 clamp-1 color-white">0x2d775455skkcoa54d7ad5fwok454cd(我是假資料)</p>
-                      
-                      <el-icon class="ml-auto color-white">
-                        <CopyDocument/>
-                      </el-icon>
-                    </div>
-                  </li>
-
-                  <li class="">
-                    <button class="btn btn-large" type="button" @click="submitForm()">儲存</button>
-                  </li>
-
-                </ul>
-  
-                
-              </form>
+      <div class="form-wrapper">
+        <el-form
+            ref="ruleFormRef"
+            :model="formModel"
+            :rules="rules"
+            label-width="120px"
+            label-position="top"
+        >
+          <el-form-item label="使用者名稱" prop="name">
+            <el-input v-model="formModel.name" placeholder="請輸入使用者名稱" autocomplete="off" size="large"/>
+          </el-form-item>
+          <el-form-item label="E-mail" prop="email" class="mt-24">
+            <el-input v-model="formModel.email" placeholder="請輸入電子信箱" autocomplete="off" size="large"/>
+          </el-form-item>
+          <el-form-item label="錢包地址" class="mt-48">
+            <div class="wallet-address">
+              <div>0x2d775455skkcoa54d7ad5fwok454cd</div>
+              <el-icon>
+                <CopyDocument/>
+              </el-icon>
             </div>
-          </div>
-        </div>
+
+          </el-form-item>
+
+          <el-form-item class="mt-72">
+            <el-button style="width: 100%" type="primary" @click="submitForm()">儲存</el-button>
+          </el-form-item>
+        </el-form>
       </div>
-      
-      
-
-
-
       <el-dialog v-model="showDialog">
         <img-upload
             ref="uploadRef"
@@ -98,7 +58,6 @@
             accept=".png"
         ></img-upload>
       </el-dialog>
-
     </div>
   </div>
 
@@ -111,7 +70,9 @@ import {ImgUpload} from '@components/upload/index'
 import userApi from '@/api/user'
 import defaultAvatar from './man.png'
 import {ElMessage} from "element-plus";
+import {useStore} from "vuex";
 
+const store = useStore();
 const ruleFormRef = ref<FormInstance>()
 const uploadRef = ref<any>()
 const fileList = ref<''>('')
@@ -121,9 +82,7 @@ const formModel = reactive({
   name: '',
   img: ''
 })
-const avatar = computed(() => {
-  return formModel.img || defaultAvatar
-})
+const avatar = ref(formModel.img || defaultAvatar)
 const validateEmil = (rule: any, value: any, callback: any) => {
   if (!value) {
     return callback(new Error('请输入邮箱'))
@@ -149,7 +108,7 @@ const submitForm = async () => {
   if (!ruleFormRef.value) return;
   const valid = await ruleFormRef.value.validate()
   if (!valid) return;
-  const params = {...formModel}
+  const params = {...formModel,img:avatar.value}
   try {
     const {status} = await userApi.updatePersonal(params)
     if (status === 'ok') {
@@ -159,26 +118,89 @@ const submitForm = async () => {
     ElMessage.error("保存失败")
   }
 }
+const init =()=>{
+  const isLogin = store.state.isLogin;
+  if(isLogin){
+    const loginInfo = store.state.user.loginInfo;
+    console.log("-> loginInfo", loginInfo);
+    formModel.email = loginInfo.email??'';
+    formModel.name = loginInfo.name??'';
+    avatar.value = loginInfo.photo_url??defaultAvatar;
+  }
+
+
+}
+
+onMounted(init)
 
 </script>
 
-<style  lang="less">
-  .wallet-address {
+<style scoped lang="less">
+.personal-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .personal-bg {
+    width: 100%;
+    height: 364px;
+    background: #D9D9D9;
+  }
+}
+
+.personal-page-title {
+
+  width: 100%;
+  max-width: 1290px;
+  .personal-page-content {
+    padding-top: 63px;
+    margin: 0 40px 63px 40px;
+
+    height: 143px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 700;
+    font-size: 36px;
+    position: relative;
     display: flex;
     align-items: center;
-    gap:16px;
-    width: 100%;
-    height: 56px;
-    padding: 16px 18px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    .el-icon {
-      flex-shrink: 0;
-      width: 18px;
-      height: 24px;
-      svg {
-        width: 100%;
-      }
-    }
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
   }
+  .text {
+    flex: 1;
+  }
+
+  .avatar {
+    position: absolute;
+    top: -164px;
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+  }
+}
+
+.avatar-img {
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+}
+
+.wallet-address {
+  display: flex;
+  box-sizing: content-box;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 56px;
+  color: white;
+  padding: 0 18px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.form-wrapper {
+  padding: 0 40px;
+  width: 100%;
+  max-width: 640px;
+}
 </style>

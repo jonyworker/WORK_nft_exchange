@@ -20,8 +20,10 @@ export const mutations: MutationTree<State> = {
         sessionStorage.setItem('localeLangEnum', `${state.languageEnum}`);
     },
     changeLoginStatus(state, value: boolean){
-        console.log("-> 登录", value);
         state.isLogin =value;
+    },
+    updateToken(state, value: string){
+        state.token =value;
     }
 };
 

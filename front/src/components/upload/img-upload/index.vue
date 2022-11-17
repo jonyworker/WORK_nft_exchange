@@ -114,7 +114,6 @@ const props = withDefaults(defineProps<ImgUploadProps>(), {
   canClip: false,
   disabled: false,
   headers: () => {
-    console.log("-> localStorage.getItem('token') ", localStorage.getItem('token') );
     return {"access-token": localStorage.getItem('token') || ''}
   },
 });

@@ -3,17 +3,11 @@ export default {
     // 开启命名空间
     namespaced: true,
     state: {
-        info: {
-            uname: 'Leo',
-            age: 21
-        }
+        loginInfo: {}
     },
     mutations: {
-        updateUname(state:any, val:any) {
-            state.info.uname = val
-        },
-        updateAge(state:any, val:any) {
-            state.info.age = val
+        updateLoginInfo(state:any, val:any) {
+            state.loginInfo = val
         }
     },
     actions: {
