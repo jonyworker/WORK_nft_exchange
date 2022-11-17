@@ -122,17 +122,17 @@
           </div>
           
           <!-- 卡片內文 -->
-          <div class="card-body-content p-16">
+          <div class="card-body-content p-16" style="align-items: initial;">
 
             <!-- icon 標題組 -->
             <div class="card-icon-title-wrap align-items-center mb-12">
               <!-- 項目方名稱 -->
               <p class="title card-title-h5 text-white clamp-1">{{item.collection_name}}</p>
               <!-- 愛心icon -->
-              <div class="i i-24 i-white i-like" @click="toNftRemove(item.id)"></div>
+              <div class="i i-24 i-white i-like-fill ml-auto" @click="toNftRemove(item.id)"></div>
             </div> 
             <!-- 卡片 - 文字 -->
-            <p class="card-text-p">{{item.token_id}}</p>
+            <p class="card-text-p">#{{item.token_id}}</p>
             
             
           </div>
@@ -142,7 +142,7 @@
 
 
       <!-- Lynn做的 -->
-      <div class="minting-content mt-10">
+      <!-- <div class="minting-content mt-10">
 
         <div class="row">
 
@@ -169,7 +169,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       
     </div>
   </div>
