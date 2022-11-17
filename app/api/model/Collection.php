@@ -81,4 +81,9 @@ class Collection extends Model
 
         return $list;
     }
+
+    public static function findByContract($contract)
+    {
+        return self::where('contract', '=', $contract)->find();
+    }
 }
