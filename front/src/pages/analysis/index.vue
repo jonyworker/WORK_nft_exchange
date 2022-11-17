@@ -16,15 +16,16 @@
           <!-- 頭像 -->
           <div class="avatar-wrap mb-32">
             <div class="avatar">
-              <img-upload
-                  ref="uploadRef"
-                  :show-icon="false"
-                  v-model="avatar"
-                  
-                  :can-clip="false"
-                  accept=".png"
-              >
-              </img-upload>
+              <img :src="avatar" />
+<!--              <img-upload-->
+<!--                  ref="uploadRef"-->
+<!--                  :show-icon="false"-->
+<!--                  v-model="avatar"-->
+<!--                  -->
+<!--                  :can-clip="false"-->
+<!--                  accept=".png"-->
+<!--              >-->
+<!--              </img-upload>-->
             </div>
           </div>
           <div class="personal-info-text-content pb-40  align-items-start">
@@ -149,7 +150,10 @@ import {homeApi, homePageApi} from "@/api";
 import {copy} from "@utils/copy";
 import {IInfo,IPanelList} from "./analysisType";
 import {useRouter} from "vue-router";
+import {useStore} from "vuex";
+import defaultAvatar from "@/pages/personal/man.png";
 
+const store = useStore();
 const type = ref(1);
 let http = 'http://v2admin.nftotal.io/';
 const router = useRouter();
@@ -157,8 +161,9 @@ const analysisList = ref<IPanelList[] >([])
 const dropsList = ref<IInfo[] | null>(null);
 const textList = ref([{name:'追蹤項目',value:1,},{name:'追蹤NFT',value:2}]);
 const toLogin = ref({});
-const avatar = ref('')
+const avatar = ref(store.state.user.loginInfo.photo_url??defaultAvatar)
 const username = localStorage.getItem('username');
+const photoUrl = localStorage.getItem('photoUrl')
 const ps = router.currentRoute.value.query.type;
 const changeTag = async (value: number) => {
   type.value = value

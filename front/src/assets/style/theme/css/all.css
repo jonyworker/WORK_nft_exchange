@@ -8199,7 +8199,7 @@ img {
   height: 200px;
   border-radius: 50%;
   overflow: hidden;
-  background-color: #fff;
+  /*background-color: #fff;*/
 }
 
 .personal-page-content-1 .avatar {

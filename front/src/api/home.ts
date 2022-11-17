@@ -40,7 +40,7 @@ const homeApi = {
         return await request.get(`api/index/text`)
     },
     //链接钱包登录
-    async postLogin (data: any):Promise<{token:any,username:string,status:string}>{
+    async postLogin (data: any):Promise<{token:any,username:string,status:string,photo_url:string}>{
         return await request.post(`api/login`,data)
     },
     //退出
