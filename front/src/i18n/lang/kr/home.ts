@@ -81,4 +81,7 @@ export default {
     mintSub: 'Mint station 는 최근의 Mint 프로젝트 프로필에 대한 정보를 수집합니다.',
     newsSub:'금융시장의 가장 가치 있는 콘텐츠. 최신 금융 뉴스를 받아보세요',
     rankingSub:'거래량, 예약 가격 및 기타 통계별로 순위가 매겨진 NFTotal의 상위 NFT',
+    loginSub:'당신과 web3 사이의 연결',
+    newsTag:'소식',
+    blogTag:'블로그',
 };

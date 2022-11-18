@@ -11,7 +11,7 @@
               {{ $t('home.linkWallet') }}
             </h2>
 
-            <p class="section-subTitle color-white mb-lg-24 mb-16">{{ $t('home.walletDesc') }}</p>
+            <p class="section-subTitle color-white mb-lg-24 mb-16">{{ $t('home.loginSub') }}</p>
 
           </div>
         </div>

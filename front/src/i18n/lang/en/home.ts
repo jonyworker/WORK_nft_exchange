@@ -83,4 +83,7 @@ export default   {
     mintSub: 'Mint Station will collect information on recent upcoming Mint project profiles',
     newsSub:'The most valuable content of finance market . Cathing up the latest finance news',
     rankingSub:'Top NFTs on NFTotal, ranked by size, floor price and other stats',
+    loginSub:'The connection between you and web3',
+    newsTag:'NEWS',
+    blogTag:'BLOG',
 };

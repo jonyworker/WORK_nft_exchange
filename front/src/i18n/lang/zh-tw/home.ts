@@ -82,4 +82,7 @@ export default {
     mintSub: 'Mint觀測站將收集最近即將Mint的項目簡介資訊',
     newsSub:'給你金融市場最有價值的文章內容、讓你不再錯過這市場的快速脈動',
     rankingSub:'NFTotal上排名靠前的 NFT，按數量、底價和其他統計數據排名',
+    loginSub:'啟動和Web3.0的連結',
+    newsTag:'新聞',
+    blogTag:'專欄',
 };

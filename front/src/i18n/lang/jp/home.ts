@@ -81,5 +81,8 @@ export default {
     mintSub: 'Mint staton は、最近の今後の Mint プロジェクト プロファイルに関する情報を収集します。',
     newsSub:'金融市場の最も価値のあるコンテンツ。 最新の金融ニュースに追いつきます',
     rankingSub:'ボリューム、リザーブ価格、その他の統計でランク付けされた NFTotal のトップ NFT',
+    loginSub:'あなたとweb3のつながり',
+    newsTag:'ニュース',
+    blogTag:'ブログ',
 
 };

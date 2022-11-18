@@ -81,4 +81,7 @@ export default {
     mintSub: 'Mint观测站将收集最近即将Mint的项目简介信息',
     newsSub:'给你金融市场最有价值的文章内容、让你不再错过这市场的快速脉动',
     rankingSub:'NFTotal上排名靠前的NFT，按数量、底价和其他统计数据排名',
+    loginSub:'启动和Web3.0的连结',
+    newsTag:'新闻',
+    blogTag:'专栏',
 };
