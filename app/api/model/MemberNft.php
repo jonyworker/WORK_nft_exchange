@@ -20,7 +20,7 @@ class MemberNft extends Model
             $info = $nftArr[$item->nft_id] ?? [];
             if(empty($info)) continue;
 
-            $collection = Collection::findByContract($item['contract']);
+            $collection = Collection::findByContract($item->contract);
 
             $data[] = [
                 'id' => $item->nft_id,
