@@ -40,6 +40,7 @@
   text-decoration: underline;
   cursor: pointer;
   color: $color-alpha-white-90;
+  display: inline;
 }
 .ck-content > p {
   @include body-L-1;
