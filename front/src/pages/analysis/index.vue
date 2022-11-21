@@ -162,7 +162,7 @@ const dropsList = ref<IInfo[] | null>(null);
 const textList = ref([{name:'追蹤項目',value:1,},{name:'追蹤NFT',value:2}]);
 const toLogin = ref({});
 const avatar = ref(store.state.user.loginInfo.photo_url??defaultAvatar)
-const username = localStorage.getItem('username');
+const username = JSON.parse(localStorage.getItem('username') as string);
 const photoUrl = localStorage.getItem('photoUrl')
 const ps = router.currentRoute.value.query.type;
 const changeTag = async (value: number) => {
