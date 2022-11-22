@@ -128,6 +128,20 @@
     <!-- 彈出選單 -->
     <!-- 彈出-會員登入頁 -->
     <el-drawer v-model="visibleLogout" :show-close="false" >
+      <!-- 頭像 -->
+      <div class="d-flex mb-24">
+        <div class="d-flex flex-column" v-if="isLogin"  @click="visibleLogout === true">
+          <!-- 錢包地址 -->
+          <div class="d-flex align-items-center mt-lg-0">
+            <img class="login ml-auto"  @click="logout()" :src="userInfo.photo_url"/>
+            <div class="caption-L-1 clamp-single" style="width: 130px; color: rgba(255, 255, 255, 0.7);" >{{userInfo.username}}</div>
+            <div class="icon icon-copy ml-8" style="fill: rgba(255, 255, 255, 0.7);" @click="toCopy(userInfo.username)">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" width="24px"><path d="M9 18q-.825 0-1.412-.587Q7 16.825 7 16V4q0-.825.588-1.413Q8.175 2 9 2h9q.825 0 1.413.587Q20 3.175 20 4v12q0 .825-.587 1.413Q18.825 18 18 18Zm0-2h9V4H9v12Zm-4 6q-.825 0-1.413-.587Q3 20.825 3 20V7q0-.425.288-.713Q3.575 6 4 6t.713.287Q5 6.575 5 7v13h10q.425 0 .713.288.287.287.287.712t-.287.712Q15.425 22 15 22ZM9 4v12V4Z"/></svg>
+              <!-- <svg id="zoom-in-alt" data-name="Line color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon line-color" width="48" height="48"><path id="primary" d="M19,11a8,8,0,1,1-8-8A8,8,0,0,1,19,11Zm2,10-4.34-4.34" style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path><path id="secondary" d="M11,14V8M8,11h6" style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path></svg> -->
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="drawer">
         <div class="heading-B-3 mb-md-16 mb-8" @click="toAnalysis(1)">{{$t('home.watchList')}}</div>
         <div class="heading-B-3 mb-md-16 mb-8" @click="toAnalysis(2)">{{$t('home.favored')}}</div>
