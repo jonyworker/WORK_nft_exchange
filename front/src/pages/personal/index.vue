@@ -15,7 +15,13 @@
             >
             </img-upload>
           </div>
-          <div class="text">使用者自訂名稱</div>
+          <div class="text">
+            <div class="d-flex mt-lg-0 mt-8" @click="copyInfo(userInfo.username)">
+              <div class="body-B-1 clamp-single color-white" style="width: 130px;">{{userInfo.username}}</div>
+              <div class=" ml-8 i-copy bg-alpha-white-55 square-24"></div>
+            </div>
+          </div>
+
           <el-icon>
             <Setting/>
           </el-icon>
@@ -37,8 +43,8 @@
           </el-form-item>
           <el-form-item label="錢包地址" class="mt-48">
             <div class="wallet-address">
-              <div>0x2d775455skkcoa54d7ad5fwok454cd</div>
-              <el-icon>
+              <div>{{userInfo.username}}</div>
+              <el-icon @click="copyInfo(userInfo.username)">
                 <CopyDocument/>
               </el-icon>
             </div>
@@ -71,12 +77,14 @@ import userApi from '@/api/user'
 import defaultAvatar from './man.png'
 import {ElMessage} from "element-plus";
 import {useStore} from "vuex";
+import {copy} from "@utils/copy";
 
 const store = useStore();
 const ruleFormRef = ref<FormInstance>()
 const uploadRef = ref<any>()
 const fileList = ref<''>('')
 const showDialog = ref<boolean>(false)
+const userInfo =ref(store.state.user.loginInfo)
 const formModel = reactive({
   email: '',
   name: '',
@@ -103,7 +111,12 @@ const rules = reactive({
   email: [{required: true, validator: validateEmil, trigger: 'blur'}],
   userName: [{required: true, validator: validateName, trigger: 'blur'}],
 })
-
+/**
+ * 复制名称
+ */
+const copyInfo=(info:string)=>{
+  copy(info)
+}
 const submitForm = async () => {
   if (!ruleFormRef.value) return;
   const valid = await ruleFormRef.value.validate()

@@ -31,10 +31,10 @@
           <div class="personal-info-text-content pb-40  align-items-start">
             <!-- 使用者名稱 -->
             <div class="d-lg-flex align-items-center d-flex-column">
-              <div class="heading-B-2 mr-24 color-white">使用者自訂名稱</div>
+<!--              <div class="heading-B-2 mr-24 color-white">使用者自訂名稱</div>-->
               <!-- 錢包地址 -->
-              <div class="d-flex mt-lg-0 mt-8" @click="copyInfo(username)">
-                <div class="body-B-1 clamp-single color-white" style="width: 130px;">{{username}}</div>
+              <div class="d-flex mt-lg-0 mt-8" @click="copyInfo(userInfo.username)">
+                <div class="body-B-1 clamp-single color-white" style="width: 130px;">{{userInfo.username}}</div>
                 <div class=" ml-8 i-copy bg-alpha-white-55 square-24"></div>
               </div>
             </div>
@@ -115,7 +115,7 @@
     <div class="row" v-show="type === 2">
       
       <!-- 1st -->
-      <div class="col-12 col-sm-6 col-lg-3" v-for="(item,index) in dropsList" :key="index">
+      <div class="col-12 col-sm-6 col-lg-3 mb-16" v-for="(item,index) in dropsList" :key="index">
         <div class="card" @click="toLink(item.id)">
           <!-- 卡片圖片 -->
           <div class="card-image-content ratio--1_1" style="border-radius: 16px 16px 0 0;">
@@ -162,7 +162,7 @@ const dropsList = ref<IInfo[] | null>(null);
 const textList = ref([{name:'追蹤項目',value:1,},{name:'追蹤NFT',value:2}]);
 const toLogin = ref({});
 const avatar = ref(store.state.user.loginInfo.photo_url??defaultAvatar)
-const username = JSON.parse(localStorage.getItem('username') as string);
+const userInfo =ref(store.state.user.loginInfo)
 const photoUrl = localStorage.getItem('photoUrl')
 const ps = router.currentRoute.value.query.type;
 const changeTag = async (value: number) => {
