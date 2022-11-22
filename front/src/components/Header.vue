@@ -129,9 +129,9 @@
     <!-- 彈出-會員登入頁 -->
     <el-drawer v-model="visibleLogout" :show-close="false" >
       <div class="drawer">
-        <div class="heading-B-3 mb-md-16 mb-8" @click="toAnalysis(1)">追蹤項目</div>
-        <div class="heading-B-3 mb-md-16 mb-8" @click="toAnalysis(2)">追蹤 NFT</div>
-        <div class="heading-B-3" @click="goto('Personal')">個人資料編輯</div>
+        <div class="heading-B-3 mb-md-16 mb-8" @click="toAnalysis(1)">{{$t('home.watchList')}}</div>
+        <div class="heading-B-3 mb-md-16 mb-8" @click="toAnalysis(2)">{{$t('home.favored')}}</div>
+        <div class="heading-B-3" @click="goto('Personal')">{{$t('home.setting')}}</div>
       </div>
       <div class="mt-auto">
         <div class="connectWallet justify-content-center" @click="toLogout()"  >
