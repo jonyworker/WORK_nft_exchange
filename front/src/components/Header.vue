@@ -111,7 +111,7 @@
           </div>
           <img class="login ml-auto" v-else @click="logout()" :src="userInfo.photo_url"/>
           <div class="burger-toggle" @click="visible = true">
-            <div class="icon icon-burger">
+            <div class="icon icon-burger" >
               <svg t="1661333269863" class="icon" viewBox="0 0 1032 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5593" width="36px" height="36px"><path d="M85.825737 214.431767l864.571964 0c44.777833 0 81.055061-36.291554 81.055061-81.054037 0-44.76146-36.277228-81.053014-81.055061-81.053014L85.825737 52.324716c-44.773739 0-81.054037 36.291554-81.054037 81.053014C4.7717 178.140213 41.051998 214.431767 85.825737 214.431767zM950.397702 430.575526 85.825737 430.575526c-44.773739 0-81.054037 36.278251-81.054037 81.053014 0 44.774763 36.279275 81.053014 81.054037 81.053014l864.571964 0c44.777833 0 81.055061-36.277228 81.055061-81.053014C1031.452762 466.853777 995.175534 430.575526 950.397702 430.575526zM950.397702 808.826336 85.825737 808.826336c-44.773739 0-81.054037 36.279275-81.054037 81.051991 0 44.776809 36.279275 81.055061 81.054037 81.055061l864.571964 0c44.777833 0 81.055061-36.278251 81.055061-81.055061C1031.452762 845.10561 995.175534 808.826336 950.397702 808.826336z" p-id="5594" fill="#ffffff"></path></svg>
             </div>
           </div>
@@ -144,13 +144,12 @@
     <el-drawer v-model="visible" :show-close="false" >
       <!-- 頭像 -->
       <div class="d-flex mb-24">
-        <div class="login mr-8" v-if="!isLogin" @click="visibleLogout === true"></div>
-        <div class="d-flex flex-column">
-          <div class="caption-L-1 mr-24" style="color: rgba(255, 255, 255, 0.7);">使用者自訂名稱</div>
+        <div class="d-flex flex-column" v-if="isLogin"  @click="visibleLogout === true">
           <!-- 錢包地址 -->
           <div class="d-flex align-items-center mt-lg-0">
-            <div class="caption-L-1 clamp-single" style="width: 130px; color: rgba(255, 255, 255, 0.7);">0xe9fe2d2a2385a90e3aaceb600ec75154f46abd4f</div>
-            <div class="icon icon-copy ml-8" style="fill: rgba(255, 255, 255, 0.7);">
+            <img class="login ml-auto"  @click="logout()" :src="userInfo.photo_url"/>
+            <div class="caption-L-1 clamp-single" style="width: 130px; color: rgba(255, 255, 255, 0.7);" >{{userInfo.username}}</div>
+            <div class="icon icon-copy ml-8" style="fill: rgba(255, 255, 255, 0.7);" @click="toCopy(userInfo.username)">
               <svg xmlns="http://www.w3.org/2000/svg" height="24px" width="24px"><path d="M9 18q-.825 0-1.412-.587Q7 16.825 7 16V4q0-.825.588-1.413Q8.175 2 9 2h9q.825 0 1.413.587Q20 3.175 20 4v12q0 .825-.587 1.413Q18.825 18 18 18Zm0-2h9V4H9v12Zm-4 6q-.825 0-1.413-.587Q3 20.825 3 20V7q0-.425.288-.713Q3.575 6 4 6t.713.287Q5 6.575 5 7v13h10q.425 0 .713.288.287.287.287.712t-.287.712Q15.425 22 15 22ZM9 4v12V4Z"/></svg>
               <!-- <svg id="zoom-in-alt" data-name="Line color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon line-color" width="48" height="48"><path id="primary" d="M19,11a8,8,0,1,1-8-8A8,8,0,0,1,19,11Zm2,10-4.34-4.34" style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path><path id="secondary" d="M11,14V8M8,11h6" style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path></svg> -->
             </div>
@@ -176,7 +175,7 @@
         <div class="connectWallet justify-content-center" @click="toWallet()"  v-if="!isLogin">
           Connect Wallet
         </div>
-        <div class="connectWallet justify-content-center" @click="toWallet()"  v-if="isLogin">
+        <div class="connectWallet justify-content-center" @click="toLogout()"  v-if="isLogin">
           登出
         </div>
       </div>
@@ -198,6 +197,7 @@ import {useDark, useToggle} from '@vueuse/core';
 import {useRouter} from 'vue-router';
 import {computed} from 'vue';
 import {useStore} from "vuex";
+import {copy} from "@utils/copy";
  type IInfo ={
    photo_url:string;
    name:string;
@@ -228,6 +228,14 @@ const handleSelect = (value: string) => {
 }
 const toHot = () =>{
   router.push({name: 'HotRanking',query:{type:2}})
+}
+/**
+ *
+ * toCopy复制用户名
+ * @param url
+ */
+const toCopy = (info:string) =>{
+  copy(info)
 }
 //搜索结果跳转
 const toLink = (url:string|undefined) =>{
@@ -275,7 +283,8 @@ const toHotRanking = () =>{
   router.push({name: 'HotRanking',query:{type:2}})
 }
 const toWallet = () =>{
-  router.push({name: 'Login'})
+  router.push({name: 'Login'});
+  visible.value = false;
 }
 
 const toHome = () =>{
