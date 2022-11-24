@@ -8199,7 +8199,7 @@ img {
   height: 200px;
   border-radius: 50%;
   overflow: hidden;
-  /*background-color: #fff;*/
+  background-color: #fff;
 }
 
 .personal-page-content-1 .avatar {
@@ -8854,6 +8854,7 @@ img {
   text-decoration: underline;
   cursor: pointer;
   color: rgba(255, 255, 255, 0.8980392157);
+  display: inline;
 }
 .ck-content p a {
   font-size: 16px;
