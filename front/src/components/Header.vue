@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <div class="page" >
 
     <!-- 裝置大於1530px以上時顯示 -->
     <div class="pc_header top-bar-section">
@@ -27,7 +27,9 @@
                 <svg id="zoom-in-alt" data-name="Line color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon line-color" width="48" height="48"><path id="primary" d="M19,11a8,8,0,1,1-8-8A8,8,0,0,1,19,11Zm2,10-4.34-4.34" style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path><path id="secondary" d="M11,14V8M8,11h6" style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path></svg>
               </div>
               <!-- search - input -->
-              <input v-model="input" type="search" :placeholder="$t('home.searchWallet')" @input="changeInput" />
+
+                <input v-model="input" type="search" :placeholder="$t('home.searchWallet')" @input="changeInput" />
+
             </div>
           </li>
 
@@ -119,12 +121,14 @@
       </div>
     </div>
     <!--搜索结果-->
+    <div class="screen" @click="toClose()">
     <div  class="search-list" v-if="input !== '' && checkInput === true">
       <div class="search-container" v-for="(item,index) in searchResult" :key="index" v-show="index < 11" @click="toLink(item.forward)">
         <div class="search-img"><img :src="item.photo_url" alt=""></div>
         <div class="search-text">{{item.name}}</div>
       </div>
     </div>
+      </div>
     <!-- 彈出選單 -->
     <!-- 彈出-會員登入頁 -->
     <el-drawer v-model="visibleLogout" :show-close="false" >
@@ -206,28 +210,7 @@
         </div>
       </div>
     </el-drawer>
-
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
 </template>
 
 <script lang='ts' setup >
@@ -288,8 +271,9 @@ const toLink = (url:string|undefined) =>{
     return
   }
   window.open(url);
-  const cDom = document.querySelector(".search-list");
-
+  checkInput.value = false;
+}
+const toClose = () =>{
   checkInput.value = false;
 }
 const handleCommand = (value: string) => {
@@ -356,13 +340,19 @@ const toMinting = () =>{
 }
 </script>
 <style lang="less" scoped>
+.screen{
+  width:100%;
+  background:rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 999;
+}
 .top-bar-section .header-search input{
   color:#fff;
 }
 .search-list{
   position:absolute;
-  top:70px;
-  left:200px;
+  top:-30px;
+  left:300px;
   z-index:999;
   width:400px;
 padding:20px;

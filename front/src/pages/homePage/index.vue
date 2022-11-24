@@ -48,10 +48,6 @@
                       <!-- 項目NFT數量 -->
                       <div class="badge bg-alpha-white-10">{{ panel.data.item_qty }} NFTs</div>
                     </div>
-
-
-                    
-
                   </div>
                 </div>
 
