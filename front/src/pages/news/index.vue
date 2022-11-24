@@ -105,11 +105,11 @@
 import {onMounted, ref, watchEffect} from "vue";
 import {useRouter} from 'vue-router';
 import {homeApi} from '../../api';
-import {useScrollHeight}from '@/hooks/useScrollHeight'
+import {useScrollHeight} from '@/hooks/useScrollHeight';
 const router = useRouter();
 
 const ps = router.currentRoute.value.query.type;
-const type = ref(1)
+const type = ref(2);
 const {scrollBtmHeight} =useScrollHeight()
 const newList = ref<INewListFor[] | null>(null);
 const newListTwo = ref<INewListFor | null>(null);
