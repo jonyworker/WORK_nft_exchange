@@ -29,11 +29,11 @@
             </div>
           </div>
           <div class="personal-info-text-content pb-40  align-items-start">
-            <!-- 使用者名稱 -->
             <div class="d-lg-flex align-items-baseline d-flex-column">
-<!--              <div class="heading-B-2 mr-24 color-white">使用者自訂名稱</div>-->
+              <!-- 使用者名稱 -->
+              <div class="heading-B-2 color-white mr-16" >{{userInfo.name}}</div>
               <!-- 錢包地址 -->
-              <div class="d-flex mt-lg-0 mt-8" @click="copyInfo(userInfo.name)">
+              <div class="d-flex mt-lg-0 mt-8" @click="copyInfo(userInfo.username)">
                 <div class="body-B-1 clamp-single color-white" style="width: 130px;">{{userInfo.username}}</div>
                 <div class=" ml-8 i-copy bg-alpha-white-55 square-24"></div>
               </div>
