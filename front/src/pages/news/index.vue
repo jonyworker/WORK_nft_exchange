@@ -49,7 +49,7 @@
                       </div>
                       <!-- 時間 -->
                       <small class="card-text-small">
-                        <time datetime="newListTwo?.start_date">{{newListTwo?.start_date}}</time>
+                        <time datetime="item.start_date">{{newListTwo?.start_date}}</time>
                       </small>
                     </div>
                   </div>
@@ -214,6 +214,9 @@ onMounted(() => {
   getTextList()
   chageTag(Number(ps))
 })
+
+
+
 </script>
 
 <style scoped lang="less">
