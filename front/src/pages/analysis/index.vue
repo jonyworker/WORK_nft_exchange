@@ -30,7 +30,7 @@
           </div>
           <div class="personal-info-text-content pb-40  align-items-start">
             <!-- 使用者名稱 -->
-            <div class="d-lg-flex align-items-center d-flex-column">
+            <div class="d-lg-flex align-items-baseline d-flex-column">
 <!--              <div class="heading-B-2 mr-24 color-white">使用者自訂名稱</div>-->
               <!-- 錢包地址 -->
               <div class="d-flex mt-lg-0 mt-8" @click="copyInfo(userInfo.username)">
