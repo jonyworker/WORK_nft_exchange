@@ -33,7 +33,7 @@
             <div class="d-lg-flex align-items-baseline d-flex-column">
 <!--              <div class="heading-B-2 mr-24 color-white">使用者自訂名稱</div>-->
               <!-- 錢包地址 -->
-              <div class="d-flex mt-lg-0 mt-8" @click="copyInfo(userInfo.username)">
+              <div class="d-flex mt-lg-0 mt-8" @click="copyInfo(userInfo.name)">
                 <div class="body-B-1 clamp-single color-white" style="width: 130px;">{{userInfo.username}}</div>
                 <div class=" ml-8 i-copy bg-alpha-white-55 square-24"></div>
               </div>
