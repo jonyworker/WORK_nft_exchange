@@ -49,7 +49,7 @@
                       </div>
                       <!-- 時間 -->
                       <small class="card-text-small">
-                        <time datetime="">2022-03-30</time>
+                        <time datetime="newListTwo?.start_date">{{newListTwo?.start_date}}</time>
                       </small>
                     </div>
                   </div>
@@ -88,7 +88,7 @@
                   </div> -->
                   <!-- 日期 -->
                   <small class="card-text-small">
-                    <time datetime="">2022-03-30</time>
+                    <time datetime="item.start_date">{{item.start_date}}</time>
                   </small>
                 </div>
               </div>
@@ -156,6 +156,7 @@ interface INewListFor {
   ind: string;
   title: string;
   content: string;
+  start_date: string;
 }
 
 //请求数据
