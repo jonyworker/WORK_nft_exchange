@@ -16,10 +16,17 @@
             </img-upload>
           </div>
           <div class="text">
-            <div class="d-flex mt-lg-0 mt-8" @click="copyInfo(userInfo.username)">
-              <div class="body-B-1 clamp-single color-white" style="width: 130px;">{{userInfo.username}}</div>
-              <div class=" ml-8 i-copy bg-alpha-white-55 square-24"></div>
+            <div class="d-flex align-items-center mt-lg-0 mt-8" @click="copyInfo(userInfo.username)">
+
+              <div class="heading-B-2 color-white mr-16" >{{userInfo.name}}</div>
+
+              <div class="d-flex align-items-center">
+                <div class="body-B-1 clamp-single color-white" style="width: 130px;">{{userInfo.username}}</div>
+                <div class="ml-8 i-copy bg-alpha-white-55 square-24"></div>
+              </div>
+
             </div>
+
           </div>
 
           <el-icon>
