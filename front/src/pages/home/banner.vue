@@ -21,13 +21,13 @@
                     <div class="pic" @click="toLink(bannerList?.ext_url)">
                       <img :src="bannerList?.banner_url" alt="">
                     </div>
-                    <div class="text-area">
-                      <div class="title-group mb-16 mb-sm-24">
+                    <div class="text-area" style="min-width: 35%;">
+                      <!-- <div class="title-group mb-16 mb-sm-24">
                          <h2>Machina マキナ</h2>
                          <p>@Machina_NFT</p>
-                      </div>
+                      </div> -->
                       <p class="mb-4">{{bannerList?.description}}</p>
-                       <small>Mar 30, 2022</small>
+                       <!-- <small>Mar 30, 2022</small> -->
                     </div>
                   </div>
                 </a>
@@ -36,7 +36,7 @@
               <div class="col-6 col-sm-4" v-if="bannerImg1">
                 <a href="#">
                   <div class="banner-2" @click="toLink(bannerImg1?.ext_url)">
-                    <img :src="bannerImg1?.banner_url" alt="">
+                    <img :src="bannerImg1?.banner_url" alt="" style="object-fit: cover;">
                   </div>
                 </a>
               </div>
@@ -44,16 +44,16 @@
               <div class="d-none d-sm-block col-sm-4" v-if="bannerImg2">
                 <a href="#">
                   <div class="banner-3" @click="toLink(bannerImg2?.ext_url)">
-                    <img :src="bannerImg2?.banner_url" alt="">
+                    <img :src="bannerImg2?.banner_url" alt="" style="object-fit: cover;">
                   </div>
                 </a>
               </div>
               <!-- banner-pic-4 -->
               <div class="col-6 col-sm-4">
                 <a href="#">
-                  <div class="banner-4" v-if="bannerImg3">
-                    <div class="banner-4-pic" @click="toLink(bannerImg3?.ext_url)">
-                      <img :src="bannerImg3?.banner_url" alt="">
+                  <div class="" v-if="bannerImg3">
+                    <div class="banner-4" @click="toLink(bannerImg3?.ext_url)">
+                      <img :src="bannerImg3?.banner_url" alt="" style="object-fit: cover;">
                     </div>
                   </div>
                 </a>
