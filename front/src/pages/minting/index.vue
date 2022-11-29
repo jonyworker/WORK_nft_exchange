@@ -27,8 +27,8 @@
               <div class="card-image">
                 <img :src="http + item.background" alt="">
                 <div class="card-icon-group">
-                  <div class="i-group bg-alpha-white-55 square-28"  @click="toDialog(1,item)"></div>
-                  <div class="i-map bg-alpha-white-55 square-28"  @click="toDialog(2,item)"></div>
+                  <div class="i-group i-alpha-60 square-28"  @click="toDialog(1,item)"></div>
+                  <div class="i-map i-alpha-60 square-28"  @click="toDialog(2,item)"></div>
                 </div>
                 <CountDown :count_down_date="item.date"/>
               </div>
@@ -53,29 +53,13 @@
                   <!-- social-link -->
                   <ul class="link-wrap">
                     <!-- icon-group -->
-                    <li class="link-item">
-                      <div class="link-icon" @click="toWebsite(item.website || '')">
-                        <img src="@/assets/images/icon_world.png" alt="">
-                      </div>
-                    </li>
+                    <div class="i-earth i-alpha-20 square-28" @click="toWebsite(item.website || '')"></div>
                     <!-- icon-map -->
-                    <li class="link-item">
-                      <div class="link-icon" @click="toDiscord(item.discord || '')">
-                        <img src="@/assets/images/icon_discord.png" alt="">
-                      </div>
-                    </li>
+                    <div class="i-discord i-alpha-20 square-28" @click="toDiscord(item.discord || '')"></div>
                     <!-- icon-homepage -->
-                    <li class="link-item">
-                      <div class="link-icon" @click="toTwitter(item.twitter || '')">
-                        <img src="@/assets/images/icon_twitter.png" alt="">
-                      </div>
-                    </li>
+                    <div class="i-twitter i-alpha-20 square-28" @click="toTwitter(item.twitter || '')"></div>
                     <!-- icon-discord -->
-                    <li class="link-item">
-                      <div class="link-icon" @click="toSchedule(item.schedule || '')">
-                        <img src="@/assets/images/icons.png" alt="">
-                      </div>
-                    </li>
+                    <div class="i-event i-alpha-20 square-28" @click="toSchedule(item.schedule || '')"></div>
                   </ul>
                 </div>
               </div>

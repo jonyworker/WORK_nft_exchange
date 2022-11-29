@@ -31,6 +31,7 @@ img {
   display: block;
   mask-repeat: no-repeat;
   mask-size: 100%;
+  cursor: pointer;
 }
 // [class*="i-"]::before {
 //   content: '';
@@ -69,11 +70,17 @@ img {
 .test-16 {
   font-size: 24px;
 }
+.i-alpha-20 {
+  background-color: $color-alpha-white-20;
+}
+.i-alpha-20:hover {
+  background-color: $color-alpha-white-60;
+}
 .i-alpha-60 {
   background-color: $color-alpha-white-60;
 }
 .i-alpha-60:hover {
-  background-color: #fff;
+  background-color: $color-alpha-white-90;
 }
 
 
