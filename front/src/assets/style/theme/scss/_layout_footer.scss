@@ -127,6 +127,7 @@
   background-color: $color-elevation-1;
   border: 1px solid $color-alpha-white-20;
   border-radius: 200px;
+  
 }
 .cta-email-submit-content input {
   flex: 1;
@@ -134,6 +135,7 @@
   background-color: transparent;
   padding-left: 24px;
   @include button-B-1;
+  color: #fff;
 }
 .cta-email-submit-content button {
   display: block;

@@ -85,24 +85,23 @@
                 <div class="footer-nav-item">
                   <h4>Sitemap</h4>
                   <nav>
-                    <a href="#">{{$t('home.search')}}</a>
-                    <a href="#">{{$t('home.mint')}}</a>
-                    <a href="#">{{$t('home.overview')}}</a>
-                    <a href="#">{{$t('home.tool')}}</a>
-                    <a href="#">{{$t('home.news')}}</a>
-                    <a href="#">{{$t('home.blog')}}</a>
+                    <a @click="toHotItem()">{{$t('home.hot_item')}}</a>
+                    <a @click="toHotRanking()">{{$t('home.highWinningWallet')}}</a>
+                    <a @click="toMinting()">{{$t('home.mint')}}</a>
+                    <a @click="toNews(1)">{{$t('home.news')}}</a>
+                    <a @click="toBlog(2)">{{$t('home.blog')}}</a>
                   </nav>
                 </div>
                 <!-- Links -->
                 <div class="footer-nav-item">
                   <h4>Links</h4>
                   <nav>
-                    <a href="https://opensea.io/zh-TW">Opensea</a>
-                    <a href="https://rarible.com/">Rarible</a>
-                    <a href="https://superrare.com/">Super Rare</a>
-                    <a href="https://icy.tools/">icy.tools</a>
-                    <a href="https://nftgo.io/">NFTGO</a>
-                    <a href="https://etherscan.io/">Etherscan</a>
+                    <a href="https://opensea.io/zh-TW" target="_blank">Opensea</a>
+                    <a href="https://rarible.com/" target="_blank">Rarible</a>
+                    <a href="https://superrare.com/" target="_blank">Super Rare</a>
+                    <a href="https://icy.tools/" target="_blank">icy.tools</a>
+                    <a href="https://nftgo.io/" target="_blank">NFTGO</a>
+                    <a href="https://etherscan.io/" target="_blank">Etherscan</a>
                   </nav>
                 </div>
                 <!-- Support -->
@@ -194,8 +193,55 @@
 
 <script lang='ts' setup>
 import { ref } from 'vue'
-const input = ref('')
+const router = useRouter();
+const input = ref('');
+const visible = ref(false);
+const activeIndex = ref<null|string>(null);
+
+const toHotRanking = () =>{
+  /*router.push({name: 'Analysis'})*/
+  activeIndex.value='1';
+  router.push({name: 'HotRanking',query:{type:2}})
+  window.scrollTo(0, 0)
+}
+const toWallet = () =>{
+  router.push({name: 'Login'});
+  visible.value = false;
+  window.scrollTo(0, 0)
+}
+
+const toHome = () =>{
+  activeIndex.value = null
+  router.push({name: 'Home'})
+  window.scrollTo(0, 0)
+};
+const toNews = (value:number) =>{
+  activeIndex.value='3';
+  router.push({name: 'News',query:{type:value}});
+  window.scrollTo(0, 0)
+}
+const toBlog = (value:number) =>{
+  router.push({name: 'News',query:{type:value}});
+  window.scrollTo(0, 0)
+}
+const toHotItem = () =>{
+  activeIndex.value='0';
+  router.push({name: 'HotRanking',query:{type:1}});
+  window.scrollTo(0, 0)
+}
+const toIndex = () =>{
+  router.push({name: 'HomePage',});
+  window.scrollTo(0, 0)
+}
+const toMinting = () =>{
+  activeIndex.value='2';
+  router.push({name:'Minting'});
+  window.scrollTo(0, 0)
+}
 </script>
+
+
+
 <style scoped lang="less">
-// @import "./footer.less";
+
 </style>
