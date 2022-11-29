@@ -85,11 +85,11 @@
                 <div class="footer-nav-item">
                   <h4>Sitemap</h4>
                   <nav>
-                    <a @click="toHotItem()">{{$t('home.hot_item')}}</a>
-                    <a @click="toHotRanking()">{{$t('home.highWinningWallet')}}</a>
-                    <a @click="toMinting()">{{$t('home.mint')}}</a>
-                    <a @click="toNews(1)">{{$t('home.news')}}</a>
-                    <a @click="toBlog(2)">{{$t('home.blog')}}</a>
+                    <a @click="toHotItem()" style="cursor: pointer;">{{$t('home.hot_item')}}</a>
+                    <a @click="toHotRanking()" style="cursor: pointer;">{{$t('home.highWinningWallet')}}</a>
+                    <a @click="toMinting()" style="cursor: pointer;">{{$t('home.mint')}}</a>
+                    <a @click="toNews(1)" style="cursor: pointer;">{{$t('home.news')}}</a>
+                    <a @click="toBlog(2)" style="cursor: pointer;">{{$t('home.blog')}}</a>
                   </nav>
                 </div>
                 <!-- Links -->
