@@ -49,7 +49,7 @@
                       </div>
                       <!-- 時間 -->
                       <small class="card-text-small">
-                        <time datetime="item.start_date">{{newListTwo?.start_date}}</time>
+                        <time datetime="item.start_date">{{moment(newListTwo?.start_date).format('YYYY-MM-DD')}}</time>
                       </small>
                     </div>
                   </div>
@@ -88,7 +88,7 @@
                   </div> -->
                   <!-- 日期 -->
                   <small class="card-text-small">
-                    <time datetime="item.start_date">{{item.start_date}}</time>
+                    <time datetime="item.start_date">{{moment(item.start_date).format('YYYY-MM-DD')}}</time>
                   </small>
                 </div>
               </div>
@@ -104,12 +104,13 @@
 <script setup lang="ts">
 import {onMounted, ref, watchEffect} from "vue";
 import {useRouter} from 'vue-router';
+import moment from 'moment'
 import {homeApi} from '../../api';
 import {useScrollHeight} from '@/hooks/useScrollHeight';
 const router = useRouter();
 
 const ps = router.currentRoute.value.query.type;
-const type = ref(2);
+const type = ref(1);
 const {scrollBtmHeight} =useScrollHeight()
 const newList = ref<INewListFor[] | null>(null);
 const newListTwo = ref<INewListFor | null>(null);
@@ -129,7 +130,7 @@ const getTextList = async () => {
   tabs.value && type.value
 }
 const toDetails = (id: number) => {
-  router.push({name: 'NewsDetail', query: {id}})
+  window.open(`/#/newsDetail?id=${id}`)
 }
 const chageTag = async (value: number) => {
   type.value = value
