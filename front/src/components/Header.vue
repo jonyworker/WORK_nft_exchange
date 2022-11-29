@@ -31,6 +31,7 @@
                 <input v-model="input" type="search" :placeholder="$t('home.searchWallet')" @input="changeInput" />
 
             </div>
+            
           </li>
 
 
@@ -63,6 +64,10 @@
           </el-sub-menu>
         </el-menu>
       </div>
+      
+      
+
+
     </div>
     <!-- 裝置介於 768px 以下時顯示 -->
     <div class="middle_header top-bar-section">
@@ -120,15 +125,31 @@
         </div>
       </div>
     </div>
-    <!--搜索结果-->
-    <div class="screen" @click="toClose()">
-    <div  class="search-list" v-if="input !== '' && checkInput === true">
-      <div class="search-container" v-for="(item,index) in searchResult" :key="index" v-show="index < 11" @click="toLink(item.forward)">
-        <div class="search-img"><img :src="item.photo_url" alt=""></div>
-        <div class="search-text">{{item.name}}</div>
+
+
+
+
+
+
+
+
+
+
+    <!-- 彈出-搜索结果 -->
+    <div class="screen" v-if="input !== '' && checkInput === true" @click="toClose()">
+      <div class="blur-mask" >
+        <div class="container" style="position:relative;">
+          <div class="search-list">
+            <div class="search-container" v-for="(item,index) in searchResult" :key="index" v-show="index < 11" @click="toLink(item.forward)">
+              <div class="search-img"><img :src="item.photo_url" alt=""></div>
+              <div class="search-text">{{item.name}}</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-      </div>
+
+
     <!-- 彈出選單 -->
     <!-- 彈出-會員登入頁 -->
     <el-drawer v-model="visibleLogout" :show-close="false" >
@@ -214,6 +235,7 @@
 </template>
 
 <script lang='ts' setup >
+
 import {langType} from '../enum/lanuage';
 import { ElButton, ElDrawer } from 'element-plus'
 import { CircleCloseFilled } from '@element-plus/icons-vue'
@@ -231,8 +253,9 @@ import {copy} from "@utils/copy";
    name:string;
    forward:string;
 }
+
 const input = ref('');
- const checkInput = ref(false);
+const checkInput = ref(false);
 const visible = ref(false);
 const activeIndex = ref<null|string>(null);
 const visibleLogout = ref(false);
@@ -275,6 +298,8 @@ const toLink = (url:string|undefined) =>{
 }
 const toClose = () =>{
   checkInput.value = false;
+  input.value = '';
+  
 }
 const handleCommand = (value: string) => {
   store.commit('CHANGE_LANGUAGE', value);
@@ -338,36 +363,70 @@ const toMinting = () =>{
   activeIndex.value='2';
   router.push({name:'Minting'})
 }
+
+
 </script>
+
+
 <style lang="less" scoped>
+
+
 .screen{
-  width:100%;
-  background:rgba(0,0,0,0.1);
-  position: relative;
-  z-index: 999;
+  
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2500;
 }
-.top-bar-section .header-search input{
-  color:#fff;
+.blur-mask {
+  // display: block;
+  overflow-y: scroll;
+  width: 100%;
+  height: 100vh;
+  // background-color: #f00;
+  background-color: #1212121a;
+  backdrop-filter: blur(8px);
+  overscroll-behavior: contain;
+  -webkit-mask: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 80px,
+    rgba(0, 0, 0, 1) 100px,
+    rgba(0, 0, 0, 1) 99.9%,
+    rgba(0, 0, 0, 1) 100%);
 }
 .search-list{
   position:absolute;
-  top:-30px;
-  left:300px;
-  z-index:999;
+  top:98px;
+  left:160px;
   width:400px;
-padding:20px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(18, 18, 18, 0.9);
+  backdrop-filter: blur(2px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  
+  // padding:20px;
+  
 }
+
+.top-bar-section .header-search input{
+  color:#fff;
+}
+
 .search-container{
   flex-wrap: wrap;
   display:flex;
   justify-content: space-between;
-  background:rgb(0,0,0);
+  background: rgba(18, 18, 18, 0.9);
+  backdrop-filter: blur(2px);
   padding:5px 20px;
   color:#fff;
 }
 .search-container:hover{
-  background:#fff;
-  color:#333;
+  background:rgba(255, 255, 255, 0.1);
+  color:#fff;
 }
 .search-text{
 line-height:60px;
@@ -520,4 +579,6 @@ line-height:60px;
   .connectWallet {
     cursor: pointer;
   }
+
+  
 </style>
