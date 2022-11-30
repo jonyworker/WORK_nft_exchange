@@ -15,7 +15,7 @@
 
                 <!-- 子選項 -->
                 <div class="tabs">
-                  <div v-for="(item,index) in tabs" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="chageTag(item.value)">
+                  <div v-for="(item,index) in tabs" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="chageTag(item.value)" style="cursor: pointer;">
                     {{item.name}}
                   </div>
                 </div>
@@ -26,7 +26,7 @@
           <!-- 內容 -->
           <div class="row" >
             <div class="d-none d-lg-block col-12 mb-24" >
-              <div class="card d-block" @click="toDetails(newListTwo?.id)">
+              <div class="card d-block" @click="toDetails(newListTwo?.id)" style="cursor: pointer;">
                 <div class="row">
                   <!-- 卡片圖片 -->
                   <div class="col-8">
@@ -64,6 +64,7 @@
               class="col-12 col-sm-6 col-lg-4 mb-24"
               v-for="(item,index) in newList"
               :key="index"
+              style="cursor: pointer;"
             >
               <div class="card" @click="toDetails(item.id)">
                 <!-- 卡片圖片 -->

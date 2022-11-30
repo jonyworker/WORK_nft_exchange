@@ -17,7 +17,7 @@
 
                   <!-- 子選項 -->
                   <div class="tabs">
-                    <div v-for="(item,index) in tabs" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeTag(item.value)">
+                    <div v-for="(item,index) in tabs" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeTag(item.value)" style="cursor: pointer;">
                       {{item.name}}
                     </div>
                   </div>
@@ -28,7 +28,7 @@
             <div class="row" v-show="type === 1">
               <!-- 時間選擇tag -->
               <div class="tabs mt-10">
-                <div v-for="(item,index) in textList" :key="index" :class="['tag',date===item.value?'active_tag':'']" @click="changeDate(item.value)" v-show="index < 3">
+                <div v-for="(item,index) in textList" :key="index" :class="['tag',date===item.value?'active_tag':'']" @click="changeDate(item.value)" v-show="index < 3" style="cursor: pointer;">
                   {{item.name}}
                 </div>
               </div>

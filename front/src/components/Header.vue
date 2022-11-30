@@ -50,9 +50,10 @@
 <!--          </el-menu-item>-->
           <!-- Header - 連結錢包 v-if="status !== 'OK'"-->
           <div class="ml-auto">
-            <div class="connectWallet" @click="toWallet()" v-if="!isLogin">Connect Wallet</div>
+            <div class="connectWallet" @click="toWallet()" v-if="!isLogin" style="cursor: pointer;">Connect Wallet</div>
             <img class="login ml-auto" v-else @click="logout()"
                  :src="userInfo.photo_url"
+                 style="cursor: pointer;"
             />
           </div>
           <!-- Header - 語言選擇 -->
@@ -64,10 +65,6 @@
           </el-sub-menu>
         </el-menu>
       </div>
-      
-      
-
-
     </div>
     <!-- 裝置介於 768px 以下時顯示 -->
     <div class="middle_header top-bar-section">
