@@ -105,11 +105,20 @@
                   </nav>
                 </div>
                 <!-- Support -->
-                <div class="footer-nav-item">
+                <!-- <div class="footer-nav-item">
                   <h4>Support</h4>
                   <nav>
                     <a href="#">Company</a>
                     <a href="#">語系切換</a>
+                  </nav>
+                </div> -->
+                <!-- Language -->
+                <div class="footer-nav-item">
+                  <h4>Language</h4>
+                  <nav>
+                    <a @click="handleCommand('zh-tw')">繁體中文</a>
+                    <a @click="handleCommand('zhCn')">简体中文</a>
+                    <a @click="handleCommand('en')">English</a>
                   </nav>
                 </div>
                 <!-- 加入社區 -->
@@ -193,11 +202,12 @@
 
 <script lang='ts' setup>
 import { ref } from 'vue'
+import {useStore} from "vuex";
 const router = useRouter();
 const input = ref('');
 const visible = ref(false);
 const activeIndex = ref<null|string>(null);
-
+const store = useStore();
 const toHotRanking = () =>{
   /*router.push({name: 'Analysis'})*/
   activeIndex.value='1';
@@ -238,6 +248,10 @@ const toMinting = () =>{
   router.push({name:'Minting'});
   window.scrollTo(0, 0)
 }
+const handleCommand = (value: string) => {
+  store.commit('CHANGE_LANGUAGE', value);
+  router.go(0);
+};
 </script>
 
 
