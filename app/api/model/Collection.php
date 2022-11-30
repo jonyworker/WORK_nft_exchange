@@ -40,6 +40,7 @@ class Collection extends Model
             'introduction' => $info['introduction' . $fieldLan],
             'member' => $info['member' . $fieldLan],
             'roadmap' => $info['roadmap' . $fieldLan],
+            'platform_url' => $info['platform_url']
         ];
     }
 
