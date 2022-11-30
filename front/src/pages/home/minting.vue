@@ -31,9 +31,8 @@
     <!--              <img :src="http + dropsOne?.background" alt="">-->
                   <img src="@/assets/images/random_1.png" alt="">
                   <div class="card-icon-group">
-                    <div class="icon-img-wrap"  @click="toDailog(1)"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
-                    </div>
-                    <div class="icon-img-wrap"  @click="toDailog(2)"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
+                    <div class="i-group i-alpha-60 square-28"  @click="toDailog(1)"></div>
+                    <div class="i-map i-alpha-60 square-28"  @click="toDailog(2)"></div>
                   </div>
                   <div class="card-time-wrap color-white">
                     <p class="count-down-day">{{ durationDateOne?.value?.days }}</p>
@@ -64,27 +63,19 @@
                     <ul class="link-wrap">
                       <!-- icon-group -->
                       <li class="link-item">
-                        <div class="link-icon" @click="toWebsite(dropsOne?.website || '')">
-                          <img src="@/assets/images/icon_world.png" alt="">
-                        </div>
+                        <div class="i-earth i-alpha-20 square-28" @click="toWebsite(dropsFour?.website || '')"></div>
                       </li>
                       <!-- icon-map -->
                       <li class="link-item">
-                        <div class="link-icon" @click="toDiscord(dropsOne?.discord || '')">
-                          <img src="@/assets/images/icon_discord.png" alt="">
-                        </div>
+                        <div class="i-discord i-alpha-20 square-28" @click="toDiscord(dropsFour?.discord || '')"></div>
                       </li>
                       <!-- icon-homepage -->
                       <li class="link-item">
-                        <div class="link-icon" @click="toTwitter(dropsOne?.twitter || '')">
-                          <img src="@/assets/images/icon_twitter.png" alt="">
-                        </div>
+                        <div class="i-twitter i-alpha-20 square-28" @click="toTwitter(dropsFour?.twitter || '')"></div>
                       </li>
                       <!-- icon-discord -->
                       <li class="link-item">
-                        <div class="link-icon" @click="toSchedule(dropsOne?.schedule || '')">
-                          <img src="@/assets/images/icons.png" alt="">
-                        </div>
+                        <div class="i-event i-alpha-20 square-28" @click="toSchedule(dropsFour?.schedule || '')"></div>
                       </li>
                     </ul>
                   </div>
@@ -100,9 +91,8 @@
     <!--              <img :src="http + dropsTwo?.background" alt="">-->
                   <img src="@/assets/images/random_2.png" alt="">
                   <div class="card-icon-group">
-                    <div class="icon-img-wrap" @click="toDailogTwo(1)"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
-                    </div>
-                    <div class="icon-img-wrap" @click="toDailogTwo(2)"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
+                    <div class="i-group i-alpha-60 square-28"  @click="toDailog(1)"></div>
+                    <div class="i-map i-alpha-60 square-28"  @click="toDailog(2)"></div>
                   </div>
                   <div class="card-time-wrap color-white">
                     <p class="count-down-day">{{ durationDateTwo?.value?.days }}</p>
@@ -134,27 +124,19 @@
                     <ul class="link-wrap">
                       <!-- icon-group -->
                       <li class="link-item">
-                        <div class="link-icon" @click="toWebsite(dropsTwo?.website || '')">
-                          <img src="@/assets/images/icon_world.png" alt="">
-                        </div>
+                        <div class="i-earth i-alpha-20 square-28" @click="toWebsite(dropsFour?.website || '')"></div>
                       </li>
                       <!-- icon-map -->
                       <li class="link-item">
-                        <div class="link-icon" @click="toDiscord(dropsTwo?.discord || '')">
-                          <img src="@/assets/images/icon_discord.png" alt="">
-                        </div>
+                        <div class="i-discord i-alpha-20 square-28" @click="toDiscord(dropsFour?.discord || '')"></div>
                       </li>
                       <!-- icon-homepage -->
                       <li class="link-item">
-                        <div class="link-icon" @click="toTwitter(dropsTwo?.twitter || '')">
-                          <img src="@/assets/images/icon_twitter.png" alt="">
-                        </div>
+                        <div class="i-twitter i-alpha-20 square-28" @click="toTwitter(dropsFour?.twitter || '')"></div>
                       </li>
                       <!-- icon-discord -->
                       <li class="link-item">
-                        <div class="link-icon" @click="toSchedule(dropsTwo?.schedule || '')">
-                          <img src="@/assets/images/icons.png" alt="">
-                        </div>
+                        <div class="i-event i-alpha-20 square-28" @click="toSchedule(dropsFour?.schedule || '')"></div>
                       </li>
                     </ul>
                   </div>
@@ -171,9 +153,8 @@
     <!--              <img :src="http + dropsThree?.background" alt="">-->
                   <img src="@/assets/images/random_3.png" alt="">
                   <div class="card-icon-group">
-                    <div class="icon-img-wrap" @click="toDailogThree(1)"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
-                    </div>
-                    <div class="icon-img-wrap" @click="toDailogThree(2)"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
+                    <div class="i-group i-alpha-60 square-28"  @click="toDailog(1)"></div>
+                    <div class="i-map i-alpha-60 square-28"  @click="toDailog(2)"></div>
                   </div>
                   <div class="card-time-wrap color-white">
                     <p class="count-down-day">{{ durationDateThree?.value?.days }}</p>
@@ -205,27 +186,19 @@
                     <ul class="link-wrap">
                       <!-- icon-group -->
                       <li class="link-item">
-                        <div class="link-icon" @click="toWebsite(dropsThree?.website || '')">
-                          <img src="@/assets/images/icon_world.png" alt="">
-                        </div>
+                        <div class="i-earth i-alpha-20 square-28" @click="toWebsite(dropsFour?.website || '')"></div>
                       </li>
                       <!-- icon-map -->
                       <li class="link-item">
-                        <div class="link-icon" @click="toDiscord(dropsThree?.discord || '')">
-                          <img src="@/assets/images/icon_discord.png" alt="">
-                        </div>
+                        <div class="i-discord i-alpha-20 square-28" @click="toDiscord(dropsFour?.discord || '')"></div>
                       </li>
                       <!-- icon-homepage -->
                       <li class="link-item">
-                        <div class="link-icon" @click="toTwitter(dropsThree?.twitter || '')">
-                          <img src="@/assets/images/icon_twitter.png" alt="">
-                        </div>
+                        <div class="i-twitter i-alpha-20 square-28" @click="toTwitter(dropsFour?.twitter || '')"></div>
                       </li>
                       <!-- icon-discord -->
                       <li class="link-item">
-                        <div class="link-icon" @click="toSchedule(dropsThree?.schedule || '')">
-                          <img src="@/assets/images/icons.png" alt="">
-                        </div>
+                        <div class="i-event i-alpha-20 square-28" @click="toSchedule(dropsFour?.schedule || '')"></div>
                       </li>
                     </ul>
                   </div>
@@ -242,9 +215,8 @@
     <!--              <img :src="http + dropsFour?.background" alt="">-->
                   <img src="@/assets/images/random_1.png" alt="">
                   <div class="card-icon-group">
-                    <div class="icon-img-wrap" @click="toDailogfour(1)"><img src="@/assets/images/icon_group.png" alt="" width="24px" height="17px">
-                    </div>
-                    <div class="icon-img-wrap" @click="toDailogfour(2)"><img src="@/assets/images/icon_map.png" alt="" width="24px" height="17px"></div>
+                    <div class="i-group i-alpha-60 square-28"  @click="toDailog(1)"></div>
+                    <div class="i-map i-alpha-60 square-28"  @click="toDailog(2)"></div>
                   </div>
                   <div class="card-time-wrap color-white">
                     <p class="count-down-day">{{ durationDateFour?.value?.days }}</p>
@@ -275,27 +247,19 @@
                     <ul class="link-wrap">
                       <!-- icon-group -->
                       <li class="link-item">
-                        <div class="link-icon" @click="toWebsite(dropsFour?.website || '')">
-                          <img src="@/assets/images/icon_world.png" alt="">
-                        </div>
+                        <div class="i-earth i-alpha-20 square-28" @click="toWebsite(dropsFour?.website || '')"></div>
                       </li>
                       <!-- icon-map -->
                       <li class="link-item">
-                        <div class="link-icon" @click="toDiscord(dropsFour?.discord || '')">
-                          <img src="@/assets/images/icon_discord.png" alt="">
-                        </div>
+                        <div class="i-discord i-alpha-20 square-28" @click="toDiscord(dropsFour?.discord || '')"></div>
                       </li>
                       <!-- icon-homepage -->
                       <li class="link-item">
-                        <div class="link-icon" @click="toTwitter(dropsFour?.twitter || '')">
-                          <img src="@/assets/images/icon_twitter.png" alt="">
-                        </div>
+                        <div class="i-twitter i-alpha-20 square-28" @click="toTwitter(dropsFour?.twitter || '')"></div>
                       </li>
                       <!-- icon-discord -->
                       <li class="link-item">
-                        <div class="link-icon" @click="toSchedule(dropsFour?.schedule || '')">
-                          <img src="@/assets/images/icons.png" alt="">
-                        </div>
+                        <div class="i-event i-alpha-20 square-28" @click="toSchedule(dropsFour?.schedule || '')"></div>
                       </li>
                     </ul>
                   </div>
