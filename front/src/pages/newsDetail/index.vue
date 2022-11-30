@@ -15,7 +15,7 @@
             <h3 class="heading-B-2 color-white mb-24 ">{{newList?.title}}</h3>
             
             <!-- 標題組 - upload 時間 -->
-            <div class="body-L-2" style="color: #FFFFFF99;">{{newList?.start_date}}</div>
+            <div class="body-L-2" style="color: #FFFFFF99;">{{moment(newList?.start_date).format('YYYY-MM-DD')}}</div>
           </div>
         </div>
 
@@ -47,6 +47,7 @@ import { StringLiteral } from "@babel/types";
 import {onMounted, ref} from "vue";
 import { useRouter } from 'vue-router';
 import {homeApi} from '../../api';
+import moment from "moment";
 const router = useRouter();
 const ids = router.currentRoute.value.query.id;
 interface INewListFor{
