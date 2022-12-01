@@ -24,7 +24,7 @@
         <!-- 卡片 -->
         <div class="row">
             <!-- 1st -->
-            <div class="col-12 col-sm-6 col-lg-4" v-for="(item,index) in newList" :key="index">
+            <div class="col-12 col-sm-6 col-lg-4" v-for="(item,index) in newList" :key="index" style="cursor: pointer;">
               <div class="card" @click="toDetails(item.id)">
                 <!-- card-img -->
                 <div class="card-image-content ratio--1-91_1 bdRadius-8 mb-16" style="width:100%">
