@@ -68,7 +68,7 @@ import {homeApi} from '../../api';
 
 const router = useRouter();
 const newsList = () =>{
-  router.push({ name: 'News'})
+  router.push({ name: 'News',query:{type:1}})
 }
 const toDetails = (id:number) =>{
   router.push({ name: 'NewsDetail',query:{id} })

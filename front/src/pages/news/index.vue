@@ -166,7 +166,7 @@ const getNews = async () => {
   const params = {
     // count:5,
     // page:1,
-    ind: type.value,
+    ind: 1 || type.value ,
   }
   const res = await homeApi.getNews(params);
   if (!res) {
@@ -183,7 +183,7 @@ const load = async () => {
   const params = {
     count: 30,
     page:page.value,
-    ind: type.value,
+    ind: 1 || type.value ,
   }
   isLoading.value =true
   const res = await homeApi.getNews(params);
@@ -201,7 +201,7 @@ const load = async () => {
 watch(()=>router.currentRoute.value.query.type,()=>{
   const type = router.currentRoute.value.query.type  as never
   chageTag(Number(type))
-  getNews()
+ // getNews()
   getTextList()
 
 },{
@@ -212,7 +212,7 @@ watchEffect(()=>{
 })
 
 onMounted(() => {
-  getNews()
+  // getNews()
   getTextList()
   chageTag(Number(ps))
 })
