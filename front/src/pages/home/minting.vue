@@ -63,19 +63,19 @@
                     <ul class="link-wrap">
                       <!-- icon-group -->
                       <li class="link-item">
-                        <div class="i-earth i-alpha-20 square-28" @click="toWebsite(dropsFour?.website || '')"></div>
+                        <div class="i-earth i-alpha-20 square-28" @click="toWebsite(dropsOne?.website || '')"></div>
                       </li>
                       <!-- icon-map -->
                       <li class="link-item">
-                        <div class="i-discord i-alpha-20 square-28" @click="toDiscord(dropsFour?.discord || '')"></div>
+                        <div class="i-discord i-alpha-20 square-28" @click="toDiscord(dropsOne?.discord || '')"></div>
                       </li>
                       <!-- icon-homepage -->
                       <li class="link-item">
-                        <div class="i-twitter i-alpha-20 square-28" @click="toTwitter(dropsFour?.twitter || '')"></div>
+                        <div class="i-twitter i-alpha-20 square-28" @click="toTwitter(dropsOne?.twitter || '')"></div>
                       </li>
                       <!-- icon-discord -->
                       <li class="link-item">
-                        <div class="i-event i-alpha-20 square-28" @click="toSchedule(dropsFour?.schedule || '')"></div>
+                        <div class="i-event i-alpha-20 square-28" @click="toSchedule(dropsOne?.schedule || '')"></div>
                       </li>
                     </ul>
                   </div>
@@ -124,19 +124,19 @@
                     <ul class="link-wrap">
                       <!-- icon-group -->
                       <li class="link-item">
-                        <div class="i-earth i-alpha-20 square-28" @click="toWebsite(dropsFour?.website || '')"></div>
+                        <div class="i-earth i-alpha-20 square-28" @click="toWebsite(dropsTwo?.website || '')"></div>
                       </li>
                       <!-- icon-map -->
                       <li class="link-item">
-                        <div class="i-discord i-alpha-20 square-28" @click="toDiscord(dropsFour?.discord || '')"></div>
+                        <div class="i-discord i-alpha-20 square-28" @click="toDiscord(dropsTwo?.discord || '')"></div>
                       </li>
                       <!-- icon-homepage -->
                       <li class="link-item">
-                        <div class="i-twitter i-alpha-20 square-28" @click="toTwitter(dropsFour?.twitter || '')"></div>
+                        <div class="i-twitter i-alpha-20 square-28" @click="toTwitter(dropsTwo?.twitter || '')"></div>
                       </li>
                       <!-- icon-discord -->
                       <li class="link-item">
-                        <div class="i-event i-alpha-20 square-28" @click="toSchedule(dropsFour?.schedule || '')"></div>
+                        <div class="i-event i-alpha-20 square-28" @click="toSchedule(dropsTwo?.schedule || '')"></div>
                       </li>
                     </ul>
                   </div>
@@ -186,19 +186,19 @@
                     <ul class="link-wrap">
                       <!-- icon-group -->
                       <li class="link-item">
-                        <div class="i-earth i-alpha-20 square-28" @click="toWebsite(dropsFour?.website || '')"></div>
+                        <div class="i-earth i-alpha-20 square-28" @click="toWebsite(dropsThree?.website || '')"></div>
                       </li>
                       <!-- icon-map -->
                       <li class="link-item">
-                        <div class="i-discord i-alpha-20 square-28" @click="toDiscord(dropsFour?.discord || '')"></div>
+                        <div class="i-discord i-alpha-20 square-28" @click="toDiscord(dropsThree?.discord || '')"></div>
                       </li>
                       <!-- icon-homepage -->
                       <li class="link-item">
-                        <div class="i-twitter i-alpha-20 square-28" @click="toTwitter(dropsFour?.twitter || '')"></div>
+                        <div class="i-twitter i-alpha-20 square-28" @click="toTwitter(dropsThree?.twitter || '')"></div>
                       </li>
                       <!-- icon-discord -->
                       <li class="link-item">
-                        <div class="i-event i-alpha-20 square-28" @click="toSchedule(dropsFour?.schedule || '')"></div>
+                        <div class="i-event i-alpha-20 square-28" @click="toSchedule(dropsThree?.schedule || '')"></div>
                       </li>
                     </ul>
                   </div>
