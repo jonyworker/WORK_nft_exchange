@@ -78,7 +78,8 @@ class Member extends Model
         $info = self::findByUserId($userId);
 
         if(empty($info)) {
-            throw new Exception('會員信息不存在');
+//            throw new Exception('會員信息不存在');
+            return true;
         }
 
         $info->token = NULL;
