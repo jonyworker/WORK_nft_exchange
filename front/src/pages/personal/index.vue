@@ -30,6 +30,7 @@
           </el-icon> -->
         </div>
       </div>
+      
       <div class="form-wrapper">
         <el-form
             ref="ruleFormRef"
@@ -53,9 +54,9 @@
             </div>
 
           </el-form-item>
-
+ 
           <el-form-item class="mt-72">
-            <el-button style="width: 100%" type="primary" @click="submitForm()">儲存</el-button>
+            <el-button  class="" style="width: 100%" type="primary" @click="submitForm()">儲存</el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -152,6 +153,56 @@ onMounted(init)
 </script>
 
 <style scoped lang="less">
+  :deep .el-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    white-space: nowrap;
+    cursor: pointer;
+    color: #FFFFFF;
+    text-align: center;
+    box-sizing: border-box;
+    outline: 0;
+    transition: .1s;
+    font-family: "Noto Sans TC", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    background-image: linear-gradient(180deg, #8585FF 0%, #4A4AC4 100%);
+    border-radius: 8px;
+    padding: 16px 18px;
+    background-color: none;
+    border: none;
+    
+  }
+  :deep .form-wrapper input[type="text"] {
+    font-family: "Noto Sans TC", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 16px 18px;
+    border: none;
+    margin: 0;
+  }
+  :deep .el-input__wrapper {
+    border-radius: 8px;
+  }
+  :deep .el-input--large .el-input__wrapper {
+    padding: 0;
+  }
+  :deep .el-input__inner {
+    height: auto;
+    line-height: auto;
+  }
+
+
 .personal-page {
   display: flex;
   flex-direction: column;
