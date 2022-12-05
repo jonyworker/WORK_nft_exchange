@@ -89,7 +89,7 @@
             <!-- 高勝率錢包 -->
             <div class="row" v-show="type === 2">
               <div class="tabs">
-                <div v-for="(item,index) in textList" :key="index" :class="['tag',walletDate ===item.value?'active_tag':'']" @click="changeWalletDate(item.value)" v-show="index < 3">
+                <div v-for="(item,index) in textList" :key="index" :class="['tag',walletDate ===item.value?'active_tag':'']" @click="changeWalletDate(item.value)" v-show="index < 3"  style="cursor: pointer;">
                   {{item.name}}
                 </div>
               </div>
