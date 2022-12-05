@@ -48,9 +48,10 @@
           <el-form-item label="錢包地址" class="mt-48">
             <div class="wallet-address">
               <div>{{userInfo.username}}</div>
-              <el-icon @click="copyInfo(userInfo.username)">
+              <!-- <el-icon>
                 <CopyDocument/>
-              </el-icon>
+              </el-icon> -->
+              <div class="ml-8 i-copy bg-alpha-white-55 square-24" @click="copyInfo(userInfo.username)"></div>
             </div>
 
           </el-form-item>
