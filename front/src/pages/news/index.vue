@@ -1,105 +1,106 @@
 <template>
-    <div class="all-nft mt-80 section">
-      <div class="container">
-        <div class="all-nft-content">
-          <!-- 標題組 -->
-          <div class="row mb-40">
-            <div class="col-12 d-flex justify-content-between align-items-center">
-              <div class="section-title-wrap flex-column align-items-start">
-                <!-- 標題  -->
-                <h2 class="section-title color-white mb-8">
-                  {{$t('home.latestNews')}}
-                </h2>
+  <div class="all-nft mt-80 section">
+    <div class="container">
+      <div class="all-nft-content">
+        <!-- 標題組 -->
+        <div class="row mb-40">
+          <div class="col-12 d-flex justify-content-between align-items-center">
+            <div class="section-title-wrap flex-column align-items-start">
+              <!-- 標題  -->
+              <h2 class="section-title color-white mb-8">
+                {{ $t('home.latestNews') }}
+              </h2>
 
-                <p class="section-subTitle color-white mb-24">{{$t('home.newsSub')}}</p>
+              <p class="section-subTitle color-white mb-24">{{ $t('home.newsSub') }}</p>
 
-                <!-- 子選項 -->
-                <div class="tabs">
-                  <div v-for="(item,index) in tabs" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="chageTag(item.value)" style="cursor: pointer;">
-                    {{item.name}}
-                  </div>
+              <!-- 子選項 -->
+              <div class="tabs">
+                <div v-for="(item,index) in tabs" :key="index" :class="['tag',type===item.value?'active_tag':'']"
+                     @click="chageTag(item.value)" style="cursor: pointer;">
+                  {{ item.name }}
                 </div>
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- 內容 -->
-          <div class="row" >
-            <div class="d-none d-lg-block col-12 mb-24" >
-              <div class="card d-block" @click="toDetails(newListTwo?.id)" style="cursor: pointer;">
-                <div class="row">
-                  <!-- 卡片圖片 -->
-                  <div class="col-8">
-                    <div class="card-image-content ratio--1-91_1 bdRadius-8">
-                      <img :src="newListTwo?.photo_url" alt="">
-                    </div>
+        <!-- 內容 -->
+        <div class="row">
+          <div class="d-none d-lg-block col-12 mb-24">
+            <div class="card d-block" @click="toDetails(newListTwo?.id)" style="cursor: pointer;">
+              <div class="row">
+                <!-- 卡片圖片 -->
+                <div class="col-8">
+                  <div class="card-image-content ratio--1-91_1 bdRadius-8">
+                    <img :src="newListTwo?.photo_url" alt="">
                   </div>
-                  <div class="col-4">
-                    <!-- 卡片內文 -->
-                    <div class="card-body-content">
-                      <!-- 卡片 tag -->
-                      <div class="card-tag mb-8 color-white">
-                        <p>{{newListTwo?.ind}}</p>
-                      </div>
-                      <!-- 卡片標題 -->
-                      <h3 class="card-title-h4 clamp-2 mb-16 color-white">{{newListTwo?.title}}</h3>
-                      <!-- 內容簡介 -->
-                      <div class="card-text-p clamp-5 mb-8 color-white">
-                        <div v-html="newListTwo?.content" ></div>
-                      </div>
-                      <!-- 時間 -->
-                      <small class="card-text-small">
-                        <time datetime="item.start_date">{{moment(newListTwo?.start_date).format('YYYY-MM-DD')}}</time>
-                      </small>
+                </div>
+                <div class="col-4">
+                  <!-- 卡片內文 -->
+                  <div class="card-body-content">
+                    <!-- 卡片 tag -->
+                    <div class="card-tag mb-8 color-white">
+                      <p>{{ newListTwo?.ind }}</p>
                     </div>
+                    <!-- 卡片標題 -->
+                    <h3 class="card-title-h4 clamp-2 mb-16 color-white">{{ newListTwo?.title }}</h3>
+                    <!-- 內容簡介 -->
+                    <div class="card-text-p clamp-5 mb-8 color-white">
+                      <div v-html="newListTwo?.content"></div>
+                    </div>
+                    <!-- 時間 -->
+                    <small class="card-text-small">
+                      <time datetime="item.start_date">{{ moment(newListTwo?.start_date).format('YYYY-MM-DD') }}</time>
+                    </small>
                   </div>
-
                 </div>
 
               </div>
-            </div >
 
-            <!-- 小卡片 -->
-            <div 
+            </div>
+          </div>
+
+          <!-- 小卡片 -->
+          <div
               class="col-12 col-sm-6 col-lg-4 mb-24"
               v-for="(item,index) in newList"
               :key="index"
               style="cursor: pointer;"
-            >
-              <div class="card" @click="toDetails(item.id)">
-                <!-- 卡片圖片 -->
-                <div class="card-image-content ratio--1-91_1 bdRadius-8 mb-16" style="width:100%">
-                  <img :src="item.photo_url" alt="">
+          >
+            <div class="card" @click="toDetails(item.id)">
+              <!-- 卡片圖片 -->
+              <div class="card-image-content ratio--1-91_1 bdRadius-8 mb-16" style="width:100%">
+                <img :src="item.photo_url" alt="">
+              </div>
+              <!-- 卡片內文 -->
+              <div class="card-body-content">
+                <!-- tag -->
+                <div class="card-tag mb-8 color-white">
+                  <p>{{ item.ind }}</p>
                 </div>
-                <!-- 卡片內文 -->
-                <div class="card-body-content">
-                  <!-- tag -->
-                  <div class="card-tag mb-8 color-white">
-                    <p>{{item.ind}}</p>
+
+                <!-- 標題 -->
+                <h3 class="card-title-h4 clamp-2 mb-8 flex-grow-1 color-white">{{ item.title }}</h3>
+
+                <!-- 內文 -->
+                <!-- <div class="card-paragraph">
+                  <div class="clamp-2 mb-12">
+                    <div v-html="item.content"></div>
                   </div>
-
-                  <!-- 標題 -->
-                  <h3 class="card-title-h4 clamp-2 mb-8 flex-grow-1 color-white">{{item.title}}</h3>
-
-                  <!-- 內文 -->
-                  <!-- <div class="card-paragraph">
-                    <div class="clamp-2 mb-12">
-                      <div v-html="item.content"></div>
-                    </div>
-                  </div> -->
-                  <!-- 日期 -->
-                  <small class="card-text-small">
-                    <time datetime="item.start_date">{{moment(item.start_date).format('YYYY-MM-DD')}}</time>
-                  </small>
-                </div>
+                </div> -->
+                <!-- 日期 -->
+                <small class="card-text-small">
+                  <time datetime="item.start_date">{{ moment(item.start_date).format('YYYY-MM-DD') }}</time>
+                </small>
               </div>
             </div>
-
-            
           </div>
+
+
         </div>
       </div>
     </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -108,17 +109,18 @@ import {useRouter} from 'vue-router';
 import moment from 'moment'
 import {homeApi} from '../../api';
 import {useScrollHeight} from '@/hooks/useScrollHeight';
-const router = useRouter();
 
+const router = useRouter();
 const ps = router.currentRoute.value.query.type;
 const type = ref(1);
-const {scrollBtmHeight} =useScrollHeight()
+const {scrollBtmHeight} = useScrollHeight()
 const newList = ref<INewListFor[] | null>(null);
 const newListTwo = ref<INewListFor | null>(null);
 const count = ref(0);
 const page = ref(1)
 const isFinish = ref<boolean>(false);
 const isLoading = ref<boolean>(false);
+
 interface IText {
   name: string
   value: number
@@ -139,10 +141,11 @@ const chageTag = async (value: number) => {
   page.value = 1
   isFinish.value = false
   const params = {
-    // count:5,
-    // page:1,
+    count: 30,
+    page: page.value,
     ind: type.value,
   }
+  page.value = page.value + 1
   const res = await homeApi.getNews(params);
   if (!res) {
     return
@@ -161,62 +164,45 @@ interface INewListFor {
   start_date: string;
 }
 
-//请求数据
-const getNews = async () => {
-  const params = {
-    // count:5,
-    // page:1,
-    ind: 1 || type.value ,
-  }
-  const res = await homeApi.getNews(params);
-  if (!res) {
-    return
-  }
-  newList.value = res.data.slice(0, 1);
-  newListTwo.value = res.data[0];
-  newList.value = res.data.splice(1);
-}
+
 const load = async () => {
-  if (isFinish.value||isLoading.value||scrollBtmHeight.value>400) {
+  if (isFinish.value || isLoading.value || scrollBtmHeight.value > 400) {
     return;
   }
   const params = {
     count: 30,
-    page:page.value,
-    ind: 1 || type.value ,
+    page: page.value,
+    ind: type.value,
   }
-  isLoading.value =true
+  isLoading.value = true
   const res = await homeApi.getNews(params);
-  isLoading.value =false
+  isLoading.value = false
   if (!res) {
     return
   }
-  page.value =page.value + 1
-  newList.value = [...(newList.value??[]),...res.data] ;
+  page.value = page.value + 1
+  newList.value = [...(newList.value ?? []), ...res.data];
   if (res.data.length < 30) {
     isFinish.value = true
   }
 
 }
-watch(()=>router.currentRoute.value.query.type,()=>{
-  const type = router.currentRoute.value.query.type  as never
+watch(() => router.currentRoute.value.query.type, () => {
+  const type = router.currentRoute.value.query.type as never
   chageTag(Number(type))
- // getNews()
   getTextList()
-
-},{
+}, {
   deep: true,
 })
-watchEffect(()=>{
-  load()
-})
+
+watch(() => scrollBtmHeight.value,
+    load
+)
 
 onMounted(() => {
-  // getNews()
   getTextList()
   chageTag(Number(ps))
 })
-
 
 
 </script>

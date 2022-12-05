@@ -81,7 +81,7 @@ import {ImgUpload} from '@components/upload/index'
 import userApi from '@/api/user'
 import defaultAvatar from './man.png'
 import {ElMessage} from "element-plus";
-import {useStore} from "vuex";
+import { useStore} from "vuex";
 import {copy} from "@utils/copy";
 
 const store = useStore();
@@ -129,8 +129,11 @@ const submitForm = async () => {
   const params = {...formModel,img:avatar.value}
   try {
     const {status} = await userApi.updatePersonal(params)
-    if (status === 'ok') {
+    if (status === 'OK') {
       ElMessage.success("保存成功")
+      const newUserInfo ={...userInfo.value,photo_url:params.img,email:params.email,name:params.name}
+      userInfo.value =newUserInfo;
+      store.commit('user/updateLoginInfo', newUserInfo)
     }
   } catch (e) {
     ElMessage.error("保存失败")
@@ -140,7 +143,6 @@ const init =()=>{
   const isLogin = store.state.isLogin;
   if(isLogin){
     const loginInfo = store.state.user.loginInfo;
-    console.log("-> loginInfo", loginInfo);
     formModel.email = loginInfo.email??'';
     formModel.name = loginInfo.name??'';
     avatar.value = loginInfo.photo_url??defaultAvatar;
