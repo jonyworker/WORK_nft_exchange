@@ -17,7 +17,7 @@
 
               <!-- 子選項 -->
               <div class="tabs">
-                <div v-for="(item,index) in textList" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeTag(item.value)">
+                <div v-for="(item,index) in textList" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="changeTag(item.value)" style="cursor:pointer;">
                   {{item.name}}
                 </div>
               </div>

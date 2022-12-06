@@ -16,7 +16,7 @@
 
               <!-- 子選項 -->
               <div class="tabs">
-                <div v-for="(item,index) in textList" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="chageTag(item.value)" v-show="index < 3">
+                <div v-for="(item,index) in textList" :key="index" :class="['tag',type===item.value?'active_tag':'']" @click="chageTag(item.value)" v-show="index < 3" style="cursor:pointer">
                       {{item.name}}
                 </div>
               </div>
