@@ -6,7 +6,7 @@
           <!-- banner-pic-5 -->
           <div class="col-12 mb-24 col-lg-6 mb-lg-0" v-if="bannerImg4">
             <a href="#" style="height: 100%;padding-bottom: 15px;" >
-              <div class="pic banner-5" @click="toLink(bannerImg4?.ext_url)" >
+              <div class="pic banner-5" @click="toLink(bannerImg4?.ext_url)" style="aspect-ratio: 636/523;" >
                 <img :src="bannerImg4?.banner_url" alt="">
               </div>
             </a>
@@ -18,7 +18,7 @@
                 <!-- banner-pic-1 -->
                 <a href="#">
                   <div class="banner-1" v-if="bannerList">
-                    <div class="pic" @click="toLink(bannerList?.ext_url)">
+                    <div class="pic" @click="toLink(bannerList?.ext_url)" style="aspect-ratio: 382/263;">
                       <img :src="bannerList?.banner_url" alt="">
                     </div>
                     <div class="text-area" style="min-width: 35%;">
