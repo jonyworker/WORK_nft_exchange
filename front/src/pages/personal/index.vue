@@ -203,6 +203,7 @@ onMounted(init)
   :deep .el-input__inner {
     height: auto;
     line-height: auto;
+    line-height: 0;
   }
 
 
