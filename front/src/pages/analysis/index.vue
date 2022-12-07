@@ -118,7 +118,7 @@
       <div class="col-12 col-sm-6 col-lg-3 mb-16" v-for="(item,index) in dropsList" :key="index">
         <div class="card" >
           <!-- 卡片圖片 -->
-          <div class="card-image-content ratio--1_1" style="border-radius: 16px 16px 0 0;width: 100%; cursor: pointer;"  @click="toLink(item.nft_url)">
+          <div class="card-image-content ratio--1_1" style="border-radius: 16px 16px 0 0;width: 100%; cursor: pointer;"  @click="toOpen(item.nft_url)">
             <img :src="item.photo_url" alt="">
           </div>
           
@@ -197,6 +197,12 @@ const collection = async ()=>{
  * */
 const toLink = (id:any) =>{
   router.push({name: 'HomePage',query:{id:id}})
+}
+const toOpen = (url:string|undefined) =>{
+  if (!url) {
+    return
+  }
+  window.open(url)
 }
 const getAnalysis = async () => {
   const res = await homeApi.postMember();
