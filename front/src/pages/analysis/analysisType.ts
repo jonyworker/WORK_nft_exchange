@@ -17,6 +17,7 @@ export interface IPanelList{
     volume_7d_p:string,
     unit: string,
     avatar:string,
+    nft_url: string,
 }
 export interface IInfo  {
     collection_name:string,
@@ -24,6 +25,7 @@ export interface IInfo  {
     id: string,
     photo_url: string,
     token_id: string,
+    nft_url:string,
 }
 export interface Login{
     holding_atl_nft: string;

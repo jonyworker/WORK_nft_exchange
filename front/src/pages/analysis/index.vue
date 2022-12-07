@@ -118,7 +118,7 @@
       <div class="col-12 col-sm-6 col-lg-3 mb-16" v-for="(item,index) in dropsList" :key="index">
         <div class="card" >
           <!-- 卡片圖片 -->
-          <div class="card-image-content ratio--1_1" style="border-radius: 16px 16px 0 0;">
+          <div class="card-image-content ratio--1_1" style="border-radius: 16px 16px 0 0;width: 100%; cursor: pointer;"  @click="toLink(item.nft_url)">
             <img :src="item.photo_url" alt="">
           </div>
           
@@ -128,12 +128,12 @@
             <!-- icon 標題組 -->
             <div class="card-icon-title-wrap align-items-center mb-12">
               <!-- 項目方名稱 -->
-              <p class="title card-title-h5 text-white clamp-1">{{item.collection_name}}</p>
+              <p class="title card-title-h5 text-white clamp-1" @click="toLink(item.nft_url)">{{item.collection_name}}</p>
               <!-- 愛心icon -->
               <div class="i i-24 i-white i-like-fill ml-auto" @click="toNftRemove(item.id)"></div>
             </div> 
             <!-- 卡片 - 文字 -->
-            <p class="card-text-p">#{{item.token_id}}</p>
+            <p class="card-text-p" style="width: 100%; cursor: pointer;" @click="toLink(item.nft_url)">#{{item.token_id}}</p>
             
             
           </div>
