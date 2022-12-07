@@ -150,7 +150,8 @@ class Index extends BaseController
                     if ($v[$v_f] == 0) {
                         $data[$k][$v_f] = '--';
                     } elseif ($v[$v_f] > 0) {
-                        $data[$k][$v_f] = round($v[$v_f] * 100,2) . '%';
+//                        $data[$k][$v_f] = round($v[$v_f] * 100,2) . '%';
+                        $data[$k][$v_f] = $v[$v_f] . '%';
                     }
                 }
             }
