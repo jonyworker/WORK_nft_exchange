@@ -219,7 +219,7 @@
           
           <!-- 尼哥做的 -->
           <div class="col-12 col-sm-6 col-lg-3"  v-for="(item,index) in dropsList" :key="index">
-            <div class="card">
+            <div class="card" @click="toLink(item.nft_url)">
               <!-- 卡片圖片 -->
               <div class="card-image-content ratio--1_1" style="border-radius: 16px 16px 0 0;">
                 <img :src="item.photo_url" alt="">
@@ -363,6 +363,7 @@ type IInfo = {
   is_collected: number,
   tokenid: string,
   name: string,
+  nft_url: string,
 }
 const dropsList = ref<IInfo[] | null>(null);
 const type = ref(1)
