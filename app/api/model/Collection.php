@@ -63,15 +63,18 @@ class Collection extends Model
 
     public static function queryByKeyword($keyword,$field)
     {
-        $whereSql = "name like '%".$keyword."%' OR contract = '".$keyword."'";
-//        $where[] = ['contract', '=', $keyword];
-//        $whereOr[] = ['name', 'like', $keyword];
+//        $whereSql = "name like '%".$keyword."%' OR contract = '".$keyword."'";
+////        $where[] = ['contract', '=', $keyword];
+////        $whereOr[] = ['name', 'like', $keyword];
+//
+//        $where[] = ['valid', '=', 1];
+//        $where[] = ['update_ind', '=', 1];
+//        $where[] = ['level_ind', '=', 1];
+//
+//        $list = self::where($where)->where($whereSql)->order('name')->field($field)->select();
 
-        $where[] = ['valid', '=', 1];
-        $where[] = ['update_ind', '=', 1];
-        $where[] = ['level_ind', '=', 1];
-
-        $list = self::where($where)->where($whereSql)->order('name')->field($field)->select();
+        $whereSql = "name like '%".$keyword."%' OR contract = '".$keyword."' and valid=1 and update_ind=1 and level_ind=1";
+        $list = self::where($whereSql)->order('name')->field($field)->select();
         if(empty($list) || $list->isEmpty()) {
             return [];
         }
