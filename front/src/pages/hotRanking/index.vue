@@ -128,7 +128,7 @@
                         <td class="">{{item.win_p}}</td>
                         <td class="">{{item.txn_ct}}</td>
                         <td class="">{{item.win_ct}}</td>
-                        <td>{{item.lost_ct}}ETH</td>
+                        <td>{{item.lost_ct}}</td>
                         <td><div class="profile-pic" @click="toLink(item.other_txns)"> <img src="@/assets/images/link.png" alt=""></div></td>
                       </tr>
                       </tbody>
