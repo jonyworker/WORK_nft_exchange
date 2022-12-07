@@ -61,8 +61,10 @@ class Nft extends BaseController
 
 
             foreach ($data as $k => $v) {
-                $data[$k]['unit_photo'] = ExchangeModel::where('cur',$v['unit'])
-                    ->find()['photo_url'];
+                if (!empty($v['unit'])) {
+                    $data[$k]['unit_photo'] = ExchangeModel::where('cur',$v['unit'])
+                        ->find()['photo_url'];
+                }
                 foreach ($check as $k_f => $v_f) {
                     if ($v[$v_f] > 1000) {
                         $data[$k][$v_f] = round($v[$v_f] * 0.001,2) . 'k';
