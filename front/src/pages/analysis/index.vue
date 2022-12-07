@@ -128,12 +128,12 @@
             <!-- icon 標題組 -->
             <div class="card-icon-title-wrap align-items-center mb-12">
               <!-- 項目方名稱 -->
-              <p class="title card-title-h5 text-white clamp-1" @click="toLink(item.nft_url)">{{item.collection_name}}</p>
+              <p class="title card-title-h5 text-white clamp-1" style="cursor: pointer;" @click="toOpen(item.nft_url)">{{item.collection_name}}</p>
               <!-- 愛心icon -->
               <div class="i i-24 i-white i-like-fill ml-auto" @click="toNftRemove(item.id)"></div>
             </div> 
             <!-- 卡片 - 文字 -->
-            <p class="card-text-p" style="width: 100%; cursor: pointer;" @click="toLink(item.nft_url)">#{{item.token_id}}</p>
+            <p class="card-text-p" style="width: 100%; cursor: pointer;" @click="toOpen(item.nft_url)">#{{item.token_id}}</p>
             
             
           </div>
