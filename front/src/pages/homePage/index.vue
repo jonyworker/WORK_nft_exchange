@@ -219,19 +219,19 @@
           
           <!-- 尼哥做的 -->
           <div class="col-12 col-sm-6 col-lg-3"  v-for="(item,index) in dropsList" :key="index">
-            <div class="card" @click="toLink(item.nft_url)">
+            <div class="card">
               <!-- 卡片圖片 -->
-              <div class="card-image-content ratio--1_1" style="border-radius: 16px 16px 0 0;">
-                <img :src="item.photo_url" alt="">
+              <div class="card-image-content ratio--1_1" style="border-radius: 16px 16px 0 0; width: 100%; cursor: pointer;" @click="toLink(item.nft_url)">
+                <img :src="item.photo_url" alt="" >
               </div>
               
               <!-- 卡片內文 -->
-              <div class="card-body-content p-16" style=" flex:0;">
+              <div class="card-body-content p-16" style=" flex:0;" >
 
                 <!-- icon 標題組 -->
-                <div class="card-icon-title-wrap align-items-center mb-12" style="width:100%;">
+                <div class="card-icon-title-wrap align-items-center mb-12" style="width:100%; cursor: pointer;">
                   <!-- 項目方名稱 -->
-                  <p class="title card-title-h5 text-white clamp-1">{{ item.name }}</p>
+                  <p class="title card-title-h5 text-white clamp-1" @click="toLink(item.nft_url)">{{ item.name }}</p>
                   <!-- 愛心icon -->
                   <!-- <div class="i i-24 i-white i-like"></div> -->
                   <div class="ml-auto">
@@ -240,7 +240,7 @@
                   </div>
                 </div> 
                 <!-- 卡片 - 文字 -->
-                <p class="card-text-p">#{{ item.tokenid }}</p>
+                <p class="card-text-p" style="width: 100%; cursor: pointer;" @click="toLink(item.nft_url)">#{{ item.tokenid }}</p>
                 
                 
               </div>
