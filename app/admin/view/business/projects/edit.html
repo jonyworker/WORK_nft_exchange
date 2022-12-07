@@ -110,8 +110,8 @@
         <div class="layui-form-item">
             <label class="layui-form-label">重點項目</label>
             <div class="layui-input-block">
-                <input type="radio" name="level_ind" value="1" title="是">
-                <input type="radio" name="level_ind" value="2" title="否">
+                <input type="radio" name="level_ind" value="1" title="是" <?php echo $row['valid']==1?'checked':'';?>>
+                <input type="radio" name="level_ind" value="2" title="否" <?php echo $row['valid']==2?'checked':'';?>>
             </div>
         </div>
 
