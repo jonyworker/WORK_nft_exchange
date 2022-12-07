@@ -59,8 +59,8 @@ class Nft extends Model
                 'permalink' => $item['permalink'],
                 'tokenid' => $item['tokenid'],
                 'name' => $name,
-                'is_collected' => \app\api\model\MemberNft::isCollection($userId, $item['id'])
-
+                'is_collected' => \app\api\model\MemberNft::isCollection($userId, $item['id']),
+                'nft_url' => 'https://opensea.io/assets/ethereum/'.$item['contract'].'/'.$item['tokenid']
             ];
 
         }
