@@ -37,7 +37,7 @@
 			return data[keys[0]].url
 		}
 	}
-
+	config.extraPlugins = 'embedbase';
 	//  config.extraPlugins = 'videodetector';
 };
 
