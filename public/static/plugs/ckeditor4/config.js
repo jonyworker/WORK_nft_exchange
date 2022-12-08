@@ -38,7 +38,7 @@
 		}
 	}
 
-	 config.extraPlugins = 'videodetector';
+	//  config.extraPlugins = 'videodetector';
 };
 
 
