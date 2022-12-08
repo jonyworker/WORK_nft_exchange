@@ -39,6 +39,7 @@
 	}
 	config.extraPlugins = 'embedbase';
 	config.extraPlugins = 'dialog';
+	config.extraPlugins = 'embed';
 	//  config.extraPlugins = 'videodetector';
 };
 
