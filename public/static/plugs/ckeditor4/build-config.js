@@ -67,6 +67,7 @@ var CKBUILDER_CONFIG = {
 		'div' : 1,
 		'editorplaceholder' : 1,
 		'elementspath' : 1,
+		'embedbase' : 1,
 		'enterkey' : 1,
 		'entities' : 1,
 		'exportpdf' : 1,
