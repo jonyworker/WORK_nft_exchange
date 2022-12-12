@@ -81,7 +81,7 @@ class Mint extends AdminController
                 $rule = [
                     'blockchain|鏈' => 'require',
                     'collection|項目' => 'require',
-                    'utc|時區(UTC)' => 'require',
+//                    'utc|時區(UTC)' => 'require',
                     'valid|狀態' => 'require',
                     'total|項目數' => 'require',
                 ];
@@ -151,7 +151,7 @@ class Mint extends AdminController
                 $rule = [
                     'blockchain|鏈' => 'require',
                     'collection|項目' => 'require',
-                    'utc|時區(UTC)' => 'require',
+//                    'utc|時區(UTC)' => 'require',
                     'valid|狀態' => 'require',
                     'total|項目數' => 'require',
                 ];
