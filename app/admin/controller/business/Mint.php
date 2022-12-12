@@ -85,14 +85,14 @@ class Mint extends AdminController
                     'valid|狀態' => 'require',
                     'total|項目數' => 'require',
                 ];
-                if (!$post['utc']) {
-                    unset($post['utc']);
-                }
+//                if (!$post['utc']) {
+//                    unset($post['utc']);
+//                }
                 if (!$post['ori_date']) {
-                    unset($post['ori_date']);
+                    $post['ori_date'] = NULL;
                 }
                 if (!$post['date']) {
-                    unset($post['date']);
+                    $post['date'] = NULL;
                 }
             } else {
                 $rule = [
@@ -155,14 +155,14 @@ class Mint extends AdminController
                     'valid|狀態' => 'require',
                     'total|項目數' => 'require',
                 ];
-                if (!$post['utc']) {
-                    unset($post['utc']);
-                }
+//                if (!$post['utc']) {
+//                    unset($post['utc']);
+//                }
                 if (!$post['ori_date']) {
-                    unset($post['ori_date']);
+                    $post['ori_date'] = NULL;
                 }
                 if (!$post['date']) {
-                    unset($post['date']);
+                    $post['date'] = NULL;
                 }
             } else {
                 $rule = [
