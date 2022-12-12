@@ -25,7 +25,7 @@ define(["jquery", "easy-admin"], function ($, ea) {
                     // {field: 'blockchain', minWidth: 80, title: '鏈'},
                     {field: 'collection', minWidth: 80, title: '項目', searchOp:'%*%'},
                     {field: 'date', minWidth: 80, title: '日期區間', search:'range'},
-                    {field: 'is_tab', minWidth: 80, title: 'TAB', selectList: {2: 'TAB', 1: '非TBA'},},
+                    {field: 'is_tab', minWidth: 80, title: 'TBA', selectList: {2: 'TBA', 1: '非TBA'},},
                     {field: 'collection_url', minWidth: 80, title: '圖', search: false, templet: ea.table.image},
                     {field: 'price', minWidth: 80, title: '價格', search: false},
                     {field: 'total', minWidth: 80, title: '總數', search: false},
