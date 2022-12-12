@@ -19,7 +19,7 @@
                 <select id="utc" name="utc" lay-verify="required" lay-filter="changeUtc">
                     <option value="">請選擇時區（UTC）</option>
                     {volist name='utcList' id='utc'}
-                    <option value="{$utc}"> {$utc}</option>
+                    <option value="{$utc}" {$row.utc == $utc ? 'selected' : ''}> {$utc}</option>
                     {/volist}
                 </select>
             </div>
