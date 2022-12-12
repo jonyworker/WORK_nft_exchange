@@ -73,9 +73,11 @@ define(["jquery", "easy-admin"], function ($, ea) {
         if (data.elem.checked) {
             $('#ori_date').removeAttr('lay-verify');
             $('#date').removeAttr('lay-verify');
+            $('#utc').removeAttr('lay-verify');
         } else {
             $('#ori_date').attr('lay-verify','required');
             $('#date').attr('lay-verify','required');
+            $('#utc').attr('lay-verify','required');
         }
     });
 
