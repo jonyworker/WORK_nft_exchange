@@ -82,7 +82,7 @@ class Mint extends AdminController
                     'blockchain|鏈' => 'require',
                     'collection|項目' => 'require',
 //                    'utc|時區(UTC)' => 'require',
-                    'valid|狀態' => 'require',
+                    'status|狀態' => 'require',
                     'total|項目數' => 'require',
                 ];
 //                if (!$post['utc']) {
@@ -100,7 +100,7 @@ class Mint extends AdminController
                     'collection|項目' => 'require',
                     'utc|時區(UTC)' => 'require',
                     'ori_date|當地時間' => 'require',
-                    'valid|狀態' => 'require',
+                    'status|狀態' => 'require',
                     'date|時間' => 'require',
                     'total|項目數' => 'require',
                 ];
@@ -152,7 +152,7 @@ class Mint extends AdminController
                     'blockchain|鏈' => 'require',
                     'collection|項目' => 'require',
 //                    'utc|時區(UTC)' => 'require',
-                    'valid|狀態' => 'require',
+                    'status|狀態' => 'require',
                     'total|項目數' => 'require',
                 ];
 //                if (!$post['utc']) {
@@ -170,7 +170,7 @@ class Mint extends AdminController
                     'collection|項目' => 'require',
                     'utc|時區(UTC)' => 'require',
                     'ori_date|當地時間' => 'require',
-                    'valid|狀態' => 'require',
+                    'status|狀態' => 'require',
                     'date|時間' => 'require',
                     'total|項目數' => 'require',
                 ];
