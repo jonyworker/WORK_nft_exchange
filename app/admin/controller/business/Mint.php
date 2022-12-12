@@ -77,22 +77,22 @@ class Mint extends AdminController
         //時間         date             必填
         if ($this->request->isPost()) {
             $post = $this->request->post();
-            if ($post['is_tab']) {
+            if (!empty($post['is_tba'])) {
                 $rule = [
                     'blockchain|鏈' => 'require',
                     'collection|項目' => 'require',
-                    'utc|時區(UTC)' => 'require',
-                    'valid|狀態' => 'require',
+//                    'utc|時區(UTC)' => 'require',
+                    'status|狀態' => 'require',
                     'total|項目數' => 'require',
                 ];
-                if (!$post['utc']) {
-                    unset($post['utc']);
-                }
+//                if (!$post['utc']) {
+//                    unset($post['utc']);
+//                }
                 if (!$post['ori_date']) {
-                    unset($post['ori_date']);
+                    $post['ori_date'] = NULL;
                 }
                 if (!$post['date']) {
-                    unset($post['date']);
+                    $post['date'] = NULL;
                 }
             } else {
                 $rule = [
@@ -100,7 +100,7 @@ class Mint extends AdminController
                     'collection|項目' => 'require',
                     'utc|時區(UTC)' => 'require',
                     'ori_date|當地時間' => 'require',
-                    'valid|狀態' => 'require',
+                    'status|狀態' => 'require',
                     'date|時間' => 'require',
                     'total|項目數' => 'require',
                 ];
@@ -147,22 +147,22 @@ class Mint extends AdminController
         empty($row) && $this->error('数据不存在');
         if ($this->request->isPost()) {
             $post = $this->request->post();
-            if ($post['is_tab']) {
+            if (!empty($post['is_tba'])) {
                 $rule = [
                     'blockchain|鏈' => 'require',
                     'collection|項目' => 'require',
-                    'utc|時區(UTC)' => 'require',
-                    'valid|狀態' => 'require',
+//                    'utc|時區(UTC)' => 'require',
+                    'status|狀態' => 'require',
                     'total|項目數' => 'require',
                 ];
-                if (!$post['utc']) {
-                    unset($post['utc']);
-                }
+//                if (!$post['utc']) {
+//                    unset($post['utc']);
+//                }
                 if (!$post['ori_date']) {
-                    unset($post['ori_date']);
+                    $post['ori_date'] = NULL;
                 }
                 if (!$post['date']) {
-                    unset($post['date']);
+                    $post['date'] = NULL;
                 }
             } else {
                 $rule = [
@@ -170,7 +170,7 @@ class Mint extends AdminController
                     'collection|項目' => 'require',
                     'utc|時區(UTC)' => 'require',
                     'ori_date|當地時間' => 'require',
-                    'valid|狀態' => 'require',
+                    'status|狀態' => 'require',
                     'date|時間' => 'require',
                     'total|項目數' => 'require',
                 ];
