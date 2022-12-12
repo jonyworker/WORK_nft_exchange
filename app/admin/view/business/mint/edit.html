@@ -44,7 +44,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">TBA</label>
             <div class="layui-input-block">
-                <input type="checkbox" name="is_tab" title="TBA" value="2" lay-filter="changeIsTab">
+                <input type="checkbox" name="is_tba" title="TBA" value="2" lay-filter="changeIsTab" {$row.is_tba == 2 ? 'checked' : ''}>
             </div>
             <span>TBA打勾表示未知發行時間</span>
         </div>

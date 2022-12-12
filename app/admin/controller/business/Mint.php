@@ -77,7 +77,7 @@ class Mint extends AdminController
         //時間         date             必填
         if ($this->request->isPost()) {
             $post = $this->request->post();
-            if (!empty($post['is_tab'])) {
+            if (!empty($post['is_tba'])) {
                 $rule = [
                     'blockchain|鏈' => 'require',
                     'collection|項目' => 'require',
@@ -147,7 +147,7 @@ class Mint extends AdminController
         empty($row) && $this->error('数据不存在');
         if ($this->request->isPost()) {
             $post = $this->request->post();
-            if (!empty($post['is_tab'])) {
+            if (!empty($post['is_tba'])) {
                 $rule = [
                     'blockchain|鏈' => 'require',
                     'collection|項目' => 'require',
