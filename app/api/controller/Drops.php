@@ -71,7 +71,7 @@ class Drops extends BaseController
 
         try {
             // 这里是主体代码
-            $data = DropsModel::where('valid',1)
+            $data = DropsModel::where('status',1)
                 ->where('date >= "'.date('Y-m-d H:i:s').'" OR is_tba = 2')
                 ->whereNotNull('date')
                 ->where($where)
