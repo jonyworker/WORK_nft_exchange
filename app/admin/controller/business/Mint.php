@@ -104,6 +104,7 @@ class Mint extends AdminController
                     'date|時間' => 'require',
                     'total|項目數' => 'require',
                 ];
+                $post['is_tba'] = 1;
             }
             $this->validate($post, $rule);
 
@@ -174,6 +175,7 @@ class Mint extends AdminController
                     'date|時間' => 'require',
                     'total|項目數' => 'require',
                 ];
+                $post['is_tba'] = 1;
             }
             $this->validate($post, $rule);
             try {
