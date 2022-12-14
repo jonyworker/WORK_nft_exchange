@@ -101,10 +101,10 @@ class News extends BaseController
             'page' => $this->request->param('page',1)
         ];
 
-        $where = '';
-        if ($request['ind']) {
-            $where = 'ind = ' . $request['ind'];
-        }
+//        $where = '';
+//        if ($request['ind']) {
+//            $where = 'ind = ' . $request['ind'];
+//        }
 
         $ind = ['新聞','專欄'];
 
@@ -122,16 +122,21 @@ class News extends BaseController
         //傳入lan =5,  title 取news.title_ko
         //          content 取news.content_ko
         $field = 'id,ind,author,start_date,photo_url,source';
+        $where = 'title is not null';
         if ($request['lan'] == 1) {
             $field .= ',title,content';
         } elseif ($request['lan'] == 2) {
             $field .= ',title_cn as title,content_cn as content';
+            $where = 'title_cn is not null';
         } elseif ($request['lan'] == 3) {
             $field .= ',title_en_public as title,content_en_public as content';
+            $where = 'title_en_public is not null';
         } elseif ($request['lan'] == 4) {
             $field .= ',title_jp as title,content_jp as content';
+            $where = 'title_jp is not null';
         } elseif ($request['lan'] == 5) {
             $field .= ',title_ko as title,content_ko as content';
+            $where = 'title_ko is not null';
         }
 
 
