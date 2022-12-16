@@ -101,11 +101,6 @@ class News extends BaseController
             'page' => $this->request->param('page',1)
         ];
 
-//        $where = '';
-//        if ($request['ind']) {
-//            $where = 'ind = ' . $request['ind'];
-//        }
-
         $ind = ['新聞','專欄'];
 
         $offset = ($request['page'] - 1) * $request['count'];
@@ -139,6 +134,9 @@ class News extends BaseController
             $where = 'title_ko is not null';
         }
 
+        if ($request['ind']) {
+            $where .= ' and ind = ' . $request['ind'];
+        }
 
         try {
             $data = NewModel::where('valid',1)
