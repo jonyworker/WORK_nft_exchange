@@ -101,10 +101,11 @@ class News extends BaseController
             'page' => $this->request->param('page',1)
         ];
 
-//        $where = '';
-//        if ($request['ind']) {
-//            $where = 'ind = ' . $request['ind'];
-//        }
+        // 新聞列表頁數據取得
+        $where = '';
+        if ($request['ind']) {
+            $where = 'ind = ' . $request['ind'];
+        }
 
         $ind = ['新聞','專欄'];
 
