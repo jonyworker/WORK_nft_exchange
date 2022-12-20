@@ -200,7 +200,8 @@ const getHomeWallet = async () => {
   const res = await homeApi.getDrops({});
   Lists.value = res.data
   const list = res.data.map((item: { shortTime: any; date: string; }) => {
-    item.shortTime = item.date.split(' ')[1]
+    //item.shortTime = item.date.split(' ')[1]
+    item.shortTime = item.date
     return item
   })
   dropsList.value = list

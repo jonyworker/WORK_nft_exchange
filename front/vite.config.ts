@@ -63,7 +63,7 @@ export default defineConfig(() => {
             //     changeOrigin: true, // 允许websockets跨域
             // },
             '^/api': {
-                target: 'http://v2admin.nftotal.io/',
+                target: 'https://v2admin.nftotal.io/',
                 //  target: 'http://www.farm01.com/',
                 ws: true, // 代理的WebSockets
                 changeOrigin: true, // 允许websockets跨域

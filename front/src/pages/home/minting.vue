@@ -546,10 +546,12 @@ const store = useStore()
 const getHomeWallet = async () => {
   const res = await homeApi.getDrops({});
   const list = res.data.map((item: { shortTime: any; date: string; }) => {
-    item.shortTime = item.date.split(' ')[1]
+   // item.shortTime = item.date.split(' ')[1]
+    item.shortTime = item.date
     return item
   })
   dropsOne.value = list[0]
+  console.log("->dropsOne.value ", dropsOne.value);
   dropsTwo.value = list[1]
   dropsThree.value = list[2]
   dropsFour.value =list[3]
