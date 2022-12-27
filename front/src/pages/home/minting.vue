@@ -34,7 +34,7 @@
                     <div class="i-group i-alpha-60 square-28"  @click="toDailog(1)"></div>
                     <div class="i-map i-alpha-60 square-28"  @click="toDailog(2)"></div>
                   </div>
-                  <div class="card-time-wrap color-white" v-if="time?.days != null">
+                  <div class="card-time-wrap color-white" v-if="durationDateOne?.value?.days != null">
                     <p class="count-down-day">{{ durationDateOne?.value?.days }}</p>
                     <p class="count-down-hour">{{ durationDateOne?.value?.hours }}</p>
                     <p class="count-down-min">{{ durationDateOne?.value?.minutes }}</p>
