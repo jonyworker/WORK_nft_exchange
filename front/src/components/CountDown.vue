@@ -1,10 +1,18 @@
 <template>
 
-  <div class="card-time-wrap">
+  
+  <div class="card-time-wrap" v-if="time?.days != null">
     <p class="count-down-day color-white">{{ time?.days }}</p>
     <p class="count-down-hour color-white">{{ time?.hours }}</p>
     <p class="count-down-min color-white">{{ time?.minutes }}</p>
     <p class="count-down-sec color-white">{{ time?.seconds }}</p>
+  </div>
+
+  <div class="card-time-wrap" v-else >
+    <p class="count-down-day color-white">-</p>
+    <p class="count-down-hour color-white">-</p>
+    <p class="count-down-min color-white">-</p>
+    <p class="count-down-sec color-white">-</p>
   </div>
 </template>
 

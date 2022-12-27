@@ -34,12 +34,22 @@
                     <div class="i-group i-alpha-60 square-28"  @click="toDailog(1)"></div>
                     <div class="i-map i-alpha-60 square-28"  @click="toDailog(2)"></div>
                   </div>
-                  <div class="card-time-wrap color-white">
+                  <div class="card-time-wrap color-white" v-if="time?.days != null">
                     <p class="count-down-day">{{ durationDateOne?.value?.days }}</p>
                     <p class="count-down-hour">{{ durationDateOne?.value?.hours }}</p>
                     <p class="count-down-min">{{ durationDateOne?.value?.minutes }}</p>
                     <p class="count-down-sec">{{ durationDateOne?.value?.seconds }}</p>
                   </div>
+
+                  <div class="card-time-wrap color-white" v-else>
+                    <p class="count-down-day">-</p>
+                    <p class="count-down-hour">-</p>
+                    <p class="count-down-min">-</p>
+                    <p class="count-down-sec">-</p>
+                  </div>
+                  
+                  
+
                 </div>
                 <!-- 卡片內文 -->
                 <div class="card-body-content p-16">
@@ -55,7 +65,8 @@
                   <p class="card-text-p clamp-3 mb-8" v-html="dropsOne?.introduction"></p>
                   <p class="card-text-p mb-8">{{$t('home.price')}}{{ dropsOne?.price }}</p>
                   <p class="card-text-p mb-8">{{$t('home.total')}}{{ dropsOne?.total }}</p>
-                  <p class="card-text-p mb-24">{{$t('home.shortTime')}}{{ dropsOne?.date }}</p>
+                  <p class="card-text-p mb-24" v-if="dropsOne?.date != null">{{$t('home.shortTime')}}{{ dropsOne?.date }}</p>
+                  <p class="card-text-p mb-24" v-else >{{$t('home.shortTime')}}--</p>
                   
                   <!-- 卡片icon -->
                   <div class="mt-auto">

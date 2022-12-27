@@ -48,7 +48,8 @@
                 <p class="card-text-p clamp-3 mb-8" v-html="item.introduction"></p>
                 <p class="card-text-p mb-8">{{$t('home.price')}}{{ item.price }}</p>
                 <p class="card-text-p mb-8">{{$t('home.total')}}{{ item.total }}</p>
-                <p class="card-text-p mb-24">{{$t('home.shortTime')}}{{ item.date }}</p>
+                <p class="card-text-p mb-24" v-if="item.date != null">{{$t('home.shortTime')}}{{ item.date }}</p>
+                <p class="card-text-p mb-24" v-else >{{$t('home.shortTime')}}--</p>
                 
                 <!-- 卡片icon -->
                 <div class="mt-auto">
