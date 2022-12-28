@@ -102,8 +102,8 @@
     <!--              <img :src="http + dropsTwo?.background" alt="">-->
                   <img src="@/assets/images/random_2.png" alt="">
                   <div class="card-icon-group">
-                    <div class="i-group i-alpha-60 square-28"  @click="toDailog(1)"></div>
-                    <div class="i-map i-alpha-60 square-28"  @click="toDailog(2)"></div>
+                    <div class="i-group i-alpha-60 square-28"  @click="toDailogTwo(1)"></div>
+                    <div class="i-map i-alpha-60 square-28"  @click="toDailogTwo(2)"></div>
                   </div>
                 
                   <div class="card-time-wrap color-white" v-if="durationDateTwo?.value?.days && durationDateTwo?.value?.hours && durationDateTwo?.value?.minutes && durationDateTwo?.value?.seconds !== 0">
@@ -175,8 +175,8 @@
     <!--              <img :src="http + dropsThree?.background" alt="">-->
                   <img src="@/assets/images/random_3.png" alt="">
                   <div class="card-icon-group">
-                    <div class="i-group i-alpha-60 square-28"  @click="toDailog(1)"></div>
-                    <div class="i-map i-alpha-60 square-28"  @click="toDailog(2)"></div>
+                    <div class="i-group i-alpha-60 square-28"  @click="toDailogThree(1)"></div>
+                    <div class="i-map i-alpha-60 square-28"  @click="toDailogThree(2)"></div>
                   </div>
                 
                   <div class="card-time-wrap color-white" v-if="durationDateThree?.value?.days && durationDateThree?.value?.hours && durationDateThree?.value?.minutes && durationDateThree?.value?.seconds !== 0">
@@ -249,8 +249,8 @@
     <!--              <img :src="http + dropsFour?.background" alt="">-->
                   <img src="@/assets/images/random_1.png" alt="">
                   <div class="card-icon-group">
-                    <div class="i-group i-alpha-60 square-28"  @click="toDailog(1)"></div>
-                    <div class="i-map i-alpha-60 square-28"  @click="toDailog(2)"></div>
+                    <div class="i-group i-alpha-60 square-28"  @click="toDailogfour(1)"></div>
+                    <div class="i-map i-alpha-60 square-28"  @click="toDailogfour(2)"></div>
                   </div>
                   
                   <div class="card-time-wrap color-white" v-if="durationDateFour?.value?.days && durationDateFour?.value?.hours && durationDateFour?.value?.minutes && durationDateFour?.value?.seconds !== 0">
