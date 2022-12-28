@@ -34,7 +34,7 @@
                     <div class="i-group i-alpha-60 square-28"  @click="toDailog(1)"></div>
                     <div class="i-map i-alpha-60 square-28"  @click="toDailog(2)"></div>
                   </div>
-                  <div class="card-time-wrap color-white" v-if="durationDateOne?.value?.days != null">
+                  <div class="card-time-wrap color-white" v-if="durationDateOne?.value?.days && durationDateOne?.value?.hours && durationDateOne?.value?.minutes && durationDateOne?.value?.seconds !== 0">
                     <p class="count-down-day">{{ durationDateOne?.value?.days }}</p>
                     <p class="count-down-hour">{{ durationDateOne?.value?.hours }}</p>
                     <p class="count-down-min">{{ durationDateOne?.value?.minutes }}</p>
@@ -105,12 +105,23 @@
                     <div class="i-group i-alpha-60 square-28"  @click="toDailog(1)"></div>
                     <div class="i-map i-alpha-60 square-28"  @click="toDailog(2)"></div>
                   </div>
-                  <div class="card-time-wrap color-white">
+                
+                  <div class="card-time-wrap color-white" v-if="durationDateTwo?.value?.days && durationDateTwo?.value?.hours && durationDateTwo?.value?.minutes && durationDateTwo?.value?.seconds !== 0">
                     <p class="count-down-day">{{ durationDateTwo?.value?.days }}</p>
                     <p class="count-down-hour">{{ durationDateTwo?.value?.hours }}</p>
                     <p class="count-down-min">{{ durationDateTwo?.value?.minutes }}</p>
                     <p class="count-down-sec">{{ durationDateTwo?.value?.seconds }}</p>
                   </div>
+
+                  <div class="card-time-wrap color-white" v-else>
+                    <p class="count-down-day">-</p>
+                    <p class="count-down-hour">-</p>
+                    <p class="count-down-min">-</p>
+                    <p class="count-down-sec">-</p>
+                  </div>
+
+
+
                 </div>
                 <!-- card - body -->
                 <div class="card-body-content p-16">
@@ -167,12 +178,24 @@
                     <div class="i-group i-alpha-60 square-28"  @click="toDailog(1)"></div>
                     <div class="i-map i-alpha-60 square-28"  @click="toDailog(2)"></div>
                   </div>
-                  <div class="card-time-wrap color-white">
+                
+                  <div class="card-time-wrap color-white" v-if="durationDateThree?.value?.days && durationDateThree?.value?.hours && durationDateThree?.value?.minutes && durationDateThree?.value?.seconds !== 0">
                     <p class="count-down-day">{{ durationDateThree?.value?.days }}</p>
                     <p class="count-down-hour">{{ durationDateThree?.value?.hours }}</p>
                     <p class="count-down-min">{{ durationDateThree?.value?.minutes }}</p>
                     <p class="count-down-sec">{{ durationDateThree?.value?.seconds }}</p>
                   </div>
+
+                  <div class="card-time-wrap color-white" v-else>
+                    <p class="count-down-day">-</p>
+                    <p class="count-down-hour">-</p>
+                    <p class="count-down-min">-</p>
+                    <p class="count-down-sec">-</p>
+                  </div>
+
+
+
+
                 </div>
                 <!-- card - body -->
                 <div class="card-body-content p-16">
@@ -229,12 +252,21 @@
                     <div class="i-group i-alpha-60 square-28"  @click="toDailog(1)"></div>
                     <div class="i-map i-alpha-60 square-28"  @click="toDailog(2)"></div>
                   </div>
-                  <div class="card-time-wrap color-white">
+                  
+                  <div class="card-time-wrap color-white" v-if="durationDateFour?.value?.days && durationDateFour?.value?.hours && durationDateFour?.value?.minutes && durationDateFour?.value?.seconds !== 0">
                     <p class="count-down-day">{{ durationDateFour?.value?.days }}</p>
                     <p class="count-down-hour">{{ durationDateFour?.value?.hours }}</p>
                     <p class="count-down-min">{{ durationDateFour?.value?.minutes }}</p>
                     <p class="count-down-sec">{{ durationDateFour?.value?.seconds }}</p>
                   </div>
+
+                  <div class="card-time-wrap color-white" v-else>
+                    <p class="count-down-day">-</p>
+                    <p class="count-down-hour">-</p>
+                    <p class="count-down-min">-</p>
+                    <p class="count-down-sec">-</p>
+                  </div>
+
                 </div>
                 <!-- card - body -->
                 <div class="card-body-content p-16">

@@ -1,7 +1,7 @@
 <template>
 
   
-  <div class="card-time-wrap" v-if="time?.days != null">
+  <div class="card-time-wrap" v-if="time?.days && time?.hours && time?.minutes && time?.seconds !== 0">
     <p class="count-down-day color-white">{{ time?.days }}</p>
     <p class="count-down-hour color-white">{{ time?.hours }}</p>
     <p class="count-down-min color-white">{{ time?.minutes }}</p>
