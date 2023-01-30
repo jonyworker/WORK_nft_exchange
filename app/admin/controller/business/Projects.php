@@ -128,6 +128,12 @@ class Projects extends AdminController
             $this->validate($post, $rule);
             try {
                 $post['editName'] = session('admin.username');
+                if (empty($post['ad_start_date'])) {
+                    unset($post['ad_start_date']);
+                }
+                if (empty($post['ad_end_date'])) {
+                    unset($post['ad_end_date']);
+                }
                 $save = $row->save($post);
             } catch (\Exception $e) {
                 $this->error('保存失败');
